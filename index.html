@@ -1,4 +1,4 @@
-<index.html>
+<vetrox.html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,11 +6,20 @@
 
   <title>Vetrox Apparel | Elegant Ethnic Wear</title>
 
-  <meta name="description" content="Vetrox Apparel - Discover elegant kurtis, kurta sets and three-piece ethnic wear. Shop stylish fashion at affordable prices.">
-  <meta name="keywords" content="Vetrox Apparel, kurtis, kurta sets, three piece set, ethnic wear, Surat fashion">
+  <meta
+    name="description"
+    content="Vetrox Apparel - Discover elegant kurtis, kurta sets and three-piece ethnic wear."
+  >
+
+  <meta
+    name="keywords"
+    content="Vetrox Apparel, kurtis, kurta sets, ethnic wear, Surat fashion"
+  >
+
   <meta name="author" content="Vetrox Apparel">
 
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -86,30 +95,44 @@
     .navbar {
       max-width: 1200px;
       margin: auto;
-      height: 76px;
-      padding: 0 20px;
+      min-height: 76px;
+      padding: 8px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
 
+    /* =========================
+       LOGO
+    ========================== */
+
     .logo {
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-shrink: 0;
     }
 
-    .logo-mark {
-      width: 42px;
-      height: 42px;
+    .logo-image {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      background: white;
+    }
+
+    .logo-fallback {
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: var(--primary);
       color: white;
-      display: grid;
+      display: none;
       place-items: center;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 20px;
     }
 
     .logo-text h1 {
@@ -126,10 +149,14 @@
       text-transform: uppercase;
     }
 
+    /* =========================
+       NAVIGATION
+    ========================== */
+
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 23px;
       font-size: 14px;
       font-weight: 600;
     }
@@ -140,6 +167,44 @@
 
     .nav-links a:hover {
       color: var(--primary);
+    }
+
+    .instagram-nav {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 6px;
+      color: #c13584 !important;
+      font-weight: 700;
+    }
+
+    .instagram-icon {
+      width: 23px;
+      height: 23px;
+      border: 2px solid currentColor;
+      border-radius: 7px;
+      display: inline-grid;
+      place-items: center;
+      position: relative;
+      font-size: 0;
+    }
+
+    .instagram-icon::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+    }
+
+    .instagram-icon::after {
+      content: "";
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: currentColor;
+      position: absolute;
+      top: 3px;
+      right: 3px;
     }
 
     .header-actions {
@@ -189,9 +254,17 @@
 
     .hero {
       min-height: 650px;
+
       background:
-        linear-gradient(90deg, rgba(32,26,28,.88), rgba(32,26,28,.48), rgba(32,26,28,.10)),
-        url("https://i.ibb.co/TqvhSwyd/0-1.jpg") center/cover;
+        linear-gradient(
+          90deg,
+          rgba(32,26,28,.88),
+          rgba(32,26,28,.48),
+          rgba(32,26,28,.10)
+        ),
+        url("https://i.ibb.co/TqvhSwyd/0-1.jpg")
+        center/cover;
+
       display: flex;
       align-items: center;
       color: white;
@@ -428,7 +501,10 @@
     .category-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,.75));
+      background: linear-gradient(
+        transparent,
+        rgba(0,0,0,.75)
+      );
       display: flex;
       align-items: flex-end;
       padding: 28px;
@@ -441,7 +517,7 @@
     }
 
     /* =========================
-       PRODUCTS
+       SHOP
     ========================== */
 
     .shop-section {
@@ -563,6 +639,91 @@
     }
 
     /* =========================
+       INSTAGRAM
+    ========================== */
+
+    .instagram-section {
+      background: white;
+    }
+
+    .instagram-box {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      padding: 55px 25px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background:
+        linear-gradient(
+          135deg,
+          #fff,
+          #faf5ef
+        );
+      box-shadow: var(--shadow);
+    }
+
+    .instagram-big-icon {
+      width: 72px;
+      height: 72px;
+      border: 3px solid #c13584;
+      color: #c13584;
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      font-size: 0;
+    }
+
+    .instagram-big-icon::before {
+      content: "";
+      width: 25px;
+      height: 25px;
+      border: 3px solid currentColor;
+      border-radius: 50%;
+    }
+
+    .instagram-big-icon::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+
+    .instagram-box h2 {
+      font-family: Georgia, serif;
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .instagram-handle {
+      color: #c13584;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .instagram-box p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 25px;
+    }
+
+    .instagram-btn {
+      background: #c13584;
+      color: white;
+    }
+
+    .instagram-btn:hover {
+      background: #a62a70;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
        WHY VETROX
     ========================== */
 
@@ -600,8 +761,13 @@
 
     .cta {
       background:
-        linear-gradient(rgba(70,25,43,.88), rgba(70,25,43,.88)),
-        url("https://i.ibb.co/Q7TMNKGG/2.jpg") center/cover;
+        linear-gradient(
+          rgba(70,25,43,.88),
+          rgba(70,25,43,.88)
+        ),
+        url("https://i.ibb.co/Q7TMNKGG/2.jpg")
+        center/cover;
+
       color: white;
       text-align: center;
       padding: 95px 20px;
@@ -770,6 +936,11 @@
       color: white;
     }
 
+    .footer-instagram {
+      color: #e1306c !important;
+      font-weight: bold;
+    }
+
     .footer-bottom {
       border-top: 1px solid #3a3335;
       padding: 20px;
@@ -878,6 +1049,7 @@
       align-items: center;
       gap: 7px;
       margin-top: 6px;
+      flex-wrap: wrap;
     }
 
     .quantity button {
@@ -930,6 +1102,7 @@
     ========================== */
 
     @media (max-width: 1000px) {
+
       .products {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -941,9 +1114,15 @@
       .footer-main {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .nav-links {
+        gap: 15px;
+      }
+
     }
 
     @media (max-width: 800px) {
+
       .nav-links {
         display: none;
         position: absolute;
@@ -988,20 +1167,27 @@
       .product-image {
         height: 300px;
       }
+
     }
 
     @media (max-width: 550px) {
+
       .navbar {
-        height: 68px;
+        min-height: 68px;
+      }
+
+      .logo-image,
+      .logo-fallback {
+        width: 38px;
+        height: 38px;
       }
 
       .logo-text h1 {
         font-size: 17px;
       }
 
-      .logo-mark {
-        width: 36px;
-        height: 36px;
+      .logo-text span {
+        font-size: 8px;
       }
 
       .hero {
@@ -1068,9 +1254,16 @@
       .modal-box {
         padding: 20px;
       }
+
+      .instagram-box h2 {
+        font-size: 31px;
+      }
+
     }
+
   </style>
 </head>
+
 
 <body>
 
@@ -1082,44 +1275,108 @@
     ✨ Discover elegant ethnic wear with Vetrox Apparel | Easy WhatsApp Ordering
   </div>
 
+
   <!-- =========================
        HEADER
   ========================== -->
 
   <header>
+
     <nav class="navbar">
 
       <a href="#home" class="logo">
-        <div class="logo-mark">V</div>
+
+        <img
+          src="logo.jpg"
+          alt="Vetrox Apparel Logo"
+          class="logo-image"
+          onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='grid';"
+        >
+
+        <div
+          class="logo-fallback"
+          id="logoFallback"
+        >
+          V
+        </div>
 
         <div class="logo-text">
+
           <h1>Vetrox Apparel</h1>
-          <span>Elegant • Everyday • You</span>
+
+          <span>
+            Elegant • Everyday • You
+          </span>
+
         </div>
+
       </a>
 
+
       <div class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#collections">Collections</a>
-        <a href="#shop">Shop</a>
-        <a href="#contact">Contact</a>
+
+        <a href="#home">
+          Home
+        </a>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#collections">
+          Collections
+        </a>
+
+        <a href="#shop">
+          Shop
+        </a>
+
+        <a href="#instagram" class="instagram-nav">
+
+          <span class="instagram-icon"></span>
+
+          Instagram
+
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
       </div>
+
 
       <div class="header-actions">
 
-        <button class="cart-button" onclick="openCart()" aria-label="Shopping cart">
+        <button
+          class="cart-button"
+          onclick="openCart()"
+          aria-label="Shopping cart"
+        >
           🛍
-          <span class="cart-count" id="cartCount">0</span>
+
+          <span
+            class="cart-count"
+            id="cartCount"
+          >
+            0
+          </span>
+
         </button>
 
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+
+        <button
+          class="menu-btn"
+          onclick="toggleMenu()"
+          aria-label="Menu"
+        >
           ☰
         </button>
 
       </div>
 
     </nav>
+
   </header>
 
 
@@ -1129,7 +1386,10 @@
 
   <main>
 
-    <section class="hero" id="home">
+    <section
+      class="hero"
+      id="home"
+    >
 
       <div class="hero-content">
 
@@ -1144,19 +1404,27 @@
         </h2>
 
         <p>
-          Discover elegant kurtis, sophisticated kurta sets and
-          beautiful three-piece outfits designed to make every
-          everyday moment feel special.
+          Discover elegant kurtis, sophisticated kurta sets
+          and beautiful ethnic outfits designed to make
+          every everyday moment feel special.
         </p>
 
         <div class="hero-buttons">
-          <a href="#shop" class="btn btn-primary">
+
+          <a
+            href="#shop"
+            class="btn btn-primary"
+          >
             Shop Collection
           </a>
 
-          <a href="#about" class="btn btn-light">
+          <a
+            href="#about"
+            class="btn btn-light"
+          >
             Discover Our Story
           </a>
+
         </div>
 
       </div>
@@ -1168,7 +1436,10 @@
          ABOUT
     ========================== -->
 
-    <section class="about" id="about">
+    <section
+      class="about"
+      id="about"
+    >
 
       <div class="about-grid">
 
@@ -1181,16 +1452,23 @@
           >
 
           <div class="about-badge">
+
             <strong>V</strong>
-            Crafted for<br>
+
+            Crafted for
+            <br>
             Everyday Elegance
+
           </div>
 
         </div>
 
+
         <div class="about-content">
 
-          <span>About Vetrox Apparel</span>
+          <span>
+            About Vetrox Apparel
+          </span>
 
           <h2>
             Fashion that celebrates
@@ -1198,26 +1476,45 @@
           </h2>
 
           <p>
-            Welcome to Vetrox Apparel, a contemporary clothing brand
-            based in Surat, Gujarat. We believe fashion should be
-            comfortable, elegant and accessible.
+            Welcome to Vetrox Apparel, a contemporary clothing
+            brand based in Surat, Gujarat. We believe fashion
+            should be comfortable, elegant and accessible.
           </p>
 
           <p>
-            Our collection brings together timeless ethnic silhouettes,
-            modern styling and carefully selected designs that fit
-            effortlessly into your everyday wardrobe.
+            Our collection brings together timeless ethnic
+            silhouettes, modern styling and carefully selected
+            designs that fit effortlessly into your wardrobe.
           </p>
 
           <ul class="about-list">
-            <li>Elegant and contemporary designs</li>
-            <li>Comfortable everyday fashion</li>
-            <li>Quality-focused product selection</li>
-            <li>Affordable prices</li>
-            <li>Easy online ordering</li>
+
+            <li>
+              Elegant and contemporary designs
+            </li>
+
+            <li>
+              Comfortable everyday fashion
+            </li>
+
+            <li>
+              Quality-focused product selection
+            </li>
+
+            <li>
+              Affordable prices
+            </li>
+
+            <li>
+              Easy online ordering
+            </li>
+
           </ul>
 
-          <a href="#shop" class="btn btn-primary">
+          <a
+            href="#shop"
+            class="btn btn-primary"
+          >
             Explore Collection
           </a>
 
@@ -1232,20 +1529,29 @@
          COLLECTIONS
     ========================== -->
 
-    <section class="section" id="collections">
+    <section
+      class="section"
+      id="collections"
+    >
 
       <div class="section-heading">
 
-        <span>Our Collections</span>
+        <span>
+          Our Collections
+        </span>
 
-        <h2>Find Your Signature Style</h2>
+        <h2>
+          Find Your Signature Style
+        </h2>
 
         <p>
-          Explore our carefully selected ethnic wear collections
-          designed for everyday elegance and special occasions.
+          Explore our carefully selected ethnic wear
+          collections designed for everyday elegance
+          and special occasions.
         </p>
 
       </div>
+
 
       <div class="categories">
 
@@ -1261,10 +1567,19 @@
           >
 
           <div class="category-overlay">
+
             <div>
-              <h3>Kurtis</h3>
-              <p>Elegant everyday styles</p>
+
+              <h3>
+                Kurtis
+              </h3>
+
+              <p>
+                Elegant everyday styles
+              </p>
+
             </div>
+
           </div>
 
         </div>
@@ -1282,10 +1597,19 @@
           >
 
           <div class="category-overlay">
+
             <div>
-              <h3>Kurta Sets</h3>
-              <p>Effortless coordinated looks</p>
+
+              <h3>
+                Kurta Sets
+              </h3>
+
+              <p>
+                Effortless coordinated looks
+              </p>
+
             </div>
+
           </div>
 
         </div>
@@ -1303,10 +1627,19 @@
           >
 
           <div class="category-overlay">
+
             <div>
-              <h3>3-Piece Sets</h3>
-              <p>Complete your ethnic look</p>
+
+              <h3>
+                3-Piece Sets
+              </h3>
+
+              <p>
+                Complete your ethnic look
+              </p>
+
             </div>
+
           </div>
 
         </div>
@@ -1320,19 +1653,27 @@
          SHOP
     ========================== -->
 
-    <section class="shop-section" id="shop">
+    <section
+      class="shop-section"
+      id="shop"
+    >
 
       <div class="section">
 
         <div class="section-heading">
 
-          <span>Shop Vetrox</span>
+          <span>
+            Shop Vetrox
+          </span>
 
-          <h2>Our Latest Collection</h2>
+          <h2>
+            Our Latest Collection
+          </h2>
 
           <p>
-            Choose your favourite styles and add them to your cart.
-            Place your order easily through our online checkout.
+            Choose your favourite styles and add them
+            to your cart. Place your order easily through
+            our online checkout.
           </p>
 
         </div>
@@ -1371,7 +1712,10 @@
         </div>
 
 
-        <div class="products" id="productsGrid"></div>
+        <div
+          class="products"
+          id="productsGrid"
+        ></div>
 
       </div>
 
@@ -1386,9 +1730,13 @@
 
       <div class="section-heading">
 
-        <span>Why Choose Us</span>
+        <span>
+          Why Choose Us
+        </span>
 
-        <h2>The Vetrox Difference</h2>
+        <h2>
+          The Vetrox Difference
+        </h2>
 
         <p>
           We keep fashion simple, beautiful and accessible.
@@ -1401,13 +1749,17 @@
 
         <div class="feature">
 
-          <div class="feature-icon">✦</div>
+          <div class="feature-icon">
+            ✦
+          </div>
 
-          <h3>Elegant Designs</h3>
+          <h3>
+            Elegant Designs
+          </h3>
 
           <p>
-            Thoughtfully selected styles that bring a modern touch
-            to timeless ethnic fashion.
+            Thoughtfully selected styles that bring a
+            modern touch to timeless ethnic fashion.
           </p>
 
         </div>
@@ -1415,13 +1767,17 @@
 
         <div class="feature">
 
-          <div class="feature-icon">♡</div>
+          <div class="feature-icon">
+            ♡
+          </div>
 
-          <h3>Comfort First</h3>
+          <h3>
+            Comfort First
+          </h3>
 
           <p>
-            Styles selected with everyday comfort and easy wear
-            in mind.
+            Styles selected with everyday comfort
+            and easy wear in mind.
           </p>
 
         </div>
@@ -1429,13 +1785,17 @@
 
         <div class="feature">
 
-          <div class="feature-icon">₹</div>
+          <div class="feature-icon">
+            ₹
+          </div>
 
-          <h3>Affordable Fashion</h3>
+          <h3>
+            Affordable Fashion
+          </h3>
 
           <p>
-            Beautiful clothing at prices designed to fit your
-            everyday wardrobe.
+            Beautiful clothing at prices designed
+            to fit your everyday wardrobe.
           </p>
 
         </div>
@@ -1443,14 +1803,63 @@
 
         <div class="feature">
 
-          <div class="feature-icon">✓</div>
+          <div class="feature-icon">
+            ✓
+          </div>
 
-          <h3>Easy Ordering</h3>
+          <h3>
+            Easy Ordering
+          </h3>
 
           <p>
-            Add your favourite products to cart and place your
-            order online with ease.
+            Add your favourite products to cart and
+            place your order online with ease.
           </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         INSTAGRAM
+    ========================== -->
+
+    <section
+      class="instagram-section"
+      id="instagram"
+    >
+
+      <div class="section">
+
+        <div class="instagram-box">
+
+          <div class="instagram-big-icon"></div>
+
+          <h2>
+            Follow Vetrox Apparel
+          </h2>
+
+          <div class="instagram-handle">
+            @vetrox_apparel
+          </div>
+
+          <p>
+            Follow us on Instagram for new arrivals,
+            latest collections, styling ideas and
+            Vetrox Apparel updates.
+          </p>
+
+          <a
+            href="https://www.instagram.com/vetrox_apparel/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn instagram-btn"
+          >
+            📸 Follow Us on Instagram
+          </a>
 
         </div>
 
@@ -1465,14 +1874,19 @@
 
     <section class="cta">
 
-      <h2>Ready to Refresh Your Wardrobe?</h2>
+      <h2>
+        Ready to Refresh Your Wardrobe?
+      </h2>
 
       <p>
-        Explore the Vetrox Apparel collection and discover
-        styles made for your everyday elegance.
+        Explore the Vetrox Apparel collection and
+        discover styles made for your everyday elegance.
       </p>
 
-      <a href="#shop" class="btn btn-light">
+      <a
+        href="#shop"
+        class="btn btn-light"
+      >
         Shop Now
       </a>
 
@@ -1483,15 +1897,22 @@
          CONTACT
     ========================== -->
 
-    <section class="contact-section" id="contact">
+    <section
+      class="contact-section"
+      id="contact"
+    >
 
       <div class="section">
 
         <div class="section-heading">
 
-          <span>Get In Touch</span>
+          <span>
+            Get In Touch
+          </span>
 
-          <h2>We'd Love to Hear From You</h2>
+          <h2>
+            We'd Love to Hear From You
+          </h2>
 
           <p>
             Have a question about a product or your order?
@@ -1505,15 +1926,27 @@
 
           <div class="contact-info">
 
-            <h3>Contact Vetrox</h3>
+            <h3>
+              Contact Vetrox
+            </h3>
+
 
             <div class="contact-item">
 
-              <div class="contact-icon">📍</div>
+              <div class="contact-icon">
+                📍
+              </div>
 
               <div>
-                <strong>Location</strong>
-                <span>Surat, Gujarat, India</span>
+
+                <strong>
+                  Location
+                </strong>
+
+                <span>
+                  Surat, Gujarat, India
+                </span>
+
               </div>
 
             </div>
@@ -1521,10 +1954,15 @@
 
             <div class="contact-item">
 
-              <div class="contact-icon">📞</div>
+              <div class="contact-icon">
+                📞
+              </div>
 
               <div>
-                <strong>Phone</strong>
+
+                <strong>
+                  Phone
+                </strong>
 
                 <a href="tel:+919484696506">
                   +91 94846 96506
@@ -1537,10 +1975,15 @@
 
             <div class="contact-item">
 
-              <div class="contact-icon">✉</div>
+              <div class="contact-icon">
+                ✉
+              </div>
 
               <div>
-                <strong>Email</strong>
+
+                <strong>
+                  Email
+                </strong>
 
                 <a href="mailto:vetroxapperel@gmail.com">
                   vetroxapperel@gmail.com
@@ -1553,16 +1996,47 @@
 
             <div class="contact-item">
 
-              <div class="contact-icon">💬</div>
+              <div class="contact-icon">
+                💬
+              </div>
 
               <div>
-                <strong>WhatsApp</strong>
+
+                <strong>
+                  WhatsApp
+                </strong>
 
                 <a
                   href="https://wa.me/919484696506"
                   target="_blank"
+                  rel="noopener"
                 >
                   Chat with us on WhatsApp
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+              <div class="contact-icon">
+                ◎
+              </div>
+
+              <div>
+
+                <strong>
+                  Instagram
+                </strong>
+
+                <a
+                  href="https://www.instagram.com/vetrox_apparel/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  @vetrox_apparel
                 </a>
 
               </div>
@@ -1584,11 +2058,14 @@
               value="New Vetrox Apparel Website Enquiry"
             >
 
+
             <div class="form-row">
 
               <div class="form-group">
 
-                <label>Name</label>
+                <label>
+                  Name
+                </label>
 
                 <input
                   type="text"
@@ -1602,7 +2079,9 @@
 
               <div class="form-group">
 
-                <label>Phone</label>
+                <label>
+                  Phone
+                </label>
 
                 <input
                   type="tel"
@@ -1618,7 +2097,9 @@
 
             <div class="form-group">
 
-              <label>Email</label>
+              <label>
+                Email
+              </label>
 
               <input
                 type="email"
@@ -1631,7 +2112,9 @@
 
             <div class="form-group">
 
-              <label>Message</label>
+              <label>
+                Message
+              </label>
 
               <textarea
                 name="message"
@@ -1642,7 +2125,10 @@
             </div>
 
 
-            <button class="btn btn-primary" type="submit">
+            <button
+              class="btn btn-primary"
+              type="submit"
+            >
               Send Enquiry
             </button>
 
@@ -1667,31 +2153,73 @@
 
       <div class="footer-brand">
 
-        <h2>Vetrox Apparel</h2>
+        <h2>
+          Vetrox Apparel
+        </h2>
 
         <p>
-          Elegant ethnic wear designed for modern everyday living.
-          Discover your style with Vetrox Apparel.
+          Elegant ethnic wear designed for modern
+          everyday living. Discover your style with
+          Vetrox Apparel.
         </p>
+
+        <br>
+
+        <a
+          href="https://www.instagram.com/vetrox_apparel/"
+          target="_blank"
+          rel="noopener"
+          class="btn instagram-btn"
+        >
+          📸 @vetrox_apparel
+        </a>
 
       </div>
 
 
       <div>
 
-        <h3>Quick Links</h3>
+        <h3>
+          Quick Links
+        </h3>
 
         <ul>
 
-          <li><a href="#home">Home</a></li>
+          <li>
+            <a href="#home">
+              Home
+            </a>
+          </li>
 
-          <li><a href="#about">About Us</a></li>
+          <li>
+            <a href="#about">
+              About Us
+            </a>
+          </li>
 
-          <li><a href="#collections">Collections</a></li>
+          <li>
+            <a href="#collections">
+              Collections
+            </a>
+          </li>
 
-          <li><a href="#shop">Shop</a></li>
+          <li>
+            <a href="#shop">
+              Shop
+            </a>
+          </li>
 
-          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a href="#instagram">
+              Instagram
+            </a>
+          </li>
+
+          <li>
+            <a href="#contact">
+              Contact
+            </a>
+          </li>
 
         </ul>
 
@@ -1700,24 +2228,35 @@
 
       <div>
 
-        <h3>Collections</h3>
+        <h3>
+          Collections
+        </h3>
 
         <ul>
 
           <li>
-            <a href="#shop" onclick="filterProducts('Kurtis')">
+            <a
+              href="#shop"
+              onclick="filterProducts('Kurtis')"
+            >
               Kurtis
             </a>
           </li>
 
           <li>
-            <a href="#shop" onclick="filterProducts('Kurta Sets')">
+            <a
+              href="#shop"
+              onclick="filterProducts('Kurta Sets')"
+            >
               Kurta Sets
             </a>
           </li>
 
           <li>
-            <a href="#shop" onclick="filterProducts('3 Piece')">
+            <a
+              href="#shop"
+              onclick="filterProducts('3 Piece')"
+            >
               3-Piece Sets
             </a>
           </li>
@@ -1729,7 +2268,9 @@
 
       <div>
 
-        <h3>Contact</h3>
+        <h3>
+          Contact
+        </h3>
 
         <ul>
 
@@ -1749,8 +2290,20 @@
             <a
               href="https://wa.me/919484696506"
               target="_blank"
+              rel="noopener"
             >
               WhatsApp Us
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://www.instagram.com/vetrox_apparel/"
+              target="_blank"
+              rel="noopener"
+              class="footer-instagram"
+            >
+              📸 Instagram
             </a>
           </li>
 
@@ -1769,7 +2322,9 @@
 
     <div class="footer-bottom">
 
-      © <span id="year"></span> Vetrox Apparel.
+      ©
+      <span id="year"></span>
+      Vetrox Apparel.
       All Rights Reserved.
 
     </div>
@@ -1778,13 +2333,14 @@
 
 
   <!-- =========================
-       WHATSAPP FLOATING BUTTON
+       WHATSAPP
   ========================== -->
 
   <a
     class="whatsapp"
     href="https://wa.me/919484696506?text=Hello%20Vetrox%20Apparel%2C%20I%20would%20like%20to%20know%20more%20about%20your%20products."
     target="_blank"
+    rel="noopener"
     aria-label="Chat on WhatsApp"
   >
     ☎
@@ -1795,13 +2351,18 @@
        CART MODAL
   ========================== -->
 
-  <div class="modal" id="cartModal">
+  <div
+    class="modal"
+    id="cartModal"
+  >
 
     <div class="modal-box">
 
       <div class="modal-header">
 
-        <h2>Your Cart</h2>
+        <h2>
+          Your Cart
+        </h2>
 
         <button
           class="close-btn"
@@ -1818,7 +2379,9 @@
 
       <div class="cart-total">
 
-        <span>Total</span>
+        <span>
+          Total
+        </span>
 
         <span id="cartTotal">
           ₹0
@@ -1845,13 +2408,18 @@
        CHECKOUT MODAL
   ========================== -->
 
-  <div class="modal" id="checkoutModal">
+  <div
+    class="modal"
+    id="checkoutModal"
+  >
 
     <div class="modal-box">
 
       <div class="modal-header">
 
-        <h2>Place Your Order</h2>
+        <h2>
+          Place Your Order
+        </h2>
 
         <button
           class="close-btn"
@@ -1872,7 +2440,9 @@
 
         <div class="form-group">
 
-          <label>Full Name *</label>
+          <label>
+            Full Name *
+          </label>
 
           <input
             type="text"
@@ -1887,7 +2457,9 @@
 
         <div class="form-group">
 
-          <label>Phone / WhatsApp Number *</label>
+          <label>
+            Phone / WhatsApp Number *
+          </label>
 
           <input
             type="tel"
@@ -1902,7 +2474,9 @@
 
         <div class="form-group">
 
-          <label>Email</label>
+          <label>
+            Email
+          </label>
 
           <input
             type="email"
@@ -1916,7 +2490,9 @@
 
         <div class="form-group">
 
-          <label>Delivery Address *</label>
+          <label>
+            Delivery Address *
+          </label>
 
           <textarea
             name="delivery_address"
@@ -1930,7 +2506,9 @@
 
         <div class="form-group">
 
-          <label>City *</label>
+          <label>
+            City *
+          </label>
 
           <input
             type="text"
@@ -1945,7 +2523,9 @@
 
         <div class="form-group">
 
-          <label>Additional Note</label>
+          <label>
+            Additional Note
+          </label>
 
           <textarea
             name="customer_note"
@@ -2006,7 +2586,10 @@
        SUCCESS MODAL
   ========================== -->
 
-  <div class="modal" id="successModal">
+  <div
+    class="modal"
+    id="successModal"
+  >
 
     <div class="modal-box">
 
@@ -2016,22 +2599,29 @@
           ✓
         </div>
 
-        <h2>Order Received!</h2>
+        <h2>
+          Order Received!
+        </h2>
 
-        <p style="margin:15px 0;color:#666;">
+        <p
+          style="margin:15px 0;color:#666;"
+        >
           Thank you for shopping with Vetrox Apparel.
           We have received your order details.
         </p>
 
-        <p style="margin-bottom:25px;color:#666;">
-          Our team will contact you on WhatsApp or phone
-          to confirm your order.
+        <p
+          style="margin-bottom:25px;color:#666;"
+        >
+          Our team will contact you on WhatsApp or
+          phone to confirm your order.
         </p>
 
         <a
           class="btn btn-primary"
           href="https://wa.me/919484696506"
           target="_blank"
+          rel="noopener"
         >
           Chat on WhatsApp
         </a>
@@ -2062,6 +2652,8 @@
     ========================== */
 
     const PRODUCTS = [
+
+      /* OLD PRODUCTS - KEPT */
 
       {
         id: 101,
@@ -2117,40 +2709,45 @@
         image: "https://i.ibb.co/Xx5CnF9G/1.png"
       },
 
+
+      /* =========================
+         NEW PRODUCTS
+      ========================== */
+
       {
         id: 107,
-        name: "Vetrox Festive Set",
+        name: "Yellow Kurti Set",
         price: 1299,
-        category: "3 Piece",
-        tag: "Festive",
-        image: "https://i.ibb.co/TqvhSwyd/0-1.jpg"
+        category: "Kurta Sets",
+        tag: "New",
+        image: "images/107-1.jpg"
       },
 
       {
         id: 108,
-        name: "Grace Three-Piece Set",
-        price: 1499,
-        category: "3 Piece",
-        tag: "Premium",
-        image: "https://i.ibb.co/Q7TMNKGG/2.jpg"
+        name: "White Kurti Set",
+        price: 799,
+        category: "Kurta Sets",
+        tag: "New",
+        image: "images/108-1.jpg"
       },
 
       {
         id: 109,
-        name: "Everyday Three-Piece",
-        price: 1399,
-        category: "3 Piece",
+        name: "Pink Kurti Set",
+        price: 1299,
+        category: "Kurta Sets",
         tag: "New",
-        image: "https://i.ibb.co/JMC9V6S/Copy-of-13.jpg"
+        image: "images/109-1.jpg"
       },
 
       {
         id: 110,
-        name: "Signature Three-Piece",
-        price: 1599,
-        category: "3 Piece",
-        tag: "Signature",
-        image: "https://i.ibb.co/s9403QwP/4.jpg"
+        name: "Anushree Mustard",
+        price: 1399,
+        category: "Kurtis",
+        tag: "New",
+        image: "images/110-1.jpg"
       }
 
     ];
@@ -2204,9 +2801,12 @@
       }
 
       saveCart();
+
       updateCartCount();
 
-      alert("Product added to your cart.");
+      alert(
+        "Product added to your cart."
+      );
 
     }
 
@@ -2218,7 +2818,10 @@
       );
 
       saveCart();
+
       renderCart();
+
+      updateCartCount();
 
     }
 
@@ -2236,12 +2839,16 @@
       if (item.quantity <= 0) {
 
         removeFromCart(id);
+
         return;
 
       }
 
       saveCart();
+
       renderCart();
+
+      updateCartCount();
 
     }
 
@@ -2251,7 +2858,10 @@
       return cart.reduce(
         (total, item) => {
 
-          const product = getProduct(item.id);
+          const product =
+            getProduct(item.id);
+
+          if (!product) return total;
 
           return total +
             (product.price * item.quantity);
@@ -2311,6 +2921,7 @@
                 src="${product.image}"
                 alt="${product.name}"
                 loading="lazy"
+                onerror="this.src='https://i.ibb.co/TqvhSwyd/0-1.jpg'"
               >
 
               <span class="product-tag">
@@ -2351,9 +2962,12 @@
     }
 
 
-    function filterProducts(category) {
+    function filterProducts(
+      category
+    ) {
 
       renderProducts(category);
+
 
       document.querySelectorAll(
         ".filter-btn"
@@ -2365,20 +2979,32 @@
 
       });
 
+
       document.querySelectorAll(
         ".filter-btn"
       ).forEach(button => {
 
-        if (
+        const buttonText =
           button.textContent
             .trim()
-            .toLowerCase()
-            === category
-              .replace("3 Piece", "3-Piece")
-              .toLowerCase()
+            .toLowerCase();
+
+        const categoryText =
+          category
+            .replace(
+              "3 Piece",
+              "3-Piece"
+            )
+            .toLowerCase();
+
+
+        if (
+          buttonText === categoryText
         ) {
 
-          button.classList.add("active");
+          button.classList.add(
+            "active"
+          );
 
         }
 
@@ -2428,7 +3054,9 @@
 
           <div class="empty-cart">
 
-            <div style="font-size:40px;">
+            <div
+              style="font-size:40px;"
+            >
               🛍
             </div>
 
@@ -2436,7 +3064,9 @@
               Your cart is empty.
             </p>
 
-            <p style="font-size:13px;margin-top:5px;">
+            <p
+              style="font-size:13px;margin-top:5px;"
+            >
               Add some beautiful Vetrox styles!
             </p>
 
@@ -2444,13 +3074,16 @@
 
         `;
 
+
         document.getElementById(
           "cartTotal"
         ).textContent = "₹0";
 
+
         document.getElementById(
           "checkoutButton"
         ).disabled = true;
+
 
         return;
 
@@ -2467,6 +3100,10 @@
 
           const product =
             getProduct(item.id);
+
+          if (!product) {
+            return "";
+          }
 
           const subtotal =
             product.price *
@@ -2680,6 +3317,7 @@
               cart = [];
 
               saveCart();
+
               updateCartCount();
 
               form.reset();
