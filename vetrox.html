@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vetrox Apparel - Kurtis, Kurta Sets and Three-Piece Outfits">
+  <meta name="theme-color" content="#7c3aed">
+  <title>Vetrox Apparel | Shop Online</title>
+
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --primary-dark: #5b21b6;
+      --accent: #f59e0b;
+      --bg: #faf9ff;
+      --card: #ffffff;
+      --text: #191622;
+      --muted: #6b6675;
+      --border: #e9e5f0;
+      --success: #15803d;
+      --danger: #dc2626;
+      --shadow: 0 10px 30px rgba(35,20,70,.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      background: #211936;
+      color: white;
+      text-align: center;
+      padding: 8px 14px;
+      font-size: 12px;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(250,249,255,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(233,229,240,.9);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: auto;
+      padding: 15px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      text-decoration: none;
+      color: var(--text);
+      min-width: 0;
+    }
+
+    .brand-name {
+      display: block;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
+
+    .brand-tagline {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+
+    .nav-cart {
+      border: 0;
+      background: var(--text);
+      color: white;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 38px 16px 20px;
+    }
+
+    .hero-box {
+      background:
+        linear-gradient(
+          135deg,
+          #ede9fe 0%,
+          #fff 55%,
+          #fff7ed 100%
+        );
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 30px 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      color: var(--primary-dark);
+      font-weight: 900;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 7vw, 58px);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 650px;
+      line-height: 1.6;
+      margin: 14px 0 0;
+      font-size: 15px;
+    }
+
+    /* SHOP */
+    .shop-wrap {
+      max-width: 1180px;
+      margin: auto;
+      padding: 12px 16px 110px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 18px 0 14px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 23px;
+      letter-spacing: -.5px;
+    }
+
+    .count-label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* FILTERS */
+    .filters {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 2px 0 15px;
+      scrollbar-width: none;
+    }
+
+    .filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-btn {
+      flex: 0 0 auto;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    /* PRODUCTS */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .product {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(35,20,70,.045);
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: #f1eef6;
+    }
+
+    .product-body {
+      padding: 12px;
+    }
+
+    .product-category {
+      color: var(--primary-dark);
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+    }
+
+    .product-name {
+      margin: 4px 0;
+      font-size: 15px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .product-desc {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.4;
+      min-height: 31px;
+    }
+
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 11px;
+    }
+
+    .price {
+      font-size: 16px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .add-btn {
+      border: 0;
+      background: var(--text);
+      color: white;
+      padding: 9px 10px;
+      border-radius: 11px;
+      font-size: 12px;
+      font-weight: 850;
+      transition: transform .15s, background .15s;
+    }
+
+    .add-btn:active {
+      transform: scale(.95);
+    }
+
+    .add-btn.added {
+      background: var(--success);
+    }
+
+    /* FLOATING CART */
+    .floating-cart {
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 40;
+      border: 0;
+      background: var(--primary);
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      box-shadow: 0 12px 28px rgba(124,58,237,.35);
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      min-width: 21px;
+      height: 21px;
+      padding: 0 5px;
+      border-radius: 99px;
+      background: var(--accent);
+      color: #1f1600;
+      border: 2px solid var(--bg);
+      font-size: 10px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      left: 16px;
+      bottom: 18px;
+      z-index: 40;
+      text-decoration: none;
+      background: #25d366;
+      color: white;
+      border-radius: 999px;
+      padding: 13px 16px;
+      font-weight: 900;
+      font-size: 13px;
+      box-shadow: 0 10px 25px rgba(37,211,102,.3);
+    }
+
+    /* MODALS */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(17,12,28,.58);
+      z-index: 80;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal {
+      width: 100%;
+      max-width: 620px;
+      max-height: 92vh;
+      overflow: auto;
+      background: white;
+      border-radius: 24px 24px 0 0;
+      padding: 20px;
+      animation: slideUp .22s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(20px);
+        opacity: .5;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .modal-head h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .close {
+      border: 0;
+      background: #f2eff6;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 22px;
+    }
+
+    /* EMPTY CART */
+    .cart-empty {
+      text-align: center;
+      padding: 38px 10px;
+      color: var(--muted);
+    }
+
+    /* CART ITEMS */
+    .cart-item {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-thumb {
+      width: 60px;
+      height: 70px;
+      border-radius: 10px;
+      object-fit: cover;
+      background: #f1eef6;
+    }
+
+    .cart-item-name {
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .cart-item-price {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .qty button {
+      border: 1px solid var(--border);
+      background: white;
+      width: 27px;
+      height: 27px;
+      border-radius: 8px;
+      font-weight: 900;
+    }
+
+    .qty span {
+      font-size: 12px;
+      font-weight: 900;
+      min-width: 15px;
+      text-align: center;
+    }
+
+    .item-total {
+      text-align: right;
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .remove {
+      display: block;
+      margin-top: 6px;
+      margin-left: auto;
+      border: 0;
+      background: none;
+      color: var(--danger);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 0;
+    }
+
+    .summary {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 2px solid var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .summary strong {
+      font-size: 18px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      margin-top: 14px;
+      border: 0;
+      background: var(--primary);
+      color: white;
+      border-radius: 13px;
+      padding: 14px;
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .checkout-btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
+    /* FORM */
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 850;
+      margin-bottom: 6px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 13px;
+      outline: none;
+      background: white;
+      color: var(--text);
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(124,58,237,.1);
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .required {
+      color: var(--danger);
+    }
+
+    .checkout-note {
+      background: #faf7ff;
+      border: 1px solid #e9ddff;
+      color: #57476f;
+      border-radius: 12px;
+      padding: 11px;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: 0;
+      background: var(--text);
+      color: white;
+      border-radius: 13px;
+      padding: 14px;
+      font-weight: 900;
+    }
+
+    .submit-btn:disabled {
+      opacity: .6;
+    }
+
+    /* SUCCESS */
+    .success {
+      text-align: center;
+      padding: 22px 8px 10px;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #dcfce7;
+      color: var(--success);
+      font-size: 30px;
+    }
+
+    .success h2 {
+      margin: 0 0 8px;
+    }
+
+    .success p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .wa-confirm {
+      display: inline-block;
+      margin-top: 8px;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #211936;
+      color: white;
+      padding: 35px 16px;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: auto;
+    }
+
+    footer h3 {
+      margin: 0 0 7px;
+    }
+
+    footer p {
+      margin: 5px 0;
+      color: #c9c1d7;
+      font-size: 12px;
+    }
+
+    .footer-links {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+      padding: 7px 10px;
+      border: 1px solid #403655;
+      border-radius: 999px;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 88px;
+      transform: translate(-50%,20px);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 100;
+      background: var(--text);
+      color: white;
+      padding: 11px 15px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      transition: .2s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%,0);
+    }
+
+    /* TABLET / DESKTOP */
+    @media (min-width: 650px) {
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .hero-box {
+        padding: 48px;
+      }
+
+      .products {
+        grid-template-columns: repeat(3,minmax(0,1fr));
+        gap: 18px;
+      }
+
+      .product-body {
+        padding: 15px;
+      }
+
+      .product-name {
+        font-size: 16px;
+      }
+
+      .modal-backdrop {
+        align-items: center;
+      }
+
+      .modal {
+        border-radius: 24px;
+      }
+    }
+
+    @media (min-width: 950px) {
+
+      .products {
+        grid-template-columns: repeat(4,minmax(0,1fr));
+      }
+
+      .nav {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .hero,
+      .shop-wrap {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    Local fashion • Easy ordering • WhatsApp confirmation
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="nav">
+
+      <a class="brand" href="#">
+        <span class="brand-name">Vetrox Apparel</span>
+        <span class="brand-tagline">
+          Elevate your everyday look
+        </span>
+      </a>
+
+      <button
+        class="nav-cart"
+        type="button"
+        onclick="openCart()"
+        aria-label="Open shopping cart"
+      >
+        🛍️ Cart
+        <span id="navCartCount">0</span>
+      </button>
+
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-box">
+
+        <div class="eyebrow">
+          Vetrox Apparel • Surat, Gujarat
+        </div>
+
+        <h1>
+          Style made for<br>
+          everyday you.
+        </h1>
+
+        <p>
+          Discover elegant kurtis, kurta sets and three-piece outfits
+          designed to make everyday dressing feel effortless.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="shop-wrap" id="shop">
+
+      <div class="section-head">
+
+        <h2>
+          Shop the collection
+        </h2>
+
+        <span
+          class="count-label"
+          id="productCount"
+        ></span>
+
+      </div>
+
+      <div
+        class="filters"
+        id="filters"
+        aria-label="Product categories"
+      ></div>
+
+      <div
+        class="products"
+        id="products"
+      ></div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-inner">
+
+      <h3>Vetrox Apparel</h3>
+
+      <p>
+        Surat, Gujarat
+      </p>
+
+      <p>
+        📞 9484696506
+      </p>
+
+      <p>
+        ✉️ vetroxapperel@gmail.com
+      </p>
+
+      <div class="footer-links">
+
+        <a href="tel:+919484696506">
+          Call us
+        </a>
+
+        <a href="mailto:vetroxapperel@gmail.com">
+          Email us
+        </a>
+
+        <a
+          href="https://wa.me/919484696506"
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- FLOATING CART -->
+  <button
+    class="floating-cart"
+    type="button"
+    onclick="openCart()"
+    aria-label="Open cart"
+  >
+    🛒
+
+    <span
+      class="cart-count"
+      id="floatingCartCount"
+    >
+      0
+    </span>
+
+  </button>
+
+  <!-- WHATSAPP -->
+  <a
+    class="whatsapp"
+    href="https://wa.me/919484696506"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat with Vetrox Apparel on WhatsApp"
+  >
+    💬 WhatsApp
+  </a>
+
+
+  <!-- ================= CART MODAL ================= -->
+
+  <div
+    class="modal-backdrop"
+    id="cartModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cartTitle"
+  >
+
+    <div class="modal">
+
+      <div class="modal-head">
+
+        <h2 id="cartTitle">
+          Your Cart
+        </h2>
+
+        <button
+          class="close"
+          type="button"
+          onclick="closeModal('cartModal')"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <div id="cartContent"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= CHECKOUT MODAL ================= -->
+
+  <div
+    class="modal-backdrop"
+    id="checkoutModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="checkoutTitle"
+  >
+
+    <div class="modal">
+
+      <div class="modal-head">
+
+        <h2 id="checkoutTitle">
+          Place Your Order
+        </h2>
+
+        <button
+          class="close"
+          type="button"
+          onclick="closeModal('checkoutModal')"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div id="checkoutFormWrap">
+
+        <div class="checkout-note">
+
+          This is an order request, not an online payment.
+          Vetrox Apparel will contact you on WhatsApp to confirm
+          availability, final pricing and delivery.
+
+        </div>
+
+
+        <!-- FORMSPREE FORM -->
+
+        <form
+          id="orderForm"
+          action="https://formspree.io/f/xnpnbyky"
+          method="POST"
+        >
+
+          <div
+            class="form-grid"
+            style="margin-top:14px"
+          >
+
+            <!-- CUSTOMER NAME -->
+
+            <div>
+
+              <label for="customerName">
+                Customer Name
+                <span class="required">*</span>
+              </label>
+
+              <input
+                id="customerName"
+                name="customer_name"
+                type="text"
+                autocomplete="name"
+                required
+                placeholder="Your full name"
+              >
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div>
+
+              <label for="customerPhone">
+                Phone Number
+                <span class="required">*</span>
+              </label>
+
+              <input
+                id="customerPhone"
+                name="customer_phone"
+                type="tel"
+                autocomplete="tel"
+                required
+                inputmode="tel"
+                placeholder="e.g. 9876543210"
+              >
+
+            </div>
+
+
+            <!-- ADDRESS -->
+
+            <div>
+
+              <label for="customerAddress">
+                Delivery Address
+                <span class="required">*</span>
+              </label>
+
+              <textarea
+                id="customerAddress"
+                name="delivery_address"
+                autocomplete="street-address"
+                required
+                placeholder="House / flat, street, area, city, PIN"
+              ></textarea>
+
+            </div>
+
+
+            <!-- INSTRUCTIONS -->
+
+            <div>
+
+              <label for="instructions">
+
+                Special Instructions
+
+                <span
+                  style="font-weight:500;color:var(--muted)"
+                >
+                  (optional)
+                </span>
+
+              </label>
+
+              <textarea
+                id="instructions"
+                name="special_instructions"
+                placeholder="Size preference, delivery notes, etc."
+              ></textarea>
+
+            </div>
+
+
+            <!-- HIDDEN ORDER DATA -->
+
+            <input
+              type="hidden"
+              name="order_summary"
+              id="orderSummary"
+            >
+
+            <input
+              type="hidden"
+              name="grand_total"
+              id="grandTotal"
+            >
+
+            <input
+              type="hidden"
+              name="shop_name"
+              value="Vetrox Apparel"
+            >
+
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Vetrox Apparel Order"
+            >
+
+            <input
+              type="hidden"
+              name="_format"
+              value="plain"
+            >
+
+
+            <!-- SUBMIT -->
+
+            <button
+              class="submit-btn"
+              id="submitOrderBtn"
+              type="submit"
+            >
+              Send Order Request
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+
+      <!-- SUCCESS MESSAGE -->
+
+      <div
+        id="successContent"
+        style="display:none"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    "use strict";
+
+
+    /* =========================================
+       SHOP DETAILS
+    ========================================= */
+
+    const SHOP = {
+
+      name: "Vetrox Apparel",
+
+      phone: "9484696506",
+
+      whatsapp: "919484696506",
+
+      email: "vetroxapperel@gmail.com"
+
+    };
+
+
+    /* =========================================
+       PRODUCTS
+
+       Replace image URLs when you have
+       additional ImgBB product images.
+    ========================================= */
+
+    const PRODUCTS = [
+
+      {
+        id: "101",
+        name: "Elegant Premium Kurti",
+        price: 1199,
+        category: "Kurtis",
+        image: "https://i.ibb.co/TqvhSwyd/0-1.jpg",
+        description:
+          "Premium everyday kurti with an elegant finish."
+      },
+
+      {
+        id: "102",
+        name: "Everyday Comfort Kurti",
+        price: 999,
+        category: "Kurtis",
+        image: "https://i.ibb.co/Q7TMNKGG/2.jpg",
+        description:
+          "Comfort-first style for easy everyday wear."
+      },
+
+      {
+        id: "103",
+        name: "Classic Daily Kurti",
+        price: 999,
+        category: "Kurtis",
+        image: "https://i.ibb.co/JMC9V6S/Copy-of-13.jpg",
+        description:
+          "A versatile silhouette for daily styling."
+      },
+
+      {
+        id: "104",
+        name: "Modern Daily Kurti",
+        price: 999,
+        category: "Kurtis",
+        image: "https://i.ibb.co/s9403QwP/4.jpg",
+        description:
+          "Clean, modern styling made for everyday looks."
+      },
+
+      {
+        id: "105",
+        name: "Printed Style Kurta",
+        price: 999,
+        category: "Kurta Sets",
+        image: "https://i.ibb.co/dwjKGcDv/1-1.png",
+        description:
+          "A polished printed look for casual occasions."
+      },
+
+      {
+        id: "106",
+        name: "Chic Kurta Set",
+        price: 999,
+        category: "Kurta Sets",
+        image: "https://i.ibb.co/Xx5CnF9G/1.png",
+        description:
+          "Easy-to-style kurta set with a graceful look."
+      },
+
+      {
+        id: "107",
+        name: "Vetrox Festive Set",
+        price: 1299,
+        category: "3 Piece",
+        image: "https://i.ibb.co/TqvhSwyd/0-1.jpg",
+        description:
+          "Festive-ready styling with an elegant Vetrox feel."
+      },
+
+      {
+        id: "108",
+        name: "Grace Three-Piece Set",
+        price: 1499,
+        category: "3 Piece",
+        image: "https://i.ibb.co/Q7TMNKGG/2.jpg",
+        description:
+          "A complete three-piece look for special days."
+      },
+
+      {
+        id: "109",
+        name: "Everyday Three-Piece",
+        price: 1399,
+        category: "3 Piece",
+        image: "https://i.ibb.co/JMC9V6S/Copy-of-13.jpg",
+        description:
+          "Comfortable coordinated styling for everyday wear."
+      },
+
+      {
+        id: "110",
+        name: "Signature Three-Piece",
+        price: 1599,
+        category: "3 Piece",
+        image: "https://i.ibb.co/s9403QwP/4.jpg",
+        description:
+          "A refined three-piece outfit for effortless dressing."
+      }
+
+    ];
+
+
+    /* =========================================
+       CART
+    ========================================= */
+
+    let cart = loadCart();
+
+    let activeCategory = "All";
+
+
+    /* =========================================
+       MONEY FORMAT
+    ========================================= */
+
+    const money = value => {
+
+      return new Intl.NumberFormat(
+        "en-IN",
+        {
+          style: "currency",
+          currency: "INR",
+          maximumFractionDigits: 0
+        }
+      ).format(value);
+
+    };
+
+
+    /* =========================================
+       LOAD CART
+    ========================================= */
+
+    function loadCart() {
+
+      try {
+
+        const saved =
+          JSON.parse(
+            localStorage.getItem("vetrox_cart") || "{}"
+          );
+
+        return saved &&
+          typeof saved === "object"
+          ? saved
+          : {};
+
+      } catch (error) {
+
+        return {};
+
+      }
+
+    }
+
+
+    /* =========================================
+       SAVE CART
+    ========================================= */
+
+    function saveCart() {
+
+      try {
+
+        localStorage.setItem(
+          "vetrox_cart",
+          JSON.stringify(cart)
+        );
+
+      } catch (error) {}
+
+      updateCartBadges();
+
+    }
+
+
+    /* =========================================
+       CART ITEMS
+    ========================================= */
+
+    function cartItems() {
+
+      return Object.entries(cart)
+
+        .map(([id, qty]) => {
+
+          const product =
+            PRODUCTS.find(
+              product => product.id === id
+            );
+
+          if (!product) {
+            return null;
+          }
+
+          return {
+            ...product,
+            qty: Number(qty) || 0
+          };
+
+        })
+
+        .filter(
+          item => item && item.qty > 0
+        );
+
+    }
+
+
+    /* =========================================
+       CART COUNT
+    ========================================= */
+
+    function cartCount() {
+
+      return cartItems()
+        .reduce(
+          (sum, item) =>
+            sum + item.qty,
+          0
+        );
+
+    }
+
+
+    /* =========================================
+       CART TOTAL
+    ========================================= */
+
+    function cartTotal() {
+
+      return cartItems()
+        .reduce(
+          (sum, item) =>
+            sum +
+            item.price *
+            item.qty,
+          0
+        );
+
+    }
+
+
+    /* =========================================
+       UPDATE CART BADGES
+    ========================================= */
+
+    function updateCartBadges() {
+
+      const count = cartCount();
+
+      document.getElementById(
+        "navCartCount"
+      ).textContent = count;
+
+      document.getElementById(
+        "floatingCartCount"
+      ).textContent = count;
+
+    }
+
+
+    /* =========================================
+       FILTER BUTTONS
+    ========================================= */
+
+    function renderFilters() {
+
+      const categories = [
+
+        "All",
+
+        ...new Set(
+          PRODUCTS.map(
+            product => product.category
+          )
+        )
+
+      ];
+
+      document.getElementById(
+        "filters"
+      ).innerHTML = categories.map(
+        category => `
+
+          <button
+            class="filter-btn ${
+              category === activeCategory
+                ? "active"
+                : ""
+            }"
+            type="button"
+            onclick="setCategory('${escapeAttr(category)}')"
+          >
+
+            ${escapeHTML(category)}
+
+          </button>
+
+        `
+      ).join("");
+
+    }
+
+
+    /* =========================================
+       RENDER PRODUCTS
+    ========================================= */
+
+    function renderProducts() {
+
+      const visible =
+        activeCategory === "All"
+
+          ? PRODUCTS
+
+          : PRODUCTS.filter(
+              product =>
+                product.category ===
+                activeCategory
+            );
+
+
+      document.getElementById(
+        "productCount"
+      ).textContent =
+        `${visible.length} product${
+          visible.length === 1
+            ? ""
+            : "s"
+        }`;
+
+
+      document.getElementById(
+        "products"
+      ).innerHTML = visible.map(
+        product => {
+
+          const inCart =
+            cart[product.id] > 0;
+
+          return `
+
+            <article class="product">
+
+              <img
+                class="product-image"
+                src="${escapeAttr(product.image)}"
+                alt="${escapeAttr(product.name)}"
+                loading="lazy"
+                onerror="
+                  this.style.objectFit='contain';
+                "
+              >
+
+              <div class="product-body">
+
+                <div class="product-category">
+                  ${escapeHTML(product.category)}
+                </div>
+
+                <div class="product-name">
+                  ${escapeHTML(product.name)}
+                </div>
+
+                <div class="product-desc">
+                  ${escapeHTML(product.description)}
+                </div>
+
+                <div class="product-bottom">
+
+                  <div class="price">
+                    ${money(product.price)}
+                  </div>
+
+                  <button
+                    class="add-btn ${
+                      inCart ? "added" : ""
+                    }"
+                    type="button"
+                    onclick="
+                      addToCart(
+                        '${product.id}',
+                        this
+                      )
+                    "
+                  >
+                    ${
+                      inCart
+                        ? "✓ Added"
+                        : "Add to Cart"
+                    }
+                  </button>
+
+                </div>
+
+              </div>
+
+            </article>
+
+          `;
+
+        }
+      ).join("");
+
+    }
+
+
+    /* =========================================
+       CATEGORY
+    ========================================= */
+
+    function setCategory(category) {
+
+      activeCategory = category;
+
+      renderFilters();
+
+      renderProducts();
+
+    }
+
+
+    /* =========================================
+       ADD TO CART
+    ========================================= */
+
+    function addToCart(id, button) {
+
+      cart[id] =
+        (cart[id] || 0) + 1;
+
+      saveCart();
+
+      renderProducts();
+
+      showToast(
+        "Added to cart"
+      );
+
+    }
+
+
+    /* =========================================
+       CHANGE QUANTITY
+    ========================================= */
+
+    function changeQty(id, delta) {
+
+      cart[id] =
+        (cart[id] || 0) +
+        delta;
+
+      if (cart[id] <= 0) {
+
+        delete cart[id];
+
+      }
+
+      saveCart();
+
+      renderCart();
+
+      renderProducts();
+
+    }
+
+
+    /* =========================================
+       REMOVE
+    ========================================= */
+
+    function removeFromCart(id) {
+
+      delete cart[id];
+
+      saveCart();
+
+      renderCart();
+
+      renderProducts();
+
+    }
+
+
+    /* =========================================
+       RENDER CART
+    ========================================= */
+
+    function renderCart() {
+
+      const items = cartItems();
+
+      const container =
+        document.getElementById(
+          "cartContent"
+        );
+
+
+      if (!items.length) {
+
+        container.innerHTML = `
+
+          <div class="cart-empty">
+
+            <div style="font-size:40px">
+              🛍️
+            </div>
+
+            <h3
+              style="
+                margin:10px 0 5px;
+                color:var(--text)
+              "
+            >
+              Your cart is empty
+            </h3>
+
+            <p
+              style="
+                margin:0 0 18px
+              "
+            >
+              Add something beautiful
+              from the collection.
+            </p>
+
+            <button
+              class="checkout-btn"
+              type="button"
+              onclick="
+                closeModal('cartModal');
+                document
+                  .getElementById('shop')
+                  .scrollIntoView({
+                    behavior:'smooth'
+                  })
+              "
+            >
+              Browse Products
+            </button>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      container.innerHTML = `
+
+        <div>
+
+          ${items.map(item => `
+
+            <div class="cart-item">
+
+              <img
+                class="cart-thumb"
+                src="${escapeAttr(item.image)}"
+                alt="${escapeAttr(item.name)}"
+                loading="lazy"
+              >
+
+              <div>
+
+                <div class="cart-item-name">
+                  ${escapeHTML(item.name)}
+                </div>
+
+                <div class="cart-item-price">
+                  ${money(item.price)} each
+                </div>
+
+                <div class="qty">
+
+                  <button
+                    type="button"
+                    onclick="
+                      changeQty(
+                        '${item.id}',
+                        -1
+                      )
+                    "
+                    aria-label="Decrease quantity"
+                  >
+                    −
+                  </button>
+
+                  <span>
+                    ${item.qty}
+                  </span>
+
+                  <button
+                    type="button"
+                    onclick="
+                      changeQty(
+                        '${item.id}',
+                        1
+                      )
+                    "
+                    aria-label="Increase quantity"
+                  >
+                    +
+                  </button>
+
+                </div>
+
+              </div>
+
+              <div class="item-total">
+
+                ${money(
+                  item.price *
+                  item.qty
+                )}
+
+                <button
+                  class="remove"
+                  type="button"
+                  onclick="
+                    removeFromCart(
+                      '${item.id}'
+                    )
+                  "
+                >
+                  Remove
+                </button>
+
+              </div>
+
+            </div>
+
+          `).join("")}
+
+        </div>
+
+
+        <div class="summary">
+
+          <span>
+            Grand Total
+          </span>
+
+          <strong>
+            ${money(cartTotal())}
+          </strong>
+
+        </div>
+
+
+        <button
+          class="checkout-btn"
+          type="button"
+          onclick="openCheckout()"
+        >
+          Place Order
+        </button>
+
+      `;
+
+    }
+
+
+    /* =========================================
+       OPEN CART
+    ========================================= */
+
+    function openCart() {
+
+      renderCart();
+
+      openModal(
+        "cartModal"
+      );
+
+    }
+
+
+    /* =========================================
+       CHECKOUT
+    ========================================= */
+
+    function openCheckout() {
+
+      if (!cartItems().length) {
+
+        showToast(
+          "Your cart is empty"
+        );
+
+        return;
+
+      }
+
+      closeModal(
+        "cartModal"
+      );
+
+      document.getElementById(
+        "checkoutFormWrap"
+      ).style.display = "block";
+
+      document.getElementById(
+        "successContent"
+      ).style.display = "none";
+
+      document.getElementById(
+        "orderForm"
+      ).reset();
+
+      openModal(
+        "checkoutModal"
+      );
+
+    }
+
+
+    /* =========================================
+       ORDER SUMMARY
+    ========================================= */
+
+    function buildOrderSummary() {
+
+      return cartItems()
+
+        .map(item =>
+
+          `${item.name} | ` +
+          `Qty: ${item.qty} | ` +
+          `Price: ${money(item.price)} each | ` +
+          `Subtotal: ${money(
+            item.price *
+            item.qty
+          )}`
+
+        )
+
+        .join("\n");
+
+    }
+
+
+    /* =========================================
+       OPEN MODAL
+    ========================================= */
+
+    function openModal(id) {
+
+      document
+        .getElementById(id)
+        .classList
+        .add("open");
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    /* =========================================
+       CLOSE MODAL
+    ========================================= */
+
+    function closeModal(id) {
+
+      document
+        .getElementById(id)
+        .classList
+        .remove("open");
+
+      if (
+        !document.querySelector(
+          ".modal-backdrop.open"
+        )
+      ) {
+
+        document.body.style.overflow =
+          "";
+
+      }
+
+    }
+
+
+    /* =========================================
+       SUCCESS
+    ========================================= */
+
+    function showSuccess() {
+
+      document.getElementById(
+        "checkoutFormWrap"
+      ).style.display = "none";
+
+      document.getElementById(
+        "successContent"
+      ).style.display = "block";
+
+
+      document.getElementById(
+        "successContent"
+      ).innerHTML = `
+
+        <div class="success">
+
+          <div class="success-icon">
+            ✓
+          </div>
+
+          <h2>
+            Order placed!
+          </h2>
+
+          <p>
+
+            ${SHOP.name}
+            will contact you on WhatsApp
+            to confirm your order,
+            availability and delivery details.
+
+          </p>
+
+          <a
+            class="wa-confirm"
+            href="https://wa.me/${SHOP.whatsapp}"
+            target="_blank"
+            rel="noopener"
+          >
+            💬 Message us on WhatsApp
+          </a>
+
+          <div style="margin-top:15px">
+
+            <button
+              class="filter-btn"
+              type="button"
+              onclick="
+                closeModal(
+                  'checkoutModal'
+                )
+              "
+            >
+              Continue Shopping
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================================
+       FORMSPREE SUBMISSION
+    ========================================= */
+
+    document
+      .getElementById("orderForm")
+      .addEventListener(
+        "submit",
+        async function(event) {
+
+          event.preventDefault();
+
+
+          if (!cartItems().length) {
+
+            showToast(
+              "Your cart is empty"
+            );
+
+            return;
+
+          }
+
+
+          const submitBtn =
+            document.getElementById(
+              "submitOrderBtn"
+            );
+
+
+          const summary =
+            buildOrderSummary();
+
+          const total =
+            cartTotal();
+
+
+          document.getElementById(
+            "orderSummary"
+          ).value =
+
+            `VETROX APPAREL ORDER\n\n` +
+            `${summary}\n\n` +
+            `Grand Total: ${money(total)}`;
+
+
+          document.getElementById(
+            "grandTotal"
+          ).value =
+            money(total);
+
+
+          submitBtn.disabled =
+            true;
+
+          submitBtn.textContent =
+            "Sending Order…";
+
+
+          try {
+
+            const response =
+              await fetch(
+                this.action,
+                {
+                  method: "POST",
+                  body: new FormData(this),
+                  headers: {
+                    Accept:
+                      "application/json"
+                  }
+                }
+              );
+
+
+            if (!response.ok) {
+
+              throw new Error(
+                "Formspree submission failed"
+              );
+
+            }
+
+
+            /* CLEAR CART */
+
+            cart = {};
+
+            saveCart();
+
+            renderProducts();
+
+
+            /* SHOW SUCCESS */
+
+            showSuccess();
+
+
+          } catch (error) {
+
+            submitBtn.disabled =
+              false;
+
+            submitBtn.textContent =
+              "Send Order Request";
+
+
+            const proceed =
+              confirm(
+                "The order could not be sent automatically. Would you like to submit it using Formspree's browser page?"
+              );
+
+
+            if (proceed) {
+
+              this.submit();
+
+            }
+
+          }
+
+        }
+      );
+
+
+    /* =========================================
+       CLOSE MODAL ON BACKDROP
+    ========================================= */
+
+    document
+      .querySelectorAll(
+        ".modal-backdrop"
+      )
+      .forEach(backdrop => {
+
+        backdrop.addEventListener(
+          "click",
+          function(event) {
+
+            if (
+              event.target === backdrop
+            ) {
+
+              closeModal(
+                backdrop.id
+              );
+
+            }
+
+          }
+        );
+
+      });
+
+
+    /* =========================================
+       ESCAPE KEY
+    ========================================= */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          document
+            .querySelectorAll(
+              ".modal-backdrop.open"
+            )
+            .forEach(el =>
+              closeModal(el.id)
+            );
+
+        }
+
+      }
+    );
+
+
+    /* =========================================
+       TOAST
+    ========================================= */
+
+    function showToast(message) {
+
+      const toast =
+        document.getElementById(
+          "toast"
+        );
+
+      toast.textContent =
+        message;
+
+      toast.classList.add(
+        "show"
+      );
+
+      clearTimeout(
+        window.__toastTimer
+      );
+
+      window.__toastTimer =
+        setTimeout(
+          () =>
+            toast.classList.remove(
+              "show"
+            ),
+          1800
+        );
+
+    }
+
+
+    /* =========================================
+       SECURITY HELPERS
+    ========================================= */
+
+    function escapeHTML(value) {
+
+      return String(value)
+
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+
+        .replace(
+          /</g,
+          "&lt;"
+        )
+
+        .replace(
+          />/g,
+          "&gt;"
+        )
+
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+
+    function escapeAttr(value) {
+
+      return escapeHTML(value);
+
+    }
+
+
+    /* =========================================
+       INITIALIZE WEBSITE
+    ========================================= */
+
+    renderFilters();
+
+    renderProducts();
+
+    updateCartBadges();
+
+  </script>
+
+</body>
+</html>
