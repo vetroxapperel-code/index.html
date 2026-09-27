@@ -1,4028 +1,3877 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!-- =========================================================
+     VETROX APPAREL
+     SINGLE FILE SHOPPING WEBSITE
+     HTML + CSS + JAVASCRIPT
+     
+     IMPORTANT:
+     Aa file ma badha important sections ni upar
+     "EDIT HERE" comments mukela che.
+     ========================================================= -->
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- =========================================================
+     WEBSITE TITLE - EDIT HERE
+     ========================================================= -->
 <title>Vetrox Apparel | Elegant • Everyday • You</title>
 
 <meta name="description"
-content="Vetrox Apparel – Elegant everyday kurtis, kurta sets and women's ethnic wear.">
+content="Vetrox Apparel – Elegant everyday kurtis, kurta sets and women's ethnic wear from Surat, Gujarat.">
+
+<meta name="theme-color" content="#8f4b4b">
 
 <style>
-:root{
-  --maroon:#641d2f;
-  --dark:#24161b;
-  --gold:#c49a54;
-  --cream:#fffaf3;
-  --light:#f8efe5;
-  --white:#fff;
-  --muted:#776c70;
-  --border:#eaded5;
-  --green:#25D366;
-  --shadow:0 12px 35px rgba(54,25,32,.10);
-}
+
+/* =========================================================
+   01. GLOBAL SETTINGS - EDIT HERE
+   ========================================================= */
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--cream);
-  color:var(--dark);
-  line-height:1.5;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fffaf6;
+    color:#29211f;
+    line-height:1.6;
 }
 
-body.modal-open{
-  overflow:hidden;
+body.no-scroll{
+    overflow:hidden;
+}
+
+img{
+    max-width:100%;
 }
 
 button,
 input,
 textarea{
-  font:inherit;
+    font:inherit;
 }
 
 button{
-  cursor:pointer;
+    cursor:pointer;
 }
 
-img{
-  max-width:100%;
-  display:block;
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
-/* =========================
-   ANNOUNCEMENT
-========================= */
-
-.announcement{
-  background:var(--maroon);
-  color:#fff;
-  text-align:center;
-  padding:9px 15px;
-  font-size:13px;
-  letter-spacing:.3px;
+:root{
+    --primary:#8f4b4b;
+    --primary-dark:#713737;
+    --secondary:#c99772;
+    --cream:#fffaf6;
+    --cream-dark:#f7eee7;
+    --white:#ffffff;
+    --text:#29211f;
+    --muted:#746866;
+    --border:#eadbd1;
+    --shadow:0 15px 45px rgba(74,39,30,.12);
+    --radius:22px;
 }
 
-/* =========================
-   NAVBAR
-========================= */
 
-.navbar{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(255,250,243,.96);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
+/* =========================================================
+   02. COMMON CLASSES
+   ========================================================= */
+
+.container{
+    width:min(1180px, calc(100% - 40px));
+    margin:auto;
 }
 
-.nav-inner{
-  max-width:1250px;
-  margin:auto;
-  height:78px;
-  padding:0 22px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:25px;
+.section{
+    padding:90px 0;
 }
 
-.logo{
-  height:54px;
-  width:auto;
-  border-radius:8px;
-  object-fit:contain;
+.section-head{
+    text-align:center;
+    margin-bottom:45px;
 }
 
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:28px;
-  list-style:none;
+.section-tag{
+    display:inline-block;
+    color:var(--primary);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:10px;
 }
 
-.nav-links a{
-  text-decoration:none;
-  color:var(--dark);
-  font-weight:600;
-  font-size:14px;
-  transition:.2s;
+.section-title{
+    font-family:Georgia, serif;
+    font-size:clamp(32px, 5vw, 48px);
+    line-height:1.15;
+    margin-bottom:14px;
 }
 
-.nav-links a:hover{
-  color:var(--maroon);
-}
-
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.icon-btn{
-  border:1px solid var(--border);
-  background:#fff;
-  width:43px;
-  height:43px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:var(--maroon);
-  font-size:18px;
-  position:relative;
-}
-
-.icon-btn:hover{
-  background:#fff8f1;
-}
-
-.cart-count{
-  position:absolute;
-  top:-5px;
-  right:-3px;
-  background:var(--maroon);
-  color:white;
-  width:20px;
-  height:20px;
-  border-radius:50%;
-  font-size:11px;
-  display:grid;
-  place-items:center;
-}
-
-.menu-btn{
-  display:none;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  min-height:620px;
-  background:
-    linear-gradient(90deg,rgba(35,17,23,.82),rgba(35,17,23,.30)),
-    url("https://i.ibb.co/RT53FJkw/Gemini-Generated-Image-dwquzydwquzydwqu.png")
-    center/cover no-repeat;
-  display:flex;
-  align-items:center;
-}
-
-.hero-content{
-  max-width:1250px;
-  width:100%;
-  margin:auto;
-  padding:70px 25px;
-  color:white;
-}
-
-.hero-content small{
-  text-transform:uppercase;
-  letter-spacing:4px;
-  color:#f0d69c;
-  font-weight:bold;
-}
-
-.hero-content h1{
-  font-family:Georgia,serif;
-  font-size:clamp(45px,7vw,82px);
-  line-height:1;
-  margin:18px 0;
-  max-width:700px;
-}
-
-.hero-content p{
-  max-width:570px;
-  font-size:18px;
-  color:#f8eeee;
-  margin-bottom:30px;
+.section-description{
+    max-width:650px;
+    margin:auto;
+    color:var(--muted);
 }
 
 .btn{
-  border:0;
-  padding:13px 21px;
-  border-radius:8px;
-  font-weight:bold;
-  transition:.25s;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  text-decoration:none;
-  cursor:pointer;
+    border:none;
+    padding:14px 22px;
+    border-radius:999px;
+    font-weight:700;
+    transition:.25s ease;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
 }
 
 .btn-primary{
-  background:var(--gold);
-  color:#24161b;
+    background:var(--primary);
+    color:white;
 }
 
 .btn-primary:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(0,0,0,.2);
+    background:var(--primary-dark);
+    transform:translateY(-2px);
 }
 
-.btn-dark{
-  background:var(--maroon);
-  color:white;
+.btn-light{
+    background:white;
+    color:var(--primary);
 }
 
-.btn-dark:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(100,29,47,.20);
+.btn-light:hover{
+    transform:translateY(-2px);
 }
 
-/* =========================
-   GENERAL
-========================= */
 
-.section{
-  padding:85px 20px;
+/* =========================================================
+   03. ANNOUNCEMENT BAR - EDIT HERE
+   ========================================================= */
+
+.announcement{
+    background:var(--primary);
+    color:white;
+    text-align:center;
+    padding:9px 15px;
+    font-size:13px;
+    font-weight:600;
 }
 
-.container{
-  max-width:1250px;
-  margin:auto;
+
+/* =========================================================
+   04. NAVBAR - EDIT HERE
+   ========================================================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,250,246,.96);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
 }
 
-.section-heading{
-  text-align:center;
-  margin-bottom:45px;
+.nav-inner{
+    min-height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
 }
 
-.section-heading span{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:3px;
-  font-size:12px;
-  font-weight:bold;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
-.section-heading h2{
-  font-family:Georgia,serif;
-  font-size:42px;
-  color:var(--maroon);
-  margin:8px 0;
+.logo img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid var(--primary);
 }
 
-.section-heading p{
-  color:var(--muted);
+.logo-text{
+    font-family:Georgia, serif;
+    font-size:22px;
+    font-weight:bold;
+    color:var(--primary);
 }
 
-/* =========================
-   ABOUT
-========================= */
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    font-size:14px;
+    font-weight:700;
+    color:#514441;
+    transition:.2s;
+}
+
+.nav-links a:hover{
+    color:var(--primary);
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.cart-btn{
+    position:relative;
+    width:44px;
+    height:44px;
+    border:none;
+    border-radius:50%;
+    background:var(--cream-dark);
+    color:var(--primary);
+    font-size:19px;
+}
+
+.cart-count{
+    position:absolute;
+    right:-2px;
+    top:-3px;
+    min-width:19px;
+    height:19px;
+    padding:0 5px;
+    border-radius:20px;
+    background:var(--primary);
+    color:white;
+    font-size:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.menu-btn{
+    display:none;
+    width:44px;
+    height:44px;
+    border:none;
+    border-radius:50%;
+    background:var(--cream-dark);
+    color:var(--primary);
+    font-size:21px;
+}
+
+
+/* =========================================================
+   05. HERO SECTION - EDIT HERE
+   ========================================================= */
+
+.hero{
+    min-height:650px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(30,15,10,.72),
+            rgba(30,15,10,.35),
+            rgba(30,15,10,.08)
+        ),
+        url("https://i.ibb.co/RT53FJkw/Gemini-Generated-Image-dwquzydwquzydwqu.png");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    color:white;
+    max-width:680px;
+    padding:80px 0;
+}
+
+.hero-small{
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-weight:700;
+    font-size:13px;
+    margin-bottom:16px;
+}
+
+.hero h1{
+    font-family:Georgia, serif;
+    font-size:clamp(45px, 7vw, 78px);
+    line-height:1;
+    margin-bottom:22px;
+}
+
+.hero p{
+    font-size:18px;
+    max-width:580px;
+    color:#f8ece6;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+
+/* =========================================================
+   06. ABOUT SECTION - EDIT HERE
+   ========================================================= */
 
 .about{
-  background:#fff;
+    background:white;
 }
 
 .about-grid{
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:65px;
-  align-items:center;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
 }
 
+/* ABOUT IMAGE - CHANGE IMAGE URL HERE */
 .about-image{
-  position:relative;
-  border-radius:26px;
-  overflow:hidden;
-  height:500px;
-  background:#eadbd0;
-  box-shadow:0 20px 55px rgba(54,25,32,.16);
+    position:relative;
+    border-radius:26px;
+    overflow:hidden;
+    background:#f7f3ee;
+    min-height:500px;
+    box-shadow:var(--shadow);
 }
 
+/*
+   IMPORTANT:
+   object-fit: contain = IMAGE CROP NAHI THAY
+   Full image visible rahe.
+*/
 .about-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  transition:transform .7s ease;
+    width:100%;
+    height:500px;
+    object-fit:contain;
+    background:#f7f3ee;
+    border-radius:26px;
+    display:block;
+    transition:transform .5s ease;
 }
 
 .about-image:hover img{
-  transform:scale(1.035);
+    transform:scale(1.02);
 }
 
-.about-image::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      to top,
-      rgba(35,17,23,.72),
-      rgba(35,17,23,.10) 55%,
-      transparent
-    );
-  pointer-events:none;
+.about-badge{
+    position:absolute;
+    left:20px;
+    bottom:20px;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(10px);
+    border-radius:16px;
+    padding:15px 18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
-.about-image-badge{
-  position:absolute;
-  left:28px;
-  bottom:25px;
-  z-index:2;
-  color:#fff;
+.about-badge strong{
+    display:block;
+    color:var(--primary);
+    font-family:Georgia, serif;
+    font-size:19px;
 }
 
-.about-image-badge small{
-  display:block;
-  font-size:10px;
-  letter-spacing:3px;
-  font-weight:bold;
-  margin-bottom:5px;
-  color:#f0d69c;
+.about-badge span{
+    font-size:12px;
+    color:var(--muted);
 }
 
-.about-image-badge strong{
-  display:block;
-  font-family:Georgia,serif;
-  font-size:27px;
-  font-weight:normal;
+.about-content h2{
+    font-family:Georgia, serif;
+    font-size:clamp(32px,5vw,50px);
+    line-height:1.1;
+    margin-bottom:20px;
 }
 
-.about-text span{
-  color:var(--gold);
-  font-size:13px;
-  font-weight:bold;
-  letter-spacing:2px;
-  text-transform:uppercase;
+.about-content p{
+    color:var(--muted);
+    margin-bottom:18px;
 }
 
-.about-text h2{
-  font-family:Georgia,serif;
-  font-size:46px;
-  line-height:1.12;
-  color:var(--maroon);
-  margin:10px 0 20px;
+.feature-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:28px;
 }
 
-.about-text h2 em{
-  color:#a95c43;
-  font-style:italic;
-}
-
-.about-text p{
-  color:var(--muted);
-  margin-bottom:16px;
-  line-height:1.8;
-}
-
-.about-points{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin:27px 0 30px;
-}
-
-.about-point{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  padding:14px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  background:#fffaf5;
-}
-
-.about-point-icon{
-  width:39px;
-  height:39px;
-  border-radius:50%;
-  flex:none;
-  display:grid;
-  place-items:center;
-  background:#f3e4d6;
-  color:var(--maroon);
-  font-size:17px;
-}
-
-.about-point strong{
-  display:block;
-  color:var(--maroon);
-  font-size:13px;
-}
-
-.about-point small{
-  display:block;
-  color:var(--muted);
-  font-size:11px;
-  margin-top:2px;
-}
-
-/* =========================
-   SHOP
-========================= */
-
-.shop{
-  background:var(--cream);
-}
-
-.shop-toolbar{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  margin-bottom:30px;
-  align-items:center;
-}
-
-.search-box{
-  flex:1;
-  max-width:500px;
-  position:relative;
-}
-
-.search-box input{
-  width:100%;
-  padding:15px 18px 15px 45px;
-  border:1px solid var(--border);
-  background:white;
-  border-radius:10px;
-  outline:none;
-}
-
-.search-box input:focus{
-  border-color:var(--gold);
-  box-shadow:0 0 0 3px rgba(196,154,84,.08);
-}
-
-.search-icon{
-  position:absolute;
-  left:16px;
-  top:50%;
-  transform:translateY(-50%);
-  color:var(--muted);
-}
-
-.product-count{
-  color:var(--muted);
-  font-size:14px;
-}
-
-/* =========================
-   PRODUCT GRID
-========================= */
-
-.products-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:24px;
-}
-
-.product-card{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 5px 20px rgba(50,20,30,.05);
-  transition:.25s;
-}
-
-.product-card:hover{
-  transform:translateY(-5px);
-  box-shadow:var(--shadow);
-}
-
-.product-gallery{
-  position:relative;
-  background:#f5eee8;
-  aspect-ratio:4/5;
-  overflow:hidden;
-  cursor:pointer;
-}
-
-.product-gallery::after{
-  content:"Tap to view";
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(36,22,27,.72);
-  color:white;
-  padding:8px 13px;
-  border-radius:20px;
-  font-size:11px;
-  opacity:0;
-  transition:.25s;
-  pointer-events:none;
-  z-index:5;
-}
-
-.product-gallery:hover::after{
-  opacity:1;
-}
-
-.main-product-image{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:
-    opacity .2s,
-    transform .35s;
-}
-
-.product-gallery:hover .main-product-image{
-  transform:scale(1.025);
-}
-
-.gallery-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:35px;
-  height:35px;
-  border:0;
-  background:rgba(255,255,255,.9);
-  border-radius:50%;
-  color:var(--maroon);
-  font-size:20px;
-  z-index:8;
-  box-shadow:0 3px 10px rgba(0,0,0,.1);
-}
-
-.gallery-btn:hover{
-  background:#fff;
-  transform:translateY(-50%) scale(1.05);
-}
-
-.gallery-prev{
-  left:10px;
-}
-
-.gallery-next{
-  right:10px;
-}
-
-.photo-count{
-  position:absolute;
-  bottom:10px;
-  right:10px;
-  background:rgba(0,0,0,.65);
-  color:white;
-  padding:5px 9px;
-  border-radius:20px;
-  font-size:11px;
-  z-index:9;
-}
-
-.product-thumbs{
-  position:absolute;
-  left:10px;
-  right:10px;
-  bottom:10px;
-  display:flex;
-  gap:5px;
-  overflow-x:auto;
-  z-index:9;
-  padding:2px 35px 2px 2px;
-  scrollbar-width:none;
-}
-
-.product-thumbs::-webkit-scrollbar{
-  display:none;
-}
-
-.product-thumb{
-  width:34px;
-  height:42px;
-  flex:none;
-  object-fit:cover;
-  border:2px solid rgba(255,255,255,.75);
-  border-radius:5px;
-  cursor:pointer;
-  opacity:.82;
-  box-shadow:0 2px 7px rgba(0,0,0,.18);
-  transition:.2s;
-}
-
-.product-thumb.active{
-  border-color:var(--gold);
-  opacity:1;
-  transform:translateY(-2px);
-}
-
-.product-photo-label{
-  position:absolute;
-  top:10px;
-  left:10px;
-  z-index:10;
-  padding:5px 9px;
-  border-radius:20px;
-  background:rgba(255,255,255,.92);
-  color:var(--maroon);
-  font-size:10px;
-  font-weight:bold;
-}
-
-.product-info{
-  padding:17px;
-}
-
-.product-info h3{
-  font-family:Georgia,serif;
-  color:var(--maroon);
-  font-size:20px;
-  margin-bottom:5px;
-}
-
-.price{
-  font-weight:bold;
-  font-size:18px;
-  color:var(--dark);
-  margin-bottom:14px;
-}
-
-.product-actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-}
-
-.product-actions button{
-  padding:10px 7px;
-  border-radius:8px;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.view-btn{
-  background:white;
-  border:1px solid var(--maroon);
-  color:var(--maroon);
-}
-
-.view-btn:hover{
-  background:#fff7f1;
-}
-
-.add-btn{
-  background:var(--maroon);
-  color:white;
-  border:1px solid var(--maroon);
-}
-
-.add-btn:hover{
-  background:#7b2940;
-}
-
-/* =========================
-   WHY US
-========================= */
-
-.why{
-  background:white;
-}
-
-.features{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:22px;
-}
-
-.feature{
-  padding:30px 20px;
-  text-align:center;
-  border:1px solid var(--border);
-  border-radius:15px;
-  background:var(--cream);
-  transition:.25s;
-}
-
-.feature:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow);
+.feature-box{
+    padding:18px;
+    border:1px solid var(--border);
+    border-radius:17px;
+    background:#fffaf7;
 }
 
 .feature-icon{
-  width:55px;
-  height:55px;
-  margin:0 auto 15px;
-  border-radius:50%;
-  background:#f2e3d1;
-  color:var(--maroon);
-  display:grid;
-  place-items:center;
-  font-size:24px;
+    font-size:25px;
+    margin-bottom:5px;
 }
 
-.feature h3{
-  color:var(--maroon);
-  margin-bottom:7px;
+.feature-box strong{
+    display:block;
+    margin-bottom:3px;
 }
 
-.feature p{
-  color:var(--muted);
-  font-size:14px;
+.feature-box span{
+    font-size:13px;
+    color:var(--muted);
 }
 
-/* =========================
-   CTA
-========================= */
+
+/* =========================================================
+   07. WHY US SECTION - EDIT HERE
+   ========================================================= */
+
+.why{
+    background:var(--cream-dark);
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.why-card{
+    background:white;
+    border-radius:20px;
+    padding:28px 20px;
+    text-align:center;
+    border:1px solid var(--border);
+    transition:.25s;
+}
+
+.why-card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.why-icon{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.why-card h3{
+    margin-bottom:7px;
+}
+
+.why-card p{
+    font-size:13px;
+    color:var(--muted);
+}
+
+
+/* =========================================================
+   08. SHOP SECTION - EDIT HERE
+   ========================================================= */
+
+.shop{
+    background:white;
+}
+
+.shop-toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.search-box{
+    position:relative;
+    flex:1;
+    max-width:500px;
+}
+
+.search-box input{
+    width:100%;
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:14px 20px 14px 45px;
+    outline:none;
+    background:#fffaf7;
+}
+
+.search-box input:focus{
+    border-color:var(--primary);
+}
+
+.search-icon{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--muted);
+}
+
+.product-count{
+    color:var(--muted);
+    font-size:14px;
+}
+
+
+/* =========================================================
+   09. PRODUCT GRID
+   ========================================================= */
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+
+/* =========================================================
+   10. PRODUCT CARD
+   ========================================================= */
+
+.product-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    overflow:hidden;
+    transition:.25s ease;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.product-gallery{
+    position:relative;
+    height:350px;
+    background:#f6f1ed;
+    overflow:hidden;
+    cursor:zoom-in;
+}
+
+.product-gallery-main{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.gallery-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.9);
+    color:var(--primary);
+    font-weight:bold;
+    z-index:3;
+}
+
+.gallery-prev{
+    left:10px;
+}
+
+.gallery-next{
+    right:10px;
+}
+
+.photo-count{
+    position:absolute;
+    right:10px;
+    top:10px;
+    background:rgba(0,0,0,.55);
+    color:white;
+    border-radius:999px;
+    padding:4px 9px;
+    font-size:11px;
+    z-index:3;
+}
+
+.product-thumbs{
+    position:absolute;
+    left:10px;
+    bottom:10px;
+    right:10px;
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    z-index:3;
+}
+
+.product-thumbs::-webkit-scrollbar{
+    display:none;
+}
+
+.product-thumb{
+    flex:0 0 42px;
+    width:42px;
+    height:42px;
+    border:2px solid transparent;
+    border-radius:8px;
+    overflow:hidden;
+    background:white;
+    padding:0;
+}
+
+.product-thumb.active{
+    border-color:var(--primary);
+}
+
+.product-thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:18px;
+}
+
+.product-name{
+    font-family:Georgia, serif;
+    font-size:21px;
+    margin-bottom:5px;
+}
+
+.product-price{
+    color:var(--primary);
+    font-size:20px;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.product-actions{
+    display:flex;
+    gap:8px;
+}
+
+.add-cart-btn{
+    flex:1;
+    border:none;
+    border-radius:999px;
+    background:var(--primary);
+    color:white;
+    padding:11px 15px;
+    font-weight:700;
+}
+
+.buy-btn{
+    width:44px;
+    border:none;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    font-size:18px;
+}
+
+
+/* =========================================================
+   11. CTA SECTION - EDIT HERE
+   ========================================================= */
 
 .cta{
-  padding:0 20px 85px;
-  background:var(--cream);
+    padding:35px 0 90px;
 }
 
-.cta-inner{
-  max-width:1250px;
-  min-height:490px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:48% 52%;
-  overflow:hidden;
-  border-radius:28px;
-  background:#4a1f18;
-  box-shadow:0 22px 60px rgba(54,25,32,.18);
+.cta-box{
+    background:var(--primary);
+    border-radius:30px;
+    padding:45px;
+    color:white;
+    display:grid;
+    grid-template-columns:1fr 260px;
+    align-items:center;
+    gap:30px;
+    overflow:hidden;
+}
+
+.cta-box h2{
+    font-family:Georgia, serif;
+    font-size:clamp(30px,4vw,45px);
+    line-height:1.1;
+    margin-bottom:12px;
+}
+
+.cta-box p{
+    color:#f8e9e4;
+    margin-bottom:20px;
 }
 
 .cta-image{
-  position:relative;
-  min-height:490px;
-  overflow:hidden;
+    height:220px;
+    border-radius:20px;
+    overflow:hidden;
 }
 
 .cta-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  transition:transform .7s ease;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-.cta-inner:hover .cta-image img{
-  transform:scale(1.035);
-}
 
-.cta-image::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      90deg,
-      transparent 45%,
-      rgba(74,31,24,.55)
-    );
-}
-
-.cta-product-tag{
-  position:absolute;
-  top:22px;
-  left:22px;
-  z-index:3;
-  background:rgba(255,255,255,.92);
-  color:var(--maroon);
-  padding:8px 13px;
-  border-radius:20px;
-  font-size:11px;
-  font-weight:bold;
-}
-
-.cta-content{
-  padding:60px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  color:white;
-}
-
-.cta-kicker{
-  color:#e5b98e;
-  text-transform:uppercase;
-  letter-spacing:3px;
-  font-size:12px;
-  font-weight:bold;
-  margin-bottom:13px;
-}
-
-.cta h2{
-  font-family:Georgia,serif;
-  font-size:48px;
-  line-height:1.12;
-  margin-bottom:18px;
-  font-weight:500;
-}
-
-.cta h2 em{
-  display:block;
-  color:#e3b487;
-  font-style:italic;
-}
-
-.cta p{
-  max-width:480px;
-  margin-bottom:28px;
-  color:rgba(255,255,255,.78);
-  line-height:1.8;
-}
-
-.cta-buttons{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.cta .btn-primary{
-  background:#fff;
-  color:var(--maroon);
-}
-
-.cta-whatsapp{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:13px 21px;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,.4);
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:14px;
-  background:rgba(255,255,255,.06);
-  transition:.25s;
-}
-
-.cta-whatsapp:hover{
-  background:var(--green);
-  border-color:var(--green);
-}
-
-/* =========================
-   CONTACT
-========================= */
+/* =========================================================
+   12. CONTACT SECTION - EDIT HERE
+   ========================================================= */
 
 .contact{
-  background:var(--cream);
+    background:var(--cream-dark);
 }
 
 .contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:28px;
-  align-items:stretch;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+}
+
+.contact-info{
+    display:grid;
+    gap:14px;
 }
 
 .contact-card{
-  background:#fff;
-  padding:35px;
-  border-radius:22px;
-  border:1px solid var(--border);
-  box-shadow:0 10px 35px rgba(54,25,32,.07);
-}
-
-.contact-info-card h3,
-.contact-form-card h3{
-  color:var(--maroon);
-  font-family:Georgia,serif;
-  font-size:30px;
-  margin-bottom:10px;
-}
-
-.contact-intro{
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.7;
-  margin-bottom:22px;
-}
-
-.contact-link{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  text-decoration:none;
-  color:var(--dark);
-  padding:15px 8px;
-  border-bottom:1px solid var(--border);
-  transition:.25s;
-}
-
-.contact-link:hover{
-  background:#fffaf5;
-  transform:translateX(4px);
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:18px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
 }
 
 .contact-icon{
-  width:46px;
-  height:46px;
-  flex:none;
-  border-radius:13px;
-  display:grid;
-  place-items:center;
-  background:#f4e7dc;
-  color:var(--maroon);
-}
-
-.contact-icon svg{
-  width:23px;
-  height:23px;
-}
-
-.whatsapp-icon{
-  color:#18a957;
-  background:#e7f8ed;
-}
-
-.instagram-icon{
-  color:#c13584;
-  background:#fbe8f2;
-}
-
-.email-icon{
-  font-size:22px;
-  color:var(--maroon);
-}
-
-.contact-link div:nth-child(2){
-  flex:1;
-}
-
-.contact-link strong{
-  display:block;
-  color:var(--maroon);
-  font-size:14px;
-  margin-bottom:2px;
-}
-
-.contact-link span{
-  display:block;
-  color:var(--muted);
-  font-size:13px;
-}
-
-.contact-arrow{
-  color:var(--gold);
-  font-size:20px;
-  font-weight:bold;
-}
-
-.contact-service-box{
-  margin-top:20px;
-  padding:15px;
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-  background:#fff8ef;
-  border:1px solid #f0dfca;
-  border-radius:13px;
-}
-
-.service-check{
-  width:30px;
-  height:30px;
-  flex:none;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  background:var(--maroon);
-  color:white;
-  font-weight:bold;
-}
-
-.contact-service-box strong{
-  display:block;
-  color:var(--maroon);
-  font-size:13px;
-  margin-bottom:3px;
-}
-
-.contact-service-box span{
-  display:block;
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.5;
-}
-
-.form-header{
-  margin-bottom:24px;
-}
-
-.form-header > span{
-  color:var(--gold);
-  letter-spacing:2px;
-  font-size:11px;
-  font-weight:bold;
-}
-
-.form-header h3{
-  margin-top:5px;
-}
-
-.form-header p{
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.6;
-}
-
-.form-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:13px;
-}
-
-.contact-form-card .form-group{
-  margin-bottom:17px;
-}
-
-.contact-form-card label{
-  display:block;
-  color:var(--dark);
-  font-size:12px;
-  font-weight:bold;
-  margin-bottom:7px;
-}
-
-.contact-form-card input,
-.contact-form-card textarea{
-  width:100%;
-  border:1px solid var(--border);
-  background:#fffaf6;
-  padding:13px 14px;
-  border-radius:10px;
-  outline:none;
-  color:var(--dark);
-  transition:.2s;
-}
-
-.contact-form-card input{
-  height:47px;
-}
-
-.contact-form-card textarea{
-  min-height:125px;
-  resize:vertical;
-}
-
-.contact-form-card input:focus,
-.contact-form-card textarea:focus{
-  border-color:var(--gold);
-  background:#fff;
-  box-shadow:0 0 0 3px rgba(196,154,84,.10);
-}
-
-.contact-submit{
-  width:100%;
-  border:0;
-  background:var(--green);
-  color:white;
-  padding:14px 18px;
-  border-radius:10px;
-  font-weight:bold;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  transition:.25s;
-}
-
-.contact-submit svg{
-  width:20px;
-  height:20px;
-}
-
-.contact-submit:hover{
-  background:#1daf57;
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(37,211,102,.22);
-}
-
-.form-note{
-  text-align:center;
-  color:#999;
-  font-size:11px;
-  margin-top:14px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-  background:#211419;
-  color:#ddd;
-  padding:35px 20px;
-}
-
-.footer-inner{
-  max-width:1250px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-}
-
-.footer-logo{
-  height:42px;
-  background:white;
-  border-radius:6px;
-}
-
-.footer-copy{
-  font-size:13px;
-  color:#aaa;
-}
-
-.footer-socials{
-  display:flex;
-  gap:9px;
-}
-
-.footer-socials a{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  text-decoration:none;
-  color:white;
-  background:rgba(255,255,255,.08);
-  transition:.25s;
-}
-
-.footer-socials a:hover{
-  background:var(--maroon);
-  transform:translateY(-2px);
-}
-
-/* =========================
-   FLOATING WHATSAPP
-========================= */
-
-.whatsapp-float{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  width:58px;
-  height:58px;
-  background:var(--green);
-  color:white;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  text-decoration:none;
-  box-shadow:0 8px 25px rgba(0,0,0,.22);
-  z-index:900;
-  transition:.25s;
-}
-
-.whatsapp-float:hover{
-  transform:scale(1.08);
-  box-shadow:0 10px 30px rgba(37,211,102,.35);
-}
-
-.whatsapp-float svg{
-  width:29px;
-  height:29px;
-}
-
-/* =========================================================
-   PRODUCT VIEWER
-   BIG IMAGE
-========================================================= */
-
-.modal-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(18,9,13,.82);
-  z-index:2000;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-}
-
-.modal-overlay.active{
-  display:flex;
-}
-
-.modal{
-  width:min(1100px,100%);
-  max-height:94vh;
-  overflow:auto;
-  background:white;
-  border-radius:20px;
-  position:relative;
-}
-
-/* PRODUCT MODAL */
-
-.product-modal-content{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  min-height:600px;
-}
-
-.modal-gallery{
-  background:#f3ece6;
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.modal-main-wrap{
-  position:relative;
-  flex:1;
-  min-height:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.modal-main-image{
-  width:100%;
-  height:620px;
-  object-fit:contain;
-  background:#f3ece6;
-  border-radius:12px;
-  cursor:zoom-in;
-}
-
-.modal-image-nav{
-  position:absolute;
-  left:0;
-  right:0;
-  top:50%;
-  transform:translateY(-50%);
-  display:flex;
-  justify-content:space-between;
-  padding:0 12px;
-  pointer-events:none;
-}
-
-.modal-nav-btn{
-  width:45px;
-  height:45px;
-  border:0;
-  border-radius:50%;
-  background:rgba(255,255,255,.92);
-  color:var(--maroon);
-  font-size:30px;
-  line-height:1;
-  display:grid;
-  place-items:center;
-  box-shadow:0 4px 15px rgba(0,0,0,.16);
-  pointer-events:auto;
-}
-
-.modal-nav-btn:hover{
-  background:white;
-  transform:scale(1.06);
-}
-
-.modal-photo-counter{
-  position:absolute;
-  left:50%;
-  bottom:15px;
-  transform:translateX(-50%);
-  background:rgba(0,0,0,.68);
-  color:#fff;
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:12px;
-}
-
-.modal-thumbs{
-  display:flex;
-  gap:8px;
-  margin-top:12px;
-  overflow-x:auto;
-  padding:4px;
-  scrollbar-width:none;
-}
-
-.modal-thumbs::-webkit-scrollbar{
-  display:none;
-}
-
-.modal-thumb{
-  width:63px;
-  height:75px;
-  object-fit:cover;
-  border-radius:7px;
-  border:2px solid transparent;
-  cursor:pointer;
-  flex:none;
-  background:white;
-}
-
-.modal-thumb.active{
-  border-color:var(--maroon);
-}
-
-.close-modal{
-  position:absolute;
-  top:13px;
-  right:13px;
-  z-index:30;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  border:0;
-  background:white;
-  color:var(--maroon);
-  font-size:25px;
-  box-shadow:0 3px 15px rgba(0,0,0,.15);
-}
-
-.close-modal:hover{
-  background:#fff3eb;
-}
-
-.modal-details{
-  padding:65px 38px 35px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.modal-details small{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-weight:bold;
-}
-
-.modal-details h2{
-  font-family:Georgia,serif;
-  color:var(--maroon);
-  font-size:42px;
-  margin:8px 0;
-}
-
-.modal-price{
-  font-size:27px;
-  font-weight:bold;
-  margin:12px 0 25px;
-}
-
-.modal-details p{
-  color:var(--muted);
-  margin-bottom:25px;
-  line-height:1.8;
-}
-
-.modal-order{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-.modal-order button{
-  width:100%;
-}
-
-/* =========================
-   CART
-========================= */
-
-.cart-modal{
-  max-width:600px;
-  padding:30px;
-}
-
-.cart-modal h2{
-  color:var(--maroon);
-  font-family:Georgia,serif;
-  font-size:32px;
-  margin-bottom:20px;
-}
-
-.cart-items{
-  max-height:400px;
-  overflow:auto;
-}
-
-.cart-item{
-  display:flex;
-  gap:13px;
-  align-items:center;
-  padding:13px 0;
-  border-bottom:1px solid var(--border);
-}
-
-.cart-item img{
-  width:65px;
-  height:75px;
-  object-fit:cover;
-  border-radius:8px;
-}
-
-.cart-item-info{
-  flex:1;
-}
-
-.cart-item-info h4{
-  color:var(--maroon);
-  margin-bottom:3px;
-}
-
-.cart-item-info span{
-  font-size:13px;
-  color:var(--muted);
-}
-
-.remove-item{
-  border:0;
-  background:#f7e7e7;
-  color:#9b3044;
-  width:32px;
-  height:32px;
-  border-radius:50%;
-}
-
-.cart-total{
-  display:flex;
-  justify-content:space-between;
-  padding:20px 0;
-  font-size:20px;
-  font-weight:bold;
-}
-
-.empty-cart{
-  text-align:center;
-  padding:40px 10px;
-  color:var(--muted);
-}
-
-/* =========================
-   CHECKOUT
-========================= */
-
-.checkout-modal{
-  max-width:650px;
-  padding:32px;
-}
-
-.checkout-modal h2{
-  font-family:Georgia,serif;
-  color:var(--maroon);
-  margin-bottom:20px;
+    width:48px;
+    height:48px;
+    flex:0 0 48px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--cream-dark);
+    color:var(--primary);
+    font-size:20px;
+}
+
+.contact-card strong{
+    display:block;
+}
+
+.contact-card span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.contact-form{
+    background:white;
+    padding:25px;
+    border-radius:22px;
+    border:1px solid var(--border);
 }
 
 .form-group{
-  margin-bottom:15px;
+    margin-bottom:15px;
 }
 
 .form-group label{
-  display:block;
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:6px;
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:6px;
 }
 
 .form-group input,
 .form-group textarea{
-  width:100%;
-  border:1px solid var(--border);
-  padding:13px;
-  border-radius:8px;
-  outline:none;
+    width:100%;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:13px 14px;
+    outline:none;
+    background:#fffaf7;
 }
 
 .form-group textarea{
-  resize:vertical;
-  min-height:90px;
+    min-height:120px;
+    resize:vertical;
 }
 
 .form-group input:focus,
 .form-group textarea:focus{
-  border-color:var(--gold);
+    border-color:var(--primary);
 }
 
-/* =========================
-   MOBILE MENU
-========================= */
 
-.mobile-menu{
-  display:none;
-  background:white;
-  padding:15px 22px;
-  border-top:1px solid var(--border);
+/* =========================================================
+   13. FOOTER - EDIT HERE
+   ========================================================= */
+
+.footer{
+    background:#2c201e;
+    color:#eee4df;
+    padding:45px 0 20px;
 }
 
-.mobile-menu a{
-  display:block;
-  text-decoration:none;
-  color:var(--dark);
-  padding:12px 0;
-  border-bottom:1px solid #eee;
-  font-weight:bold;
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:30px;
 }
 
-/* =========================
-   TOAST
-========================= */
+.footer h3{
+    font-family:Georgia, serif;
+    margin-bottom:12px;
+}
+
+.footer p{
+    color:#cdbfba;
+    font-size:14px;
+}
+
+.footer-links{
+    display:grid;
+    gap:8px;
+}
+
+.footer-links a{
+    color:#cdbfba;
+    font-size:14px;
+}
+
+.footer-links a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.12);
+    text-align:center;
+    color:#aa9a95;
+    font-size:12px;
+}
+
+
+/* =========================================================
+   14. FLOATING WHATSAPP - EDIT HERE
+   ========================================================= */
+
+.whatsapp-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+    z-index:900;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+
+/* =========================================================
+   15. MODALS - CART / CHECKOUT / PRODUCT VIEWER
+   ========================================================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(20,12,10,.65);
+    backdrop-filter:blur(5px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    background:white;
+    width:min(650px,100%);
+    max-height:90vh;
+    overflow:auto;
+    border-radius:25px;
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
+}
+
+.modal-header{
+    padding:20px 22px;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.modal-header h3{
+    font-family:Georgia, serif;
+    font-size:24px;
+}
+
+.close-btn{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:50%;
+    background:var(--cream-dark);
+    color:var(--primary);
+    font-size:19px;
+}
+
+.modal-body{
+    padding:22px;
+}
+
+
+/* =========================================================
+   16. CART
+   ========================================================= */
+
+.cart-item{
+    display:grid;
+    grid-template-columns:70px 1fr auto;
+    gap:13px;
+    align-items:center;
+    padding:13px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.cart-item-img{
+    width:70px;
+    height:80px;
+    border-radius:12px;
+    overflow:hidden;
+    background:#f4efeb;
+}
+
+.cart-item-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.cart-item h4{
+    margin-bottom:4px;
+}
+
+.cart-item-price{
+    color:var(--primary);
+    font-weight:700;
+    font-size:14px;
+}
+
+.qty-controls{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:7px;
+}
+
+.qty-btn{
+    width:27px;
+    height:27px;
+    border:none;
+    border-radius:50%;
+    background:var(--cream-dark);
+    color:var(--primary);
+    font-weight:bold;
+}
+
+.remove-item{
+    border:none;
+    background:none;
+    color:#a33b3b;
+    font-size:13px;
+}
+
+.cart-summary{
+    padding-top:20px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+}
+
+.summary-total{
+    font-size:20px;
+    font-weight:800;
+    color:var(--primary);
+    padding-top:10px;
+    border-top:1px solid var(--border);
+}
+
+.checkout-btn{
+    width:100%;
+    margin-top:18px;
+}
+
+
+/* =========================================================
+   17. CHECKOUT
+   ========================================================= */
+
+.checkout-note{
+    background:#fff7e9;
+    color:#765b2f;
+    padding:12px;
+    border-radius:12px;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+
+/* =========================================================
+   18. LARGE PRODUCT IMAGE VIEWER
+   ========================================================= */
+
+.product-viewer{
+    background:rgba(10,7,6,.92);
+    padding:20px;
+}
+
+.viewer-box{
+    width:min(1100px,100%);
+    height:min(90vh,850px);
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.viewer-main{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.viewer-main img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    border-radius:15px;
+}
+
+.viewer-close{
+    position:absolute;
+    top:-5px;
+    right:-5px;
+    z-index:5;
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    color:#4c3732;
+    font-size:22px;
+}
+
+.viewer-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.92);
+    color:var(--primary);
+    font-size:22px;
+    z-index:5;
+}
+
+.viewer-prev{
+    left:15px;
+}
+
+.viewer-next{
+    right:15px;
+}
+
+.viewer-bottom{
+    position:absolute;
+    left:50%;
+    bottom:10px;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    z-index:6;
+}
+
+.viewer-counter{
+    background:rgba(0,0,0,.7);
+    color:white;
+    padding:7px 12px;
+    border-radius:999px;
+    font-size:12px;
+}
+
+.viewer-thumbs{
+    display:flex;
+    gap:5px;
+    max-width:60vw;
+    overflow-x:auto;
+}
+
+.viewer-thumb{
+    width:45px;
+    height:55px;
+    border:2px solid transparent;
+    border-radius:7px;
+    padding:0;
+    overflow:hidden;
+    flex:0 0 auto;
+}
+
+.viewer-thumb.active{
+    border-color:white;
+}
+
+.viewer-thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+
+/* =========================================================
+   19. TOAST
+   ========================================================= */
 
 .toast{
-  position:fixed;
-  left:50%;
-  bottom:25px;
-  transform:translate(-50%,30px);
-  background:#24161b;
-  color:white;
-  padding:12px 20px;
-  border-radius:30px;
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
-  z-index:5000;
-  font-size:14px;
-  text-align:center;
-  max-width:90%;
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translate(-50%,120px);
+    background:#2d211f;
+    color:white;
+    padding:12px 20px;
+    border-radius:999px;
+    z-index:3000;
+    opacity:0;
+    transition:.3s ease;
+    font-size:13px;
 }
 
 .toast.show{
-  opacity:1;
-  transform:translate(-50%,0);
+    opacity:1;
+    transform:translate(-50%,0);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+
+/* =========================================================
+   20. EMPTY STATE
+   ========================================================= */
+
+.empty-state{
+    grid-column:1/-1;
+    text-align:center;
+    padding:60px 20px;
+    color:var(--muted);
+}
+
+.empty-state h3{
+    font-family:Georgia, serif;
+    font-size:25px;
+    color:var(--text);
+    margin-bottom:8px;
+}
+
+
+/* =========================================================
+   21. RESPONSIVE DESIGN
+   ========================================================= */
 
 @media(max-width:1050px){
 
-  .products-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
+    .products-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
 
-  .features{
-    grid-template-columns:repeat(2,1fr);
-  }
+    .why-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
 }
 
 @media(max-width:800px){
 
-  .nav-links{
-    display:none;
-  }
+    .nav-links{
+        position:absolute;
+        left:20px;
+        right:20px;
+        top:85px;
+        background:white;
+        border:1px solid var(--border);
+        border-radius:18px;
+        padding:15px;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        box-shadow:var(--shadow);
+    }
 
-  .menu-btn{
-    display:grid;
-  }
+    .nav-links.show{
+        display:flex;
+    }
 
-  .mobile-menu.active{
-    display:block;
-  }
+    .nav-links a{
+        padding:12px;
+        border-bottom:1px solid var(--border);
+    }
 
-  .hero{
-    min-height:550px;
-  }
+    .nav-links a:last-child{
+        border-bottom:none;
+    }
 
-  .about-grid,
-  .contact-grid,
-  .product-modal-content,
-  .cta-inner{
-    grid-template-columns:1fr;
-  }
+    .menu-btn{
+        display:block;
+    }
 
-  .products-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
 
-  .about-image{
-    height:400px;
-  }
+    /*
+       MOBILE ABOUT IMAGE
+       Full image visible.
+    */
+    .about-image{
+        min-height:0;
+    }
 
-  /* BIG MOBILE PRODUCT VIEW */
+    .about-image img{
+        height:auto;
+        max-height:600px;
+        object-fit:contain;
+    }
 
-  .modal-overlay{
-    padding:0;
-    align-items:stretch;
-  }
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
 
-  .modal{
-    width:100%;
-    height:100%;
-    max-height:100vh;
-    border-radius:0;
-    overflow-y:auto;
-  }
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
 
-  .product-modal-content{
-    min-height:100%;
-  }
+    .cta-box{
+        grid-template-columns:1fr;
+    }
 
-  .modal-gallery{
-    min-height:65vh;
-    padding:10px;
-  }
+    .cta-image{
+        height:300px;
+    }
 
-  .modal-main-wrap{
-    min-height:52vh;
-  }
-
-  .modal-main-image{
-    height:52vh;
-    min-height:380px;
-    border-radius:8px;
-  }
-
-  .modal-details{
-    padding:25px 20px 35px;
-  }
-
-  .modal-details h2{
-    font-size:32px;
-  }
-
-  .modal-image-nav{
-    padding:0 8px;
-  }
-
-  .modal-nav-btn{
-    width:42px;
-    height:42px;
-  }
-
-  .cta{
-    padding:0 15px 60px;
-  }
-
-  .cta-image{
-    min-height:400px;
-    height:400px;
-  }
-
-  .cta-content{
-    padding:45px 35px;
-  }
-
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
 }
 
-@media(max-width:550px){
+@media(max-width:600px){
 
-  .nav-inner{
-    height:68px;
-    padding:0 15px;
-  }
+    .container{
+        width:min(100% - 28px,1180px);
+    }
 
-  .logo{
-    height:45px;
-  }
+    .section{
+        padding:65px 0;
+    }
 
-  .announcement{
-    font-size:11px;
-  }
+    .logo-text{
+        font-size:18px;
+    }
 
-  .hero-content{
-    padding:55px 20px;
-  }
+    .logo img{
+        width:48px;
+        height:48px;
+    }
 
-  .hero-content h1{
-    font-size:50px;
-  }
+    .hero{
+        min-height:590px;
+        background-position:center;
+    }
 
-  .hero-content p{
-    font-size:15px;
-  }
+    .hero-content{
+        padding:60px 0;
+    }
 
-  .section{
-    padding:60px 15px;
-  }
+    .hero h1{
+        font-size:48px;
+    }
 
-  .section-heading h2{
-    font-size:33px;
-  }
+    .hero p{
+        font-size:15px;
+    }
 
-  .products-grid{
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-  }
+    .hero-buttons{
+        flex-direction:column;
+        align-items:stretch;
+    }
 
-  .product-info{
-    padding:12px;
-  }
+    .products-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
 
-  .product-info h3{
-    font-size:16px;
-  }
+    .product-gallery{
+        height:250px;
+    }
 
-  .price{
-    font-size:15px;
-  }
+    .product-info{
+        padding:12px;
+    }
 
-  .product-actions{
-    grid-template-columns:1fr;
-  }
+    .product-name{
+        font-size:17px;
+    }
 
-  .product-actions button{
-    padding:9px 4px;
-  }
+    .product-price{
+        font-size:17px;
+    }
 
-  .features{
-    grid-template-columns:1fr;
-  }
+    .product-actions{
+        flex-direction:column;
+    }
 
-  .shop-toolbar{
-    flex-direction:column;
-    align-items:stretch;
-  }
+    .buy-btn{
+        width:100%;
+        height:40px;
+        border-radius:999px;
+    }
 
-  .search-box{
-    max-width:none;
-  }
+    .shop-toolbar{
+        flex-direction:column;
+        align-items:stretch;
+    }
 
-  .about-image{
-    height:330px;
-    border-radius:19px;
-  }
+    .search-box{
+        max-width:none;
+    }
 
-  .about-image-badge{
-    left:20px;
-    bottom:20px;
-  }
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
 
-  .about-image-badge strong{
-    font-size:22px;
-  }
+    .why-grid{
+        grid-template-columns:1fr;
+    }
 
-  .about-text h2{
-    font-size:35px;
-  }
+    .cta-box{
+        padding:30px 22px;
+    }
 
-  .about-points{
-    grid-template-columns:1fr;
-  }
+    .cta-image{
+        height:250px;
+    }
 
-  .cta-image{
-    min-height:330px;
-    height:330px;
-  }
+    .viewer-box{
+        width:100%;
+        height:100%;
+    }
 
-  .cta-content{
-    padding:38px 25px;
-  }
+    .product-viewer{
+        padding:0;
+    }
 
-  .cta h2{
-    font-size:35px;
-  }
+    .viewer-main img{
+        border-radius:0;
+    }
 
-  .cta-buttons{
-    flex-direction:column;
-  }
+    .viewer-arrow{
+        width:42px;
+        height:42px;
+    }
 
-  .cta-buttons .btn,
-  .cta-whatsapp{
-    width:100%;
-  }
+    .viewer-prev{
+        left:8px;
+    }
 
-  .contact-card{
-    padding:24px 18px;
-    border-radius:18px;
-  }
+    .viewer-next{
+        right:8px;
+    }
 
-  .form-row{
-    grid-template-columns:1fr;
-    gap:0;
-  }
+    .viewer-close{
+        top:12px;
+        right:12px;
+    }
 
-  .contact-info-card h3,
-  .contact-form-card h3{
-    font-size:26px;
-  }
+    .viewer-bottom{
+        bottom:15px;
+        flex-direction:column-reverse;
+    }
 
-  /* PRODUCT VIEWER MOBILE */
-
-  .modal-gallery{
-    min-height:58vh;
-    padding:8px;
-  }
-
-  .modal-main-wrap{
-    min-height:50vh;
-  }
-
-  .modal-main-image{
-    height:50vh;
-    min-height:350px;
-  }
-
-  .modal-thumbs{
-    margin-top:8px;
-  }
-
-  .modal-thumb{
-    width:55px;
-    height:65px;
-  }
-
-  .modal-details{
-    padding:22px 18px 30px;
-  }
-
-  .modal-details h2{
-    font-size:29px;
-  }
-
-  .modal-price{
-    font-size:23px;
-  }
-
-  .modal-order{
-    grid-template-columns:1fr;
-  }
-
-  .footer-inner{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .whatsapp-float{
-    width:54px;
-    height:54px;
-    right:15px;
-    bottom:15px;
-  }
 }
+
+
+/* =========================================================
+   22. VERY SMALL MOBILE
+   ========================================================= */
+
+@media(max-width:390px){
+
+    .products-grid{
+        grid-template-columns:1fr;
+    }
+
+    .product-gallery{
+        height:350px;
+    }
+
+}
+
+
+/* =========================================================
+   END CSS
+   ========================================================= */
+
 </style>
 </head>
 
+
 <body>
 
-<!-- ANNOUNCEMENT -->
+
+<!-- =========================================================
+     23. ANNOUNCEMENT BAR
+     EDIT TEXT HERE
+     ========================================================= -->
+
 <div class="announcement">
-  ✨ Elegant Ethnic Wear • Everyday Comfort • Vetrox Apparel ✨
+    ✨ Elegant Everyday Wear • Easy WhatsApp Ordering • Vetrox Apparel ✨
 </div>
 
-<!-- NAVBAR -->
+
+<!-- =========================================================
+     24. NAVBAR
+     EDIT MENU ITEMS HERE
+     ========================================================= -->
+
 <header class="navbar">
 
-  <div class="nav-inner">
+    <div class="container nav-inner">
 
-    <a href="#home">
-      <img
-        class="logo"
-        src="https://i.ibb.co/wrwjjXNH/llogo.jpg"
-        alt="Vetrox Apparel Logo">
-    </a>
+        <a href="#home" class="logo">
 
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#shop">Shop</a></li>
-        <li><a href="#why">Why Us</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+            <!-- LOGO IMAGE - CHANGE HERE -->
+            <img
+                src="https://i.ibb.co/wrwjjXNH/llogo.jpg"
+                alt="Vetrox Apparel Logo"
+            >
 
-    <div class="nav-actions">
+            <span class="logo-text">
+                Vetrox Apparel
+            </span>
 
-      <button
-        class="icon-btn menu-btn"
-        onclick="toggleMobileMenu()"
-        aria-label="Menu">
-        ☰
-      </button>
+        </a>
 
-      <button
-        class="icon-btn"
-        onclick="openCart()"
-        aria-label="Shopping cart">
-        🛍
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#shop">Shop</a>
+            <a href="#why">Why Us</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <button
+                class="cart-btn"
+                onclick="openCart()"
+                aria-label="Open Cart"
+            >
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+
+            <button
+                class="menu-btn"
+                onclick="toggleMenu()"
+                aria-label="Menu"
+            >
+                ☰
+            </button>
+
+        </div>
 
     </div>
-
-  </div>
-
-  <div class="mobile-menu" id="mobileMenu">
-
-    <a href="#home" onclick="closeMobileMenu()">Home</a>
-    <a href="#about" onclick="closeMobileMenu()">About</a>
-    <a href="#shop" onclick="closeMobileMenu()">Shop</a>
-    <a href="#why" onclick="closeMobileMenu()">Why Us</a>
-    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-
-  </div>
 
 </header>
 
-<!-- HERO -->
+
+<!-- =========================================================
+     25. HERO SECTION
+     EDIT HERO TEXT IN THIS SECTION
+     ========================================================= -->
+
 <section class="hero" id="home">
 
-  <div class="hero-content">
+    <div class="container">
 
-    <small>Welcome to Vetrox Apparel</small>
+        <div class="hero-content">
 
-    <h1>
-      Elegant.<br>
-      Everyday.<br>
-      You.
-    </h1>
+            <div class="hero-small">
+                Welcome to Vetrox Apparel
+            </div>
 
-    <p>
-      Discover beautiful women's ethnic wear designed
-      to bring comfort, confidence and elegance to every day.
-    </p>
+            <h1>
+                Elegance<br>
+                in Every Thread.
+            </h1>
 
-    <a href="#shop" class="btn btn-primary">
-      Explore Collection →
-    </a>
+            <p>
+                Discover beautiful everyday ethnic wear designed
+                to make you feel comfortable, confident and elegant.
+            </p>
 
-  </div>
+            <div class="hero-buttons">
+
+                <a
+                    href="#shop"
+                    class="btn btn-light"
+                >
+                    Shop Collection →
+                </a>
+
+                <a
+                    href="https://wa.me/919484696506"
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+                    WhatsApp Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-<!-- ABOUT -->
+
+<!-- =========================================================
+     26. ABOUT SECTION
+     
+     ⭐ ABOUT IMAGE CHANGE KARVA MATE AA URL CHANGE KARO
+     
+     Current:
+     https://i.ibb.co/Kj9GwF1r/Gemini-Generated-Image-rk9rqirk9rqirk9r.png
+     ========================================================= -->
+
 <section class="section about" id="about">
 
-  <div class="container">
+    <div class="container about-grid">
 
-    <div class="about-grid">
 
-      <div class="about-image">
+        <!-- ABOUT IMAGE -->
+        <div class="about-image">
 
-        <img
-          src="https://i.ibb.co/Kj9GwF1r/Gemini-Generated-Image-rk9rqirk9rqirk9r.png"
-          alt="Vetrox Apparel Collection">
+            <!-- ===============================
+                 ⭐ CHANGE ABOUT IMAGE HERE
+                 =============================== -->
 
-        <div class="about-image-badge">
-          <small>VETROX APPAREL</small>
-          <strong>Elegance in Every Thread</strong>
-        </div>
+            <img
+                src="https://i.ibb.co/Kj9GwF1r/Gemini-Generated-Image-rk9rqirk9rqirk9r.png"
+                alt="Vetrox Apparel"
+            >
 
-      </div>
+            <div class="about-badge">
 
-      <div class="about-text">
+                <strong>
+                    VETROX APPAREL
+                </strong>
 
-        <span>About Vetrox</span>
+                <span>
+                    Elegance in Every Thread
+                </span>
 
-        <h2>
-          Made for your
-          <em>everyday elegance.</em>
-        </h2>
-
-        <p>
-          Vetrox Apparel brings together stylish and comfortable
-          ethnic wear for women who love effortless fashion.
-        </p>
-
-        <p>
-          From graceful kurtis to beautiful everyday outfits,
-          every collection is selected with attention to style,
-          comfort and quality.
-        </p>
-
-        <div class="about-points">
-
-          <div class="about-point">
-            <div class="about-point-icon">✦</div>
-            <div>
-              <strong>Curated Styles</strong>
-              <small>Beautifully selected collections</small>
             </div>
-          </div>
-
-          <div class="about-point">
-            <div class="about-point-icon">♡</div>
-            <div>
-              <strong>Comfort First</strong>
-              <small>Style that feels good</small>
-            </div>
-          </div>
 
         </div>
 
-        <a href="#shop" class="btn btn-dark">
-          Shop Collection →
-        </a>
 
-      </div>
+        <!-- ABOUT TEXT -->
+        <div class="about-content">
+
+            <span class="section-tag">
+                About Us
+            </span>
+
+            <h2>
+                Style that feels<br>
+                like you.
+            </h2>
+
+            <p>
+                Vetrox Apparel brings together elegant designs,
+                comfortable fabrics and timeless ethnic styles
+                for the modern woman.
+            </p>
+
+            <p>
+                From everyday kurtis to beautiful kurta sets,
+                every piece is selected with comfort, quality
+                and effortless style in mind.
+            </p>
+
+
+            <div class="feature-grid">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        ✨
+                    </div>
+
+                    <strong>
+                        Elegant Designs
+                    </strong>
+
+                    <span>
+                        Carefully selected styles
+                    </span>
+
+                </div>
+
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        ♡
+                    </div>
+
+                    <strong>
+                        Comfort First
+                    </strong>
+
+                    <span>
+                        Easy everyday fashion
+                    </span>
+
+                </div>
+
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        ✓
+                    </div>
+
+                    <strong>
+                        Quality Focus
+                    </strong>
+
+                    <span>
+                        Selected with care
+                    </span>
+
+                </div>
+
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        📦
+                    </div>
+
+                    <strong>
+                        Easy Ordering
+                    </strong>
+
+                    <span>
+                        Order directly on WhatsApp
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
-<!-- SHOP -->
-<section class="section shop" id="shop">
 
-  <div class="container">
+<!-- =========================================================
+     27. WHY US SECTION
+     EDIT CARDS HERE
+     ========================================================= -->
 
-    <div class="section-heading">
-
-      <span>Our Collection</span>
-
-      <h2>Shop Vetrox</h2>
-
-      <p>
-        Choose your favourite style from our latest collection.
-      </p>
-
-    </div>
-
-    <div class="shop-toolbar">
-
-      <div class="search-box">
-
-        <span class="search-icon">⌕</span>
-
-        <input
-          type="search"
-          id="searchInput"
-          placeholder="Search products..."
-          oninput="searchProducts()">
-
-      </div>
-
-      <div class="product-count" id="productCount">
-        18 products
-      </div>
-
-    </div>
-
-    <div
-      class="products-grid"
-      id="productsGrid">
-    </div>
-
-  </div>
-
-</section>
-
-<!-- WHY US -->
 <section class="section why" id="why">
 
-  <div class="container">
+    <div class="container">
 
-    <div class="section-heading">
+        <div class="section-head">
 
-      <span>Why Vetrox</span>
+            <span class="section-tag">
+                Why Vetrox
+            </span>
 
-      <h2>Simple. Beautiful. Reliable.</h2>
+            <h2 class="section-title">
+                Made for your everyday elegance
+            </h2>
 
-      <p>
-        Everything you need for an easy shopping experience.
-      </p>
+            <p class="section-description">
+                Simple shopping, beautiful styles and personal
+                service from Vetrox Apparel.
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    👗
+                </div>
+
+                <h3>
+                    Trendy Styles
+                </h3>
+
+                <p>
+                    Modern ethnic styles for every occasion.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    💕
+                </div>
+
+                <h3>
+                    Comfortable
+                </h3>
+
+                <p>
+                    Designs selected for everyday comfort.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    💬
+                </div>
+
+                <h3>
+                    Easy Ordering
+                </h3>
+
+                <p>
+                    Place your order directly through WhatsApp.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Personal Service
+                </h3>
+
+                <p>
+                    Friendly assistance whenever you need it.
+                </p>
+
+            </div>
+
+
+        </div>
 
     </div>
-
-    <div class="features">
-
-      <div class="feature">
-        <div class="feature-icon">✨</div>
-        <h3>Curated Styles</h3>
-        <p>
-          Beautiful ethnic styles selected for everyday fashion.
-        </p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">♡</div>
-        <h3>Comfort First</h3>
-        <p>
-          Styles that are made to feel as good as they look.
-        </p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">💬</div>
-        <h3>Easy Ordering</h3>
-        <p>
-          Place your order easily through WhatsApp.
-        </p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">🤝</div>
-        <h3>Personal Service</h3>
-        <p>
-          Direct communication for a simple local shopping experience.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
 
-<!-- CTA -->
+
+<!-- =========================================================
+     28. SHOP SECTION
+     ========================================================= -->
+
+<section class="section shop" id="shop">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <span class="section-tag">
+                Our Collection
+            </span>
+
+            <h2 class="section-title">
+                Shop Your Style
+            </h2>
+
+            <p class="section-description">
+                Explore our collection of elegant everyday ethnic wear.
+            </p>
+
+        </div>
+
+
+        <div class="shop-toolbar">
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    🔍
+                </span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search products..."
+                    oninput="renderProducts()"
+                >
+
+            </div>
+
+
+            <div class="product-count" id="productCount">
+                0 products
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCTS WILL BE GENERATED HERE -->
+
+        <div
+            class="products-grid"
+            id="productsGrid"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     29. CTA SECTION
+     EDIT IMAGE + TEXT HERE
+     ========================================================= -->
+
 <section class="cta">
 
-  <div class="cta-inner">
+    <div class="container">
 
-    <div class="cta-image">
+        <div class="cta-box">
 
-      <span class="cta-product-tag">
-        Featured Collection • 970
-      </span>
+            <div>
 
-      <img
-        src="https://i.ibb.co/ymCmnhGt/Copy-of-13-1-1.jpg"
-        alt="Vetrox Apparel 970 Collection">
+                <span class="section-tag" style="color:#f6d9c8;">
+                    Order Easily
+                </span>
 
-    </div>
+                <h2>
+                    Found something you love?
+                </h2>
 
-    <div class="cta-content">
+                <p>
+                    Add it to your cart and place your order
+                    directly through WhatsApp.
+                </p>
 
-      <div class="cta-kicker">
-        Find Your Style
-      </div>
+                <a
+                    href="#shop"
+                    class="btn btn-light"
+                >
+                    Explore Collection →
+                </a>
 
-      <h2>
-        Something beautiful
-        <em>is waiting for you.</em>
-      </h2>
+            </div>
 
-      <p>
-        Discover elegant everyday ethnic wear curated by
-        Vetrox Apparel. Choose your favourite style and
-        place your order directly through WhatsApp.
-      </p>
 
-      <div class="cta-buttons">
+            <!-- CTA IMAGE - EDIT HERE -->
 
-        <a href="#shop" class="btn btn-primary">
-          Shop Collection →
-        </a>
+            <div class="cta-image">
 
-        <a
-          href="#"
-          class="cta-whatsapp"
-          onclick="openWhatsApp(event)">
+                <img
+                    src="https://i.ibb.co/ymCmnhGt/Copy-of-13-1-1.jpg"
+                    alt="Vetrox Collection"
+                >
 
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20.52 3.48A11.78 11.78 0 0 0 12.05 0C5.55 0 .26 5.29.26 11.79c0 2.08.54 4.11 1.57 5.9L.16 24l6.45-1.69a11.79 11.79 0 0 0 5.44 1.38h.01c6.5 0 11.79-5.29 11.79-11.79 0-3.15-1.23-6.11-3.33-8.42ZM12.06 21.67h-.01a9.83 9.83 0 0 1-5.01-1.37l-.36-.21-3.83 1 1.02-3.73-.23-.38a9.84 9.84 0 0 1-1.51-5.2C2.13 6.36 6.58 1.91 12.06 1.91c2.65 0 5.14 1.03 7.01 2.9a9.84 9.84 0 0 1 2.9 7.01c0 5.48-4.45 9.85-9.91 9.85Zm5.42-7.38c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.46-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.21 5.08 4.5.71.31 1.27.5 1.7.64.71.23 1.35.2 1.86.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
-          </svg>
+            </div>
 
-          WhatsApp Us
-
-        </a>
-
-      </div>
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
-<!-- CONTACT -->
+
+<!-- =========================================================
+     30. CONTACT SECTION
+     ⭐ CONTACT DETAILS CHANGE HERE
+     ========================================================= -->
+
 <section class="section contact" id="contact">
 
-  <div class="container">
+    <div class="container">
 
-    <div class="section-heading">
+        <div class="section-head">
 
-      <span>Get In Touch</span>
-
-      <h2>We'd Love To Hear From You</h2>
-
-      <p>
-        Have a question, want to place an order, or need help choosing a style?
-        Send us a message.
-      </p>
-
-    </div>
-
-    <div class="contact-grid">
-
-      <div class="contact-card contact-info-card">
-
-        <h3>Contact Vetrox</h3>
-
-        <p class="contact-intro">
-          Connect with Vetrox Apparel through WhatsApp, Instagram or Email.
-          We are happy to help you with your orders and enquiries.
-        </p>
-
-        <a
-          href="https://wa.me/919484696506"
-          target="_blank"
-          rel="noopener"
-          class="contact-link">
-
-          <div class="contact-icon whatsapp-icon">
-
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.52 3.48A11.78 11.78 0 0 0 12.05 0C5.55 0 .26 5.29.26 11.79c0 2.08.54 4.11 1.57 5.9L.16 24l6.45-1.69a11.79 11.79 0 0 0 5.44 1.38h.01c6.5 0 11.79-5.29 11.79-11.79 0-3.15-1.23-6.11-3.33-8.42ZM12.06 21.67h-.01a9.83 9.83 0 0 1-5.01-1.37l-.36-.21-3.83 1 1.02-3.73-.23-.38a9.84 9.84 0 0 1-1.51-5.2C2.13 6.36 6.58 1.91 12.06 1.91c2.65 0 5.14 1.03 7.01 2.9a9.84 9.84 0 0 1 2.9 7.01c0 5.48-4.45 9.85-9.91 9.85Zm5.42-7.38c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.46-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.21 5.08 4.5.71.31 1.27.5 1.7.64.71.23 1.35.2 1.86.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
-            </svg>
-
-          </div>
-
-          <div>
-            <strong>WhatsApp</strong>
-            <span>+91 94846 96506</span>
-          </div>
-
-          <div class="contact-arrow">→</div>
-
-        </a>
-
-        <a
-          href="https://www.instagram.com/vetrox_apparel/"
-          target="_blank"
-          rel="noopener"
-          class="contact-link">
-
-          <div class="contact-icon instagram-icon">
-
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="3" y="3" width="18" height="18" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1"/>
-            </svg>
-
-          </div>
-
-          <div>
-            <strong>Instagram</strong>
-            <span>@vetrox_apparel</span>
-          </div>
-
-          <div class="contact-arrow">→</div>
-
-        </a>
-
-        <a
-          href="mailto:vetroxapperel@gmail.com"
-          class="contact-link">
-
-          <div class="contact-icon email-icon">
-            ✉
-          </div>
-
-          <div>
-            <strong>Email</strong>
-            <span>vetroxapperel@gmail.com</span>
-          </div>
-
-          <div class="contact-arrow">→</div>
-
-        </a>
-
-        <div class="contact-service-box">
-
-          <div class="service-check">
-            ✓
-          </div>
-
-          <div>
-            <strong>Need help with your order?</strong>
-            <span>
-              Send us your details and our team will get back to you.
+            <span class="section-tag">
+                Contact
             </span>
-          </div>
+
+            <h2 class="section-title">
+                Let's Connect
+            </h2>
+
+            <p class="section-description">
+                Have a question? Contact us directly.
+            </p>
 
         </div>
 
-      </div>
 
-      <div class="contact-card contact-form-card">
+        <div class="contact-grid">
 
-        <div class="form-header">
 
-          <span>QUICK ENQUIRY</span>
+            <div class="contact-info">
 
-          <h3>How Can We Help?</h3>
 
-          <p>
-            Fill in your details and send your enquiry directly to us on WhatsApp.
-          </p>
+                <!-- WHATSAPP -->
 
-        </div>
+                <a
+                    href="https://wa.me/919484696506"
+                    target="_blank"
+                    class="contact-card"
+                >
 
-        <form onsubmit="submitContactForm(event)">
+                    <div class="contact-icon">
+                        💬
+                    </div>
 
-          <div class="form-row">
+                    <div>
 
-            <div class="form-group">
+                        <strong>
+                            WhatsApp
+                        </strong>
 
-              <label for="contactName">
-                Customer Name *
-              </label>
+                        <span>
+                            +91 94846 96506
+                        </span>
 
-              <input
-                type="text"
-                id="contactName"
-                placeholder="Enter your name"
-                required>
+                    </div>
+
+                </a>
+
+
+                <!-- INSTAGRAM -->
+
+                <a
+                    href="https://www.instagram.com/vetrox_apparel/"
+                    target="_blank"
+                    class="contact-card"
+                >
+
+                    <div class="contact-icon">
+                        📷
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Instagram
+                        </strong>
+
+                        <span>
+                            @vetrox_apparel
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <!-- EMAIL -->
+
+                <a
+                    href="mailto:vetroxapperel@gmail.com"
+                    class="contact-card"
+                >
+
+                    <div class="contact-icon">
+                        ✉️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Email
+                        </strong>
+
+                        <span>
+                            vetroxapperel@gmail.com
+                        </span>
+
+                    </div>
+
+                </a>
+
 
             </div>
 
-            <div class="form-group">
 
-              <label for="contactPhone">
-                Mobile Number *
-              </label>
+            <!-- CONTACT FORM -->
 
-              <input
-                type="tel"
-                id="contactPhone"
-                placeholder="Enter mobile number"
-                maxlength="10"
-                inputmode="numeric"
-                required>
+            <form
+                class="contact-form"
+                onsubmit="sendContactMessage(event)"
+            >
 
-            </div>
+                <div class="form-group">
 
-          </div>
+                    <label>
+                        Your Name
+                    </label>
 
-          <div class="form-group">
+                    <input
+                        type="text"
+                        id="contactName"
+                        placeholder="Enter your name"
+                        required
+                    >
 
-            <label for="contactDescription">
-              Description / Message *
-            </label>
+                </div>
 
-            <textarea
-              id="contactDescription"
-              placeholder="Tell us what you are looking for..."
-              required></textarea>
 
-          </div>
+                <div class="form-group">
 
-          <button
-            type="submit"
-            class="contact-submit">
+                    <label>
+                        Phone Number
+                    </label>
 
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.52 3.48A11.78 11.78 0 0 0 12.05 0C5.55 0 .26 5.29.26 11.79c0 2.08.54 4.11 1.57 5.9L.16 24l6.45-1.69a11.79 11.79 0 0 0 5.44 1.38h.01c6.5 0 11.79-5.29 11.79-11.79 0-3.15-1.23-6.11-3.33-8.42ZM12.06 21.67h-.01a9.83 9.83 0 0 1-5.01-1.37l-.36-.21-3.83 1 1.02-3.73-.23-.38a9.84 9.84 0 0 1-1.51-5.2C2.13 6.36 6.58 1.91 12.06 1.91c2.65 0 5.14 1.03 7.01 2.9a9.84 9.84 0 0 1 2.9 7.01c0 5.48-4.45 9.85-9.91 9.85Zm5.42-7.38c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.46-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.21 5.08 4.5.71.31 1.27.5 1.7.64.71.23 1.35.2 1.86.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
-            </svg>
+                    <input
+                        type="tel"
+                        id="contactPhone"
+                        placeholder="Enter phone number"
+                        required
+                    >
 
-            Send Enquiry on WhatsApp
+                </div>
 
-          </button>
 
-        </form>
+                <div class="form-group">
 
-        <div class="form-note">
-          🔒 Your details are used only to respond to your enquiry.
+                    <label>
+                        Message
+                    </label>
+
+                    <textarea
+                        id="contactMessage"
+                        placeholder="Write your message..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="width:100%;"
+                >
+                    Send on WhatsApp →
+                </button>
+
+            </form>
+
+
         </div>
-
-      </div>
 
     </div>
-
-  </div>
 
 </section>
 
-<!-- FOOTER -->
-<footer>
 
-  <div class="footer-inner">
+<!-- =========================================================
+     31. FOOTER
+     EDIT FOOTER HERE
+     ========================================================= -->
 
-    <img
-      class="footer-logo"
-      src="https://i.ibb.co/wrwjjXNH/llogo.jpg"
-      alt="Vetrox Apparel">
+<footer class="footer">
 
-    <div class="footer-copy">
-      © <span id="year"></span>
-      Vetrox Apparel. All rights reserved.
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <h3>
+                    Vetrox Apparel
+                </h3>
+
+                <p>
+                    Elegant everyday ethnic wear designed
+                    for comfort, confidence and style.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <div class="footer-links">
+
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#shop">Shop</a>
+                    <a href="#why">Why Us</a>
+                    <a href="#contact">Contact</a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Connect
+                </h3>
+
+                <div class="footer-links">
+
+                    <a
+                        href="https://wa.me/919484696506"
+                        target="_blank"
+                    >
+                        WhatsApp
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/vetrox_apparel/"
+                        target="_blank"
+                    >
+                        Instagram
+                    </a>
+
+                    <a
+                        href="mailto:vetroxapperel@gmail.com"
+                    >
+                        Email
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © <span id="year"></span> Vetrox Apparel.
+            All Rights Reserved.
+
+        </div>
+
     </div>
-
-    <div class="footer-socials">
-
-      <a
-        href="https://wa.me/919484696506"
-        target="_blank"
-        rel="noopener"
-        aria-label="WhatsApp">
-
-        <svg viewBox="0 0 24 24" fill="currentColor" width="18">
-          <path d="M20.52 3.48A11.78 11.78 0 0 0 12.05 0C5.55 0 .26 5.29.26 11.79c0 2.08.54 4.11 1.57 5.9L.16 24l6.45-1.69a11.79 11.79 0 0 0 5.44 1.38h.01c6.5 0 11.79-5.29 11.79-11.79 0-3.15-1.23-6.11-3.33-8.42ZM12.06 21.67h-.01a9.83 9.83 0 0 1-5.01-1.37l-.36-.21-3.83 1 1.02-3.73-.23-.38a9.84 9.84 0 0 1-1.51-5.2C2.13 6.36 6.58 1.91 12.06 1.91c2.65 0 5.14 1.03 7.01 2.9a9.84 9.84 0 0 1 2.9 7.01c0 5.48-4.45 9.85-9.91 9.85Zm5.42-7.38c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.46-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.21 5.08 4.5.71.31 1.27.5 1.7.64.71.23 1.35.2 1.86.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
-        </svg>
-
-      </a>
-
-      <a
-        href="https://www.instagram.com/vetrox_apparel/"
-        target="_blank"
-        rel="noopener"
-        aria-label="Instagram">
-
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18">
-          <rect x="3" y="3" width="18" height="18" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="1"/>
-        </svg>
-
-      </a>
-
-      <a
-        href="mailto:vetroxapperel@gmail.com"
-        aria-label="Email">
-        ✉
-      </a>
-
-    </div>
-
-  </div>
 
 </footer>
 
-<!-- FLOATING WHATSAPP -->
+
+<!-- =========================================================
+     32. FLOATING WHATSAPP
+     ========================================================= -->
+
 <a
-  class="whatsapp-float"
-  href="#"
-  onclick="openWhatsApp(event)"
-  aria-label="WhatsApp">
-
-  <svg viewBox="0 0 24 24" fill="currentColor">
-    <path d="M20.52 3.48A11.78 11.78 0 0 0 12.05 0C5.55 0 .26 5.29.26 11.79c0 2.08.54 4.11 1.57 5.9L.16 24l6.45-1.69a11.79 11.79 0 0 0 5.44 1.38h.01c6.5 0 11.79-5.29 11.79-11.79 0-3.15-1.23-6.11-3.33-8.42ZM12.06 21.67h-.01a9.83 9.83 0 0 1-5.01-1.37l-.36-.21-3.83 1 1.02-3.73-.23-.38a9.84 9.84 0 0 1-1.51-5.2C2.13 6.36 6.58 1.91 12.06 1.91c2.65 0 5.14 1.03 7.01 2.9a9.84 9.84 0 0 1 2.9 7.01c0 5.48-4.45 9.85-9.91 9.85Zm5.42-7.38c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.46-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.21 5.08 4.5.71.31 1.27.5 1.7.64.71.23 1.35.2 1.86.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
-  </svg>
-
+    href="https://wa.me/919484696506"
+    target="_blank"
+    class="whatsapp-float"
+    aria-label="WhatsApp"
+>
+    💬
 </a>
 
-<!-- PRODUCT VIEWER MODAL -->
+
+<!-- =========================================================
+     33. CART MODAL
+     ========================================================= -->
+
 <div
-  class="modal-overlay"
-  id="productModal">
+    class="modal"
+    id="cartModal"
+    onclick="closeModalOutside(event,'cartModal')"
+>
 
-  <div class="modal">
+    <div class="modal-box">
 
-    <button
-      class="close-modal"
-      onclick="closeProductModal()"
-      aria-label="Close">
-      ×
-    </button>
+        <div class="modal-header">
 
-    <div class="product-modal-content">
-
-      <div class="modal-gallery">
-
-        <div class="modal-main-wrap">
-
-          <img
-            id="modalMainImage"
-            class="modal-main-image"
-            src=""
-            alt="Product">
-
-          <div class="modal-image-nav">
+            <h3>
+                Your Cart
+            </h3>
 
             <button
-              class="modal-nav-btn"
-              onclick="changeModalImage(-1)"
-              aria-label="Previous image">
-              ‹
+                class="close-btn"
+                onclick="closeModal('cartModal')"
+            >
+                ✕
             </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <div id="cartItems"></div>
+
+            <div
+                class="cart-summary"
+                id="cartSummary"
+            ></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     34. CHECKOUT MODAL
+     ========================================================= -->
+
+<div
+    class="modal"
+    id="checkoutModal"
+    onclick="closeModalOutside(event,'checkoutModal')"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>
+                Order Details
+            </h3>
 
             <button
-              class="modal-nav-btn"
-              onclick="changeModalImage(1)"
-              aria-label="Next image">
-              ›
+                class="close-btn"
+                onclick="closeModal('checkoutModal')"
+            >
+                ✕
             </button>
 
-          </div>
-
-          <div
-            class="modal-photo-counter"
-            id="modalPhotoCounter">
-            1 / 1
-          </div>
-
         </div>
 
-        <div
-          class="modal-thumbs"
-          id="modalThumbs">
+
+        <div class="modal-body">
+
+            <div class="checkout-note">
+                Your order will be sent directly to Vetrox Apparel on WhatsApp.
+            </div>
+
+
+            <form onsubmit="placeOrder(event)">
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Mobile Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="Your mobile number"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        id="customerAddress"
+                        placeholder="Complete delivery address"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Extra Note
+                    </label>
+
+                    <textarea
+                        id="customerNote"
+                        placeholder="Optional"
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="width:100%;"
+                >
+                    Place Order on WhatsApp →
+                </button>
+
+            </form>
+
         </div>
-
-      </div>
-
-      <div class="modal-details">
-
-        <small>Vetrox Apparel</small>
-
-        <h2 id="modalProductName"></h2>
-
-        <div
-          class="modal-price"
-          id="modalProductPrice">
-        </div>
-
-        <p>
-          Beautifully selected ethnic wear from the Vetrox
-          collection. Browse all available photos and choose
-          your favourite style.
-        </p>
-
-        <div class="modal-order">
-
-          <button
-            class="btn btn-dark"
-            id="modalAddButton">
-            Add to Cart
-          </button>
-
-          <button
-            class="btn btn-primary"
-            id="modalWhatsAppButton">
-            WhatsApp
-          </button>
-
-        </div>
-
-      </div>
 
     </div>
 
-  </div>
-
 </div>
 
-<!-- CART MODAL -->
+
+<!-- =========================================================
+     35. PRODUCT LARGE IMAGE VIEWER
+     ========================================================= -->
+
 <div
-  class="modal-overlay"
-  id="cartModal">
+    class="modal product-viewer"
+    id="productViewer"
+    onclick="closeViewerOutside(event)"
+>
 
-  <div class="modal cart-modal">
+    <div class="viewer-box">
 
-    <button
-      class="close-modal"
-      onclick="closeCart()">
-      ×
-    </button>
+        <button
+            class="viewer-close"
+            onclick="closeProductViewer()"
+        >
+            ✕
+        </button>
 
-    <h2>Your Cart</h2>
 
-    <div
-      class="cart-items"
-      id="cartItems">
+        <button
+            class="viewer-arrow viewer-prev"
+            onclick="viewerPrev(event)"
+        >
+            ‹
+        </button>
+
+
+        <div class="viewer-main">
+
+            <img
+                id="viewerImage"
+                src=""
+                alt="Product"
+            >
+
+        </div>
+
+
+        <button
+            class="viewer-arrow viewer-next"
+            onclick="viewerNext(event)"
+        >
+            ›
+        </button>
+
+
+        <div class="viewer-bottom">
+
+            <div
+                class="viewer-counter"
+                id="viewerCounter"
+            >
+                1 / 1
+            </div>
+
+            <div
+                class="viewer-thumbs"
+                id="viewerThumbs"
+            ></div>
+
+        </div>
+
     </div>
 
-    <div class="cart-total">
-
-      <span>Total</span>
-
-      <span id="cartTotal">
-        ₹0
-      </span>
-
-    </div>
-
-    <button
-      class="btn btn-dark"
-      style="width:100%;"
-      onclick="openCheckout()">
-
-      Proceed to Order
-
-    </button>
-
-  </div>
-
 </div>
 
-<!-- CHECKOUT MODAL -->
+
+<!-- =========================================================
+     36. TOAST
+     ========================================================= -->
+
 <div
-  class="modal-overlay"
-  id="checkoutModal">
-
-  <div class="modal checkout-modal">
-
-    <button
-      class="close-modal"
-      onclick="closeCheckout()">
-      ×
-    </button>
-
-    <h2>Order Details</h2>
-
-    <form onsubmit="submitOrder(event)">
-
-      <div class="form-group">
-
-        <label>Your Name *</label>
-
-        <input
-          type="text"
-          id="customerName"
-          required
-          placeholder="Enter your name">
-
-      </div>
-
-      <div class="form-group">
-
-        <label>Phone Number *</label>
-
-        <input
-          type="tel"
-          id="customerPhone"
-          required
-          maxlength="10"
-          inputmode="numeric"
-          placeholder="Enter phone number">
-
-      </div>
-
-      <div class="form-group">
-
-        <label>Delivery Address *</label>
-
-        <textarea
-          id="customerAddress"
-          required
-          placeholder="Enter your complete address"></textarea>
-
-      </div>
-
-      <div class="form-group">
-
-        <label>Note / Size / Other Details</label>
-
-        <textarea
-          id="customerNote"
-          placeholder="Example: Size M, preferred colour, etc."></textarea>
-
-      </div>
-
-      <button
-        type="submit"
-        class="btn btn-dark"
-        style="width:100%;">
-
-        Send Order on WhatsApp
-
-      </button>
-
-    </form>
-
-  </div>
-
+    class="toast"
+    id="toast"
+>
+    Added to cart
 </div>
 
-<!-- TOAST -->
-<div
-  class="toast"
-  id="toast">
-</div>
 
 <script>
 
 /* =========================================================
-   WHATSAPP
-========================================================= */
-
-const WHATSAPP_NUMBER = "919484696506";
-
-
-/* =========================================================
-   PRODUCTS
-========================================================= */
+   =========================================================
+   37. PRODUCT DATA
+   ⭐⭐⭐ PRODUCTS EDIT KARVA MATE AA SECTION ⭐⭐⭐
+   
+   Product add/remove/change:
+   - id
+   - name
+   - price
+   - images
+   
+   Aa section sivay product card manually edit karvani
+   jarur nathi.
+   =========================================================
+   ========================================================= */
 
 const products = [
 
-{
-id:"970",
-name:"970",
-price:1299,
-images:[
-"https://i.ibb.co/ymCmnhGt/Copy-of-13-1-1.jpg",
-"https://i.ibb.co/JMC9V6S/Copy-of-13.jpg",
-"https://i.ibb.co/XkMD44TV/Copy-of-13-4.jpg",
-"https://i.ibb.co/fWPFgfW/Copy-of-13-6.jpg",
-"https://i.ibb.co/Z1LNS3Yt/Copy-of-13-7.jpg",
-"https://i.ibb.co/Df0ykh0c/Copy-of-13-10.jpg"
-]
-},
+    {
+        id:"970",
+        name:"970",
+        price:1299,
+        images:[
+            "https://i.ibb.co/ymCmnhGt/Copy-of-13-1-1.jpg",
+            "https://i.ibb.co/JMC9V6S/Copy-of-13.jpg",
+            "https://i.ibb.co/XkMD44TV/Copy-of-13-4.jpg",
+            "https://i.ibb.co/fWPFgfW/Copy-of-13-6.jpg",
+            "https://i.ibb.co/Z1LNS3Yt/Copy-of-13-7.jpg",
+            "https://i.ibb.co/Df0ykh0c/Copy-of-13-10.jpg"
+        ]
+    },
 
-{
-id:"1008",
-name:"1008",
-price:899,
-images:[
-"https://i.ibb.co/Q7TMNKGG/2.jpg",
-"https://i.ibb.co/PGLwwjPd/3-2.jpg",
-"https://i.ibb.co/5hgXHxv3/4-3.jpg",
-"https://i.ibb.co/0T0dJH0/5-2.jpg",
-"https://i.ibb.co/xK7jFRn8/6-2.jpg"
-]
-},
+    {
+        id:"1008",
+        name:"1008",
+        price:899,
+        images:[
+            "https://i.ibb.co/Q7TMNKGG/2.jpg",
+            "https://i.ibb.co/PGLwwjPd/3-2.jpg",
+            "https://i.ibb.co/5hgXHxv3/4-3.jpg",
+            "https://i.ibb.co/0T0dJH0/5-2.jpg",
+            "https://i.ibb.co/xK7jFRn8/6-2.jpg"
+        ]
+    },
 
-{
-id:"1026",
-name:"1026",
-price:999,
-images:[
-"https://i.ibb.co/qLCrjKnn/1-2.jpg",
-"https://i.ibb.co/N6LWm5Bb/2-4.jpg",
-"https://i.ibb.co/3m7vBrTY/3-3.jpg",
-"https://i.ibb.co/JRwrKTrC/4-4.jpg",
-"https://i.ibb.co/7N6gh9j8/7.jpg"
-]
-},
+    {
+        id:"1026",
+        name:"1026",
+        price:999,
+        images:[
+            "https://i.ibb.co/qLCrjKnn/1-2.jpg",
+            "https://i.ibb.co/N6LWm5Bb/2-4.jpg",
+            "https://i.ibb.co/3m7vBrTY/3-3.jpg",
+            "https://i.ibb.co/JRwrKTrC/4-4.jpg",
+            "https://i.ibb.co/7N6gh9j8/7.jpg"
+        ]
+    },
 
-{
-id:"chetna-pink",
-name:"Chetna Pink",
-price:699,
-images:[
-"https://i.ibb.co/k2NgP5p7/1-3.png",
-"https://i.ibb.co/5gjkHD4v/2.png",
-"https://i.ibb.co/DP9jBj4X/3-1.png",
-"https://i.ibb.co/1f2wRkB9/4-1.png",
-"https://i.ibb.co/cKNmPMfx/6-2.png"
-]
-},
+    {
+        id:"chetna-pink",
+        name:"Chetna Pink",
+        price:699,
+        images:[
+            "https://i.ibb.co/k2NgP5p7/1-3.png",
+            "https://i.ibb.co/5gjkHD4v/2.png",
+            "https://i.ibb.co/DP9jBj4X/3-1.png",
+            "https://i.ibb.co/1f2wRkB9/4-1.png",
+            "https://i.ibb.co/cKNmPMfx/6-2.png"
+        ]
+    },
 
-{
-id:"falak",
-name:"Falak",
-price:849,
-images:[
-"https://i.ibb.co/TBDk8673/1-5.png",
-"https://i.ibb.co/GvkNKDr7/2-2.png",
-"https://i.ibb.co/gFmTgsdv/3-3.png",
-"https://i.ibb.co/pvV0ckTd/4-2.png",
-"https://i.ibb.co/x8C8ygk8/5-1.png",
-"https://i.ibb.co/FbZGtt4w/6-2.png",
-"https://i.ibb.co/6L392VN/7-1.png",
-"https://i.ibb.co/3yBksJ2c/8.png"
-]
-},
+    {
+        id:"falak",
+        name:"Falak",
+        price:849,
+        images:[
+            "https://i.ibb.co/TBDk8673/1-5.png",
+            "https://i.ibb.co/GvkNKDr7/2-2.png",
+            "https://i.ibb.co/gFmTgsdv/3-3.png",
+            "https://i.ibb.co/pvV0ckTd/4-2.png",
+            "https://i.ibb.co/x8C8ygk8/5-1.png",
+            "https://i.ibb.co/FbZGtt4w/6-2.png",
+            "https://i.ibb.co/6L392VN/7-1.png",
+            "https://i.ibb.co/3yBksJ2c/8.png"
+        ]
+    },
 
-{
-id:"jiyana-cream",
-name:"Jiyana Cream",
-price:699,
-images:[
-"https://i.ibb.co/wZqFrJb9/01.jpg",
-"https://i.ibb.co/Kp115JNB/02.jpg",
-"https://i.ibb.co/s7tjChV/03.jpg",
-"https://i.ibb.co/Nwc949Q/05.jpg",
-"https://i.ibb.co/RGXVZbf2/06.jpg",
-"https://i.ibb.co/7Jr4CjVj/07.jpg"
-]
-},
+    {
+        id:"jiyana-cream",
+        name:"Jiyana Cream",
+        price:699,
+        images:[
+            "https://i.ibb.co/wZqFrJb9/01.jpg",
+            "https://i.ibb.co/Kp115JNB/02.jpg",
+            "https://i.ibb.co/s7tjChV/03.jpg",
+            "https://i.ibb.co/Nwc949Q/05.jpg",
+            "https://i.ibb.co/RGXVZbf2/06.jpg",
+            "https://i.ibb.co/7Jr4CjVj/07.jpg"
+        ]
+    },
 
-{
-id:"jyoti",
-name:"Jyoti",
-price:899,
-images:[
-"https://i.ibb.co/zTt0RtdZ/1.jpg",
-"https://i.ibb.co/8gdRxfgD/2-1.jpg",
-"https://i.ibb.co/SX5jF5GZ/3.jpg",
-"https://i.ibb.co/p6gCxvqz/4-1.jpg",
-"https://i.ibb.co/CpstLt1z/5.jpg",
-"https://i.ibb.co/h1wXQryj/6.jpg"
-]
-},
+    {
+        id:"jyoti",
+        name:"Jyoti",
+        price:899,
+        images:[
+            "https://i.ibb.co/zTt0RtdZ/1.jpg",
+            "https://i.ibb.co/8gdRxfgD/2-1.jpg",
+            "https://i.ibb.co/SX5jF5GZ/3.jpg",
+            "https://i.ibb.co/p6gCxvqz/4-1.jpg",
+            "https://i.ibb.co/CpstLt1z/5.jpg",
+            "https://i.ibb.co/h1wXQryj/6.jpg"
+        ]
+    },
 
-{
-id:"jyoti-dark",
-name:"Jyoti Dark",
-price:899,
-images:[
-"https://i.ibb.co/dwjKGcDv/1-1.png",
-"https://i.ibb.co/xtJyn0RC/2-4.png",
-"https://i.ibb.co/hRjNFhX3/3-5.png",
-"https://i.ibb.co/3yL6n8s0/4-4.png",
-"https://i.ibb.co/ZRgBbnyC/5-3.png",
-"https://i.ibb.co/ZpKtBbvq/6-4.png",
-"https://i.ibb.co/jkM7dRvQ/7-2.png"
-]
-},
+    {
+        id:"jyoti-dark",
+        name:"Jyoti Dark",
+        price:899,
+        images:[
+            "https://i.ibb.co/dwjKGcDv/1-1.png",
+            "https://i.ibb.co/xtJyn0RC/2-4.png",
+            "https://i.ibb.co/hRjNFhX3/3-5.png",
+            "https://i.ibb.co/3yL6n8s0/4-4.png",
+            "https://i.ibb.co/ZRgBbnyC/5-3.png",
+            "https://i.ibb.co/ZpKtBbvq/6-4.png",
+            "https://i.ibb.co/jkM7dRvQ/7-2.png"
+        ]
+    },
 
-{
-id:"lavya",
-name:"Lavya",
-price:949,
-images:[
-"https://i.ibb.co/prsXW86Q/1-2.png",
-"https://i.ibb.co/RTmgWprR/2.png",
-"https://i.ibb.co/C39WpnTL/4.png",
-"https://i.ibb.co/wZ7BFdX5/5.png",
-"https://i.ibb.co/XrKF4X9c/12.jpg"
-]
-},
+    {
+        id:"lavya",
+        name:"Lavya",
+        price:949,
+        images:[
+            "https://i.ibb.co/prsXW86Q/1-2.png",
+            "https://i.ibb.co/RTmgWprR/2.png",
+            "https://i.ibb.co/C39WpnTL/4.png",
+            "https://i.ibb.co/wZ7BFdX5/5.png",
+            "https://i.ibb.co/XrKF4X9c/12.jpg"
+        ]
+    },
 
-{
-id:"m-jiyaa-maroon",
-name:"M Jiyaa Maroon",
-price:899,
-images:[
-"https://i.ibb.co/zhKFsytM/1.jpg",
-"https://i.ibb.co/S4nZXq14/2-1.jpg",
-"https://i.ibb.co/qLh7T1ZW/4-1.jpg",
-"https://i.ibb.co/36BmB83/7.png"
-]
-},
+    {
+        id:"m-jiyaa-maroon",
+        name:"M Jiyaa Maroon",
+        price:899,
+        images:[
+            "https://i.ibb.co/zhKFsytM/1.jpg",
+            "https://i.ibb.co/S4nZXq14/2-1.jpg",
+            "https://i.ibb.co/qLh7T1ZW/4-1.jpg",
+            "https://i.ibb.co/36BmB83/7.png"
+        ]
+    },
 
-{
-id:"m-jugni",
-name:"M Jugni",
-price:949,
-images:[
-"https://i.ibb.co/Wv7PSNrj/1.jpg",
-"https://i.ibb.co/4BbdYGZ/2.jpg",
-"https://i.ibb.co/zWsQMYtp/3.jpg",
-"https://i.ibb.co/nNF3xBLP/4.jpg",
-"https://i.ibb.co/RptBgpx6/5.png",
-"https://i.ibb.co/BMKj8xC/6.jpg"
-]
-},
+    {
+        id:"m-jugni",
+        name:"M Jugni",
+        price:949,
+        images:[
+            "https://i.ibb.co/Wv7PSNrj/1.jpg",
+            "https://i.ibb.co/4BbdYGZ/2.jpg",
+            "https://i.ibb.co/zWsQMYtp/3.jpg",
+            "https://i.ibb.co/nNF3xBLP/4.jpg",
+            "https://i.ibb.co/RptBgpx6/5.png",
+            "https://i.ibb.co/BMKj8xC/6.jpg"
+        ]
+    },
 
-{
-id:"neha",
-name:"Neha",
-price:699,
-images:[
-"https://i.ibb.co/Xx5CnF9G/1.png",
-"https://i.ibb.co/M5gX2Dt5/2.png",
-"https://i.ibb.co/nsJjh534/3-1.png"
-]
-},
+    {
+        id:"neha",
+        name:"Neha",
+        price:699,
+        images:[
+            "https://i.ibb.co/Xx5CnF9G/1.png",
+            "https://i.ibb.co/M5gX2Dt5/2.png",
+            "https://i.ibb.co/nsJjh534/3-1.png"
+        ]
+    },
 
-{
-id:"parii",
-name:"Parii",
-price:799,
-images:[
-"https://i.ibb.co/G3BPLFs3/file-00000000d0f471faa71dd6d36c6771d6.png",
-"https://i.ibb.co/fzW9VJNV/Untitled-5-1.jpg",
-"https://i.ibb.co/tpfD1GCp/Untitled-7.jpg",
-"https://i.ibb.co/rKgQnpyC/Untitled-8.jpg",
-"https://i.ibb.co/m5X1b2SV/Untitled-10.jpg",
-"https://i.ibb.co/CK3NQrHt/Untitled-12.jpg"
-]
-},
+    {
+        id:"parii",
+        name:"Parii",
+        price:799,
+        images:[
+            "https://i.ibb.co/G3BPLFs3/file-00000000d0f471faa71dd6d36c6771d6.png",
+            "https://i.ibb.co/fzW9VJNV/Untitled-5-1.jpg",
+            "https://i.ibb.co/tpfD1GCp/Untitled-7.jpg",
+            "https://i.ibb.co/rKgQnpyC/Untitled-8.jpg",
+            "https://i.ibb.co/m5X1b2SV/Untitled-10.jpg",
+            "https://i.ibb.co/CK3NQrHt/Untitled-12.jpg"
+        ]
+    },
 
-{
-id:"priti",
-name:"Priti",
-price:610,
-images:[
-"https://i.ibb.co/KjkfCC6T/1-3.png",
-"https://i.ibb.co/Xkt4fRzs/2.png",
-"https://i.ibb.co/JjJK9K9W/3-1.png",
-"https://i.ibb.co/QvdKkRhW/4-1.png",
-"https://i.ibb.co/DD1JKvJ0/5.png",
-"https://i.ibb.co/Y4tGB01B/6-2.png"
-]
-},
+    {
+        id:"priti",
+        name:"Priti",
+        price:610,
+        images:[
+            "https://i.ibb.co/KjkfCC6T/1-3.png",
+            "https://i.ibb.co/Xkt4fRzs/2.png",
+            "https://i.ibb.co/JjJK9K9W/3-1.png",
+            "https://i.ibb.co/QvdKkRhW/4-1.png",
+            "https://i.ibb.co/DD1JKvJ0/5.png",
+            "https://i.ibb.co/Y4tGB01B/6-2.png"
+        ]
+    },
 
-{
-id:"radha",
-name:"Radha",
-price:999,
-images:[
-"https://i.ibb.co/V0CPVWL2/1-1.jpg",
-"https://i.ibb.co/HD6myTm7/2-2.jpg",
-"https://i.ibb.co/7J3w3Q0c/3-1.jpg",
-"https://i.ibb.co/s9403QwP/4.jpg",
-"https://i.ibb.co/yms7qG71/5-1.jpg",
-"https://i.ibb.co/xtrF2jsw/6-1.jpg"
-]
-},
+    {
+        id:"radha",
+        name:"Radha",
+        price:999,
+        images:[
+            "https://i.ibb.co/V0CPVWL2/1-1.jpg",
+            "https://i.ibb.co/HD6myTm7/2-2.jpg",
+            "https://i.ibb.co/7J3w3Q0c/3-1.jpg",
+            "https://i.ibb.co/s9403QwP/4.jpg",
+            "https://i.ibb.co/yms7qG71/5-1.jpg",
+            "https://i.ibb.co/xtrF2jsw/6-1.jpg"
+        ]
+    },
 
-{
-id:"rohini",
-name:"Rohini",
-price:799,
-images:[
-"https://i.ibb.co/vxYQFqvZ/1-6.png",
-"https://i.ibb.co/7tGSsJLS/2-3.png",
-"https://i.ibb.co/kVdcZQhP/3-4.png",
-"https://i.ibb.co/Lh26y8Hg/4-3.png",
-"https://i.ibb.co/Rp04tZTJ/5-2.png",
-"https://i.ibb.co/6c1jddZy/6-3.png"
-]
-},
+    {
+        id:"rohini",
+        name:"Rohini",
+        price:799,
+        images:[
+            "https://i.ibb.co/vxYQFqvZ/1-6.png",
+            "https://i.ibb.co/7tGSsJLS/2-3.png",
+            "https://i.ibb.co/kVdcZQhP/3-4.png",
+            "https://i.ibb.co/Lh26y8Hg/4-3.png",
+            "https://i.ibb.co/Rp04tZTJ/5-2.png",
+            "https://i.ibb.co/6c1jddZy/6-3.png"
+        ]
+    },
 
-{
-id:"roopa",
-name:"Roopa",
-price:949,
-images:[
-"https://i.ibb.co/tM9H0CkH/1.jpg",
-"https://i.ibb.co/pBvWmg6c/2.jpg",
-"https://i.ibb.co/gMs3gY8C/3.jpg",
-"https://i.ibb.co/6cXBSXc2/4.jpg",
-"https://i.ibb.co/1jP9YFy/5.png"
-]
-},
+    {
+        id:"roopa",
+        name:"Roopa",
+        price:949,
+        images:[
+            "https://i.ibb.co/tM9H0CkH/1.jpg",
+            "https://i.ibb.co/pBvWmg6c/2.jpg",
+            "https://i.ibb.co/gMs3gY8C/3.jpg",
+            "https://i.ibb.co/6cXBSXc2/4.jpg",
+            "https://i.ibb.co/1jP9YFy/5.png"
+        ]
+    },
 
-{
-id:"uma",
-name:"Uma",
-price:799,
-images:[
-"https://i.ibb.co/DDQGK9MF/1-4.png",
-"https://i.ibb.co/23MMZpf6/2-1.png",
-"https://i.ibb.co/m5WVFtkD/3-2.png",
-"https://i.ibb.co/HLCwkc7S/4-1.png",
-"https://i.ibb.co/Q7h1HvwW/5.png",
-"https://i.ibb.co/m5tzrrt3/6-1.png",
-"https://i.ibb.co/4QNXz7w/7.png"
-]
-}
+    {
+        id:"uma",
+        name:"Uma",
+        price:799,
+        images:[
+            "https://i.ibb.co/DDQGK9MF/1-4.png",
+            "https://i.ibb.co/23MMZpf6/2-1.png",
+            "https://i.ibb.co/m5WVFtkD/3-2.png",
+            "https://i.ibb.co/HLCwkc7S/4-1.png",
+            "https://i.ibb.co/Q7h1HvwW/5.png",
+            "https://i.ibb.co/m5tzrrt3/6-1.png",
+            "https://i.ibb.co/4QNXz7w/7.png"
+        ]
+    }
 
 ];
 
 
 /* =========================================================
-   VARIABLES
-========================================================= */
+   38. CART DATA
+   ========================================================= */
 
-let cart =
-JSON.parse(localStorage.getItem("vetroxCart")) || [];
+let cart = JSON.parse(
+    localStorage.getItem("vetrox_cart") || "[]"
+);
 
-let currentProduct = null;
 
-let currentModalImage = 0;
+/* =========================================================
+   39. PRODUCT GALLERY STATE
+   ========================================================= */
 
 let galleryIndexes = {};
 
+products.forEach(product => {
+    galleryIndexes[product.id] = 0;
+});
+
 
 /* =========================================================
-   HELPERS
-========================================================= */
+   40. PRODUCT VIEWER STATE
+   ========================================================= */
 
-function money(value){
-  return "₹" + value.toLocaleString("en-IN");
+let currentViewerProduct = null;
+let currentViewerIndex = 0;
+
+
+/* =========================================================
+   41. FORMAT PRICE
+   ========================================================= */
+
+function formatPrice(price){
+
+    return "₹" + Number(price).toLocaleString("en-IN");
+
 }
+
+
+/* =========================================================
+   42. RENDER PRODUCTS
+   ========================================================= */
+
+function renderProducts(){
+
+    const grid = document.getElementById("productsGrid");
+    const search = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const filtered = products.filter(product =>
+        product.name.toLowerCase().includes(search)
+    );
+
+
+    document.getElementById("productCount").textContent =
+        `${filtered.length} product${filtered.length !== 1 ? "s" : ""}`;
+
+
+    if(!filtered.length){
+
+        grid.innerHTML = `
+
+            <div class="empty-state">
+
+                <h3>
+                    No products found
+                </h3>
+
+                <p>
+                    Try searching with another product name.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    grid.innerHTML = filtered.map(product => {
+
+        const index = galleryIndexes[product.id] || 0;
+
+        return `
+
+        <article class="product-card">
+
+
+            <!-- PRODUCT IMAGE GALLERY -->
+
+            <div
+                class="product-gallery"
+                onclick="openProduct('${product.id}')"
+            >
+
+
+                <img
+                    class="product-gallery-main"
+                    id="main-${product.id}"
+                    src="${product.images[index]}"
+                    alt="${product.name}"
+                    loading="lazy"
+                >
+
+
+                ${
+                    product.images.length > 1
+                    ? `
+
+                    <button
+                        class="gallery-arrow gallery-prev"
+                        onclick="galleryPrev(event,'${product.id}')"
+                        aria-label="Previous image"
+                    >
+                        ‹
+                    </button>
+
+                    <button
+                        class="gallery-arrow gallery-next"
+                        onclick="galleryNext(event,'${product.id}')"
+                        aria-label="Next image"
+                    >
+                        ›
+                    </button>
+
+                    `
+                    : ""
+                }
+
+
+                <div class="photo-count">
+
+                    ${index + 1} / ${product.images.length}
+
+                </div>
+
+
+                ${
+                    product.images.length > 1
+                    ? `
+
+                    <div
+                        class="product-thumbs"
+                        onclick="event.stopPropagation()"
+                    >
+
+                        ${product.images.map((image,i)=>`
+
+                            <button
+                                class="product-thumb ${i === index ? "active" : ""}"
+                                onclick="setGallery(event,'${product.id}',${i})"
+                            >
+
+                                <img
+                                    src="${image}"
+                                    alt="${product.name} ${i+1}"
+                                >
+
+                            </button>
+
+                        `).join("")}
+
+                    </div>
+
+                    `
+                    : ""
+                }
+
+
+            </div>
+
+
+            <!-- PRODUCT INFORMATION -->
+
+            <div class="product-info">
+
+                <div class="product-name">
+                    ${product.name}
+                </div>
+
+                <div class="product-price">
+                    ${formatPrice(product.price)}
+                </div>
+
+
+                <div class="product-actions">
+
+                    <button
+                        class="add-cart-btn"
+                        onclick="addToCart('${product.id}')"
+                    >
+                        Add to Cart
+                    </button>
+
+
+                    <button
+                        class="buy-btn"
+                        onclick="buyNow('${product.id}')"
+                        title="Buy on WhatsApp"
+                    >
+                        💬
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </article>
+
+        `;
+
+    }).join("");
+
+}
+
+
+/* =========================================================
+   43. PRODUCT GALLERY FUNCTIONS
+   ========================================================= */
+
+function updateProductGallery(productId){
+
+    const product = products.find(p => p.id === productId);
+
+    if(!product) return;
+
+    const index = galleryIndexes[productId] || 0;
+
+    const image = document.getElementById(`main-${productId}`);
+
+    if(image){
+        image.src = product.images[index];
+    }
+
+
+    renderProducts();
+
+}
+
+
+function galleryPrev(event, productId){
+
+    event.stopPropagation();
+
+    const product = products.find(p => p.id === productId);
+
+    if(!product) return;
+
+    let index = galleryIndexes[productId] || 0;
+
+    index--;
+
+    if(index < 0){
+        index = product.images.length - 1;
+    }
+
+    galleryIndexes[productId] = index;
+
+    renderProducts();
+
+}
+
+
+function galleryNext(event, productId){
+
+    event.stopPropagation();
+
+    const product = products.find(p => p.id === productId);
+
+    if(!product) return;
+
+    let index = galleryIndexes[productId] || 0;
+
+    index++;
+
+    if(index >= product.images.length){
+        index = 0;
+    }
+
+    galleryIndexes[productId] = index;
+
+    renderProducts();
+
+}
+
+
+function setGallery(event, productId, index){
+
+    event.stopPropagation();
+
+    galleryIndexes[productId] = index;
+
+    renderProducts();
+
+}
+
+
+/* =========================================================
+   44. LARGE PRODUCT VIEWER
+   ========================================================= */
+
+function openProduct(productId){
+
+    const product = products.find(p => p.id === productId);
+
+    if(!product) return;
+
+    currentViewerProduct = product;
+    currentViewerIndex = galleryIndexes[productId] || 0;
+
+    updateViewer();
+
+    document
+        .getElementById("productViewer")
+        .classList.add("show");
+
+    document.body.classList.add("no-scroll");
+
+}
+
+
+function updateViewer(){
+
+    if(!currentViewerProduct) return;
+
+    const image = document.getElementById("viewerImage");
+
+    image.src =
+        currentViewerProduct.images[currentViewerIndex];
+
+    image.alt =
+        currentViewerProduct.name;
+
+
+    document.getElementById("viewerCounter").textContent =
+        `${currentViewerIndex + 1} / ${currentViewerProduct.images.length}`;
+
+
+    document.getElementById("viewerThumbs").innerHTML =
+
+        currentViewerProduct.images.map((src,index)=>`
+
+            <button
+                class="viewer-thumb ${index === currentViewerIndex ? "active" : ""}"
+                onclick="viewerGo(event,${index})"
+            >
+
+                <img
+                    src="${src}"
+                    alt=""
+                >
+
+            </button>
+
+        `).join("");
+
+}
+
+
+function viewerGo(event,index){
+
+    event.stopPropagation();
+
+    currentViewerIndex = index;
+
+    updateViewer();
+
+}
+
+
+function viewerPrev(event){
+
+    event.stopPropagation();
+
+    if(!currentViewerProduct) return;
+
+    currentViewerIndex--;
+
+    if(currentViewerIndex < 0){
+        currentViewerIndex =
+            currentViewerProduct.images.length - 1;
+    }
+
+    updateViewer();
+
+}
+
+
+function viewerNext(event){
+
+    event.stopPropagation();
+
+    if(!currentViewerProduct) return;
+
+    currentViewerIndex++;
+
+    if(currentViewerIndex >= currentViewerProduct.images.length){
+        currentViewerIndex = 0;
+    }
+
+    updateViewer();
+
+}
+
+
+function closeProductViewer(){
+
+    document
+        .getElementById("productViewer")
+        .classList.remove("show");
+
+    document.body.classList.remove("no-scroll");
+
+    currentViewerProduct = null;
+
+}
+
+
+function closeViewerOutside(event){
+
+    if(event.target.id === "productViewer"){
+        closeProductViewer();
+    }
+
+}
+
+
+/* =========================================================
+   45. TOUCH SWIPE FOR PRODUCT VIEWER
+   ========================================================= */
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+const viewerMain =
+    document.querySelector(".viewer-main");
+
+
+viewerMain.addEventListener("touchstart",function(event){
+
+    touchStartX =
+        event.changedTouches[0].screenX;
+
+});
+
+
+viewerMain.addEventListener("touchend",function(event){
+
+    touchEndX =
+        event.changedTouches[0].screenX;
+
+    const difference =
+        touchEndX - touchStartX;
+
+    if(Math.abs(difference) < 50) return;
+
+    if(difference < 0){
+        viewerNext(event);
+    }else{
+        viewerPrev(event);
+    }
+
+});
+
+
+/* =========================================================
+   46. CART FUNCTIONS
+   ========================================================= */
+
+function addToCart(productId){
+
+    const product =
+        products.find(p => p.id === productId);
+
+    if(!product) return;
+
+
+    const existing =
+        cart.find(item => item.id === productId);
+
+
+    if(existing){
+
+        existing.qty++;
+
+    }else{
+
+        cart.push({
+            id:product.id,
+            qty:1
+        });
+
+    }
+
+
+    saveCart();
+
+    showToast(`${product.name} added to cart`);
+
+}
+
+
+function removeFromCart(productId){
+
+    cart =
+        cart.filter(item => item.id !== productId);
+
+    saveCart();
+
+    renderCart();
+
+}
+
+
+function changeQty(productId, amount){
+
+    const item =
+        cart.find(item => item.id === productId);
+
+    if(!item) return;
+
+    item.qty += amount;
+
+    if(item.qty <= 0){
+
+        cart =
+            cart.filter(item => item.id !== productId);
+
+    }
+
+    saveCart();
+
+    renderCart();
+
+}
+
 
 function saveCart(){
 
-  localStorage.setItem(
-    "vetroxCart",
-    JSON.stringify(cart)
-  );
-
-  updateCartCount();
-}
-
-function showToast(message){
-
-  const toast =
-  document.getElementById("toast");
-
-  toast.textContent = message;
-
-  toast.classList.add("show");
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer =
-  setTimeout(
-    () => toast.classList.remove("show"),
-    2200
-  );
-}
-
-
-/* =========================================================
-   PRODUCTS
-========================================================= */
-
-function getFilteredProducts(){
-
-  const search =
-  document
-  .getElementById("searchInput")
-  .value
-  .trim()
-  .toLowerCase();
-
-  return products.filter(product =>
-    product.name
-    .toLowerCase()
-    .includes(search)
-  );
-}
-
-
-function renderProducts(list = products){
-
-  const grid =
-  document.getElementById("productsGrid");
-
-  grid.innerHTML = "";
-
-  document.getElementById("productCount")
-  .textContent =
-  `${list.length} product${list.length !== 1 ? "s" : ""}`;
-
-  if(!list.length){
-
-    grid.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        text-align:center;
-        padding:60px 20px;
-        color:#776c70;">
-        <h3 style="
-          color:#641d2f;
-          margin-bottom:8px;">
-          No products found
-        </h3>
-        <p>
-          Try searching with another product name.
-        </p>
-      </div>
-    `;
-
-    return;
-  }
-
-  list.forEach(product => {
-
-    if(
-      galleryIndexes[product.id] === undefined
-    ){
-      galleryIndexes[product.id] = 0;
-    }
-
-    const index =
-    galleryIndexes[product.id];
-
-    const card =
-    document.createElement("article");
-
-    card.className =
-    "product-card";
-
-    card.dataset.productId =
-    product.id;
-
-    card.innerHTML = `
-
-      <div
-        class="product-gallery"
-        onclick="openProduct('${product.id}')">
-
-        <span class="product-photo-label">
-          ${product.images.length} Photos
-        </span>
-
-        <img
-          class="main-product-image"
-          src="${product.images[index]}"
-          alt="${product.name}"
-          loading="lazy">
-
-        ${
-          product.images.length > 1
-          ? `
-            <button
-              class="gallery-btn gallery-prev"
-              onclick="event.stopPropagation();changeProductImage('${product.id}',-1)"
-              aria-label="Previous photo">
-              ‹
-            </button>
-
-            <button
-              class="gallery-btn gallery-next"
-              onclick="event.stopPropagation();changeProductImage('${product.id}',1)"
-              aria-label="Next photo">
-              ›
-            </button>
-          `
-          : ""
-        }
-
-        <div
-          class="product-thumbs"
-          onclick="event.stopPropagation()">
-
-          ${product.images.map((image,i) => `
-
-            <img
-              src="${image}"
-              class="product-thumb ${i === index ? "active" : ""}"
-              alt="${product.name} photo ${i + 1}"
-              onclick="selectProductImage('${product.id}',${i})">
-
-          `).join("")}
-
-        </div>
-
-        <span class="photo-count">
-          ${index + 1} / ${product.images.length}
-        </span>
-
-      </div>
-
-      <div class="product-info">
-
-        <h3>${product.name}</h3>
-
-        <div class="price">
-          ${money(product.price)}
-        </div>
-
-        <div class="product-actions">
-
-          <button
-            class="view-btn"
-            onclick="openProduct('${product.id}')">
-            View Product
-          </button>
-
-          <button
-            class="add-btn"
-            onclick="addToCart('${product.id}')">
-            Add to Cart
-          </button>
-
-        </div>
-
-      </div>
-    `;
-
-    grid.appendChild(card);
-
-  });
-}
-
-
-/* =========================================================
-   GALLERY
-========================================================= */
-
-function selectProductImage(id,index){
-
-  const product =
-  products.find(p => p.id === id);
-
-  if(!product) return;
-
-  galleryIndexes[id] = index;
-
-  const card =
-  document.querySelector(
-    `.product-card[data-product-id="${id}"]`
-  );
-
-  if(!card) return;
-
-  const image =
-  card.querySelector(".main-product-image");
-
-  const count =
-  card.querySelector(".photo-count");
-
-  const thumbs =
-  card.querySelectorAll(".product-thumb");
-
-  image.style.opacity = ".4";
-
-  setTimeout(() => {
-
-    image.src =
-    product.images[index];
-
-    image.style.opacity = "1";
-
-  },100);
-
-  count.textContent =
-  `${index + 1} / ${product.images.length}`;
-
-  thumbs.forEach((thumb,i) => {
-
-    thumb.classList.toggle(
-      "active",
-      i === index
+    localStorage.setItem(
+        "vetrox_cart",
+        JSON.stringify(cart)
     );
 
-  });
-}
+    updateCartCount();
 
-
-function changeProductImage(id,direction){
-
-  const product =
-  products.find(p => p.id === id);
-
-  if(!product) return;
-
-  let index =
-  galleryIndexes[id] || 0;
-
-  index += direction;
-
-  if(index < 0){
-    index =
-    product.images.length - 1;
-  }
-
-  if(index >= product.images.length){
-    index = 0;
-  }
-
-  selectProductImage(id,index);
-}
-
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
-function searchProducts(){
-
-  renderProducts(
-    getFilteredProducts()
-  );
-
-}
-
-
-/* =========================================================
-   BIG PRODUCT VIEWER
-========================================================= */
-
-function openProduct(id){
-
-  const product =
-  products.find(p => p.id === id);
-
-  if(!product) return;
-
-  currentProduct = product;
-
-  currentModalImage = 0;
-
-  document.getElementById(
-    "modalProductName"
-  ).textContent =
-  product.name;
-
-  document.getElementById(
-    "modalProductPrice"
-  ).textContent =
-  money(product.price);
-
-  renderModalImage();
-
-  renderModalThumbs();
-
-  document.getElementById(
-    "modalAddButton"
-  ).onclick = () => {
-
-    addToCart(product.id);
-
-    closeProductModal();
-
-  };
-
-  document.getElementById(
-    "modalWhatsAppButton"
-  ).onclick = () => {
-
-    orderSingleProduct(product);
-
-  };
-
-  document
-  .getElementById("productModal")
-  .classList.add("active");
-
-  document.body.classList.add("modal-open");
-}
-
-
-function renderModalImage(){
-
-  if(!currentProduct) return;
-
-  const image =
-  document.getElementById(
-    "modalMainImage"
-  );
-
-  image.style.opacity = ".3";
-
-  setTimeout(() => {
-
-    image.src =
-    currentProduct.images[currentModalImage];
-
-    image.alt =
-    `${currentProduct.name} image ${currentModalImage + 1}`;
-
-    image.style.opacity = "1";
-
-  },100);
-
-  document.getElementById(
-    "modalPhotoCounter"
-  ).textContent =
-  `${currentModalImage + 1} / ${currentProduct.images.length}`;
-
-  renderModalThumbs();
-}
-
-
-function renderModalThumbs(){
-
-  if(!currentProduct) return;
-
-  const thumbs =
-  document.getElementById(
-    "modalThumbs"
-  );
-
-  thumbs.innerHTML = "";
-
-  currentProduct.images.forEach(
-    (image,index) => {
-
-      const thumb =
-      document.createElement("img");
-
-      thumb.src = image;
-
-      thumb.className =
-      "modal-thumb" +
-      (
-        index === currentModalImage
-        ? " active"
-        : ""
-      );
-
-      thumb.alt =
-      `${currentProduct.name} photo ${index + 1}`;
-
-      thumb.onclick = () => {
-
-        currentModalImage = index;
-
-        renderModalImage();
-
-      };
-
-      thumbs.appendChild(thumb);
-
-    }
-  );
-}
-
-
-function changeModalImage(direction){
-
-  if(!currentProduct) return;
-
-  currentModalImage += direction;
-
-  if(currentModalImage < 0){
-
-    currentModalImage =
-    currentProduct.images.length - 1;
-
-  }
-
-  if(
-    currentModalImage >=
-    currentProduct.images.length
-  ){
-
-    currentModalImage = 0;
-
-  }
-
-  renderModalImage();
-}
-
-
-function closeProductModal(){
-
-  document
-  .getElementById("productModal")
-  .classList.remove("active");
-
-  document.body.classList.remove("modal-open");
-
-  currentProduct = null;
-}
-
-
-/* =========================================================
-   CART
-========================================================= */
-
-function addToCart(id){
-
-  const product =
-  products.find(p => p.id === id);
-
-  if(!product) return;
-
-  const existing =
-  cart.find(item => item.id === id);
-
-  if(existing){
-
-    existing.qty += 1;
-
-  }else{
-
-    cart.push({
-      id:product.id,
-      qty:1
-    });
-
-  }
-
-  saveCart();
-
-  showToast(
-    `${product.name} added to cart`
-  );
 }
 
 
 function updateCartCount(){
 
-  const count =
-  cart.reduce(
-    (sum,item) =>
-    sum + item.qty,
-    0
-  );
+    const count =
+        cart.reduce(
+            (total,item) => total + item.qty,
+            0
+        );
 
-  document.getElementById(
-    "cartCount"
-  ).textContent =
-  count;
+    document.getElementById("cartCount").textContent =
+        count;
+
 }
 
 
-function openCart(){
-
-  renderCart();
-
-  document
-  .getElementById("cartModal")
-  .classList.add("active");
-
-  document.body.classList.add("modal-open");
-}
-
-
-function closeCart(){
-
-  document
-  .getElementById("cartModal")
-  .classList.remove("active");
-
-  document.body.classList.remove("modal-open");
-}
-
+/* =========================================================
+   47. RENDER CART
+   ========================================================= */
 
 function renderCart(){
 
-  const container =
-  document.getElementById("cartItems");
+    const container =
+        document.getElementById("cartItems");
 
-  if(!cart.length){
+    const summary =
+        document.getElementById("cartSummary");
 
-    container.innerHTML = `
 
-      <div class="empty-cart">
+    if(!cart.length){
 
-        <div style="
-          font-size:45px;
-          margin-bottom:10px;">
-          🛍
+        container.innerHTML = `
+
+            <div class="empty-state">
+
+                <h3>
+                    Your cart is empty
+                </h3>
+
+                <p>
+                    Add some beautiful products to continue.
+                </p>
+
+            </div>
+
+        `;
+
+        summary.innerHTML = "";
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+
+    container.innerHTML = cart.map(item => {
+
+        const product =
+            products.find(p => p.id === item.id);
+
+        if(!product) return "";
+
+
+        const itemTotal =
+            product.price * item.qty;
+
+        total += itemTotal;
+
+
+        return `
+
+        <div class="cart-item">
+
+
+            <div class="cart-item-img">
+
+                <img
+                    src="${product.images[0]}"
+                    alt="${product.name}"
+                >
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    ${product.name}
+                </h4>
+
+                <div class="cart-item-price">
+                    ${formatPrice(product.price)}
+                </div>
+
+
+                <div class="qty-controls">
+
+                    <button
+                        class="qty-btn"
+                        onclick="changeQty('${product.id}',-1)"
+                    >
+                        −
+                    </button>
+
+                    <strong>
+                        ${item.qty}
+                    </strong>
+
+                    <button
+                        class="qty-btn"
+                        onclick="changeQty('${product.id}',1)"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    ${formatPrice(itemTotal)}
+                </strong>
+
+                <br>
+
+                <button
+                    class="remove-item"
+                    onclick="removeFromCart('${product.id}')"
+                >
+                    Remove
+                </button>
+
+            </div>
+
+
         </div>
 
-        <h3 style="
-          color:#641d2f;
-          margin-bottom:6px;">
-          Your cart is empty
-        </h3>
+        `;
 
-        <p>
-          Add some beautiful Vetrox styles.
-        </p>
+    }).join("");
 
-      </div>
 
-    `;
+    summary.innerHTML = `
 
-    document.getElementById(
-      "cartTotal"
-    ).textContent =
-    "₹0";
+        <div class="summary-row">
 
-    return;
-  }
+            <span>
+                Items
+            </span>
 
-  let total = 0;
+            <strong>
+                ${cart.reduce((a,b)=>a+b.qty,0)}
+            </strong>
 
-  container.innerHTML = "";
+        </div>
 
-  cart.forEach(item => {
 
-    const product =
-    products.find(
-      p => p.id === item.id
-    );
+        <div class="summary-row summary-total">
 
-    if(!product) return;
+            <span>
+                Total
+            </span>
 
-    const subtotal =
-    product.price * item.qty;
+            <strong>
+                ${formatPrice(total)}
+            </strong>
 
-    total += subtotal;
+        </div>
 
-    const div =
-    document.createElement("div");
 
-    div.className =
-    "cart-item";
-
-    div.innerHTML = `
-
-      <img
-        src="${product.images[0]}"
-        alt="${product.name}">
-
-      <div class="cart-item-info">
-
-        <h4>
-          ${product.name}
-        </h4>
-
-        <span>
-          ${money(product.price)} × ${item.qty}
-        </span>
-
-      </div>
-
-      <strong>
-        ${money(subtotal)}
-      </strong>
-
-      <button
-        class="remove-item"
-        onclick="removeFromCart('${product.id}')">
-        ×
-      </button>
+        <button
+            class="btn btn-primary checkout-btn"
+            onclick="openCheckout()"
+        >
+            Continue to Checkout →
+        </button>
 
     `;
 
-    container.appendChild(div);
-
-  });
-
-  document.getElementById(
-    "cartTotal"
-  ).textContent =
-  money(total);
-}
-
-
-function removeFromCart(id){
-
-  cart =
-  cart.filter(item =>
-    item.id !== id
-  );
-
-  saveCart();
-
-  renderCart();
-
-  showToast(
-    "Product removed"
-  );
 }
 
 
 /* =========================================================
-   CHECKOUT
-========================================================= */
+   48. OPEN CART
+   ========================================================= */
+
+function openCart(){
+
+    renderCart();
+
+    document
+        .getElementById("cartModal")
+        .classList.add("show");
+
+    document.body.classList.add("no-scroll");
+
+}
+
+
+/* =========================================================
+   49. BUY NOW
+   ========================================================= */
+
+function buyNow(productId){
+
+    const product =
+        products.find(p => p.id === productId);
+
+    if(!product) return;
+
+
+    cart = [{
+        id:productId,
+        qty:1
+    }];
+
+
+    saveCart();
+
+    openCheckout();
+
+}
+
+
+/* =========================================================
+   50. CHECKOUT
+   ========================================================= */
 
 function openCheckout(){
 
-  if(!cart.length){
+    if(!cart.length){
 
-    showToast(
-      "Your cart is empty"
-    );
+        showToast("Your cart is empty");
 
-    return;
-  }
+        return;
 
-  closeCart();
+    }
 
-  document
-  .getElementById("checkoutModal")
-  .classList.add("active");
 
-  document.body.classList.add("modal-open");
+    closeModal("cartModal");
+
+    document
+        .getElementById("checkoutModal")
+        .classList.add("show");
+
+    document.body.classList.add("no-scroll");
+
 }
 
 
-function closeCheckout(){
+function placeOrder(event){
 
-  document
-  .getElementById("checkoutModal")
-  .classList.remove("active");
-
-  document.body.classList.remove("modal-open");
-}
-
-
-function submitOrder(event){
-
-  event.preventDefault();
-
-  const name =
-  document
-  .getElementById("customerName")
-  .value.trim();
-
-  const phone =
-  document
-  .getElementById("customerPhone")
-  .value.trim();
-
-  const address =
-  document
-  .getElementById("customerAddress")
-  .value.trim();
-
-  const note =
-  document
-  .getElementById("customerNote")
-  .value.trim();
-
-  if(!/^[0-9]{10}$/.test(phone)){
-
-    showToast(
-      "Please enter a valid 10 digit mobile number."
-    );
-
-    return;
-  }
-
-  let message =
-`Hello Vetrox Apparel! 👋
-
-I would like to place an order.
-
-👤 Customer Name:
-${name}
-
-📱 Phone:
-${phone}
-
-🛍 Products:
-`;
-
-  let total = 0;
-
-  cart.forEach((item,index) => {
-
-    const product =
-    products.find(
-      p => p.id === item.id
-    );
-
-    if(!product) return;
-
-    const subtotal =
-    product.price * item.qty;
-
-    total += subtotal;
-
-    message +=
-`${index + 1}. ${product.name} × ${item.qty} — ${money(subtotal)}
-`;
-
-  });
-
-  message +=
-`
-💰 Total:
-${money(total)}
-
-📍 Delivery Address:
-${address}
-`;
-
-  if(note){
-
-    message +=
-`
-📝 Note / Size:
-${note}
-`;
-
-  }
-
-  message +=
-`
-Thank you!`;
-
-  const url =
-  `https://wa.me/${WHATSAPP_NUMBER}?text=` +
-  encodeURIComponent(message);
-
-  window.open(
-    url,
-    "_blank"
-  );
-}
-
-
-/* =========================================================
-   SINGLE PRODUCT WHATSAPP
-========================================================= */
-
-function orderSingleProduct(product){
-
-  const message =
-`Hello Vetrox Apparel! 👋
-
-I am interested in this product:
-
-🛍 Product:
-${product.name}
-
-💰 Price:
-${money(product.price)}
-
-Please share availability and order details.`;
-
-  const url =
-  `https://wa.me/${WHATSAPP_NUMBER}?text=` +
-  encodeURIComponent(message);
-
-  window.open(
-    url,
-    "_blank"
-  );
-}
-
-
-/* =========================================================
-   CONTACT FORM
-========================================================= */
-
-function submitContactForm(event){
-
-  event.preventDefault();
-
-  const name =
-  document
-  .getElementById("contactName")
-  .value.trim();
-
-  const phone =
-  document
-  .getElementById("contactPhone")
-  .value.trim();
-
-  const description =
-  document
-  .getElementById("contactDescription")
-  .value.trim();
-
-  if(!/^[0-9]{10}$/.test(phone)){
-
-    showToast(
-      "Please enter a valid 10 digit mobile number."
-    );
-
-    return;
-  }
-
-  const message =
-`Hello Vetrox Apparel! 👋
-
-I have an enquiry.
-
-👤 Customer Name:
-${name}
-
-📱 Mobile Number:
-${phone}
-
-💬 Description:
-${description}
-
-Thank you!`;
-
-  const whatsappURL =
-  `https://wa.me/${WHATSAPP_NUMBER}?text=` +
-  encodeURIComponent(message);
-
-  window.open(
-    whatsappURL,
-    "_blank"
-  );
-}
-
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
-
-function openWhatsApp(event){
-
-  if(event){
     event.preventDefault();
-  }
 
-  const message =
-  "Hello Vetrox Apparel! 👋 I would like to know more about your collection.";
 
-  const url =
-  `https://wa.me/${WHATSAPP_NUMBER}?text=` +
-  encodeURIComponent(message);
+    if(!cart.length){
 
-  window.open(
-    url,
-    "_blank"
-  );
+        showToast("Your cart is empty");
+
+        return;
+
+    }
+
+
+    const name =
+        document.getElementById("customerName").value.trim();
+
+    const phone =
+        document.getElementById("customerPhone").value.trim();
+
+    const address =
+        document.getElementById("customerAddress").value.trim();
+
+    const note =
+        document.getElementById("customerNote").value.trim();
+
+
+    let message =
+        "Hello Vetrox Apparel!%0A%0A";
+
+    message +=
+        "*New Order*%0A%0A";
+
+    message +=
+        "*Customer:* " +
+        encodeURIComponent(name) +
+        "%0A";
+
+    message +=
+        "*Phone:* " +
+        encodeURIComponent(phone) +
+        "%0A";
+
+    message +=
+        "*Address:* " +
+        encodeURIComponent(address) +
+        "%0A%0A";
+
+
+    message +=
+        "*Products:*%0A";
+
+
+    let total = 0;
+
+
+    cart.forEach((item,index)=>{
+
+        const product =
+            products.find(p => p.id === item.id);
+
+        if(!product) return;
+
+
+        const itemTotal =
+            product.price * item.qty;
+
+        total += itemTotal;
+
+
+        message +=
+            `${index + 1}. ` +
+            encodeURIComponent(product.name) +
+            ` x ${item.qty} = ` +
+            encodeURIComponent(formatPrice(itemTotal)) +
+            "%0A";
+
+    });
+
+
+    message +=
+        "%0A*Total:* " +
+        encodeURIComponent(formatPrice(total));
+
+
+    if(note){
+
+        message +=
+            "%0A%0A*Note:* " +
+            encodeURIComponent(note);
+
+    }
+
+
+    const whatsappURL =
+        "https://wa.me/919484696506?text=" +
+        message;
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+
+    cart = [];
+
+    saveCart();
+
+    closeModal("checkoutModal");
+
+    document
+        .querySelector("#checkoutModal form")
+        .reset();
+
+    showToast("Order message prepared on WhatsApp");
+
 }
 
 
 /* =========================================================
-   MOBILE MENU
-========================================================= */
+   51. CONTACT FORM
+   ========================================================= */
 
-function toggleMobileMenu(){
+function sendContactMessage(event){
 
-  document
-  .getElementById("mobileMenu")
-  .classList.toggle("active");
+    event.preventDefault();
 
-}
 
-function closeMobileMenu(){
+    const name =
+        document.getElementById("contactName").value.trim();
 
-  document
-  .getElementById("mobileMenu")
-  .classList.remove("active");
+    const phone =
+        document.getElementById("contactPhone").value.trim();
+
+    const message =
+        document.getElementById("contactMessage").value.trim();
+
+
+    const whatsappMessage =
+
+        "Hello Vetrox Apparel!%0A%0A" +
+
+        "*Name:* " +
+        encodeURIComponent(name) +
+        "%0A" +
+
+        "*Phone:* " +
+        encodeURIComponent(phone) +
+        "%0A%0A" +
+
+        "*Message:* " +
+        encodeURIComponent(message);
+
+
+    window.open(
+        "https://wa.me/919484696506?text=" +
+        whatsappMessage,
+        "_blank"
+    );
+
+
+    event.target.reset();
 
 }
 
 
 /* =========================================================
-   MODAL OUTSIDE CLICK
-========================================================= */
+   52. MODAL FUNCTIONS
+   ========================================================= */
 
-document
-.getElementById("productModal")
-.addEventListener(
-  "click",
-  function(event){
+function closeModal(id){
 
-    if(event.target === this){
-      closeProductModal();
+    document
+        .getElementById(id)
+        .classList.remove("show");
+
+    document.body.classList.remove("no-scroll");
+
+}
+
+
+function closeModalOutside(event,id){
+
+    if(event.target.id === id){
+
+        closeModal(id);
+
     }
 
-  }
-);
-
-
-document
-.getElementById("cartModal")
-.addEventListener(
-  "click",
-  function(event){
-
-    if(event.target === this){
-      closeCart();
-    }
-
-  }
-);
-
-
-document
-.getElementById("checkoutModal")
-.addEventListener(
-  "click",
-  function(event){
-
-    if(event.target === this){
-      closeCheckout();
-    }
-
-  }
-);
+}
 
 
 /* =========================================================
-   KEYBOARD
-========================================================= */
+   53. MOBILE MENU
+   ========================================================= */
 
-document.addEventListener(
-  "keydown",
-  function(event){
+function toggleMenu(){
+
+    document
+        .getElementById("navLinks")
+        .classList.toggle("show");
+
+}
+
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener("click",()=>{
+
+            document
+                .getElementById("navLinks")
+                .classList.remove("show");
+
+        });
+
+    });
+
+
+/* =========================================================
+   54. TOAST
+   ========================================================= */
+
+let toastTimer;
+
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+        setTimeout(()=>{
+
+            toast.classList.remove("show");
+
+        },2500);
+
+}
+
+
+/* =========================================================
+   55. KEYBOARD CONTROLS
+   ========================================================= */
+
+document.addEventListener("keydown",function(event){
 
     if(event.key === "Escape"){
 
-      closeProductModal();
-      closeCart();
-      closeCheckout();
+        closeProductViewer();
+
+        closeModal("cartModal");
+
+        closeModal("checkoutModal");
 
     }
+
 
     if(
-      currentProduct &&
-      document
-      .getElementById("productModal")
-      .classList.contains("active")
+        document
+        .getElementById("productViewer")
+        .classList.contains("show")
     ){
 
-      if(event.key === "ArrowLeft"){
-        changeModalImage(-1);
-      }
+        if(event.key === "ArrowLeft"){
 
-      if(event.key === "ArrowRight"){
-        changeModalImage(1);
-      }
+            viewerPrev(event);
+
+        }
+
+        if(event.key === "ArrowRight"){
+
+            viewerNext(event);
+
+        }
 
     }
 
-  }
-);
+});
 
 
 /* =========================================================
-   TOUCH SWIPE FOR PRODUCT VIEWER
-========================================================= */
+   56. INITIALIZE WEBSITE
+   ========================================================= */
 
-let touchStartX = 0;
-let touchEndX = 0;
-
-const modalImage =
-document.getElementById("modalMainImage");
-
-modalImage.addEventListener(
-  "touchstart",
-  function(event){
-
-    touchStartX =
-    event.changedTouches[0].screenX;
-
-  },
-  {passive:true}
-);
-
-modalImage.addEventListener(
-  "touchend",
-  function(event){
-
-    touchEndX =
-    event.changedTouches[0].screenX;
-
-    const difference =
-    touchEndX - touchStartX;
-
-    if(Math.abs(difference) < 45){
-      return;
-    }
-
-    if(difference < 0){
-      changeModalImage(1);
-    }else{
-      changeModalImage(-1);
-    }
-
-  },
-  {passive:true}
-);
-
-
-/* =========================================================
-   INITIALIZE
-========================================================= */
-
-document.getElementById(
-  "year"
-).textContent =
-new Date().getFullYear();
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
 renderProducts();
 
 updateCartCount();
+
+
+/* =========================================================
+   57. FINISH
+   ========================================================= */
 
 </script>
 
