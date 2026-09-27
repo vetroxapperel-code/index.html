@@ -331,10 +331,14 @@ a{
 
 .hero-buttons{
     display:flex;
-    flex-wrap:wrap;
-    gap:12px;
+    flex-wrap:nowrap;
+    align-items:center;
+    gap:14px;
 }
-
+.hero-buttons .btn{
+    white-space:nowrap;
+    min-width:max-content;
+}
 
 /* =========================================================
    06. ABOUT SECTION - EDIT HERE
