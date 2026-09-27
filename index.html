@@ -7,2424 +7,2132 @@
 <title>Vetrox Apparel | Elegant • Everyday • You</title>
 
 <meta name="description"
-content="Vetrox Apparel – Elegant everyday ethnic wear. Discover beautiful kurtis and fashion collections.">
+content="Vetrox Apparel – Elegant everyday kurtis, kurta sets and women's ethnic wear.">
 
 <style>
-/* =========================================================
-   VETROX APPAREL
-   Single-file Shopping Website
-   Pure HTML + CSS + JavaScript
-========================================================= */
-
 :root{
-    --primary:#7b1e3a;
-    --primary-dark:#541229;
-    --accent:#c99a4a;
-    --cream:#fffaf4;
-    --soft:#f8eee9;
-    --text:#282225;
-    --muted:#756b70;
-    --white:#ffffff;
-    --border:#eadfe1;
-    --shadow:0 12px 35px rgba(74,25,42,.10);
-    --radius:18px;
+  --maroon:#641d2f;
+  --dark:#24161b;
+  --gold:#c49a54;
+  --cream:#fffaf3;
+  --light:#f8efe5;
+  --white:#fff;
+  --muted:#776c70;
+  --border:#eaded5;
+  --shadow:0 12px 35px rgba(54,25,32,.10);
 }
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    color:var(--text);
-    background:#fff;
-    line-height:1.6;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--cream);
+  color:var(--dark);
+  line-height:1.5;
 }
 
 button,
 input,
-select{
-    font:inherit;
+textarea{
+  font:inherit;
 }
 
 button{
-    cursor:pointer;
+  cursor:pointer;
 }
 
 img{
-    max-width:100%;
-    display:block;
+  max-width:100%;
+  display:block;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
+/* =========================
+   ANNOUNCEMENT
+========================= */
+
+.announcement{
+  background:var(--maroon);
+  color:#fff;
+  text-align:center;
+  padding:9px 15px;
+  font-size:13px;
+  letter-spacing:.3px;
 }
 
-/* =========================================================
-   TOP BAR
-========================================================= */
-
-.topbar{
-    background:var(--primary-dark);
-    color:#fff;
-    text-align:center;
-    padding:8px 15px;
-    font-size:13px;
-    letter-spacing:.4px;
-}
-
-/* =========================================================
+/* =========================
    NAVBAR
-========================================================= */
+========================= */
 
 .navbar{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(255,255,255,.97);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,250,243,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
 }
 
 .nav-inner{
-    max-width:1200px;
-    margin:auto;
-    min-height:78px;
-    padding:10px 20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:25px;
+  max-width:1250px;
+  margin:auto;
+  height:78px;
+  padding:0 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    min-width:180px;
-}
-
-.logo img{
-    width:58px;
-    height:58px;
-    object-fit:cover;
-    border-radius:50%;
-    border:2px solid var(--accent);
-}
-
-.logo-text strong{
-    display:block;
-    color:var(--primary);
-    font-size:20px;
-    letter-spacing:.5px;
-}
-
-.logo-text span{
-    color:var(--muted);
-    font-size:11px;
-    letter-spacing:2px;
+  height:54px;
+  width:auto;
+  border-radius:8px;
+  object-fit:contain;
 }
 
 .nav-links{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:28px;
-    font-size:14px;
-    font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:28px;
+  list-style:none;
 }
 
 .nav-links a{
-    transition:.25s;
+  text-decoration:none;
+  color:var(--dark);
+  font-weight:600;
+  font-size:14px;
+  transition:.2s;
 }
 
 .nav-links a:hover{
-    color:var(--primary);
+  color:var(--maroon);
 }
 
 .nav-actions{
-    display:flex;
-    align-items:center;
-    gap:9px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 .icon-btn{
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    border:1px solid var(--border);
-    background:#fff;
-    color:var(--primary);
-    display:grid;
-    place-items:center;
-    position:relative;
-    font-size:18px;
+  border:1px solid var(--border);
+  background:#fff;
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--maroon);
+  font-size:18px;
+  position:relative;
 }
 
 .cart-count{
-    position:absolute;
-    right:-3px;
-    top:-4px;
-    background:var(--primary);
-    color:white;
-    width:19px;
-    height:19px;
-    border-radius:50%;
-    font-size:10px;
-    display:grid;
-    place-items:center;
+  position:absolute;
+  top:-5px;
+  right:-3px;
+  background:var(--maroon);
+  color:white;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  font-size:11px;
+  display:grid;
+  place-items:center;
 }
 
 .menu-btn{
-    display:none;
+  display:none;
 }
 
-/* =========================================================
+/* =========================
    HERO
-========================================================= */
+========================= */
 
 .hero{
-    min-height:650px;
-    position:relative;
-    display:flex;
-    align-items:center;
-    background:
-        linear-gradient(90deg,rgba(35,10,20,.82),rgba(35,10,20,.38),rgba(35,10,20,.08)),
-        url("https://i.ibb.co/DBkByyb/watermarked-img-3481303281193597991.png")
-        center/cover no-repeat;
+  min-height:620px;
+  background:
+    linear-gradient(90deg,rgba(35,17,23,.82),rgba(35,17,23,.30)),
+    url("https://i.ibb.co/DBkByyb/watermarked-img-3481303281193597991.png")
+    center/cover no-repeat;
+  display:flex;
+  align-items:center;
 }
 
 .hero-content{
-    max-width:1200px;
-    width:100%;
-    margin:auto;
-    padding:80px 25px;
-    color:#fff;
+  max-width:1250px;
+  width:100%;
+  margin:auto;
+  padding:70px 25px;
+  color:white;
 }
 
 .hero-content small{
-    display:inline-block;
-    border:1px solid rgba(255,255,255,.55);
-    padding:7px 14px;
-    border-radius:30px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    font-size:11px;
-    margin-bottom:20px;
+  text-transform:uppercase;
+  letter-spacing:4px;
+  color:#f0d69c;
+  font-weight:bold;
 }
 
-.hero h1{
-    font-family:Georgia,serif;
-    font-size:clamp(48px,7vw,88px);
-    line-height:1;
-    max-width:700px;
-    margin-bottom:25px;
+.hero-content h1{
+  font-family:Georgia,serif;
+  font-size:clamp(45px,7vw,82px);
+  line-height:1;
+  margin:18px 0;
+  max-width:700px;
 }
 
-.hero h1 span{
-    color:#f1cf8a;
-}
-
-.hero p{
-    max-width:580px;
-    color:rgba(255,255,255,.88);
-    font-size:17px;
-    margin-bottom:30px;
-}
-
-.hero-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
+.hero-content p{
+  max-width:570px;
+  font-size:18px;
+  color:#f8eeee;
+  margin-bottom:30px;
 }
 
 .btn{
-    border:0;
-    border-radius:999px;
-    padding:13px 23px;
-    font-weight:700;
-    transition:.25s;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
+  border:0;
+  padding:13px 21px;
+  border-radius:8px;
+  font-weight:bold;
+  transition:.2s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
 }
 
 .btn-primary{
-    background:var(--accent);
-    color:#321d10;
+  background:var(--gold);
+  color:#24161b;
 }
 
 .btn-primary:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,.2);
 }
 
-.btn-white{
-    background:#fff;
-    color:var(--primary);
+.btn-dark{
+  background:var(--maroon);
+  color:white;
 }
 
-.btn-outline{
-    background:transparent;
-    border:1px solid rgba(255,255,255,.6);
-    color:#fff;
+.btn-light{
+  background:white;
+  color:var(--maroon);
 }
 
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
+/* =========================
+   GENERAL
+========================= */
 
 .section{
-    padding:85px 20px;
+  padding:85px 20px;
 }
 
 .container{
-    max-width:1200px;
-    margin:auto;
+  max-width:1250px;
+  margin:auto;
 }
 
 .section-heading{
-    text-align:center;
-    margin-bottom:45px;
+  text-align:center;
+  margin-bottom:45px;
 }
 
-.section-heading .eyebrow{
-    color:var(--accent);
-    font-size:12px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    margin-bottom:8px;
+.section-heading span{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:bold;
 }
 
 .section-heading h2{
-    font-family:Georgia,serif;
-    color:var(--primary);
-    font-size:clamp(30px,5vw,46px);
-    margin-bottom:10px;
+  font-family:Georgia,serif;
+  font-size:42px;
+  color:var(--maroon);
+  margin:8px 0;
 }
 
 .section-heading p{
-    color:var(--muted);
-    max-width:620px;
-    margin:auto;
+  color:var(--muted);
 }
 
-/* =========================================================
+/* =========================
    ABOUT
-========================================================= */
+========================= */
 
 .about{
-    background:var(--cream);
+  background:white;
 }
 
 .about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+  align-items:center;
 }
 
 .about-image{
-    min-height:430px;
-    border-radius:30px;
-    overflow:hidden;
-    background:
-        linear-gradient(rgba(80,15,40,.1),rgba(80,15,40,.1)),
-        url("https://i.ibb.co/DBkByyb/watermarked-img-3481303281193597991.png")
-        center/cover;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
 }
 
-.about-content h2{
-    font-family:Georgia,serif;
-    color:var(--primary);
-    font-size:42px;
-    line-height:1.15;
-    margin-bottom:20px;
+.about-image img{
+  width:100%;
+  height:480px;
+  object-fit:cover;
 }
 
-.about-content p{
-    color:var(--muted);
-    margin-bottom:15px;
+.about-text span{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:bold;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
-.about-points{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-top:25px;
+.about-text h2{
+  font-family:Georgia,serif;
+  font-size:42px;
+  color:var(--maroon);
+  margin:10px 0 20px;
 }
 
-.about-point{
-    background:#fff;
-    padding:16px;
-    border-radius:14px;
-    border:1px solid var(--border);
+.about-text p{
+  color:var(--muted);
+  margin-bottom:16px;
 }
 
-.about-point strong{
-    display:block;
-    color:var(--primary);
-}
+/* =========================
+   SHOP
+========================= */
 
-/* =========================================================
-   PRODUCTS
-========================================================= */
-
-.shop-section{
-    background:#fff;
+.shop{
+  background:var(--cream);
 }
 
 .shop-toolbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-bottom:30px;
-    padding:16px;
-    border:1px solid var(--border);
-    border-radius:18px;
-    background:#fff;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:30px;
+  align-items:center;
 }
 
 .search-box{
-    flex:1;
-    min-width:230px;
-    position:relative;
+  flex:1;
+  max-width:500px;
+  position:relative;
 }
 
 .search-box input{
-    width:100%;
-    border:1px solid var(--border);
-    border-radius:999px;
-    padding:13px 18px;
-    outline:none;
+  width:100%;
+  padding:15px 18px 15px 45px;
+  border:1px solid var(--border);
+  background:white;
+  border-radius:10px;
+  outline:none;
 }
 
 .search-box input:focus{
-    border-color:var(--primary);
+  border-color:var(--gold);
+}
+
+.search-icon{
+  position:absolute;
+  left:16px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--muted);
 }
 
 .product-count{
-    color:var(--muted);
-    font-size:14px;
+  color:var(--muted);
+  font-size:14px;
 }
 
+/* =========================
+   PRODUCT GRID
+========================= */
+
 .products-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:22px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
 }
 
 .product-card{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    overflow:hidden;
-    transition:.3s;
-    box-shadow:0 5px 18px rgba(0,0,0,.03);
+  background:white;
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(50,20,30,.05);
+  transition:.25s;
 }
 
 .product-card:hover{
-    transform:translateY(-5px);
-    box-shadow:var(--shadow);
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
 }
 
 .product-gallery{
-    position:relative;
-    aspect-ratio:4/5;
-    background:#f5eceb;
-    overflow:hidden;
+  position:relative;
+  background:#f5eee8;
+  aspect-ratio:4/5;
+  overflow:hidden;
 }
 
-.product-main-image{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.45s;
+.product-gallery img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.product-card:hover .product-main-image{
-    transform:scale(1.03);
+.gallery-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:35px;
+  height:35px;
+  border:0;
+  background:rgba(255,255,255,.88);
+  border-radius:50%;
+  color:var(--maroon);
+  font-size:20px;
+  z-index:3;
+  box-shadow:0 3px 10px rgba(0,0,0,.1);
 }
 
-.photo-badge{
-    position:absolute;
-    top:12px;
-    left:12px;
-    background:rgba(255,255,255,.93);
-    color:var(--primary);
-    padding:6px 10px;
-    border-radius:30px;
-    font-size:10px;
-    font-weight:800;
+.gallery-prev{
+  left:10px;
 }
 
-.gallery-nav{
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 8px;
+.gallery-next{
+  right:10px;
 }
 
-.gallery-arrow{
-    pointer-events:auto;
-    width:34px;
-    height:34px;
-    border:0;
-    border-radius:50%;
-    background:rgba(255,255,255,.9);
-    color:var(--primary);
-    display:grid;
-    place-items:center;
-    box-shadow:0 4px 10px rgba(0,0,0,.12);
+.photo-count{
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  background:rgba(0,0,0,.65);
+  color:white;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:11px;
 }
 
 .product-info{
-    padding:17px;
+  padding:17px;
 }
 
-.product-name{
-    color:var(--text);
-    font-family:Georgia,serif;
-    font-size:20px;
-    margin-bottom:5px;
-}
-
-.product-subtitle{
-    color:var(--muted);
-    font-size:12px;
-    margin-bottom:13px;
-}
-
-.product-bottom{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
+.product-info h3{
+  font-family:Georgia,serif;
+  color:var(--maroon);
+  font-size:20px;
+  margin-bottom:5px;
 }
 
 .price{
-    color:var(--primary);
-    font-size:20px;
-    font-weight:800;
+  font-weight:bold;
+  font-size:18px;
+  color:var(--dark);
+  margin-bottom:14px;
 }
 
-.price small{
-    color:#999;
-    font-size:11px;
-    font-weight:400;
+.product-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.product-actions button{
+  padding:10px 7px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:bold;
 }
 
 .view-btn{
-    border:1px solid var(--primary);
-    background:white;
-    color:var(--primary);
-    padding:8px 13px;
-    border-radius:999px;
-    font-size:12px;
-    font-weight:700;
+  background:white;
+  border:1px solid var(--maroon);
+  color:var(--maroon);
 }
 
-.view-btn:hover{
-    background:var(--primary);
-    color:#fff;
+.add-btn{
+  background:var(--maroon);
+  color:white;
+  border:1px solid var(--maroon);
 }
 
-.no-image{
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:30px;
-    text-align:center;
-    color:var(--muted);
-}
-
-.no-image-icon{
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    background:#fff;
-    display:grid;
-    place-items:center;
-    font-size:30px;
-    margin-bottom:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
-}
-
-.no-image strong{
-    color:var(--primary);
-    display:block;
-    margin-bottom:5px;
-}
-
-.no-image span{
-    font-size:12px;
-}
-
-/* =========================================================
-   WHY VETROX
-========================================================= */
+/* =========================
+   WHY US
+========================= */
 
 .why{
-    background:var(--soft);
+  background:white;
 }
 
 .features{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
 }
 
 .feature{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:30px 22px;
-    text-align:center;
+  padding:30px 20px;
+  text-align:center;
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:var(--cream);
 }
 
 .feature-icon{
-    width:60px;
-    height:60px;
-    margin:0 auto 15px;
-    border-radius:50%;
-    background:#f7e9e7;
-    display:grid;
-    place-items:center;
-    font-size:26px;
+  width:55px;
+  height:55px;
+  margin:0 auto 15px;
+  border-radius:50%;
+  background:#f2e3d1;
+  color:var(--maroon);
+  display:grid;
+  place-items:center;
+  font-size:24px;
 }
 
 .feature h3{
-    color:var(--primary);
-    margin-bottom:7px;
-    font-size:18px;
+  color:var(--maroon);
+  margin-bottom:7px;
 }
 
 .feature p{
-    color:var(--muted);
-    font-size:13px;
+  color:var(--muted);
+  font-size:14px;
 }
 
-/* =========================================================
+/* =========================
    CTA
-========================================================= */
+========================= */
 
 .cta{
-    margin:0 20px 80px;
-    max-width:1160px;
-    margin-left:auto;
-    margin-right:auto;
-    border-radius:30px;
-    padding:65px 30px;
-    text-align:center;
-    color:#fff;
-    background:
-        linear-gradient(rgba(82,15,39,.88),rgba(82,15,39,.88)),
-        url("https://i.ibb.co/DBkByyb/watermarked-img-3481303281193597991.png")
-        center/cover;
+  background:
+    linear-gradient(90deg,rgba(100,29,47,.94),rgba(100,29,47,.82)),
+    url("https://i.ibb.co/DBkByyb/watermarked-img-3481303281193597991.png")
+    center/cover;
+  color:white;
+  text-align:center;
 }
 
 .cta h2{
-    font-family:Georgia,serif;
-    font-size:42px;
-    margin-bottom:12px;
+  font-family:Georgia,serif;
+  font-size:45px;
+  margin-bottom:10px;
 }
 
 .cta p{
-    max-width:620px;
-    margin:0 auto 25px;
-    color:rgba(255,255,255,.82);
+  margin-bottom:25px;
+  color:#f5e9e9;
 }
 
-/* =========================================================
+/* =========================
    CONTACT
-========================================================= */
+========================= */
 
 .contact{
-    background:var(--cream);
+  background:var(--cream);
 }
 
 .contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
 }
 
 .contact-card{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:22px;
-    padding:30px;
+  background:white;
+  padding:35px;
+  border-radius:16px;
+  border:1px solid var(--border);
 }
 
 .contact-card h3{
-    color:var(--primary);
-    font-family:Georgia,serif;
-    font-size:27px;
-    margin-bottom:20px;
+  color:var(--maroon);
+  font-family:Georgia,serif;
+  font-size:28px;
+  margin-bottom:18px;
 }
 
 .contact-item{
-    display:flex;
-    gap:15px;
-    align-items:flex-start;
-    padding:14px 0;
-    border-bottom:1px solid #eee;
+  display:flex;
+  gap:13px;
+  margin:17px 0;
 }
 
-.contact-item:last-child{
-    border-bottom:0;
-}
-
-.contact-icon{
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    background:#f6e8e9;
-    display:grid;
-    place-items:center;
-    flex-shrink:0;
+.contact-item-icon{
+  width:40px;
+  height:40px;
+  flex:none;
+  border-radius:50%;
+  background:#f1e1d0;
+  color:var(--maroon);
+  display:grid;
+  place-items:center;
 }
 
 .contact-item strong{
-    display:block;
-    color:var(--primary);
+  display:block;
 }
 
 .contact-item span{
-    color:var(--muted);
-    font-size:13px;
+  color:var(--muted);
+  font-size:14px;
 }
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 footer{
-    background:#29121c;
-    color:#fff;
-    padding:50px 20px 25px;
+  background:#211419;
+  color:#ddd;
+  padding:35px 20px;
 }
 
-.footer-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr;
-    gap:40px;
+.footer-inner{
+  max-width:1250px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
 
 .footer-logo{
-    font-family:Georgia,serif;
-    font-size:28px;
-    margin-bottom:12px;
+  height:42px;
+  background:white;
+  border-radius:6px;
 }
 
-.footer-about{
-    color:#cdbfc4;
-    max-width:430px;
-    font-size:13px;
+.footer-copy{
+  font-size:13px;
+  color:#aaa;
 }
 
-.footer-title{
-    color:#f1cf8a;
-    font-weight:700;
-    margin-bottom:15px;
-}
-
-.footer-links{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    color:#d8cbd0;
-    font-size:13px;
-}
-
-.footer-links a:hover{
-    color:#fff;
-}
-
-.copyright{
-    max-width:1200px;
-    margin:40px auto 0;
-    padding-top:20px;
-    border-top:1px solid rgba(255,255,255,.1);
-    color:#aa9ba1;
-    font-size:12px;
-    text-align:center;
-}
-
-/* =========================================================
+/* =========================
    FLOATING WHATSAPP
-========================================================= */
+========================= */
 
 .whatsapp-float{
-    position:fixed;
-    right:22px;
-    bottom:22px;
-    z-index:1500;
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    background:#25d366;
-    color:#fff;
-    display:grid;
-    place-items:center;
-    font-size:28px;
-    box-shadow:0 8px 25px rgba(0,0,0,.2);
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  background:#25D366;
+  color:white;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  text-decoration:none;
+  font-size:27px;
+  box-shadow:0 8px 25px rgba(0,0,0,.22);
+  z-index:900;
 }
 
-/* =========================================================
-   MODAL
-========================================================= */
+/* =========================
+   MODALS
+========================= */
 
 .modal-overlay{
-    position:fixed;
-    inset:0;
-    z-index:3000;
-    background:rgba(20,8,13,.65);
-    backdrop-filter:blur(5px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
+  position:fixed;
+  inset:0;
+  background:rgba(20,10,14,.72);
+  z-index:2000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
 .modal-overlay.active{
-    display:flex;
+  display:flex;
 }
 
 .modal{
-    width:min(900px,100%);
-    max-height:90vh;
-    overflow:auto;
-    background:#fff;
-    border-radius:25px;
-    position:relative;
+  width:min(1050px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:white;
+  border-radius:18px;
+  position:relative;
 }
 
-.modal-close{
-    position:absolute;
-    right:15px;
-    top:15px;
-    z-index:10;
-    width:40px;
-    height:40px;
-    border:0;
-    border-radius:50%;
-    background:#fff;
-    color:var(--primary);
-    font-size:22px;
-    box-shadow:0 5px 20px rgba(0,0,0,.12);
+.close-modal{
+  position:absolute;
+  top:13px;
+  right:13px;
+  z-index:20;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:0;
+  background:white;
+  color:var(--maroon);
+  font-size:22px;
+  box-shadow:0 3px 15px rgba(0,0,0,.15);
 }
 
-.modal-product{
-    display:grid;
-    grid-template-columns:1fr 1fr;
+.product-modal-content{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
 }
 
 .modal-gallery{
-    background:#f6eeee;
-    padding:25px;
+  background:#f5eee8;
+  padding:25px;
 }
 
 .modal-main-image{
-    width:100%;
-    aspect-ratio:4/5;
-    object-fit:cover;
-    border-radius:15px;
+  width:100%;
+  height:540px;
+  object-fit:contain;
+  background:#f5eee8;
+  border-radius:12px;
 }
 
 .modal-thumbs{
-    display:flex;
-    gap:8px;
-    overflow:auto;
-    margin-top:12px;
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+  overflow-x:auto;
+  padding-bottom:4px;
 }
 
 .modal-thumb{
-    width:65px;
-    height:75px;
-    border-radius:8px;
-    object-fit:cover;
-    cursor:pointer;
-    border:2px solid transparent;
+  width:65px;
+  height:75px;
+  object-fit:cover;
+  border-radius:7px;
+  border:2px solid transparent;
+  cursor:pointer;
+  flex:none;
 }
 
 .modal-thumb.active{
-    border-color:var(--primary);
+  border-color:var(--maroon);
 }
 
 .modal-details{
-    padding:50px 35px 35px;
+  padding:55px 35px 35px;
 }
 
-.modal-details .eyebrow{
-    color:var(--accent);
-    text-transform:uppercase;
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:2px;
+.modal-details small{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:bold;
 }
 
 .modal-details h2{
-    font-family:Georgia,serif;
-    color:var(--primary);
-    font-size:38px;
-    line-height:1.1;
-    margin:8px 0 10px;
-}
-
-.modal-details p{
-    color:var(--muted);
-    margin-bottom:20px;
+  font-family:Georgia,serif;
+  color:var(--maroon);
+  font-size:38px;
+  margin:8px 0;
 }
 
 .modal-price{
-    font-size:28px;
-    color:var(--primary);
-    font-weight:800;
-    margin-bottom:25px;
+  font-size:25px;
+  font-weight:bold;
+  margin:12px 0 25px;
 }
 
-.modal-actions{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
+.modal-details p{
+  color:var(--muted);
+  margin-bottom:25px;
 }
 
-/* =========================================================
+.modal-order{
+  display:flex;
+  gap:10px;
+}
+
+.modal-order button{
+  flex:1;
+}
+
+/* =========================
    CART
-========================================================= */
+========================= */
 
 .cart-modal{
-    max-width:600px;
-    padding:30px;
+  max-width:600px;
+  padding:30px;
 }
 
 .cart-modal h2{
-    font-family:Georgia,serif;
-    color:var(--primary);
-    margin-bottom:20px;
+  color:var(--maroon);
+  font-family:Georgia,serif;
+  font-size:32px;
+  margin-bottom:20px;
 }
 
 .cart-items{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
+  max-height:400px;
+  overflow:auto;
 }
 
 .cart-item{
-    display:grid;
-    grid-template-columns:65px 1fr auto;
-    gap:12px;
-    align-items:center;
-    padding:12px;
-    background:#faf5f3;
-    border-radius:14px;
+  display:flex;
+  gap:13px;
+  align-items:center;
+  padding:13px 0;
+  border-bottom:1px solid var(--border);
 }
 
 .cart-item img{
-    width:65px;
-    height:75px;
-    border-radius:8px;
-    object-fit:cover;
+  width:65px;
+  height:75px;
+  object-fit:cover;
+  border-radius:8px;
 }
 
-.cart-item h4{
-    color:var(--primary);
+.cart-item-info{
+  flex:1;
 }
 
-.cart-item p{
-    color:var(--muted);
-    font-size:12px;
+.cart-item-info h4{
+  color:var(--maroon);
+  margin-bottom:3px;
 }
 
-.cart-remove{
-    border:0;
-    background:none;
-    color:#b23b52;
-    font-size:18px;
+.cart-item-info span{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.remove-item{
+  border:0;
+  background:#f7e7e7;
+  color:#9b3044;
+  width:32px;
+  height:32px;
+  border-radius:50%;
 }
 
 .cart-total{
-    border-top:1px solid var(--border);
-    margin-top:20px;
-    padding-top:18px;
-    display:flex;
-    justify-content:space-between;
-    font-size:20px;
-    font-weight:800;
+  display:flex;
+  justify-content:space-between;
+  padding:20px 0;
+  font-size:20px;
+  font-weight:bold;
 }
 
 .empty-cart{
-    text-align:center;
-    color:var(--muted);
-    padding:30px 10px;
+  text-align:center;
+  padding:40px 10px;
+  color:var(--muted);
 }
 
-/* =========================================================
+/* =========================
    CHECKOUT
-========================================================= */
+========================= */
 
 .checkout-modal{
-    max-width:550px;
-    padding:30px;
+  max-width:650px;
+  padding:32px;
 }
 
 .checkout-modal h2{
-    font-family:Georgia,serif;
-    color:var(--primary);
-    margin-bottom:20px;
+  font-family:Georgia,serif;
+  color:var(--maroon);
+  margin-bottom:20px;
 }
 
 .form-group{
-    margin-bottom:14px;
+  margin-bottom:15px;
 }
 
 .form-group label{
-    display:block;
-    font-size:13px;
-    font-weight:700;
-    color:var(--text);
-    margin-bottom:6px;
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:6px;
 }
 
 .form-group input,
 .form-group textarea{
-    width:100%;
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:12px;
-    outline:none;
+  width:100%;
+  border:1px solid var(--border);
+  padding:13px;
+  border-radius:8px;
+  outline:none;
 }
 
 .form-group textarea{
-    min-height:90px;
-    resize:vertical;
+  resize:vertical;
+  min-height:90px;
 }
 
 .form-group input:focus,
 .form-group textarea:focus{
-    border-color:var(--primary);
+  border-color:var(--gold);
 }
 
-/* =========================================================
+/* =========================
+   MOBILE NAV
+========================= */
+
+.mobile-menu{
+  display:none;
+  background:white;
+  padding:15px 22px;
+  border-top:1px solid var(--border);
+}
+
+.mobile-menu a{
+  display:block;
+  text-decoration:none;
+  color:var(--dark);
+  padding:12px 0;
+  border-bottom:1px solid #eee;
+  font-weight:bold;
+}
+
+/* =========================
    TOAST
-========================================================= */
+========================= */
 
 .toast{
-    position:fixed;
-    left:50%;
-    bottom:25px;
-    transform:translate(-50%,20px);
-    background:#24121a;
-    color:#fff;
-    padding:12px 20px;
-    border-radius:999px;
-    opacity:0;
-    pointer-events:none;
-    transition:.3s;
-    z-index:5000;
-    font-size:13px;
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,30px);
+  background:#24161b;
+  color:white;
+  padding:12px 20px;
+  border-radius:30px;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:5000;
+  font-size:14px;
 }
 
 .toast.show{
-    opacity:1;
-    transform:translate(-50%,0);
+  opacity:1;
+  transform:translate(-50%,0);
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* =========================
+   RESPONSIVE
+========================= */
 
-@media(max-width:1000px){
+@media(max-width:1050px){
+  .products-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
 
-    .products-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .features{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .nav-links{
-        gap:15px;
-    }
+  .features{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 
-@media(max-width:760px){
+@media(max-width:800px){
 
-    .nav-inner{
-        min-height:68px;
-    }
+  .nav-links{
+    display:none;
+  }
 
-    .nav-links{
-        position:absolute;
-        top:100%;
-        left:0;
-        right:0;
-        background:#fff;
-        border-bottom:1px solid var(--border);
-        display:none;
-        flex-direction:column;
-        align-items:stretch;
-        gap:0;
-    }
+  .menu-btn{
+    display:grid;
+  }
 
-    .nav-links.active{
-        display:flex;
-    }
+  .mobile-menu.active{
+    display:block;
+  }
 
-    .nav-links a{
-        padding:14px 20px;
-        border-bottom:1px solid #f2e9ea;
-    }
+  .hero{
+    min-height:550px;
+  }
 
-    .menu-btn{
-        display:grid;
-    }
+  .about-grid,
+  .contact-grid,
+  .product-modal-content{
+    grid-template-columns:1fr;
+  }
 
-    .logo-text span{
-        display:none;
-    }
+  .products-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-    .logo img{
-        width:48px;
-        height:48px;
-    }
+  .about-image img{
+    height:350px;
+  }
 
-    .logo-text strong{
-        font-size:17px;
-    }
+  .modal-main-image{
+    height:430px;
+  }
 
-    .hero{
-        min-height:590px;
-    }
-
-    .hero-content{
-        padding:70px 20px;
-    }
-
-    .hero h1{
-        font-size:52px;
-    }
-
-    .about-grid,
-    .contact-grid,
-    .modal-product{
-        grid-template-columns:1fr;
-    }
-
-    .about-image{
-        min-height:330px;
-    }
-
-    .products-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:13px;
-    }
-
-    .product-info{
-        padding:13px;
-    }
-
-    .product-name{
-        font-size:17px;
-    }
-
-    .price{
-        font-size:17px;
-    }
-
-    .view-btn{
-        padding:7px 9px;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
-
-    .modal-details{
-        padding:25px;
-    }
+  .modal-details{
+    padding:25px;
+  }
 }
 
-@media(max-width:480px){
+@media(max-width:550px){
 
-    .topbar{
-        font-size:11px;
-    }
+  .nav-inner{
+    height:68px;
+    padding:0 15px;
+  }
 
-    .nav-actions .icon-btn:first-child{
-        display:none;
-    }
+  .logo{
+    height:45px;
+  }
 
-    .hero h1{
-        font-size:45px;
-    }
+  .announcement{
+    font-size:11px;
+  }
 
-    .hero p{
-        font-size:15px;
-    }
+  .hero-content{
+    padding:55px 20px;
+  }
 
-    .section{
-        padding:65px 14px;
-    }
+  .hero-content h1{
+    font-size:50px;
+  }
 
-    .products-grid{
-        grid-template-columns:1fr 1fr;
-    }
+  .hero-content p{
+    font-size:15px;
+  }
 
-    .features{
-        grid-template-columns:1fr;
-    }
+  .section{
+    padding:60px 15px;
+  }
 
-    .about-points{
-        grid-template-columns:1fr;
-    }
+  .section-heading h2{
+    font-size:33px;
+  }
 
-    .product-bottom{
-        align-items:flex-start;
-        flex-direction:column;
-    }
+  .products-grid{
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
 
-    .view-btn{
-        width:100%;
-    }
+  .product-info{
+    padding:12px;
+  }
 
-    .cta{
-        margin-bottom:60px;
-        padding:50px 20px;
-    }
+  .product-info h3{
+    font-size:16px;
+  }
 
-    .cta h2{
-        font-size:32px;
-    }
+  .price{
+    font-size:15px;
+  }
+
+  .product-actions{
+    grid-template-columns:1fr;
+  }
+
+  .product-actions button{
+    padding:9px 4px;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .shop-toolbar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .search-box{
+    max-width:none;
+  }
+
+  .modal-gallery{
+    padding:12px;
+  }
+
+  .modal-main-image{
+    height:370px;
+  }
+
+  .modal-details h2{
+    font-size:30px;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    text-align:center;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- =====================================================
-     TOP BAR
-===================================================== -->
+<!-- =========================
+     ANNOUNCEMENT
+========================= -->
 
-<div class="topbar">
-    ✨ Welcome to Vetrox Apparel — Elegant • Everyday • You ✨
+<div class="announcement">
+  ✨ Elegant Ethnic Wear • Everyday Comfort • Vetrox Apparel ✨
 </div>
 
-<!-- =====================================================
+<!-- =========================
      NAVBAR
-===================================================== -->
+========================= -->
 
 <header class="navbar">
-    <div class="nav-inner">
+  <div class="nav-inner">
 
-        <a href="#home" class="logo">
-            <img
-                src="https://i.ibb.co/wrwjjXNH/llogo.jpg"
-                alt="Vetrox Apparel Logo"
-            >
+    <a href="#home">
+      <img
+        class="logo"
+        src="https://i.ibb.co/wrwjjXNH/llogo.jpg"
+        alt="Vetrox Apparel Logo">
+    </a>
 
-            <div class="logo-text">
-                <strong>Vetrox Apparel</strong>
-                <span>ELEGANT • EVERYDAY • YOU</span>
-            </div>
-        </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-        <nav class="nav-links" id="navLinks">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#shop">Shop</a>
-            <a href="#why">Why Us</a>
-            <a href="#contact">Contact</a>
-        </nav>
+    <div class="nav-actions">
 
-        <div class="nav-actions">
+      <button
+        class="icon-btn menu-btn"
+        onclick="toggleMobileMenu()"
+        aria-label="Menu">
+        ☰
+      </button>
 
-            <button
-                class="icon-btn"
-                onclick="scrollToShop()"
-                aria-label="Search"
-            >
-                🔎
-            </button>
-
-            <button
-                class="icon-btn"
-                onclick="openCart()"
-                aria-label="Cart"
-            >
-                🛍️
-                <span class="cart-count" id="cartCount">0</span>
-            </button>
-
-            <button
-                class="icon-btn menu-btn"
-                onclick="toggleMenu()"
-                aria-label="Menu"
-            >
-                ☰
-            </button>
-
-        </div>
+      <button
+        class="icon-btn"
+        onclick="openCart()"
+        aria-label="Shopping cart">
+        🛍
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
 
     </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMobileMenu()">Home</a>
+    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <a href="#shop" onclick="closeMobileMenu()">Shop</a>
+    <a href="#why" onclick="closeMobileMenu()">Why Us</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  </div>
 </header>
 
-<!-- =====================================================
+<!-- =========================
      HERO
-===================================================== -->
+========================= -->
 
 <section class="hero" id="home">
+  <div class="hero-content">
 
-    <div class="hero-content">
+    <small>Welcome to Vetrox Apparel</small>
 
-        <small>Vetrox Apparel</small>
-
-        <h1>
-            Style that feels
-            <span>beautiful.</span>
-        </h1>
-
-        <p>
-            Discover elegant everyday ethnic wear designed
-            to make every moment feel special.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#shop" class="btn btn-primary">
-                Shop Collection →
-            </a>
-
-            <a href="#about" class="btn btn-outline">
-                Discover Vetrox
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section class="section about" id="about">
-
-    <div class="container">
-
-        <div class="about-grid">
-
-            <div class="about-image"></div>
-
-            <div class="about-content">
-
-                <div class="section-heading" style="text-align:left;margin-bottom:20px;">
-                    <div class="eyebrow">Our Story</div>
-                    <h2>Made for your everyday elegance.</h2>
-                </div>
-
-                <p>
-                    Welcome to Vetrox Apparel — a fashion destination
-                    for women who love elegant, comfortable and
-                    effortlessly beautiful ethnic styles.
-                </p>
-
-                <p>
-                    Explore our collection and find pieces that fit
-                    naturally into your everyday wardrobe.
-                </p>
-
-                <div class="about-points">
-
-                    <div class="about-point">
-                        <strong>✨ Elegant</strong>
-                        Beautiful styles for every occasion.
-                    </div>
-
-                    <div class="about-point">
-                        <strong>🌸 Everyday</strong>
-                        Comfortable looks for daily wear.
-                    </div>
-
-                    <div class="about-point">
-                        <strong>💫 Curated</strong>
-                        Carefully selected fashion pieces.
-                    </div>
-
-                    <div class="about-point">
-                        <strong>❤️ Personal</strong>
-                        A local business with a personal touch.
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     SHOP
-===================================================== -->
-
-<section class="section shop-section" id="shop">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="eyebrow">Vetrox Collection</div>
-
-            <h2>Shop Our Collection</h2>
-
-            <p>
-                Browse the latest Vetrox Apparel styles.
-                Each product contains its complete photo gallery.
-            </p>
-
-        </div>
-
-        <div class="shop-toolbar">
-
-            <div class="search-box">
-
-                <input
-                    type="search"
-                    id="searchInput"
-                    placeholder="Search products..."
-                    oninput="renderProducts()"
-                >
-
-            </div>
-
-            <div class="product-count" id="productCount"></div>
-
-        </div>
-
-        <div class="products-grid" id="productsGrid"></div>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     WHY VETROX
-===================================================== -->
-
-<section class="section why" id="why">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="eyebrow">Why Vetrox</div>
-
-            <h2>Fashion with a personal touch.</h2>
-
-            <p>
-                Simple shopping, beautiful styles and direct
-                communication with our customers.
-            </p>
-
-        </div>
-
-        <div class="features">
-
-            <div class="feature">
-                <div class="feature-icon">✨</div>
-                <h3>Elegant Styles</h3>
-                <p>
-                    Carefully selected styles for effortless everyday fashion.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">💝</div>
-                <h3>Personal Service</h3>
-                <p>
-                    Talk directly with us about your order and requirements.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">📦</div>
-                <h3>Easy Ordering</h3>
-                <p>
-                    Select your products and send your order directly.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">🌸</div>
-                <h3>Made for You</h3>
-                <p>
-                    Fashion designed around elegance, comfort and individuality.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     CTA
-===================================================== -->
-
-<section class="cta">
-
-    <h2>Find your next favourite look.</h2>
+    <h1>Elegant.<br>Everyday.<br>You.</h1>
 
     <p>
-        Explore the Vetrox collection and discover styles
-        that make everyday dressing feel special.
+      Discover beautiful women's ethnic wear designed
+      to bring comfort, confidence and elegance to every day.
     </p>
 
     <a href="#shop" class="btn btn-primary">
-        Explore Collection →
+      Explore Collection →
     </a>
+
+  </div>
+</section>
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section about" id="about">
+  <div class="container">
+
+    <div class="about-grid">
+
+      <div class="about-image">
+        <img
+          src="https://i.ibb.co/DBkByyb/watermarked-img-3481303281193597991.png"
+          alt="Vetrox Apparel Collection">
+      </div>
+
+      <div class="about-text">
+
+        <span>About Vetrox</span>
+
+        <h2>Made for your everyday elegance.</h2>
+
+        <p>
+          Vetrox Apparel brings together stylish and comfortable
+          ethnic wear for women who love effortless fashion.
+        </p>
+
+        <p>
+          From graceful kurtis to beautiful everyday outfits,
+          every collection is selected with attention to style,
+          comfort and quality.
+        </p>
+
+        <a href="#shop" class="btn btn-dark">
+          Shop Collection
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+     SHOP
+========================= -->
+
+<section class="section shop" id="shop">
+
+  <div class="container">
+
+    <div class="section-heading">
+      <span>Our Collection</span>
+      <h2>Shop Vetrox</h2>
+      <p>Choose your favourite style from our latest collection.</p>
+    </div>
+
+    <div class="shop-toolbar">
+
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search products..."
+          oninput="searchProducts()">
+      </div>
+
+      <div class="product-count" id="productCount">
+        18 products
+      </div>
+
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+
+  </div>
 
 </section>
 
-<!-- =====================================================
+<!-- =========================
+     WHY US
+========================= -->
+
+<section class="section why" id="why">
+
+  <div class="container">
+
+    <div class="section-heading">
+      <span>Why Vetrox</span>
+      <h2>Simple. Beautiful. Reliable.</h2>
+      <p>Everything you need for an easy shopping experience.</p>
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">✨</div>
+        <h3>Curated Styles</h3>
+        <p>Beautiful ethnic styles selected for everyday fashion.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">♡</div>
+        <h3>Comfort First</h3>
+        <p>Styles that are made to feel as good as they look.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💬</div>
+        <h3>Easy Ordering</h3>
+        <p>Place your order easily through WhatsApp.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🤝</div>
+        <h3>Personal Service</h3>
+        <p>Direct communication for a simple local shopping experience.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="section cta">
+
+  <div class="container">
+
+    <h2>Find your next favourite outfit.</h2>
+
+    <p>
+      Explore the Vetrox collection and order your favourite look today.
+    </p>
+
+    <a href="#shop" class="btn btn-primary">
+      Shop Now
+    </a>
+
+  </div>
+
+</section>
+
+<!-- =========================
      CONTACT
-===================================================== -->
+========================= -->
 
 <section class="section contact" id="contact">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="section-heading">
+    <div class="section-heading">
+      <span>Get In Touch</span>
+      <h2>Contact Vetrox</h2>
+      <p>We're happy to help you with your order.</p>
+    </div>
 
-            <div class="eyebrow">Get In Touch</div>
+    <div class="contact-grid">
 
-            <h2>We'd love to hear from you.</h2>
+      <div class="contact-card">
 
-            <p>
-                Have a question about a product or your order?
-                Contact Vetrox Apparel directly.
-            </p>
+        <h3>Let's connect</h3>
 
+        <div class="contact-item">
+          <div class="contact-item-icon">💬</div>
+          <div>
+            <strong>WhatsApp</strong>
+            <span>Message us for orders and enquiries.</span>
+          </div>
         </div>
 
-        <div class="contact-grid">
-
-            <div class="contact-card">
-
-                <h3>Contact Vetrox</h3>
-
-                <!-- Replace these placeholders with your actual details -->
-
-                <div class="contact-item">
-
-                    <div class="contact-icon">📱</div>
-
-                    <div>
-                        <strong>WhatsApp</strong>
-                        <span id="contactWhatsapp">
-                            Add your WhatsApp number
-                        </span>
-                    </div>
-
-                </div>
-
-                <div class="contact-item">
-
-                    <div class="contact-icon">✉️</div>
-
-                    <div>
-                        <strong>Email</strong>
-                        <span>Add your email address</span>
-                    </div>
-
-                </div>
-
-                <div class="contact-item">
-
-                    <div class="contact-icon">📍</div>
-
-                    <div>
-                        <strong>Location</strong>
-                        <span>Surat, Gujarat, India</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="contact-card">
-
-                <h3>Order Online</h3>
-
-                <p style="color:var(--muted);margin-bottom:20px;">
-                    Add products to your cart and use the WhatsApp
-                    order option to send your order details.
-                </p>
-
-                <button
-                    class="btn btn-primary"
-                    onclick="openCart()"
-                >
-                    View My Cart →
-                </button>
-
-            </div>
-
+        <div class="contact-item">
+          <div class="contact-item-icon">🛍</div>
+          <div>
+            <strong>Online Orders</strong>
+            <span>Choose your products and send your order directly.</span>
+          </div>
         </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">♥</div>
+          <div>
+            <strong>Vetrox Apparel</strong>
+            <span>Elegant • Everyday • You</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="contact-card">
+
+        <h3>Ready to shop?</h3>
+
+        <p style="color:var(--muted);margin-bottom:22px;">
+          Browse the collection, add your favourite products to cart
+          and place your order through WhatsApp.
+        </p>
+
+        <a href="#shop" class="btn btn-dark">
+          Browse Products →
+        </a>
+
+      </div>
 
     </div>
+
+  </div>
 
 </section>
 
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer>
 
-    <div class="footer-grid">
+  <div class="footer-inner">
 
-        <div>
+    <img
+      class="footer-logo"
+      src="https://i.ibb.co/wrwjjXNH/llogo.jpg"
+      alt="Vetrox Apparel">
 
-            <div class="footer-logo">
-                Vetrox Apparel
-            </div>
-
-            <p class="footer-about">
-                Elegant everyday fashion for women who love
-                timeless style, comfort and individuality.
-            </p>
-
-        </div>
-
-        <div>
-
-            <div class="footer-title">Quick Links</div>
-
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#shop">Shop</a>
-                <a href="#why">Why Us</a>
-                <a href="#contact">Contact</a>
-            </div>
-
-        </div>
-
-        <div>
-
-            <div class="footer-title">Shop</div>
-
-            <div class="footer-links">
-                <a href="#shop">All Products</a>
-                <a href="#shop">New Collection</a>
-                <a href="#shop">Order Online</a>
-                <a href="#contact">Contact Us</a>
-            </div>
-
-        </div>
-
+    <div class="footer-copy">
+      © <span id="year"></span> Vetrox Apparel. All rights reserved.
     </div>
 
-    <div class="copyright">
-        © <span id="year"></span> Vetrox Apparel. All rights reserved.
-    </div>
+  </div>
 
 </footer>
 
-<!-- =====================================================
-     WHATSAPP FLOATING BUTTON
-===================================================== -->
-
-<!--
-    IMPORTANT:
-    Replace YOUR_WHATSAPP_NUMBER below with your actual number.
-    Example: 919876543210
--->
+<!-- =========================
+     WHATSAPP FLOAT
+========================= -->
 
 <a
-    href="#"
-    class="whatsapp-float"
-    id="whatsappFloat"
-    onclick="openWhatsApp(event)"
-    aria-label="WhatsApp"
->
-    ☎
+  class="whatsapp-float"
+  id="whatsappFloat"
+  href="#"
+  onclick="openWhatsApp(event)"
+  aria-label="WhatsApp">
+  ☎
 </a>
 
-<!-- =====================================================
+<!-- =========================
      PRODUCT MODAL
-===================================================== -->
+========================= -->
 
 <div class="modal-overlay" id="productModal">
 
-    <div class="modal">
+  <div class="modal">
 
-        <button
-            class="modal-close"
-            onclick="closeProductModal()"
-        >
-            ×
-        </button>
+    <button class="close-modal" onclick="closeProductModal()">×</button>
 
-        <div class="modal-product">
+    <div class="product-modal-content">
 
-            <div class="modal-gallery">
+      <div class="modal-gallery">
 
-                <img
-                    id="modalMainImage"
-                    class="modal-main-image"
-                    alt=""
-                >
+        <img
+          id="modalMainImage"
+          class="modal-main-image"
+          src=""
+          alt="Product">
 
-                <div
-                    class="modal-thumbs"
-                    id="modalThumbs"
-                ></div>
+        <div class="modal-thumbs" id="modalThumbs"></div>
 
-            </div>
+      </div>
 
-            <div class="modal-details">
+      <div class="modal-details">
 
-                <div class="eyebrow">
-                    Vetrox Apparel
-                </div>
+        <small>Vetrox Apparel</small>
 
-                <h2 id="modalName"></h2>
+        <h2 id="modalProductName"></h2>
 
-                <div
-                    class="modal-price"
-                    id="modalPrice"
-                ></div>
+        <div class="modal-price" id="modalProductPrice"></div>
 
-                <p>
-                    This product is part of the Vetrox Apparel
-                    collection. Add it to your cart to place
-                    an order directly.
-                </p>
+        <p>
+          Beautifully selected ethnic wear from the Vetrox collection.
+          Browse all available photos and add this product to your cart.
+        </p>
 
-                <div class="modal-actions">
+        <div class="modal-order">
 
-                    <button
-                        class="btn btn-primary"
-                        id="modalAddButton"
-                    >
-                        Add to Cart
-                    </button>
+          <button
+            class="btn btn-dark"
+            id="modalAddButton">
+            Add to Cart
+          </button>
 
-                    <button
-                        class="btn"
-                        style="border:1px solid var(--border);"
-                        onclick="closeProductModal()"
-                    >
-                        Continue Shopping
-                    </button>
-
-                </div>
-
-            </div>
+          <button
+            class="btn btn-primary"
+            id="modalWhatsAppButton">
+            WhatsApp
+          </button>
 
         </div>
 
+      </div>
+
     </div>
+
+  </div>
 
 </div>
 
-<!-- =====================================================
+<!-- =========================
      CART MODAL
-===================================================== -->
+========================= -->
 
 <div class="modal-overlay" id="cartModal">
 
-    <div class="modal cart-modal">
+  <div class="modal cart-modal">
 
-        <button
-            class="modal-close"
-            onclick="closeCart()"
-        >
-            ×
-        </button>
+    <button class="close-modal" onclick="closeCart()">×</button>
 
-        <h2>Your Shopping Bag</h2>
+    <h2>Your Cart</h2>
 
-        <div
-            class="cart-items"
-            id="cartItems"
-        ></div>
+    <div class="cart-items" id="cartItems"></div>
 
-        <div
-            class="cart-total"
-            id="cartTotal"
-            style="display:none;"
-        >
-            <span>Total</span>
-            <span id="totalAmount">₹0</span>
-        </div>
-
-        <button
-            class="btn btn-primary"
-            id="checkoutButton"
-            style="width:100%;margin-top:20px;display:none;"
-            onclick="openCheckout()"
-        >
-            Continue to Order →
-        </button>
-
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cartTotal">₹0</span>
     </div>
+
+    <button
+      class="btn btn-dark"
+      style="width:100%;"
+      onclick="openCheckout()">
+      Proceed to Order
+    </button>
+
+  </div>
 
 </div>
 
-<!-- =====================================================
+<!-- =========================
      CHECKOUT MODAL
-===================================================== -->
+========================= -->
 
 <div class="modal-overlay" id="checkoutModal">
 
-    <div class="modal checkout-modal">
+  <div class="modal checkout-modal">
 
-        <button
-            class="modal-close"
-            onclick="closeCheckout()"
-        >
-            ×
-        </button>
+    <button class="close-modal" onclick="closeCheckout()">×</button>
 
-        <h2>Order Details</h2>
+    <h2>Order Details</h2>
 
-        <form id="checkoutForm">
+    <form onsubmit="submitOrder(event)">
 
-            <div class="form-group">
+      <div class="form-group">
+        <label>Your Name *</label>
+        <input
+          type="text"
+          id="customerName"
+          required
+          placeholder="Enter your name">
+      </div>
 
-                <label>
-                    Your Name
-                </label>
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input
+          type="tel"
+          id="customerPhone"
+          required
+          placeholder="Enter phone number">
+      </div>
 
-                <input
-                    type="text"
-                    id="customerName"
-                    placeholder="Enter your name"
-                    required
-                >
+      <div class="form-group">
+        <label>Delivery Address *</label>
+        <textarea
+          id="customerAddress"
+          required
+          placeholder="Enter your complete address"></textarea>
+      </div>
 
-            </div>
+      <div class="form-group">
+        <label>Note / Size / Other Details</label>
+        <textarea
+          id="customerNote"
+          placeholder="Example: Size M, preferred colour, etc."></textarea>
+      </div>
 
-            <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-dark"
+        style="width:100%;">
+        Send Order on WhatsApp
+      </button>
 
-                <label>
-                    Mobile Number
-                </label>
+    </form>
 
-                <input
-                    type="tel"
-                    id="customerPhone"
-                    placeholder="Enter mobile number"
-                    required
-                >
-
-            </div>
-
-            <div class="form-group">
-
-                <label>
-                    Delivery Address
-                </label>
-
-                <textarea
-                    id="customerAddress"
-                    placeholder="Enter your complete address"
-                    required
-                ></textarea>
-
-            </div>
-
-            <div class="form-group">
-
-                <label>
-                    Additional Note
-                </label>
-
-                <textarea
-                    id="customerNote"
-                    placeholder="Size, colour or any other requirement..."
-                ></textarea>
-
-            </div>
-
-            <button
-                type="submit"
-                class="btn btn-primary"
-                style="width:100%;"
-            >
-                Send Order on WhatsApp
-            </button>
-
-        </form>
-
-    </div>
+  </div>
 
 </div>
 
-<!-- =====================================================
+<!-- =========================
      TOAST
-===================================================== -->
+========================= -->
 
 <div class="toast" id="toast"></div>
 
 <script>
 
 /* =========================================================
-   VETROX PRODUCT DATA
-
-   IMPORTANT:
-   Only the image URLs actually supplied are included.
-   Missing URLs are intentionally NOT guessed.
-========================================================= */
-
-const products = [
-
-    {
-        id:"970",
-        name:"970",
-        price:1299,
-        images:[
-            "https://i.ibb.co/ymCmnhGt/Copy-of-13-1-1.jpg",
-            "https://i.ibb.co/JMC9V6S/Copy-of-13.jpg",
-            "https://i.ibb.co/XkMD44TV/Copy-of-13-4.jpg",
-            "https://i.ibb.co/fWPFgfW/Copy-of-13-6.jpg",
-            "https://i.ibb.co/Z1LNS3Yt/Copy-of-13-7.jpg",
-            "https://i.ibb.co/Df0ykh0c/Copy-of-13-10.jpg"
-        ]
-    },
-
-    {
-        id:"1008",
-        name:"1008",
-        price:899,
-        images:[]
-    },
-
-    {
-        id:"1026",
-        name:"1026",
-        price:999,
-        images:[]
-    },
-
-    {
-        id:"chetna-pink",
-        name:"Chetna Pink",
-        price:699,
-        images:[]
-    },
-
-    {
-        id:"falak",
-        name:"Falak",
-        price:849,
-        images:[]
-    },
-
-    {
-        id:"jiyana-cream",
-        name:"Jiyana Cream",
-        price:699,
-        images:[]
-    },
-
-    {
-        id:"jyoti",
-        name:"Jyoti",
-        price:899,
-        images:[]
-    },
-
-    {
-        id:"jyoti-dark",
-        name:"Jyoti Dark",
-        price:899,
-        images:[]
-    },
-
-    {
-        id:"lavya",
-        name:"Lavya",
-        price:949,
-        images:[]
-    },
-
-    {
-        id:"m-jiyaa-maroon",
-        name:"M Jiyaa Maroon",
-        price:899,
-        images:[]
-    },
-
-    {
-        id:"m-jugni",
-        name:"M Jugni",
-        price:949,
-        images:[]
-    },
-
-    {
-        id:"neha",
-        name:"Neha",
-        price:699,
-        images:[]
-    },
-
-    {
-        id:"parii",
-        name:"Parii",
-        price:799,
-        images:[]
-    },
-
-    {
-        id:"priti",
-        name:"Priti",
-        price:610,
-        images:[]
-    },
-
-    {
-        id:"radha",
-        name:"Radha",
-        price:999,
-        images:[]
-    },
-
-    {
-        id:"rohini",
-        name:"Rohini",
-        price:799,
-        images:[]
-    },
-
-    {
-        id:"roopa",
-        name:"Roopa",
-        price:949,
-        images:[]
-    },
-
-    {
-        id:"uma",
-        name:"Uma",
-        price:799,
-        images:[]
-    }
-
-];
-
-
-/* =========================================================
-   SETTINGS
-
+   WHATSAPP NUMBER
    Replace this with your actual WhatsApp number.
-
-   Format:
-   Country code + number
-   WITHOUT +, spaces or -
-   
-   Example:
-   919876543210
+   Example: 919876543210
 ========================================================= */
 
 const WHATSAPP_NUMBER = "YOUR_WHATSAPP_NUMBER";
 
 
 /* =========================================================
-   STATE
+   PRODUCT DATA
+
+   IMPORTANT:
+   Every product has its OWN images array.
+   Images are NOT shared between products.
 ========================================================= */
 
-let cart = JSON.parse(
-    localStorage.getItem("vetroxCart") || "[]"
-);
+const products = [
 
-let currentProduct = null;
-let currentImageIndex = 0;
+  {
+    id: "970",
+    name: "970",
+    price: 1299,
+    images: [
+      "https://i.ibb.co/ymCmnhGt/Copy-of-13-1-1.jpg",
+      "https://i.ibb.co/JMC9V6S/Copy-of-13.jpg",
+      "https://i.ibb.co/XkMD44TV/Copy-of-13-4.jpg",
+      "https://i.ibb.co/fWPFgfW/Copy-of-13-6.jpg",
+      "https://i.ibb.co/Z1LNS3Yt/Copy-of-13-7.jpg",
+      "https://i.ibb.co/Df0ykh0c/Copy-of-13-10.jpg"
+    ]
+  },
+
+  {
+    id: "1008",
+    name: "1008",
+    price: 899,
+    images: [
+      "https://i.ibb.co/Q7TMNKGG/2.jpg",
+      "https://i.ibb.co/PGLwwjPd/3-2.jpg",
+      "https://i.ibb.co/5hgXHxv3/4-3.jpg",
+      "https://i.ibb.co/0T0dJH0/5-2.jpg",
+      "https://i.ibb.co/xK7jFRn8/6-2.jpg"
+    ]
+  },
+
+  {
+    id: "1026",
+    name: "1026",
+    price: 999,
+    images: [
+      "https://i.ibb.co/qLCrjKnn/1-2.jpg",
+      "https://i.ibb.co/N6LWm5Bb/2-4.jpg",
+      "https://i.ibb.co/3m7vBrTY/3-3.jpg",
+      "https://i.ibb.co/JRwrKTrC/4-4.jpg",
+      "https://i.ibb.co/7N6gh9j8/7.jpg"
+    ]
+  },
+
+  {
+    id: "chetna-pink",
+    name: "Chetna Pink",
+    price: 699,
+    images: [
+      "https://i.ibb.co/k2NgP5p7/1-3.png",
+      "https://i.ibb.co/5gjkHD4v/2.png",
+      "https://i.ibb.co/DP9jBj4X/3-1.png",
+      "https://i.ibb.co/1f2wRkB9/4-1.png",
+      "https://i.ibb.co/cKNmPMfx/6-2.png"
+    ]
+  },
+
+  {
+    id: "falak",
+    name: "Falak",
+    price: 849,
+    images: [
+      "https://i.ibb.co/TBDk8673/1-5.png",
+      "https://i.ibb.co/GvkNKDr7/2-2.png",
+      "https://i.ibb.co/gFmTgsdv/3-3.png",
+      "https://i.ibb.co/pvV0ckTd/4-2.png",
+      "https://i.ibb.co/x8C8ygk8/5-1.png",
+      "https://i.ibb.co/FbZGtt4w/6-2.png",
+      "https://i.ibb.co/6L392VN/7-1.png",
+      "https://i.ibb.co/3yBksJ2c/8.png"
+    ]
+  },
+
+  {
+    id: "jiyana-cream",
+    name: "Jiyana Cream",
+    price: 699,
+    images: [
+      "https://i.ibb.co/wZqFrJb9/01.jpg",
+      "https://i.ibb.co/Kp115JNB/02.jpg",
+      "https://i.ibb.co/s7tjChV/03.jpg",
+      "https://i.ibb.co/Nwc949Q/05.jpg",
+      "https://i.ibb.co/RGXVZbf2/06.jpg",
+      "https://i.ibb.co/7Jr4CjVj/07.jpg"
+    ]
+  },
+
+  {
+    id: "jyoti",
+    name: "Jyoti",
+    price: 899,
+    images: [
+      "https://i.ibb.co/zTt0RtdZ/1.jpg",
+      "https://i.ibb.co/8gdRxfgD/2-1.jpg",
+      "https://i.ibb.co/SX5jF5GZ/3.jpg",
+      "https://i.ibb.co/p6gCxvqz/4-1.jpg",
+      "https://i.ibb.co/CpstLt1z/5.jpg",
+      "https://i.ibb.co/h1wXQryj/6.jpg"
+    ]
+  },
+
+  {
+    id: "jyoti-dark",
+    name: "Jyoti Dark",
+    price: 899,
+    images: [
+      "https://i.ibb.co/dwjKGcDv/1-1.png",
+      "https://i.ibb.co/xtJyn0RC/2-4.png",
+      "https://i.ibb.co/hRjNFhX3/3-5.png",
+      "https://i.ibb.co/3yL6n8s0/4-4.png",
+      "https://i.ibb.co/ZRgBbnyC/5-3.png",
+      "https://i.ibb.co/ZpKtBbvq/6-4.png",
+      "https://i.ibb.co/jkM7dRvQ/7-2.png"
+    ]
+  },
+
+  {
+    id: "lavya",
+    name: "Lavya",
+    price: 949,
+    images: [
+      "https://i.ibb.co/prsXW86Q/1-2.png",
+      "https://i.ibb.co/RTmgWprR/2.png",
+      "https://i.ibb.co/C39WpnTL/4.png",
+      "https://i.ibb.co/wZ7BFdX5/5.png",
+      "https://i.ibb.co/XrKF4X9c/12.jpg"
+    ]
+  },
+
+  {
+    id: "m-jiyaa-maroon",
+    name: "M Jiyaa Maroon",
+    price: 899,
+    images: [
+      "https://i.ibb.co/zhKFsytM/1.jpg",
+      "https://i.ibb.co/S4nZXq14/2-1.jpg",
+      "https://i.ibb.co/qLh7T1ZW/4-1.jpg",
+      "https://i.ibb.co/36BmB83/7.png"
+    ]
+  },
+
+  {
+    id: "m-jugni",
+    name: "M Jugni",
+    price: 949,
+    images: [
+      "https://i.ibb.co/Wv7PSNrj/1.jpg",
+      "https://i.ibb.co/4BbdYGZ/2.jpg",
+      "https://i.ibb.co/zWsQMYtp/3.jpg",
+      "https://i.ibb.co/nNF3xBLP/4.jpg",
+      "https://i.ibb.co/RptBgpx6/5.png",
+      "https://i.ibb.co/BMKj8xC/6.jpg"
+    ]
+  },
+
+  {
+    id: "neha",
+    name: "Neha",
+    price: 699,
+    images: [
+      "https://i.ibb.co/Xx5CnF9G/1.png",
+      "https://i.ibb.co/M5gX2Dt5/2.png",
+      "https://i.ibb.co/nsJjh534/3-1.png"
+    ]
+  },
+
+  {
+    id: "parii",
+    name: "Parii",
+    price: 799,
+    images: [
+      "https://i.ibb.co/G3BPLFs3/file-00000000d0f471faa71dd6d36c6771d6.png",
+      "https://i.ibb.co/fzW9VJNV/Untitled-5-1.jpg",
+      "https://i.ibb.co/tpfD1GCp/Untitled-7.jpg",
+      "https://i.ibb.co/rKgQnpyC/Untitled-8.jpg",
+      "https://i.ibb.co/m5X1b2SV/Untitled-10.jpg",
+      "https://i.ibb.co/CK3NQrHt/Untitled-12.jpg"
+    ]
+  },
+
+  {
+    id: "priti",
+    name: "Priti",
+    price: 610,
+    images: [
+      "https://i.ibb.co/KjkfCC6T/1-3.png",
+      "https://i.ibb.co/Xkt4fRzs/2.png",
+      "https://i.ibb.co/JjJK9K9W/3-1.png",
+      "https://i.ibb.co/QvdKkRhW/4-1.png",
+      "https://i.ibb.co/DD1JKvJ0/5.png",
+      "https://i.ibb.co/Y4tGB01B/6-2.png"
+    ]
+  },
+
+  {
+    id: "radha",
+    name: "Radha",
+    price: 999,
+    images: [
+      "https://i.ibb.co/V0CPVWL2/1-1.jpg",
+      "https://i.ibb.co/HD6myTm7/2-2.jpg",
+      "https://i.ibb.co/7J3w3Q0c/3-1.jpg",
+      "https://i.ibb.co/s9403QwP/4.jpg",
+      "https://i.ibb.co/yms7qG71/5-1.jpg",
+      "https://i.ibb.co/xtrF2jsw/6-1.jpg"
+    ]
+  },
+
+  {
+    id: "rohini",
+    name: "Rohini",
+    price: 799,
+    images: [
+      "https://i.ibb.co/vxYQFqvZ/1-6.png",
+      "https://i.ibb.co/7tGSsJLS/2-3.png",
+      "https://i.ibb.co/kVdcZQhP/3-4.png",
+      "https://i.ibb.co/Lh26y8Hg/4-3.png",
+      "https://i.ibb.co/Rp04tZTJ/5-2.png",
+      "https://i.ibb.co/6c1jddZy/6-3.png"
+    ]
+  },
+
+  {
+    id: "roopa",
+    name: "Roopa",
+    price: 949,
+    images: [
+      "https://i.ibb.co/tM9H0CkH/1.jpg",
+      "https://i.ibb.co/pBvWmg6c/2.jpg",
+      "https://i.ibb.co/gMs3gY8C/3.jpg",
+      "https://i.ibb.co/6cXBSXc2/4.jpg",
+      "https://i.ibb.co/1jP9YFy/5.png"
+    ]
+  },
+
+  {
+    id: "uma",
+    name: "Uma",
+    price: 799,
+    images: [
+      "https://i.ibb.co/DDQGK9MF/1-4.png",
+      "https://i.ibb.co/23MMZpf6/2-1.png",
+      "https://i.ibb.co/m5WVFtkD/3-2.png",
+      "https://i.ibb.co/HLCwkc7S/4-1.png",
+      "https://i.ibb.co/Q7h1HvwW/5.png",
+      "https://i.ibb.co/m5tzrrt3/6-1.png",
+      "https://i.ibb.co/4QNXz7w/7.png"
+    ]
+  }
+
+];
 
 
 /* =========================================================
-   INITIALIZE
+   STATE
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded",function(){
+let cart = JSON.parse(localStorage.getItem("vetroxCart")) || [];
 
-    document.getElementById("year").textContent =
-        new Date().getFullYear();
+let currentProduct = null;
 
-    renderProducts();
-    updateCartCount();
+let galleryIndexes = {};
 
-});
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function money(value){
+  return "₹" + value.toLocaleString("en-IN");
+}
+
+function saveCart(){
+  localStorage.setItem("vetroxCart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+function showToast(message){
+
+  const toast = document.getElementById("toast");
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2200);
+}
 
 
 /* =========================================================
    RENDER PRODUCTS
 ========================================================= */
 
-function renderProducts(){
+function renderProducts(list = products){
 
-    const grid =
-        document.getElementById("productsGrid");
+  const grid = document.getElementById("productsGrid");
 
-    const search =
-        document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
+  grid.innerHTML = "";
 
-    const filtered =
-        products.filter(product =>
-            product.name
-            .toLowerCase()
-            .includes(search)
-        );
+  document.getElementById("productCount").textContent =
+    `${list.length} product${list.length !== 1 ? "s" : ""}`;
 
-    document.getElementById("productCount").textContent =
-        `${filtered.length} products`;
+  if(!list.length){
 
-    if(filtered.length === 0){
+    grid.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:60px 20px;
+        color:#776c70;">
+        <h3 style="color:#641d2f;margin-bottom:8px;">
+          No products found
+        </h3>
+        <p>Try searching with another product name.</p>
+      </div>
+    `;
 
-        grid.innerHTML = `
-            <div style="
-                grid-column:1/-1;
-                text-align:center;
-                padding:60px 20px;
-                color:var(--muted);
-            ">
-                <div style="font-size:40px;margin-bottom:10px;">
-                    🔎
-                </div>
-                <h3 style="color:var(--primary);">
-                    No products found
-                </h3>
-                <p>
-                    Try another product name.
-                </p>
-            </div>
-        `;
+    return;
+  }
 
-        return;
+  list.forEach(product => {
+
+    if(galleryIndexes[product.id] === undefined){
+      galleryIndexes[product.id] = 0;
     }
 
-    grid.innerHTML = filtered.map(product => {
+    const index = galleryIndexes[product.id];
 
-        const hasImages =
-            product.images &&
-            product.images.length > 0;
+    const card = document.createElement("article");
 
-        return `
+    card.className = "product-card";
 
-            <article class="product-card">
+    card.innerHTML = `
 
-                <div class="product-gallery">
+      <div class="product-gallery">
 
-                    ${
-                        hasImages
+        <img
+          id="product-img-${product.id}"
+          src="${product.images[index]}"
+          alt="${product.name}"
+          loading="lazy"
+          onerror="this.style.opacity='.3'">
 
-                        ? `
+        ${
+          product.images.length > 1
+          ? `
+            <button
+              class="gallery-btn gallery-prev"
+              onclick="changeProductImage('${product.id}',-1)"
+              aria-label="Previous photo">
+              ‹
+            </button>
 
-                            <img
-                                class="product-main-image"
-                                id="product-image-${product.id}"
-                                src="${product.images[0]}"
-                                alt="${escapeHtml(product.name)}"
-                                loading="lazy"
-                            >
+            <button
+              class="gallery-btn gallery-next"
+              onclick="changeProductImage('${product.id}',1)"
+              aria-label="Next photo">
+              ›
+            </button>
+          `
+          : ""
+        }
 
-                            <div class="photo-badge">
-                                ${product.images.length} Photos
-                            </div>
+        <span class="photo-count">
+          ${index + 1} / ${product.images.length}
+        </span>
 
-                            ${
-                                product.images.length > 1
+      </div>
 
-                                ? `
+      <div class="product-info">
 
-                                    <div class="gallery-nav">
+        <h3>${product.name}</h3>
 
-                                        <button
-                                            class="gallery-arrow"
-                                            onclick="changeCardImage('${product.id}',-1)"
-                                        >
-                                            ‹
-                                        </button>
+        <div class="price">${money(product.price)}</div>
 
-                                        <button
-                                            class="gallery-arrow"
-                                            onclick="changeCardImage('${product.id}',1)"
-                                        >
-                                            ›
-                                        </button>
+        <div class="product-actions">
 
-                                    </div>
+          <button
+            class="view-btn"
+            onclick="openProduct('${product.id}')">
+            View Product
+          </button>
 
-                                `
+          <button
+            class="add-btn"
+            onclick="addToCart('${product.id}')">
+            Add to Cart
+          </button>
 
-                                : ""
+        </div>
 
-                            }
+      </div>
+    `;
 
-                        `
+    grid.appendChild(card);
 
-                        : `
-
-                            <div class="no-image">
-
-                                <div class="no-image-icon">
-                                    📷
-                                </div>
-
-                                <strong>
-                                    Photos Coming Soon
-                                </strong>
-
-                                <span>
-                                    Product photos will be added here.
-                                </span>
-
-                            </div>
-
-                        `
-                    }
-
-                </div>
-
-                <div class="product-info">
-
-                    <h3 class="product-name">
-                        ${escapeHtml(product.name)}
-                    </h3>
-
-                    <div class="product-subtitle">
-                        Vetrox Apparel Collection
-                    </div>
-
-                    <div class="product-bottom">
-
-                        <div class="price">
-                            ₹${product.price.toLocaleString("en-IN")}
-                        </div>
-
-                        <button
-                            class="view-btn"
-                            onclick="openProduct('${product.id}')"
-                        >
-                            View Product
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        `;
-
-    }).join("");
+  });
 
 }
 
 
 /* =========================================================
-   CARD GALLERY
+   PRODUCT GALLERY
 ========================================================= */
 
-const cardImageIndexes = {};
+function changeProductImage(id, direction){
 
-function changeCardImage(productId,direction){
+  const product = products.find(p => p.id === id);
 
-    const product =
-        products.find(p => p.id === productId);
+  if(!product) return;
 
-    if(!product || !product.images.length){
-        return;
-    }
+  let index = galleryIndexes[id] || 0;
 
-    if(cardImageIndexes[productId] === undefined){
-        cardImageIndexes[productId] = 0;
-    }
+  index += direction;
 
-    let index =
-        cardImageIndexes[productId] + direction;
+  if(index < 0){
+    index = product.images.length - 1;
+  }
 
-    if(index < 0){
-        index = product.images.length - 1;
-    }
+  if(index >= product.images.length){
+    index = 0;
+  }
 
-    if(index >= product.images.length){
-        index = 0;
-    }
+  galleryIndexes[id] = index;
 
-    cardImageIndexes[productId] = index;
+  renderProducts(
+    products.filter(product => {
 
-    const image =
-        document.getElementById(
-            `product-image-${productId}`
-        );
+      const search =
+        document.getElementById("searchInput").value
+        .trim()
+        .toLowerCase();
 
-    if(image){
-        image.src = product.images[index];
-    }
+      return product.name.toLowerCase().includes(search);
 
+    })
+  );
 }
 
 
 /* =========================================================
-   OPEN PRODUCT
+   SEARCH
 ========================================================= */
 
-function openProduct(productId){
+function searchProducts(){
 
-    const product =
-        products.find(p => p.id === productId);
+  const search =
+    document.getElementById("searchInput")
+    .value
+    .trim()
+    .toLowerCase();
 
-    if(!product){
-        return;
-    }
+  const filtered = products.filter(product =>
+    product.name.toLowerCase().includes(search)
+  );
 
-    currentProduct = product;
-    currentImageIndex = 0;
-
-    document.getElementById("modalName").textContent =
-        product.name;
-
-    document.getElementById("modalPrice").textContent =
-        "₹" + product.price.toLocaleString("en-IN");
-
-    const mainImage =
-        document.getElementById("modalMainImage");
-
-    const thumbs =
-        document.getElementById("modalThumbs");
-
-    if(product.images.length){
-
-        mainImage.src =
-            product.images[0];
-
-        mainImage.style.display = "block";
-
-        thumbs.innerHTML =
-            product.images.map((image,index) => `
-
-                <img
-                    class="modal-thumb ${index===0 ? "active":""}"
-                    src="${image}"
-                    alt="${escapeHtml(product.name)} photo ${index+1}"
-                    onclick="selectModalImage(${index})"
-                >
-
-            `).join("");
-
-    }else{
-
-        mainImage.style.display = "none";
-
-        thumbs.innerHTML = `
-
-            <div style="
-                padding:15px;
-                background:#fff;
-                border-radius:12px;
-                color:var(--muted);
-                font-size:13px;
-            ">
-                📷 Product photos coming soon.
-            </div>
-
-        `;
-
-    }
-
-    document.getElementById("modalAddButton").onclick =
-        function(){
-
-            addToCart(product.id);
-
-            closeProductModal();
-
-        };
-
-    document
-        .getElementById("productModal")
-        .classList.add("active");
-
-    document.body.style.overflow = "hidden";
-
+  renderProducts(filtered);
 }
 
 
 /* =========================================================
-   MODAL IMAGE
+   PRODUCT MODAL
 ========================================================= */
 
-function selectModalImage(index){
+function openProduct(id){
 
-    if(!currentProduct){
-        return;
-    }
+  const product = products.find(p => p.id === id);
 
-    currentImageIndex = index;
+  if(!product) return;
 
-    document.getElementById("modalMainImage").src =
-        currentProduct.images[index];
+  currentProduct = product;
 
-    document
+  document.getElementById("modalProductName").textContent =
+    product.name;
+
+  document.getElementById("modalProductPrice").textContent =
+    money(product.price);
+
+  document.getElementById("modalMainImage").src =
+    product.images[0];
+
+  document.getElementById("modalMainImage").alt =
+    product.name;
+
+  const thumbs =
+    document.getElementById("modalThumbs");
+
+  thumbs.innerHTML = "";
+
+  product.images.forEach((image,index) => {
+
+    const thumb = document.createElement("img");
+
+    thumb.src = image;
+    thumb.className =
+      "modal-thumb" + (index === 0 ? " active" : "");
+
+    thumb.alt =
+      `${product.name} photo ${index + 1}`;
+
+    thumb.onclick = () => {
+
+      document.getElementById("modalMainImage").src =
+        image;
+
+      document
         .querySelectorAll(".modal-thumb")
-        .forEach((thumb,i) => {
+        .forEach(t => t.classList.remove("active"));
 
-            thumb.classList.toggle(
-                "active",
-                i === index
-            );
+      thumb.classList.add("active");
 
-        });
+    };
 
+    thumbs.appendChild(thumb);
+
+  });
+
+  document.getElementById("modalAddButton").onclick = () => {
+    addToCart(product.id);
+    closeProductModal();
+  };
+
+  document.getElementById("modalWhatsAppButton").onclick = () => {
+    orderSingleProduct(product);
+  };
+
+  document
+    .getElementById("productModal")
+    .classList.add("active");
+
+  document.body.style.overflow = "hidden";
 }
-
-
-/* =========================================================
-   CLOSE PRODUCT
-========================================================= */
 
 function closeProductModal(){
 
-    document
-        .getElementById("productModal")
-        .classList.remove("active");
+  document
+    .getElementById("productModal")
+    .classList.remove("active");
 
-    document.body.style.overflow = "";
-
+  document.body.style.overflow = "";
 }
 
 
@@ -2432,231 +2140,142 @@ function closeProductModal(){
    CART
 ========================================================= */
 
-function addToCart(productId){
+function addToCart(id){
 
-    const product =
-        products.find(p => p.id === productId);
+  const product = products.find(p => p.id === id);
 
-    if(!product){
-        return;
-    }
+  if(!product) return;
 
-    const existing =
-        cart.find(item => item.id === productId);
+  const existing = cart.find(item => item.id === id);
 
-    if(existing){
+  if(existing){
+    existing.qty += 1;
+  }else{
+    cart.push({
+      id:product.id,
+      qty:1
+    });
+  }
 
-        existing.quantity += 1;
+  saveCart();
 
-    }else{
-
-        cart.push({
-            id:product.id,
-            quantity:1
-        });
-
-    }
-
-    saveCart();
-
-    showToast(
-        `${product.name} added to cart`
-    );
-
+  showToast(`${product.name} added to cart`);
 }
-
-
-function saveCart(){
-
-    localStorage.setItem(
-        "vetroxCart",
-        JSON.stringify(cart)
-    );
-
-    updateCartCount();
-
-}
-
 
 function updateCartCount(){
 
-    const count =
-        cart.reduce(
-            (sum,item) => sum + item.quantity,
-            0
-        );
+  const count =
+    cart.reduce((sum,item) => sum + item.qty,0);
 
-    document.getElementById("cartCount").textContent =
-        count;
-
+  document.getElementById("cartCount").textContent =
+    count;
 }
-
-
-/* =========================================================
-   CART MODAL
-========================================================= */
 
 function openCart(){
 
-    renderCart();
+  renderCart();
 
-    document
-        .getElementById("cartModal")
-        .classList.add("active");
+  document
+    .getElementById("cartModal")
+    .classList.add("active");
 
-    document.body.style.overflow = "hidden";
-
+  document.body.style.overflow = "hidden";
 }
-
 
 function closeCart(){
 
-    document
-        .getElementById("cartModal")
-        .classList.remove("active");
+  document
+    .getElementById("cartModal")
+    .classList.remove("active");
 
-    document.body.style.overflow = "";
-
+  document.body.style.overflow = "";
 }
-
 
 function renderCart(){
 
-    const container =
-        document.getElementById("cartItems");
+  const container =
+    document.getElementById("cartItems");
 
-    const totalBox =
-        document.getElementById("cartTotal");
+  if(!cart.length){
 
-    const checkoutButton =
-        document.getElementById("checkoutButton");
+    container.innerHTML = `
+      <div class="empty-cart">
+        <div style="font-size:45px;margin-bottom:10px;">🛍</div>
+        <h3 style="color:#641d2f;margin-bottom:6px;">
+          Your cart is empty
+        </h3>
+        <p>Add some beautiful Vetrox styles.</p>
+      </div>
+    `;
 
-    if(!cart.length){
+    document.getElementById("cartTotal").textContent =
+      "₹0";
 
-        container.innerHTML = `
+    return;
+  }
 
-            <div class="empty-cart">
+  let total = 0;
 
-                <div style="font-size:40px;margin-bottom:10px;">
-                    🛍️
-                </div>
+  container.innerHTML = "";
 
-                <h3 style="color:var(--primary);">
-                    Your cart is empty
-                </h3>
+  cart.forEach(item => {
 
-                <p>
-                    Add some beautiful Vetrox styles to your bag.
-                </p>
+    const product =
+      products.find(p => p.id === item.id);
 
-            </div>
+    if(!product) return;
 
-        `;
+    const subtotal =
+      product.price * item.qty;
 
-        totalBox.style.display = "none";
-        checkoutButton.style.display = "none";
+    total += subtotal;
 
-        return;
+    const div =
+      document.createElement("div");
 
-    }
+    div.className = "cart-item";
 
-    let total = 0;
+    div.innerHTML = `
 
-    container.innerHTML =
-        cart.map(item => {
+      <img
+        src="${product.images[0]}"
+        alt="${product.name}">
 
-            const product =
-                products.find(
-                    p => p.id === item.id
-                );
+      <div class="cart-item-info">
 
-            if(!product){
-                return "";
-            }
+        <h4>${product.name}</h4>
 
-            total +=
-                product.price *
-                item.quantity;
+        <span>
+          ${money(product.price)} × ${item.qty}
+        </span>
 
-            const image =
-                product.images.length
-                ? product.images[0]
-                : "";
+      </div>
 
-            return `
+      <strong>${money(subtotal)}</strong>
 
-                <div class="cart-item">
+      <button
+        class="remove-item"
+        onclick="removeFromCart('${product.id}')">
+        ×
+      </button>
+    `;
 
-                    ${
-                        image
+    container.appendChild(div);
 
-                        ? `
-                            <img
-                                src="${image}"
-                                alt="${escapeHtml(product.name)}"
-                            >
-                        `
+  });
 
-                        : `
-                            <div style="
-                                width:65px;
-                                height:75px;
-                                border-radius:8px;
-                                background:#f1e5e4;
-                                display:grid;
-                                place-items:center;
-                                font-size:24px;
-                            ">
-                                📷
-                            </div>
-                        `
-                    }
-
-                    <div>
-
-                        <h4>
-                            ${escapeHtml(product.name)}
-                        </h4>
-
-                        <p>
-                            ₹${product.price.toLocaleString("en-IN")}
-                            × ${item.quantity}
-                        </p>
-
-                    </div>
-
-                    <button
-                        class="cart-remove"
-                        onclick="removeFromCart('${product.id}')"
-                    >
-                        ×
-                    </button>
-
-                </div>
-
-            `;
-
-        }).join("");
-
-    document.getElementById("totalAmount").textContent =
-        "₹" + total.toLocaleString("en-IN");
-
-    totalBox.style.display = "flex";
-    checkoutButton.style.display = "block";
-
+  document.getElementById("cartTotal").textContent =
+    money(total);
 }
 
+function removeFromCart(id){
 
-function removeFromCart(productId){
+  cart = cart.filter(item => item.id !== id);
 
-    cart =
-        cart.filter(
-            item => item.id !== productId
-        );
+  saveCart();
+  renderCart();
 
-    saveCart();
-    renderCart();
-
+  showToast("Product removed");
 }
 
 
@@ -2666,143 +2285,154 @@ function removeFromCart(productId){
 
 function openCheckout(){
 
-    if(!cart.length){
-        showToast("Your cart is empty");
-        return;
-    }
+  if(!cart.length){
 
-    closeCart();
+    showToast("Your cart is empty");
 
-    document
-        .getElementById("checkoutModal")
-        .classList.add("active");
+    return;
+  }
 
-    document.body.style.overflow = "hidden";
+  closeCart();
 
+  document
+    .getElementById("checkoutModal")
+    .classList.add("active");
+
+  document.body.style.overflow = "hidden";
 }
-
 
 function closeCheckout(){
 
-    document
-        .getElementById("checkoutModal")
-        .classList.remove("active");
+  document
+    .getElementById("checkoutModal")
+    .classList.remove("active");
 
-    document.body.style.overflow = "";
+  document.body.style.overflow = "";
+}
+
+function submitOrder(event){
+
+  event.preventDefault();
+
+  if(
+    !WHATSAPP_NUMBER ||
+    WHATSAPP_NUMBER === "YOUR_WHATSAPP_NUMBER"
+  ){
+
+    alert(
+      "Please add your WhatsApp number in the code first.\n\n" +
+      'Find: const WHATSAPP_NUMBER = "YOUR_WHATSAPP_NUMBER";'
+    );
+
+    return;
+  }
+
+  const name =
+    document.getElementById("customerName").value.trim();
+
+  const phone =
+    document.getElementById("customerPhone").value.trim();
+
+  const address =
+    document.getElementById("customerAddress").value.trim();
+
+  const note =
+    document.getElementById("customerNote").value.trim();
+
+  let message =
+`Hello Vetrox Apparel! 👋
+
+I would like to place an order.
+
+Customer Name: ${name}
+Phone: ${phone}
+
+Products:
+`;
+
+  let total = 0;
+
+  cart.forEach((item,index) => {
+
+    const product =
+      products.find(p => p.id === item.id);
+
+    if(!product) return;
+
+    const subtotal =
+      product.price * item.qty;
+
+    total += subtotal;
+
+    message +=
+`${index + 1}. ${product.name} × ${item.qty} — ${money(subtotal)}
+`;
+
+  });
+
+  message +=
+`
+Total: ${money(total)}
+
+Delivery Address:
+${address}
+`;
+
+  if(note){
+    message +=
+`
+Note:
+${note}
+`;
+  }
+
+  message +=
+`
+Thank you!`;
+
+  const url =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=` +
+    encodeURIComponent(message);
+
+  window.open(url,"_blank");
 
 }
 
 
 /* =========================================================
-   WHATSAPP ORDER
+   SINGLE PRODUCT WHATSAPP
 ========================================================= */
 
-document
-    .getElementById("checkoutForm")
-    .addEventListener("submit",function(event){
+function orderSingleProduct(product){
 
-        event.preventDefault();
+  if(
+    !WHATSAPP_NUMBER ||
+    WHATSAPP_NUMBER === "YOUR_WHATSAPP_NUMBER"
+  ){
 
-        if(!cart.length){
-            showToast("Your cart is empty");
-            return;
-        }
+    alert(
+      "Please add your WhatsApp number in the code first."
+    );
 
-        if(
-            !WHATSAPP_NUMBER ||
-            WHATSAPP_NUMBER === "YOUR_WHATSAPP_NUMBER"
-        ){
+    return;
+  }
 
-            alert(
-                "Please add your WhatsApp number in the JavaScript section first."
-            );
+  const message =
+`Hello Vetrox Apparel! 👋
 
-            return;
-        }
+I am interested in this product:
 
-        const name =
-            document
-            .getElementById("customerName")
-            .value
-            .trim();
+Product: ${product.name}
+Price: ${money(product.price)}
 
-        const phone =
-            document
-            .getElementById("customerPhone")
-            .value
-            .trim();
+Please share availability and order details.`;
 
-        const address =
-            document
-            .getElementById("customerAddress")
-            .value
-            .trim();
+  const url =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=` +
+    encodeURIComponent(message);
 
-        const note =
-            document
-            .getElementById("customerNote")
-            .value
-            .trim();
-
-        let total = 0;
-
-        let orderLines = [];
-
-        cart.forEach(item => {
-
-            const product =
-                products.find(
-                    p => p.id === item.id
-                );
-
-            if(!product){
-                return;
-            }
-
-            const subtotal =
-                product.price *
-                item.quantity;
-
-            total += subtotal;
-
-            orderLines.push(
-                `${product.name} × ${item.quantity} = ₹${subtotal.toLocaleString("en-IN")}`
-            );
-
-        });
-
-        const message =
-
-`Hello Vetrox Apparel 👋
-
-I would like to place an order.
-
-*Customer Details*
-Name: ${name}
-Mobile: ${phone}
-Address: ${address}
-
-*Order*
-${orderLines.join("\n")}
-
-*Total: ₹${total.toLocaleString("en-IN")}*
-
-${note ? `Note: ${note}` : ""}
-
-Thank you!`;
-
-        const url =
-            "https://wa.me/" +
-            WHATSAPP_NUMBER +
-            "?text=" +
-            encodeURIComponent(message);
-
-        window.open(
-            url,
-            "_blank"
-        );
-
-    });
+  window.open(url,"_blank");
+}
 
 
 /* =========================================================
@@ -2811,30 +2441,28 @@ Thank you!`;
 
 function openWhatsApp(event){
 
-    event.preventDefault();
+  event.preventDefault();
 
-    if(
-        !WHATSAPP_NUMBER ||
-        WHATSAPP_NUMBER === "YOUR_WHATSAPP_NUMBER"
-    ){
+  if(
+    !WHATSAPP_NUMBER ||
+    WHATSAPP_NUMBER === "YOUR_WHATSAPP_NUMBER"
+  ){
 
-        alert(
-            "Please add your WhatsApp number in the JavaScript section first."
-        );
-
-        return;
-
-    }
-
-    const url =
-        "https://wa.me/" +
-        WHATSAPP_NUMBER;
-
-    window.open(
-        url,
-        "_blank"
+    alert(
+      "Please add your WhatsApp number in the code first."
     );
 
+    return;
+  }
+
+  const message =
+    "Hello Vetrox Apparel! I would like to know more about your collection.";
+
+  const url =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=` +
+    encodeURIComponent(message);
+
+  window.open(url,"_blank");
 }
 
 
@@ -2842,150 +2470,83 @@ function openWhatsApp(event){
    MOBILE MENU
 ========================================================= */
 
-function toggleMenu(){
+function toggleMobileMenu(){
 
-    document
-        .getElementById("navLinks")
-        .classList.toggle("active");
-
+  document
+    .getElementById("mobileMenu")
+    .classList.toggle("active");
 }
 
+function closeMobileMenu(){
 
-document
-    .querySelectorAll(".nav-links a")
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            () => {
-
-                document
-                    .getElementById("navLinks")
-                    .classList.remove("active");
-
-            }
-        );
-
-    });
-
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
-function scrollToShop(){
-
-    document
-        .getElementById("shop")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-
-    setTimeout(() => {
-
-        document
-            .getElementById("searchInput")
-            .focus();
-
-    },500);
-
+  document
+    .getElementById("mobileMenu")
+    .classList.remove("active");
 }
 
 
 /* =========================================================
-   TOAST
-========================================================= */
-
-let toastTimer;
-
-function showToast(message){
-
-    const toast =
-        document.getElementById("toast");
-
-    toast.textContent =
-        message;
-
-    toast.classList.add("show");
-
-    clearTimeout(toastTimer);
-
-    toastTimer =
-        setTimeout(() => {
-
-            toast.classList.remove("show");
-
-        },2500);
-
-}
-
-
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHtml(value){
-
-    return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================================================
-   MODAL CLICK OUTSIDE
+   MODAL OUTSIDE CLICK
 ========================================================= */
 
 document
-    .querySelectorAll(".modal-overlay")
-    .forEach(overlay => {
+  .getElementById("productModal")
+  .addEventListener("click",function(event){
 
-        overlay.addEventListener(
-            "click",
-            function(event){
-
-                if(event.target === overlay){
-
-                    overlay.classList.remove("active");
-
-                    document.body.style.overflow = "";
-
-                }
-
-            }
-        );
-
-    });
-
-
-/* =========================================================
-   ESC KEY
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key === "Escape"){
-
-            document
-                .querySelectorAll(".modal-overlay")
-                .forEach(modal => {
-
-                    modal.classList.remove("active");
-
-                });
-
-            document.body.style.overflow = "";
-
-        }
-
+    if(event.target === this){
+      closeProductModal();
     }
-);
+
+  });
+
+document
+  .getElementById("cartModal")
+  .addEventListener("click",function(event){
+
+    if(event.target === this){
+      closeCart();
+    }
+
+  });
+
+document
+  .getElementById("checkoutModal")
+  .addEventListener("click",function(event){
+
+    if(event.target === this){
+      closeCheckout();
+    }
+
+  });
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener("keydown",function(event){
+
+  if(event.key === "Escape"){
+
+    closeProductModal();
+    closeCart();
+    closeCheckout();
+
+  }
+
+});
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+renderProducts();
+
+updateCartCount();
 
 </script>
 
