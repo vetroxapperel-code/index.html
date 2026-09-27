@@ -39,9 +39,7 @@ body{
   line-height:1.5;
 }
 
-button,
-input,
-textarea{
+button,input,textarea{
   font:inherit;
 }
 
@@ -208,6 +206,7 @@ img{
   align-items:center;
   justify-content:center;
   gap:8px;
+  text-decoration:none;
 }
 
 .btn-primary{
@@ -268,30 +267,79 @@ img{
 }
 
 /* =========================
-   ABOUT
+   PROFESSIONAL ABOUT
 ========================= */
 
 .about{
-  background:white;
+  background:#fff;
 }
 
 .about-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:55px;
+  grid-template-columns:1.05fr .95fr;
+  gap:65px;
   align-items:center;
 }
 
+/* Image container */
 .about-image{
-  border-radius:18px;
+  position:relative;
+  border-radius:26px;
   overflow:hidden;
-  box-shadow:var(--shadow);
+  height:500px;
+  background:#eadbd0;
+  box-shadow:0 20px 55px rgba(54,25,32,.16);
 }
 
 .about-image img{
   width:100%;
-  height:480px;
+  height:100%;
   object-fit:cover;
+  object-position:center;
+  transition:transform .7s ease;
+}
+
+.about-image:hover img{
+  transform:scale(1.035);
+}
+
+/* Premium image overlay */
+.about-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(35,17,23,.72),
+      rgba(35,17,23,.10) 55%,
+      transparent
+    );
+  pointer-events:none;
+}
+
+.about-image-badge{
+  position:absolute;
+  left:28px;
+  bottom:25px;
+  z-index:2;
+  color:#fff;
+}
+
+.about-image-badge small{
+  display:block;
+  font-size:10px;
+  letter-spacing:3px;
+  font-weight:bold;
+  margin-bottom:5px;
+  color:#f0d69c;
+}
+
+.about-image-badge strong{
+  display:block;
+  font-family:Georgia,serif;
+  font-size:27px;
+  font-weight:normal;
 }
 
 .about-text span{
@@ -304,14 +352,64 @@ img{
 
 .about-text h2{
   font-family:Georgia,serif;
-  font-size:42px;
+  font-size:46px;
+  line-height:1.12;
   color:var(--maroon);
   margin:10px 0 20px;
+}
+
+.about-text h2 em{
+  color:#a95c43;
+  font-style:italic;
 }
 
 .about-text p{
   color:var(--muted);
   margin-bottom:16px;
+  line-height:1.8;
+}
+
+/* About feature boxes */
+.about-points{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:27px 0 30px;
+}
+
+.about-point{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:#fffaf5;
+}
+
+.about-point-icon{
+  width:39px;
+  height:39px;
+  border-radius:50%;
+  flex:none;
+  display:grid;
+  place-items:center;
+  background:#f3e4d6;
+  color:var(--maroon);
+  font-size:17px;
+}
+
+.about-point strong{
+  display:block;
+  color:var(--maroon);
+  font-size:13px;
+}
+
+.about-point small{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:2px;
 }
 
 /* =========================
@@ -393,10 +491,11 @@ img{
   overflow:hidden;
 }
 
-.product-gallery img{
+.product-gallery img.main-product-image{
   width:100%;
   height:100%;
   object-fit:cover;
+  transition:opacity .2s;
 }
 
 .gallery-btn{
@@ -406,12 +505,17 @@ img{
   width:35px;
   height:35px;
   border:0;
-  background:rgba(255,255,255,.88);
+  background:rgba(255,255,255,.9);
   border-radius:50%;
   color:var(--maroon);
   font-size:20px;
   z-index:3;
   box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.gallery-btn:hover{
+  background:#fff;
+  transform:translateY(-50%) scale(1.05);
 }
 
 .gallery-prev{
@@ -431,6 +535,57 @@ img{
   padding:5px 9px;
   border-radius:20px;
   font-size:11px;
+  z-index:4;
+}
+
+/* Product-specific thumbnail strip */
+.product-thumbs{
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:10px;
+  display:flex;
+  gap:5px;
+  overflow-x:auto;
+  z-index:4;
+  padding:2px 35px 2px 2px;
+  scrollbar-width:none;
+}
+
+.product-thumbs::-webkit-scrollbar{
+  display:none;
+}
+
+.product-thumb{
+  width:34px;
+  height:42px;
+  flex:none;
+  object-fit:cover;
+  border:2px solid rgba(255,255,255,.75);
+  border-radius:5px;
+  cursor:pointer;
+  opacity:.82;
+  box-shadow:0 2px 7px rgba(0,0,0,.18);
+  transition:.2s;
+}
+
+.product-thumb.active{
+  border-color:var(--gold);
+  opacity:1;
+  transform:translateY(-2px);
+}
+
+.product-photo-label{
+  position:absolute;
+  top:10px;
+  left:10px;
+  z-index:4;
+  padding:5px 9px;
+  border-radius:20px;
+  background:rgba(255,255,255,.92);
+  color:var(--maroon);
+  font-size:10px;
+  font-weight:bold;
 }
 
 .product-info{
@@ -521,27 +676,130 @@ img{
 }
 
 /* =========================
-   CTA
+   PROFESSIONAL CTA
 ========================= */
 
 .cta{
+  padding:0 20px 85px;
+  background:var(--cream);
+}
+
+.cta-inner{
+  max-width:1250px;
+  min-height:490px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:48% 52%;
+  overflow:hidden;
+  border-radius:28px;
+  background:#4a1f18;
+  box-shadow:0 22px 60px rgba(54,25,32,.18);
+}
+
+.cta-image{
+  position:relative;
+  min-height:490px;
+  overflow:hidden;
+}
+
+.cta-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .7s ease;
+}
+
+.cta-inner:hover .cta-image img{
+  transform:scale(1.035);
+}
+
+.cta-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
   background:
-    linear-gradient(90deg,rgba(100,29,47,.94),rgba(100,29,47,.82)),
-    url("https://i.ibb.co/DBkByyb/watermarked-img-3481303281193597991.png")
-    center/cover;
+    linear-gradient(
+      90deg,
+      transparent 45%,
+      rgba(74,31,24,.55)
+    );
+}
+
+.cta-product-tag{
+  position:absolute;
+  top:22px;
+  left:22px;
+  z-index:3;
+  background:rgba(255,255,255,.92);
+  color:var(--maroon);
+  padding:8px 13px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.cta-content{
+  padding:60px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
   color:white;
-  text-align:center;
+}
+
+.cta-kicker{
+  color:#e5b98e;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:13px;
 }
 
 .cta h2{
   font-family:Georgia,serif;
-  font-size:45px;
-  margin-bottom:10px;
+  font-size:48px;
+  line-height:1.12;
+  margin-bottom:18px;
+  font-weight:500;
+}
+
+.cta h2 em{
+  display:block;
+  color:#e3b487;
+  font-style:italic;
 }
 
 .cta p{
-  margin-bottom:25px;
-  color:#f5e9e9;
+  max-width:480px;
+  margin-bottom:28px;
+  color:rgba(255,255,255,.78);
+  line-height:1.8;
+}
+
+.cta-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.cta .btn-primary{
+  background:#fff;
+  color:var(--maroon);
+}
+
+.cta-whatsapp{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 21px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.4);
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+  background:rgba(255,255,255,.06);
 }
 
 /* =========================
@@ -938,6 +1196,7 @@ footer{
 ========================= */
 
 @media(max-width:1050px){
+
   .products-grid{
     grid-template-columns:repeat(3,1fr);
   }
@@ -967,7 +1226,8 @@ footer{
 
   .about-grid,
   .contact-grid,
-  .product-modal-content{
+  .product-modal-content,
+  .cta-inner{
     grid-template-columns:1fr;
   }
 
@@ -975,8 +1235,8 @@ footer{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .about-image img{
-    height:350px;
+  .about-image{
+    height:400px;
   }
 
   .modal-main-image{
@@ -985,6 +1245,19 @@ footer{
 
   .modal-details{
     padding:25px;
+  }
+
+  .cta{
+    padding:0 15px 60px;
+  }
+
+  .cta-image{
+    min-height:400px;
+    height:400px;
+  }
+
+  .cta-content{
+    padding:45px 35px;
   }
 }
 
@@ -1061,6 +1334,50 @@ footer{
     max-width:none;
   }
 
+  .about-image{
+    height:330px;
+    border-radius:19px;
+  }
+
+  .about-image-badge{
+    left:20px;
+    bottom:20px;
+  }
+
+  .about-image-badge strong{
+    font-size:22px;
+  }
+
+  .about-text h2{
+    font-size:35px;
+  }
+
+  .about-points{
+    grid-template-columns:1fr;
+  }
+
+  .cta-image{
+    min-height:330px;
+    height:330px;
+  }
+
+  .cta-content{
+    padding:38px 25px;
+  }
+
+  .cta h2{
+    font-size:35px;
+  }
+
+  .cta-buttons{
+    flex-direction:column;
+  }
+
+  .cta-buttons .btn,
+  .cta-whatsapp{
+    width:100%;
+  }
+
   .modal-gallery{
     padding:12px;
   }
@@ -1096,6 +1413,7 @@ footer{
 ========================= -->
 
 <header class="navbar">
+
   <div class="nav-inner">
 
     <a href="#home">
@@ -1133,15 +1451,19 @@ footer{
       </button>
 
     </div>
+
   </div>
 
   <div class="mobile-menu" id="mobileMenu">
+
     <a href="#home" onclick="closeMobileMenu()">Home</a>
     <a href="#about" onclick="closeMobileMenu()">About</a>
     <a href="#shop" onclick="closeMobileMenu()">Shop</a>
     <a href="#why" onclick="closeMobileMenu()">Why Us</a>
     <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+
   </div>
+
 </header>
 
 <!-- =========================
@@ -1149,11 +1471,16 @@ footer{
 ========================= -->
 
 <section class="hero" id="home">
+
   <div class="hero-content">
 
     <small>Welcome to Vetrox Apparel</small>
 
-    <h1>Elegant.<br>Everyday.<br>You.</h1>
+    <h1>
+      Elegant.<br>
+      Everyday.<br>
+      You.
+    </h1>
 
     <p>
       Discover beautiful women's ethnic wear designed
@@ -1165,6 +1492,7 @@ footer{
     </a>
 
   </div>
+
 </section>
 
 <!-- =========================
@@ -1172,21 +1500,32 @@ footer{
 ========================= -->
 
 <section class="section about" id="about">
+
   <div class="container">
 
     <div class="about-grid">
 
       <div class="about-image">
+
         <img
-          src="https://i.ibb.co/DBkByyb/watermarked-img-3481303281193597991.png"
+          src="https://i.ibb.co/Kj9GwF1r/Gemini-Generated-Image-rk9rqirk9rqirk9r.png"
           alt="Vetrox Apparel Collection">
+
+        <div class="about-image-badge">
+          <small>VETROX APPAREL</small>
+          <strong>Elegance in Every Thread</strong>
+        </div>
+
       </div>
 
       <div class="about-text">
 
         <span>About Vetrox</span>
 
-        <h2>Made for your everyday elegance.</h2>
+        <h2>
+          Made for your
+          <em>everyday elegance.</em>
+        </h2>
 
         <p>
           Vetrox Apparel brings together stylish and comfortable
@@ -1199,8 +1538,34 @@ footer{
           comfort and quality.
         </p>
 
+        <div class="about-points">
+
+          <div class="about-point">
+
+            <div class="about-point-icon">✦</div>
+
+            <div>
+              <strong>Curated Styles</strong>
+              <small>Beautifully selected collections</small>
+            </div>
+
+          </div>
+
+          <div class="about-point">
+
+            <div class="about-point-icon">♡</div>
+
+            <div>
+              <strong>Comfort First</strong>
+              <small>Style that feels good</small>
+            </div>
+
+          </div>
+
+        </div>
+
         <a href="#shop" class="btn btn-dark">
-          Shop Collection
+          Shop Collection →
         </a>
 
       </div>
@@ -1208,6 +1573,7 @@ footer{
     </div>
 
   </div>
+
 </section>
 
 <!-- =========================
@@ -1219,20 +1585,29 @@ footer{
   <div class="container">
 
     <div class="section-heading">
+
       <span>Our Collection</span>
+
       <h2>Shop Vetrox</h2>
-      <p>Choose your favourite style from our latest collection.</p>
+
+      <p>
+        Choose your favourite style from our latest collection.
+      </p>
+
     </div>
 
     <div class="shop-toolbar">
 
       <div class="search-box">
+
         <span class="search-icon">⌕</span>
+
         <input
           type="search"
           id="searchInput"
           placeholder="Search products..."
           oninput="searchProducts()">
+
       </div>
 
       <div class="product-count" id="productCount">
@@ -1241,7 +1616,10 @@ footer{
 
     </div>
 
-    <div class="products-grid" id="productsGrid"></div>
+    <div
+      class="products-grid"
+      id="productsGrid">
+    </div>
 
   </div>
 
@@ -1256,35 +1634,65 @@ footer{
   <div class="container">
 
     <div class="section-heading">
+
       <span>Why Vetrox</span>
+
       <h2>Simple. Beautiful. Reliable.</h2>
-      <p>Everything you need for an easy shopping experience.</p>
+
+      <p>
+        Everything you need for an easy shopping experience.
+      </p>
+
     </div>
 
     <div class="features">
 
       <div class="feature">
+
         <div class="feature-icon">✨</div>
+
         <h3>Curated Styles</h3>
-        <p>Beautiful ethnic styles selected for everyday fashion.</p>
+
+        <p>
+          Beautiful ethnic styles selected for everyday fashion.
+        </p>
+
       </div>
 
       <div class="feature">
+
         <div class="feature-icon">♡</div>
+
         <h3>Comfort First</h3>
-        <p>Styles that are made to feel as good as they look.</p>
+
+        <p>
+          Styles that are made to feel as good as they look.
+        </p>
+
       </div>
 
       <div class="feature">
+
         <div class="feature-icon">💬</div>
+
         <h3>Easy Ordering</h3>
-        <p>Place your order easily through WhatsApp.</p>
+
+        <p>
+          Place your order easily through WhatsApp.
+        </p>
+
       </div>
 
       <div class="feature">
+
         <div class="feature-icon">🤝</div>
+
         <h3>Personal Service</h3>
-        <p>Direct communication for a simple local shopping experience.</p>
+
+        <p>
+          Direct communication for a simple local shopping experience.
+        </p>
+
       </div>
 
     </div>
@@ -1294,22 +1702,58 @@ footer{
 </section>
 
 <!-- =========================
-     CTA
+     PROFESSIONAL CTA
 ========================= -->
 
-<section class="section cta">
+<section class="cta">
 
-  <div class="container">
+  <div class="cta-inner">
 
-    <h2>Find your next favourite outfit.</h2>
+    <div class="cta-image">
 
-    <p>
-      Explore the Vetrox collection and order your favourite look today.
-    </p>
+      <span class="cta-product-tag">
+        Featured Collection • 970
+      </span>
 
-    <a href="#shop" class="btn btn-primary">
-      Shop Now
-    </a>
+      <img
+        src="https://i.ibb.co/ymCmnhGt/Copy-of-13-1-1.jpg"
+        alt="Vetrox Apparel 970 Collection">
+
+    </div>
+
+    <div class="cta-content">
+
+      <div class="cta-kicker">
+        Find Your Style
+      </div>
+
+      <h2>
+        Something beautiful
+        <em>is waiting for you.</em>
+      </h2>
+
+      <p>
+        Discover elegant everyday ethnic wear curated by
+        Vetrox Apparel. Choose your favourite style and
+        place your order directly through WhatsApp.
+      </p>
+
+      <div class="cta-buttons">
+
+        <a href="#shop" class="btn btn-primary">
+          Shop Collection →
+        </a>
+
+        <a
+          href="#"
+          class="cta-whatsapp"
+          onclick="openWhatsApp(event)">
+          WhatsApp Us
+        </a>
+
+      </div>
+
+    </div>
 
   </div>
 
@@ -1324,9 +1768,15 @@ footer{
   <div class="container">
 
     <div class="section-heading">
+
       <span>Get In Touch</span>
+
       <h2>Contact Vetrox</h2>
-      <p>We're happy to help you with your order.</p>
+
+      <p>
+        We're happy to help you with your order.
+      </p>
+
     </div>
 
     <div class="contact-grid">
@@ -1336,27 +1786,51 @@ footer{
         <h3>Let's connect</h3>
 
         <div class="contact-item">
+
           <div class="contact-item-icon">💬</div>
+
           <div>
+
             <strong>WhatsApp</strong>
-            <span>Message us for orders and enquiries.</span>
+
+            <span>
+              Message us for orders and enquiries.
+            </span>
+
           </div>
+
         </div>
 
         <div class="contact-item">
+
           <div class="contact-item-icon">🛍</div>
+
           <div>
+
             <strong>Online Orders</strong>
-            <span>Choose your products and send your order directly.</span>
+
+            <span>
+              Choose your products and send your order directly.
+            </span>
+
           </div>
+
         </div>
 
         <div class="contact-item">
+
           <div class="contact-item-icon">♥</div>
+
           <div>
+
             <strong>Vetrox Apparel</strong>
-            <span>Elegant • Everyday • You</span>
+
+            <span>
+              Elegant • Everyday • You
+            </span>
+
           </div>
+
         </div>
 
       </div>
@@ -1366,8 +1840,10 @@ footer{
         <h3>Ready to shop?</h3>
 
         <p style="color:var(--muted);margin-bottom:22px;">
-          Browse the collection, add your favourite products to cart
-          and place your order through WhatsApp.
+
+          Browse the collection, add your favourite products
+          to cart and place your order through WhatsApp.
+
         </p>
 
         <a href="#shop" class="btn btn-dark">
@@ -1396,7 +1872,8 @@ footer{
       alt="Vetrox Apparel">
 
     <div class="footer-copy">
-      © <span id="year"></span> Vetrox Apparel. All rights reserved.
+      © <span id="year"></span>
+      Vetrox Apparel. All rights reserved.
     </div>
 
   </div>
@@ -1420,11 +1897,17 @@ footer{
      PRODUCT MODAL
 ========================= -->
 
-<div class="modal-overlay" id="productModal">
+<div
+  class="modal-overlay"
+  id="productModal">
 
   <div class="modal">
 
-    <button class="close-modal" onclick="closeProductModal()">×</button>
+    <button
+      class="close-modal"
+      onclick="closeProductModal()">
+      ×
+    </button>
 
     <div class="product-modal-content">
 
@@ -1436,7 +1919,10 @@ footer{
           src=""
           alt="Product">
 
-        <div class="modal-thumbs" id="modalThumbs"></div>
+        <div
+          class="modal-thumbs"
+          id="modalThumbs">
+        </div>
 
       </div>
 
@@ -1446,11 +1932,15 @@ footer{
 
         <h2 id="modalProductName"></h2>
 
-        <div class="modal-price" id="modalProductPrice"></div>
+        <div
+          class="modal-price"
+          id="modalProductPrice">
+        </div>
 
         <p>
-          Beautifully selected ethnic wear from the Vetrox collection.
-          Browse all available photos and add this product to your cart.
+          Beautifully selected ethnic wear from the Vetrox
+          collection. Browse all available photos and add
+          this product to your cart.
         </p>
 
         <div class="modal-order">
@@ -1481,26 +1971,42 @@ footer{
      CART MODAL
 ========================= -->
 
-<div class="modal-overlay" id="cartModal">
+<div
+  class="modal-overlay"
+  id="cartModal">
 
   <div class="modal cart-modal">
 
-    <button class="close-modal" onclick="closeCart()">×</button>
+    <button
+      class="close-modal"
+      onclick="closeCart()">
+      ×
+    </button>
 
     <h2>Your Cart</h2>
 
-    <div class="cart-items" id="cartItems"></div>
+    <div
+      class="cart-items"
+      id="cartItems">
+    </div>
 
     <div class="cart-total">
+
       <span>Total</span>
-      <span id="cartTotal">₹0</span>
+
+      <span id="cartTotal">
+        ₹0
+      </span>
+
     </div>
 
     <button
       class="btn btn-dark"
       style="width:100%;"
       onclick="openCheckout()">
+
       Proceed to Order
+
     </button>
 
   </div>
@@ -1511,54 +2017,76 @@ footer{
      CHECKOUT MODAL
 ========================= -->
 
-<div class="modal-overlay" id="checkoutModal">
+<div
+  class="modal-overlay"
+  id="checkoutModal">
 
   <div class="modal checkout-modal">
 
-    <button class="close-modal" onclick="closeCheckout()">×</button>
+    <button
+      class="close-modal"
+      onclick="closeCheckout()">
+      ×
+    </button>
 
     <h2>Order Details</h2>
 
     <form onsubmit="submitOrder(event)">
 
       <div class="form-group">
+
         <label>Your Name *</label>
+
         <input
           type="text"
           id="customerName"
           required
           placeholder="Enter your name">
+
       </div>
 
       <div class="form-group">
+
         <label>Phone Number *</label>
+
         <input
           type="tel"
           id="customerPhone"
           required
           placeholder="Enter phone number">
+
       </div>
 
       <div class="form-group">
+
         <label>Delivery Address *</label>
+
         <textarea
           id="customerAddress"
           required
-          placeholder="Enter your complete address"></textarea>
+          placeholder="Enter your complete address">
+        </textarea>
+
       </div>
 
       <div class="form-group">
+
         <label>Note / Size / Other Details</label>
+
         <textarea
           id="customerNote"
-          placeholder="Example: Size M, preferred colour, etc."></textarea>
+          placeholder="Example: Size M, preferred colour, etc.">
+        </textarea>
+
       </div>
 
       <button
         type="submit"
         class="btn btn-dark"
         style="width:100%;">
+
         Send Order on WhatsApp
+
       </button>
 
     </form>
@@ -1571,14 +2099,20 @@ footer{
      TOAST
 ========================= -->
 
-<div class="toast" id="toast"></div>
+<div
+  class="toast"
+  id="toast">
+</div>
 
 <script>
 
 /* =========================================================
    WHATSAPP NUMBER
+
    Replace this with your actual WhatsApp number.
-   Example: 919876543210
+
+   Example:
+   const WHATSAPP_NUMBER = "919876543210";
 ========================================================= */
 
 const WHATSAPP_NUMBER = "YOUR_WHATSAPP_NUMBER";
@@ -1589,16 +2123,17 @@ const WHATSAPP_NUMBER = "YOUR_WHATSAPP_NUMBER";
 
    IMPORTANT:
    Every product has its OWN images array.
-   Images are NOT shared between products.
+
+   No product shares images with another product.
 ========================================================= */
 
 const products = [
 
   {
-    id: "970",
-    name: "970",
-    price: 1299,
-    images: [
+    id:"970",
+    name:"970",
+    price:1299,
+    images:[
       "https://i.ibb.co/ymCmnhGt/Copy-of-13-1-1.jpg",
       "https://i.ibb.co/JMC9V6S/Copy-of-13.jpg",
       "https://i.ibb.co/XkMD44TV/Copy-of-13-4.jpg",
@@ -1609,10 +2144,10 @@ const products = [
   },
 
   {
-    id: "1008",
-    name: "1008",
-    price: 899,
-    images: [
+    id:"1008",
+    name:"1008",
+    price:899,
+    images:[
       "https://i.ibb.co/Q7TMNKGG/2.jpg",
       "https://i.ibb.co/PGLwwjPd/3-2.jpg",
       "https://i.ibb.co/5hgXHxv3/4-3.jpg",
@@ -1622,10 +2157,10 @@ const products = [
   },
 
   {
-    id: "1026",
-    name: "1026",
-    price: 999,
-    images: [
+    id:"1026",
+    name:"1026",
+    price:999,
+    images:[
       "https://i.ibb.co/qLCrjKnn/1-2.jpg",
       "https://i.ibb.co/N6LWm5Bb/2-4.jpg",
       "https://i.ibb.co/3m7vBrTY/3-3.jpg",
@@ -1635,10 +2170,10 @@ const products = [
   },
 
   {
-    id: "chetna-pink",
-    name: "Chetna Pink",
-    price: 699,
-    images: [
+    id:"chetna-pink",
+    name:"Chetna Pink",
+    price:699,
+    images:[
       "https://i.ibb.co/k2NgP5p7/1-3.png",
       "https://i.ibb.co/5gjkHD4v/2.png",
       "https://i.ibb.co/DP9jBj4X/3-1.png",
@@ -1648,10 +2183,10 @@ const products = [
   },
 
   {
-    id: "falak",
-    name: "Falak",
-    price: 849,
-    images: [
+    id:"falak",
+    name:"Falak",
+    price:849,
+    images:[
       "https://i.ibb.co/TBDk8673/1-5.png",
       "https://i.ibb.co/GvkNKDr7/2-2.png",
       "https://i.ibb.co/gFmTgsdv/3-3.png",
@@ -1664,10 +2199,10 @@ const products = [
   },
 
   {
-    id: "jiyana-cream",
-    name: "Jiyana Cream",
-    price: 699,
-    images: [
+    id:"jiyana-cream",
+    name:"Jiyana Cream",
+    price:699,
+    images:[
       "https://i.ibb.co/wZqFrJb9/01.jpg",
       "https://i.ibb.co/Kp115JNB/02.jpg",
       "https://i.ibb.co/s7tjChV/03.jpg",
@@ -1678,10 +2213,10 @@ const products = [
   },
 
   {
-    id: "jyoti",
-    name: "Jyoti",
-    price: 899,
-    images: [
+    id:"jyoti",
+    name:"Jyoti",
+    price:899,
+    images:[
       "https://i.ibb.co/zTt0RtdZ/1.jpg",
       "https://i.ibb.co/8gdRxfgD/2-1.jpg",
       "https://i.ibb.co/SX5jF5GZ/3.jpg",
@@ -1692,10 +2227,10 @@ const products = [
   },
 
   {
-    id: "jyoti-dark",
-    name: "Jyoti Dark",
-    price: 899,
-    images: [
+    id:"jyoti-dark",
+    name:"Jyoti Dark",
+    price:899,
+    images:[
       "https://i.ibb.co/dwjKGcDv/1-1.png",
       "https://i.ibb.co/xtJyn0RC/2-4.png",
       "https://i.ibb.co/hRjNFhX3/3-5.png",
@@ -1707,10 +2242,10 @@ const products = [
   },
 
   {
-    id: "lavya",
-    name: "Lavya",
-    price: 949,
-    images: [
+    id:"lavya",
+    name:"Lavya",
+    price:949,
+    images:[
       "https://i.ibb.co/prsXW86Q/1-2.png",
       "https://i.ibb.co/RTmgWprR/2.png",
       "https://i.ibb.co/C39WpnTL/4.png",
@@ -1720,10 +2255,10 @@ const products = [
   },
 
   {
-    id: "m-jiyaa-maroon",
-    name: "M Jiyaa Maroon",
-    price: 899,
-    images: [
+    id:"m-jiyaa-maroon",
+    name:"M Jiyaa Maroon",
+    price:899,
+    images:[
       "https://i.ibb.co/zhKFsytM/1.jpg",
       "https://i.ibb.co/S4nZXq14/2-1.jpg",
       "https://i.ibb.co/qLh7T1ZW/4-1.jpg",
@@ -1732,10 +2267,10 @@ const products = [
   },
 
   {
-    id: "m-jugni",
-    name: "M Jugni",
-    price: 949,
-    images: [
+    id:"m-jugni",
+    name:"M Jugni",
+    price:949,
+    images:[
       "https://i.ibb.co/Wv7PSNrj/1.jpg",
       "https://i.ibb.co/4BbdYGZ/2.jpg",
       "https://i.ibb.co/zWsQMYtp/3.jpg",
@@ -1746,10 +2281,10 @@ const products = [
   },
 
   {
-    id: "neha",
-    name: "Neha",
-    price: 699,
-    images: [
+    id:"neha",
+    name:"Neha",
+    price:699,
+    images:[
       "https://i.ibb.co/Xx5CnF9G/1.png",
       "https://i.ibb.co/M5gX2Dt5/2.png",
       "https://i.ibb.co/nsJjh534/3-1.png"
@@ -1757,10 +2292,10 @@ const products = [
   },
 
   {
-    id: "parii",
-    name: "Parii",
-    price: 799,
-    images: [
+    id:"parii",
+    name:"Parii",
+    price:799,
+    images:[
       "https://i.ibb.co/G3BPLFs3/file-00000000d0f471faa71dd6d36c6771d6.png",
       "https://i.ibb.co/fzW9VJNV/Untitled-5-1.jpg",
       "https://i.ibb.co/tpfD1GCp/Untitled-7.jpg",
@@ -1771,10 +2306,10 @@ const products = [
   },
 
   {
-    id: "priti",
-    name: "Priti",
-    price: 610,
-    images: [
+    id:"priti",
+    name:"Priti",
+    price:610,
+    images:[
       "https://i.ibb.co/KjkfCC6T/1-3.png",
       "https://i.ibb.co/Xkt4fRzs/2.png",
       "https://i.ibb.co/JjJK9K9W/3-1.png",
@@ -1785,10 +2320,10 @@ const products = [
   },
 
   {
-    id: "radha",
-    name: "Radha",
-    price: 999,
-    images: [
+    id:"radha",
+    name:"Radha",
+    price:999,
+    images:[
       "https://i.ibb.co/V0CPVWL2/1-1.jpg",
       "https://i.ibb.co/HD6myTm7/2-2.jpg",
       "https://i.ibb.co/7J3w3Q0c/3-1.jpg",
@@ -1799,10 +2334,10 @@ const products = [
   },
 
   {
-    id: "rohini",
-    name: "Rohini",
-    price: 799,
-    images: [
+    id:"rohini",
+    name:"Rohini",
+    price:799,
+    images:[
       "https://i.ibb.co/vxYQFqvZ/1-6.png",
       "https://i.ibb.co/7tGSsJLS/2-3.png",
       "https://i.ibb.co/kVdcZQhP/3-4.png",
@@ -1813,10 +2348,10 @@ const products = [
   },
 
   {
-    id: "roopa",
-    name: "Roopa",
-    price: 949,
-    images: [
+    id:"roopa",
+    name:"Roopa",
+    price:949,
+    images:[
       "https://i.ibb.co/tM9H0CkH/1.jpg",
       "https://i.ibb.co/pBvWmg6c/2.jpg",
       "https://i.ibb.co/gMs3gY8C/3.jpg",
@@ -1826,10 +2361,10 @@ const products = [
   },
 
   {
-    id: "uma",
-    name: "Uma",
-    price: 799,
-    images: [
+    id:"uma",
+    name:"Uma",
+    price:799,
+    images:[
       "https://i.ibb.co/DDQGK9MF/1-4.png",
       "https://i.ibb.co/23MMZpf6/2-1.png",
       "https://i.ibb.co/m5WVFtkD/3-2.png",
@@ -1847,7 +2382,8 @@ const products = [
    STATE
 ========================================================= */
 
-let cart = JSON.parse(localStorage.getItem("vetroxCart")) || [];
+let cart =
+  JSON.parse(localStorage.getItem("vetroxCart")) || [];
 
 let currentProduct = null;
 
@@ -1862,23 +2398,53 @@ function money(value){
   return "₹" + value.toLocaleString("en-IN");
 }
 
+
 function saveCart(){
-  localStorage.setItem("vetroxCart", JSON.stringify(cart));
+
+  localStorage.setItem(
+    "vetroxCart",
+    JSON.stringify(cart)
+  );
+
   updateCartCount();
 }
 
+
 function showToast(message){
 
-  const toast = document.getElementById("toast");
+  const toast =
+    document.getElementById("toast");
 
   toast.textContent = message;
+
   toast.classList.add("show");
 
   clearTimeout(window.toastTimer);
 
-  window.toastTimer = setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2200);
+  window.toastTimer =
+    setTimeout(() => {
+
+      toast.classList.remove("show");
+
+    },2200);
+}
+
+
+/* =========================================================
+   GET FILTERED PRODUCTS
+========================================================= */
+
+function getFilteredProducts(){
+
+  const search =
+    document.getElementById("searchInput")
+      .value
+      .trim()
+      .toLowerCase();
+
+  return products.filter(product =>
+    product.name.toLowerCase().includes(search)
+  );
 }
 
 
@@ -1888,25 +2454,35 @@ function showToast(message){
 
 function renderProducts(list = products){
 
-  const grid = document.getElementById("productsGrid");
+  const grid =
+    document.getElementById("productsGrid");
 
   grid.innerHTML = "";
 
-  document.getElementById("productCount").textContent =
+  document.getElementById("productCount")
+    .textContent =
     `${list.length} product${list.length !== 1 ? "s" : ""}`;
 
   if(!list.length){
 
     grid.innerHTML = `
+
       <div style="
         grid-column:1/-1;
         text-align:center;
         padding:60px 20px;
         color:#776c70;">
-        <h3 style="color:#641d2f;margin-bottom:8px;">
+
+        <h3 style="
+          color:#641d2f;
+          margin-bottom:8px;">
           No products found
         </h3>
-        <p>Try searching with another product name.</p>
+
+        <p>
+          Try searching with another product name.
+        </p>
+
       </div>
     `;
 
@@ -1916,29 +2492,40 @@ function renderProducts(list = products){
   list.forEach(product => {
 
     if(galleryIndexes[product.id] === undefined){
+
       galleryIndexes[product.id] = 0;
+
     }
 
-    const index = galleryIndexes[product.id];
+    const index =
+      galleryIndexes[product.id];
 
-    const card = document.createElement("article");
+    const card =
+      document.createElement("article");
 
     card.className = "product-card";
+
+    card.dataset.productId =
+      product.id;
 
     card.innerHTML = `
 
       <div class="product-gallery">
 
+        <span class="product-photo-label">
+          ${product.images.length} Photos
+        </span>
+
         <img
-          id="product-img-${product.id}"
+          class="main-product-image"
           src="${product.images[index]}"
           alt="${product.name}"
-          loading="lazy"
-          onerror="this.style.opacity='.3'">
+          loading="lazy">
 
         ${
           product.images.length > 1
           ? `
+
             <button
               class="gallery-btn gallery-prev"
               onclick="changeProductImage('${product.id}',-1)"
@@ -1952,9 +2539,24 @@ function renderProducts(list = products){
               aria-label="Next photo">
               ›
             </button>
+
           `
           : ""
         }
+
+        <div class="product-thumbs">
+
+          ${product.images.map((image,i) => `
+
+            <img
+              src="${image}"
+              class="product-thumb ${i === index ? "active" : ""}"
+              alt="${product.name} photo ${i + 1}"
+              onclick="selectProductImage('${product.id}',${i})">
+
+          `).join("")}
+
+        </div>
 
         <span class="photo-count">
           ${index + 1} / ${product.images.length}
@@ -1966,20 +2568,26 @@ function renderProducts(list = products){
 
         <h3>${product.name}</h3>
 
-        <div class="price">${money(product.price)}</div>
+        <div class="price">
+          ${money(product.price)}
+        </div>
 
         <div class="product-actions">
 
           <button
             class="view-btn"
             onclick="openProduct('${product.id}')">
+
             View Product
+
           </button>
 
           <button
             class="add-btn"
             onclick="addToCart('${product.id}')">
+
             Add to Cart
+
           </button>
 
         </div>
@@ -1995,41 +2603,86 @@ function renderProducts(list = products){
 
 
 /* =========================================================
-   PRODUCT GALLERY
+   SELECT PRODUCT PHOTO
 ========================================================= */
 
-function changeProductImage(id, direction){
+function selectProductImage(id,index){
 
-  const product = products.find(p => p.id === id);
+  const product =
+    products.find(p => p.id === id);
 
   if(!product) return;
 
-  let index = galleryIndexes[id] || 0;
+  galleryIndexes[id] = index;
+
+  const card =
+    document.querySelector(
+      `.product-card[data-product-id="${id}"]`
+    );
+
+  if(!card) return;
+
+  const image =
+    card.querySelector(".main-product-image");
+
+  const count =
+    card.querySelector(".photo-count");
+
+  const thumbs =
+    card.querySelectorAll(".product-thumb");
+
+  image.style.opacity = "0.45";
+
+  setTimeout(() => {
+
+    image.src =
+      product.images[index];
+
+    image.style.opacity = "1";
+
+  },100);
+
+  count.textContent =
+    `${index + 1} / ${product.images.length}`;
+
+  thumbs.forEach((thumb,i) => {
+
+    thumb.classList.toggle(
+      "active",
+      i === index
+    );
+
+  });
+
+}
+
+
+/* =========================================================
+   PRODUCT GALLERY NEXT / PREVIOUS
+========================================================= */
+
+function changeProductImage(id,direction){
+
+  const product =
+    products.find(p => p.id === id);
+
+  if(!product) return;
+
+  let index =
+    galleryIndexes[id] || 0;
 
   index += direction;
 
   if(index < 0){
-    index = product.images.length - 1;
+    index =
+      product.images.length - 1;
   }
 
   if(index >= product.images.length){
     index = 0;
   }
 
-  galleryIndexes[id] = index;
-
-  renderProducts(
-    products.filter(product => {
-
-      const search =
-        document.getElementById("searchInput").value
-        .trim()
-        .toLowerCase();
-
-      return product.name.toLowerCase().includes(search);
-
-    })
-  );
+  selectProductImage(id,index);
 }
 
 
@@ -2039,17 +2692,10 @@ function changeProductImage(id, direction){
 
 function searchProducts(){
 
-  const search =
-    document.getElementById("searchInput")
-    .value
-    .trim()
-    .toLowerCase();
-
-  const filtered = products.filter(product =>
-    product.name.toLowerCase().includes(search)
+  renderProducts(
+    getFilteredProducts()
   );
 
-  renderProducts(filtered);
 }
 
 
@@ -2059,22 +2705,32 @@ function searchProducts(){
 
 function openProduct(id){
 
-  const product = products.find(p => p.id === id);
+  const product =
+    products.find(p => p.id === id);
 
   if(!product) return;
 
-  currentProduct = product;
+  currentProduct =
+    product;
 
-  document.getElementById("modalProductName").textContent =
+  document.getElementById(
+    "modalProductName"
+  ).textContent =
     product.name;
 
-  document.getElementById("modalProductPrice").textContent =
+  document.getElementById(
+    "modalProductPrice"
+  ).textContent =
     money(product.price);
 
-  document.getElementById("modalMainImage").src =
+  document.getElementById(
+    "modalMainImage"
+  ).src =
     product.images[0];
 
-  document.getElementById("modalMainImage").alt =
+  document.getElementById(
+    "modalMainImage"
+  ).alt =
     product.name;
 
   const thumbs =
@@ -2084,23 +2740,29 @@ function openProduct(id){
 
   product.images.forEach((image,index) => {
 
-    const thumb = document.createElement("img");
+    const thumb =
+      document.createElement("img");
 
     thumb.src = image;
+
     thumb.className =
-      "modal-thumb" + (index === 0 ? " active" : "");
+      "modal-thumb" +
+      (index === 0 ? " active" : "");
 
     thumb.alt =
       `${product.name} photo ${index + 1}`;
 
     thumb.onclick = () => {
 
-      document.getElementById("modalMainImage").src =
-        image;
+      document.getElementById(
+        "modalMainImage"
+      ).src = image;
 
       document
         .querySelectorAll(".modal-thumb")
-        .forEach(t => t.classList.remove("active"));
+        .forEach(t =>
+          t.classList.remove("active")
+        );
 
       thumb.classList.add("active");
 
@@ -2110,21 +2772,34 @@ function openProduct(id){
 
   });
 
-  document.getElementById("modalAddButton").onclick = () => {
+  document.getElementById(
+    "modalAddButton"
+  ).onclick = () => {
+
     addToCart(product.id);
+
     closeProductModal();
+
   };
 
-  document.getElementById("modalWhatsAppButton").onclick = () => {
+
+  document.getElementById(
+    "modalWhatsAppButton"
+  ).onclick = () => {
+
     orderSingleProduct(product);
+
   };
+
 
   document
     .getElementById("productModal")
     .classList.add("active");
 
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow =
+    "hidden";
 }
+
 
 function closeProductModal(){
 
@@ -2132,7 +2807,8 @@ function closeProductModal(){
     .getElementById("productModal")
     .classList.remove("active");
 
-  document.body.style.overflow = "";
+  document.body.style.overflow =
+    "";
 }
 
 
@@ -2142,34 +2818,50 @@ function closeProductModal(){
 
 function addToCart(id){
 
-  const product = products.find(p => p.id === id);
+  const product =
+    products.find(p => p.id === id);
 
   if(!product) return;
 
-  const existing = cart.find(item => item.id === id);
+  const existing =
+    cart.find(item => item.id === id);
 
   if(existing){
+
     existing.qty += 1;
+
   }else{
+
     cart.push({
       id:product.id,
       qty:1
     });
+
   }
 
   saveCart();
 
-  showToast(`${product.name} added to cart`);
+  showToast(
+    `${product.name} added to cart`
+  );
 }
+
 
 function updateCartCount(){
 
   const count =
-    cart.reduce((sum,item) => sum + item.qty,0);
+    cart.reduce(
+      (sum,item) =>
+        sum + item.qty,
+      0
+    );
 
-  document.getElementById("cartCount").textContent =
+  document.getElementById(
+    "cartCount"
+  ).textContent =
     count;
 }
+
 
 function openCart(){
 
@@ -2179,8 +2871,10 @@ function openCart(){
     .getElementById("cartModal")
     .classList.add("active");
 
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow =
+    "hidden";
 }
+
 
 function closeCart(){
 
@@ -2188,8 +2882,10 @@ function closeCart(){
     .getElementById("cartModal")
     .classList.remove("active");
 
-  document.body.style.overflow = "";
+  document.body.style.overflow =
+    "";
 }
+
 
 function renderCart(){
 
@@ -2199,16 +2895,31 @@ function renderCart(){
   if(!cart.length){
 
     container.innerHTML = `
+
       <div class="empty-cart">
-        <div style="font-size:45px;margin-bottom:10px;">🛍</div>
-        <h3 style="color:#641d2f;margin-bottom:6px;">
+
+        <div style="
+          font-size:45px;
+          margin-bottom:10px;">
+          🛍
+        </div>
+
+        <h3 style="
+          color:#641d2f;
+          margin-bottom:6px;">
           Your cart is empty
         </h3>
-        <p>Add some beautiful Vetrox styles.</p>
+
+        <p>
+          Add some beautiful Vetrox styles.
+        </p>
+
       </div>
     `;
 
-    document.getElementById("cartTotal").textContent =
+    document.getElementById(
+      "cartTotal"
+    ).textContent =
       "₹0";
 
     return;
@@ -2233,7 +2944,8 @@ function renderCart(){
     const div =
       document.createElement("div");
 
-    div.className = "cart-item";
+    div.className =
+      "cart-item";
 
     div.innerHTML = `
 
@@ -2243,7 +2955,9 @@ function renderCart(){
 
       <div class="cart-item-info">
 
-        <h4>${product.name}</h4>
+        <h4>
+          ${product.name}
+        </h4>
 
         <span>
           ${money(product.price)} × ${item.qty}
@@ -2251,12 +2965,16 @@ function renderCart(){
 
       </div>
 
-      <strong>${money(subtotal)}</strong>
+      <strong>
+        ${money(subtotal)}
+      </strong>
 
       <button
         class="remove-item"
         onclick="removeFromCart('${product.id}')">
+
         ×
+
       </button>
     `;
 
@@ -2264,18 +2982,27 @@ function renderCart(){
 
   });
 
-  document.getElementById("cartTotal").textContent =
+  document.getElementById(
+    "cartTotal"
+  ).textContent =
     money(total);
 }
 
+
 function removeFromCart(id){
 
-  cart = cart.filter(item => item.id !== id);
+  cart =
+    cart.filter(item =>
+      item.id !== id
+    );
 
   saveCart();
+
   renderCart();
 
-  showToast("Product removed");
+  showToast(
+    "Product removed"
+  );
 }
 
 
@@ -2287,7 +3014,9 @@ function openCheckout(){
 
   if(!cart.length){
 
-    showToast("Your cart is empty");
+    showToast(
+      "Your cart is empty"
+    );
 
     return;
   }
@@ -2298,8 +3027,10 @@ function openCheckout(){
     .getElementById("checkoutModal")
     .classList.add("active");
 
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow =
+    "hidden";
 }
+
 
 function closeCheckout(){
 
@@ -2307,8 +3038,10 @@ function closeCheckout(){
     .getElementById("checkoutModal")
     .classList.remove("active");
 
-  document.body.style.overflow = "";
+  document.body.style.overflow =
+    "";
 }
+
 
 function submitOrder(event){
 
@@ -2316,7 +3049,8 @@ function submitOrder(event){
 
   if(
     !WHATSAPP_NUMBER ||
-    WHATSAPP_NUMBER === "YOUR_WHATSAPP_NUMBER"
+    WHATSAPP_NUMBER ===
+    "YOUR_WHATSAPP_NUMBER"
   ){
 
     alert(
@@ -2328,16 +3062,28 @@ function submitOrder(event){
   }
 
   const name =
-    document.getElementById("customerName").value.trim();
+    document
+      .getElementById("customerName")
+      .value
+      .trim();
 
   const phone =
-    document.getElementById("customerPhone").value.trim();
+    document
+      .getElementById("customerPhone")
+      .value
+      .trim();
 
   const address =
-    document.getElementById("customerAddress").value.trim();
+    document
+      .getElementById("customerAddress")
+      .value
+      .trim();
 
   const note =
-    document.getElementById("customerNote").value.trim();
+    document
+      .getElementById("customerNote")
+      .value
+      .trim();
 
   let message =
 `Hello Vetrox Apparel! 👋
@@ -2355,7 +3101,9 @@ Products:
   cart.forEach((item,index) => {
 
     const product =
-      products.find(p => p.id === item.id);
+      products.find(
+        p => p.id === item.id
+      );
 
     if(!product) return;
 
@@ -2379,11 +3127,13 @@ ${address}
 `;
 
   if(note){
+
     message +=
 `
 Note:
 ${note}
 `;
+
   }
 
   message +=
@@ -2394,8 +3144,10 @@ Thank you!`;
     `https://wa.me/${WHATSAPP_NUMBER}?text=` +
     encodeURIComponent(message);
 
-  window.open(url,"_blank");
-
+  window.open(
+    url,
+    "_blank"
+  );
 }
 
 
@@ -2407,7 +3159,8 @@ function orderSingleProduct(product){
 
   if(
     !WHATSAPP_NUMBER ||
-    WHATSAPP_NUMBER === "YOUR_WHATSAPP_NUMBER"
+    WHATSAPP_NUMBER ===
+    "YOUR_WHATSAPP_NUMBER"
   ){
 
     alert(
@@ -2431,7 +3184,10 @@ Please share availability and order details.`;
     `https://wa.me/${WHATSAPP_NUMBER}?text=` +
     encodeURIComponent(message);
 
-  window.open(url,"_blank");
+  window.open(
+    url,
+    "_blank"
+  );
 }
 
 
@@ -2445,7 +3201,8 @@ function openWhatsApp(event){
 
   if(
     !WHATSAPP_NUMBER ||
-    WHATSAPP_NUMBER === "YOUR_WHATSAPP_NUMBER"
+    WHATSAPP_NUMBER ===
+    "YOUR_WHATSAPP_NUMBER"
   ){
 
     alert(
@@ -2462,7 +3219,10 @@ function openWhatsApp(event){
     `https://wa.me/${WHATSAPP_NUMBER}?text=` +
     encodeURIComponent(message);
 
-  window.open(url,"_blank");
+  window.open(
+    url,
+    "_blank"
+  );
 }
 
 
@@ -2475,13 +3235,16 @@ function toggleMobileMenu(){
   document
     .getElementById("mobileMenu")
     .classList.toggle("active");
+
 }
+
 
 function closeMobileMenu(){
 
   document
     .getElementById("mobileMenu")
     .classList.remove("active");
+
 }
 
 
@@ -2491,57 +3254,73 @@ function closeMobileMenu(){
 
 document
   .getElementById("productModal")
-  .addEventListener("click",function(event){
+  .addEventListener(
+    "click",
+    function(event){
 
-    if(event.target === this){
-      closeProductModal();
+      if(event.target === this){
+        closeProductModal();
+      }
+
     }
+  );
 
-  });
 
 document
   .getElementById("cartModal")
-  .addEventListener("click",function(event){
+  .addEventListener(
+    "click",
+    function(event){
 
-    if(event.target === this){
-      closeCart();
+      if(event.target === this){
+        closeCart();
+      }
+
     }
+  );
 
-  });
 
 document
   .getElementById("checkoutModal")
-  .addEventListener("click",function(event){
+  .addEventListener(
+    "click",
+    function(event){
 
-    if(event.target === this){
-      closeCheckout();
+      if(event.target === this){
+        closeCheckout();
+      }
+
     }
-
-  });
+  );
 
 
 /* =========================================================
    ESCAPE KEY
 ========================================================= */
 
-document.addEventListener("keydown",function(event){
+document.addEventListener(
+  "keydown",
+  function(event){
 
-  if(event.key === "Escape"){
+    if(event.key === "Escape"){
 
-    closeProductModal();
-    closeCart();
-    closeCheckout();
+      closeProductModal();
+      closeCart();
+      closeCheckout();
+
+    }
 
   }
-
-});
+);
 
 
 /* =========================================================
    INITIALIZE
 ========================================================= */
 
-document.getElementById("year").textContent =
+document.getElementById(
+  "year"
+).textContent =
   new Date().getFullYear();
 
 renderProducts();
