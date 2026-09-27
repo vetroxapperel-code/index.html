@@ -1,2047 +1,1569 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Vetrox Apparel | Elegant Ethnic Wear</title>
-
-  <meta name="description" content="Vetrox Apparel - Discover elegant kurtis, kurta sets and three-piece ethnic wear. Shop stylish fashion at affordable prices.">
-  <meta name="keywords" content="Vetrox Apparel, kurtis, kurta sets, three piece set, ethnic wear, Surat fashion">
-  <meta name="author" content="Vetrox Apparel">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #faf9f7;
-      color: #242424;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button,
-    input,
-    textarea,
-    select {
-      font: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    :root {
-      --primary: #7b2947;
-      --primary-dark: #5e1d35;
-      --gold: #b58b4a;
-      --cream: #faf5ef;
-      --dark: #201a1c;
-      --muted: #777;
-      --white: #fff;
-      --border: #e8e1dc;
-      --shadow: 0 12px 35px rgba(50, 30, 35, 0.10);
-    }
-
-    /* =========================
-       TOP BAR
-    ========================== */
-
-    .top-bar {
-      background: var(--dark);
-      color: white;
-      text-align: center;
-      font-size: 13px;
-      padding: 8px 15px;
-      letter-spacing: .3px;
-    }
-
-    /* =========================
-       HEADER
-    ========================== */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,.97);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .navbar {
-      max-width: 1200px;
-      margin: auto;
-      height: 76px;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: white;
-      display: grid;
-      place-items: center;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    .logo-text h1 {
-      font-size: 20px;
-      letter-spacing: 1px;
-      color: var(--primary);
-    }
-
-    .logo-text span {
-      display: block;
-      font-size: 10px;
-      color: #888;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-links a {
-      transition: .25s;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .cart-button {
-      position: relative;
-      border: none;
-      background: var(--primary);
-      color: white;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 18px;
-    }
-
-    .cart-count {
-      position: absolute;
-      top: -3px;
-      right: -3px;
-      background: var(--gold);
-      color: white;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 11px;
-      font-weight: bold;
-    }
-
-    .menu-btn {
-      display: none;
-      border: none;
-      background: transparent;
-      font-size: 26px;
-      cursor: pointer;
-    }
-
-    /* =========================
-       HERO
-    ========================== */
-
-    .hero {
-      min-height: 650px;
-      background:
-        linear-gradient(90deg, rgba(32,26,28,.88), rgba(32,26,28,.48), rgba(32,26,28,.10)),
-        url("https://i.ibb.co/TqvhSwyd/0-1.jpg") center/cover;
-      display: flex;
-      align-items: center;
-      color: white;
-    }
-
-    .hero-content {
-      max-width: 1200px;
-      width: 100%;
-      margin: auto;
-      padding: 80px 20px;
-    }
-
-    .hero-small {
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 13px;
-      color: #f2d8ad;
-      margin-bottom: 18px;
-    }
-
-    .hero h2 {
-      font-family: Georgia, serif;
-      font-size: clamp(45px, 7vw, 82px);
-      line-height: 1.05;
-      max-width: 720px;
-      margin-bottom: 25px;
-    }
-
-    .hero p {
-      max-width: 570px;
-      font-size: 18px;
-      color: #eee;
-      margin-bottom: 32px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 24px;
-      border-radius: 5px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      font-weight: bold;
-      transition: .25s;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-light {
-      background: white;
-      color: var(--dark);
-    }
-
-    .btn-light:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    .btn-outline:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    /* =========================
-       SECTION
-    ========================== */
-
-    .section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 85px 20px;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-heading span {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .section-heading h2 {
-      font-family: Georgia, serif;
-      font-size: 42px;
-      margin: 8px 0 12px;
-      color: var(--dark);
-    }
-
-    .section-heading p {
-      max-width: 650px;
-      margin: auto;
-      color: var(--muted);
-    }
-
-    /* =========================
-       ABOUT
-    ========================== */
-
-    .about {
-      background: white;
-    }
-
-    .about-grid {
-      max-width: 1200px;
-      margin: auto;
-      padding: 85px 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 65px;
-      align-items: center;
-    }
-
-    .about-image {
-      position: relative;
-    }
-
-    .about-image img {
-      width: 100%;
-      height: 540px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-badge {
-      position: absolute;
-      bottom: 25px;
-      right: -20px;
-      background: var(--primary);
-      color: white;
-      padding: 22px;
-      width: 145px;
-      text-align: center;
-      border-radius: 6px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-badge strong {
-      display: block;
-      font-size: 25px;
-    }
-
-    .about-content span {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .about-content h2 {
-      font-family: Georgia, serif;
-      font-size: 43px;
-      line-height: 1.15;
-      margin: 12px 0 20px;
-    }
-
-    .about-content p {
-      color: #666;
-      margin-bottom: 18px;
-    }
-
-    .about-list {
-      list-style: none;
-      margin: 25px 0;
-    }
-
-    .about-list li {
-      margin: 10px 0;
-      font-weight: 600;
-    }
-
-    .about-list li::before {
-      content: "✓";
-      color: var(--gold);
-      margin-right: 10px;
-    }
-
-    /* =========================
-       CATEGORIES
-    ========================== */
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .category-card {
-      position: relative;
-      min-height: 300px;
-      overflow: hidden;
-      border-radius: 7px;
-      cursor: pointer;
-    }
-
-    .category-card img {
-      width: 100%;
-      height: 100%;
-      min-height: 300px;
-      object-fit: cover;
-      transition: transform .5s;
-    }
-
-    .category-card:hover img {
-      transform: scale(1.06);
-    }
-
-    .category-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,.75));
-      display: flex;
-      align-items: flex-end;
-      padding: 28px;
-      color: white;
-    }
-
-    .category-overlay h3 {
-      font-family: Georgia, serif;
-      font-size: 28px;
-    }
-
-    /* =========================
-       PRODUCTS
-    ========================== */
-
-    .shop-section {
-      background: var(--cream);
-    }
-
-    .filters {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 35px;
-    }
-
-    .filter-btn {
-      border: 1px solid #d8cdc5;
-      background: white;
-      padding: 10px 20px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: .2s;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      transition: .25s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
-
-    .product-image {
-      height: 330px;
-      position: relative;
-      background: #f1eeee;
-      overflow: hidden;
-    }
-
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .4s;
-    }
-
-    .product-card:hover .product-image img {
-      transform: scale(1.04);
-    }
-
-    .product-tag {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: var(--gold);
-      color: white;
-      padding: 5px 10px;
-      border-radius: 3px;
-      font-size: 11px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    .product-info {
-      padding: 18px;
-    }
-
-    .product-category {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--gold);
-      font-weight: bold;
-    }
-
-    .product-info h3 {
-      margin: 6px 0;
-      font-size: 17px;
-    }
-
-    .product-price {
-      font-size: 19px;
-      color: var(--primary);
-      font-weight: bold;
-      margin: 8px 0 15px;
-    }
-
-    .add-btn {
-      width: 100%;
-      padding: 11px;
-      border: none;
-      border-radius: 4px;
-      background: var(--dark);
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      transition: .2s;
-    }
-
-    .add-btn:hover {
-      background: var(--primary);
-    }
-
-    /* =========================
-       WHY VETROX
-    ========================== */
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .feature {
-      text-align: center;
-      padding: 35px 20px;
-      border: 1px solid var(--border);
-      background: white;
-      border-radius: 7px;
-    }
-
-    .feature-icon {
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
-
-    .feature h3 {
-      margin-bottom: 8px;
-    }
-
-    .feature p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* =========================
-       CTA
-    ========================== */
-
-    .cta {
-      background:
-        linear-gradient(rgba(70,25,43,.88), rgba(70,25,43,.88)),
-        url("https://i.ibb.co/Q7TMNKGG/2.jpg") center/cover;
-      color: white;
-      text-align: center;
-      padding: 95px 20px;
-    }
-
-    .cta h2 {
-      font-family: Georgia, serif;
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
-
-    .cta p {
-      max-width: 600px;
-      margin: 0 auto 28px;
-      color: #eee;
-    }
-
-    /* =========================
-       CONTACT
-    ========================== */
-
-    .contact-section {
-      background: white;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 45px;
-      align-items: start;
-    }
-
-    .contact-info {
-      background: var(--cream);
-      padding: 35px;
-      border-radius: 8px;
-    }
-
-    .contact-info h3 {
-      font-family: Georgia, serif;
-      font-size: 30px;
-      margin-bottom: 20px;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 15px;
-      margin: 23px 0;
-    }
-
-    .contact-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: white;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-    }
-
-    .contact-item strong {
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .contact-item span,
-    .contact-item a {
-      color: #666;
-      font-size: 14px;
-    }
-
-    .contact-form {
-      display: grid;
-      gap: 15px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .form-group {
-      display: grid;
-      gap: 7px;
-    }
-
-    .form-group label {
-      font-weight: bold;
-      font-size: 13px;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      padding: 13px;
-      outline: none;
-      background: white;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--primary);
-    }
-
-    .form-group textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer {
-      background: var(--dark);
-      color: white;
-    }
-
-    .footer-main {
-      max-width: 1200px;
-      margin: auto;
-      padding: 65px 20px 45px;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 45px;
-    }
-
-    .footer-brand h2 {
-      color: white;
-      font-family: Georgia, serif;
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-
-    .footer-brand p {
-      color: #aaa;
-      max-width: 320px;
-      font-size: 14px;
-    }
-
-    footer h3 {
-      margin-bottom: 15px;
-      font-size: 15px;
-    }
-
-    footer ul {
-      list-style: none;
-    }
-
-    footer li {
-      margin: 9px 0;
-    }
-
-    footer li a {
-      color: #aaa;
-      font-size: 14px;
-    }
-
-    footer li a:hover {
-      color: white;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #3a3335;
-      padding: 20px;
-      text-align: center;
-      color: #999;
-      font-size: 12px;
-    }
-
-    /* =========================
-       WHATSAPP
-    ========================== */
-
-    .whatsapp {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background: #25D366;
-      color: white;
-      display: grid;
-      place-items: center;
-      font-size: 26px;
-      z-index: 900;
-      box-shadow: 0 8px 25px rgba(0,0,0,.2);
-    }
-
-    /* =========================
-       MODAL
-    ========================== */
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.65);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 15px;
-      z-index: 2000;
-    }
-
-    .modal.show {
-      display: flex;
-    }
-
-    .modal-box {
-      background: white;
-      width: 100%;
-      max-width: 620px;
-      max-height: 90vh;
-      overflow-y: auto;
-      border-radius: 8px;
-      position: relative;
-      padding: 28px;
-    }
-
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-
-    .modal-header h2 {
-      font-family: Georgia, serif;
-    }
-
-    .close-btn {
-      border: none;
-      background: #eee;
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 18px;
-    }
-
-    .cart-item {
-      display: grid;
-      grid-template-columns: 65px 1fr auto;
-      gap: 12px;
-      padding: 15px 0;
-      border-bottom: 1px solid #eee;
-      align-items: center;
-    }
-
-    .cart-item img {
-      width: 65px;
-      height: 75px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
-
-    .cart-item h4 {
-      font-size: 14px;
-    }
-
-    .cart-item small {
-      color: #777;
-    }
-
-    .quantity {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 6px;
-    }
-
-    .quantity button {
-      width: 25px;
-      height: 25px;
-      border: 1px solid #ddd;
-      background: white;
-      cursor: pointer;
-    }
-
-    .remove-btn {
-      border: none;
-      background: transparent;
-      color: #c33;
-      cursor: pointer;
-      font-size: 12px;
-    }
-
-    .cart-total {
-      display: flex;
-      justify-content: space-between;
-      font-weight: bold;
-      font-size: 20px;
-      padding: 20px 0;
-    }
-
-    .empty-cart {
-      text-align: center;
-      padding: 35px 10px;
-      color: #777;
-    }
-
-    .checkout-form {
-      display: grid;
-      gap: 14px;
-    }
-
-    .success-box {
-      text-align: center;
-      padding: 30px 10px;
-    }
-
-    .success-icon {
-      font-size: 55px;
-      margin-bottom: 10px;
-    }
-
-    /* =========================
-       MOBILE
-    ========================== */
-
-    @media (max-width: 1000px) {
-      .products {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .features {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-main {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 800px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 76px;
-        background: white;
-        flex-direction: column;
-        padding: 25px;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-image img {
-        height: 420px;
-      }
-
-      .categories {
-        grid-template-columns: 1fr;
-      }
-
-      .category-card {
-        min-height: 260px;
-      }
-
-      .products {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .product-image {
-        height: 300px;
-      }
-    }
-
-    @media (max-width: 550px) {
-      .navbar {
-        height: 68px;
-      }
-
-      .logo-text h1 {
-        font-size: 17px;
-      }
-
-      .logo-mark {
-        width: 36px;
-        height: 36px;
-      }
-
-      .hero {
-        min-height: 570px;
-      }
-
-      .hero h2 {
-        font-size: 44px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .section,
-      .about-grid {
-        padding-top: 60px;
-        padding-bottom: 60px;
-      }
-
-      .section-heading h2,
-      .about-content h2 {
-        font-size: 34px;
-      }
-
-      .products {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-
-      .product-image {
-        height: 235px;
-      }
-
-      .product-info {
-        padding: 12px;
-      }
-
-      .product-info h3 {
-        font-size: 14px;
-      }
-
-      .product-price {
-        font-size: 16px;
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-main {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .cta h2 {
-        font-size: 34px;
-      }
-
-      .modal-box {
-        padding: 20px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vetrox Apparel | Elegant • Everyday • You</title>
+
+<meta name="description"
+content="Vetrox Apparel – Elegant everyday kurtis, kurta sets and women's ethnic wear from Surat, Gujarat.">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:#faf9f7;
+  color:#242424;
+  line-height:1.6;
+}
+
+button,
+input,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+  --black:#171717;
+  --dark:#252525;
+  --gold:#b28a4a;
+  --light:#faf9f7;
+  --cream:#f2eee7;
+  --white:#ffffff;
+  --gray:#777;
+  --border:#e5e1da;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+  background:var(--black);
+  color:#fff;
+  text-align:center;
+  padding:8px 15px;
+  font-size:13px;
+  letter-spacing:.4px;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-inner{
+  max-width:1250px;
+  margin:auto;
+  min-height:76px;
+  padding:10px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo{
+  width:62px;
+  height:62px;
+  object-fit:contain;
+  border-radius:50%;
+}
+
+.brand-name{
+  font-family:Georgia,serif;
+  font-size:23px;
+  font-weight:bold;
+  letter-spacing:.5px;
+}
+
+.brand-tag{
+  font-size:11px;
+  color:#777;
+  letter-spacing:1px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#333;
+  font-size:14px;
+  font-weight:600;
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.cart-btn{
+  position:relative;
+  background:var(--black);
+  color:#fff;
+  border:0;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  font-size:18px;
+}
+
+.cart-count{
+  position:absolute;
+  right:-3px;
+  top:-4px;
+  width:19px;
+  height:19px;
+  background:#c43d3d;
+  color:#fff;
+  border-radius:50%;
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:650px;
+  position:relative;
+  background-image:
+    linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.45)),
+    url("https://i.ibb.co/DBkByyb/watermarked-img-3481303281193597991.png");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+}
+
+.hero-content{
+  max-width:780px;
+  padding:40px 20px;
+}
+
+.hero-small{
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:clamp(42px,7vw,78px);
+  line-height:1;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:18px;
+  margin-bottom:30px;
+}
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:13px 25px;
+  border-radius:4px;
+  border:1px solid transparent;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.25s;
+}
+
+.btn-dark{
+  background:#fff;
+  color:#111;
+}
+
+.btn-dark:hover{
+  background:#eee;
+}
+
+.btn-outline{
+  border-color:#fff;
+  color:#fff;
+}
+
+.btn-outline:hover{
+  background:#fff;
+  color:#111;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+  max-width:1250px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.eyebrow{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.section-head h2{
+  font-family:Georgia,serif;
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.section-head p{
+  color:#777;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+  align-items:center;
+}
+
+.about-image{
+  min-height:440px;
+  background:url("https://i.ibb.co/DBkByyb/watermarked-img-3481303281193597991.png")
+  center/cover;
+}
+
+.about-text h2{
+  font-family:Georgia,serif;
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.about-text p{
+  color:#666;
+  margin-bottom:18px;
+}
+
+.about-list{
+  list-style:none;
+  margin-top:25px;
+}
+
+.about-list li{
+  margin:10px 0;
+}
+
+/* =========================
+   COLLECTION CARDS
+========================= */
+
+.collection-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.collection-card{
+  min-height:310px;
+  position:relative;
+  overflow:hidden;
+  background:#ddd;
+}
+
+.collection-card img{
+  width:100%;
+  height:100%;
+  min-height:310px;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.collection-card:hover img{
+  transform:scale(1.05);
+}
+
+.collection-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end;
+  padding:25px;
+  background:linear-gradient(transparent,rgba(0,0,0,.7));
+  color:#fff;
+}
+
+.collection-overlay h3{
+  font-family:Georgia,serif;
+  font-size:25px;
+}
+
+/* =========================
+   SHOP TOOLBAR
+========================= */
+
+.shop-toolbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+
+.filters{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.filter-btn{
+  padding:10px 17px;
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:30px;
+  font-size:13px;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+  background:var(--black);
+  color:#fff;
+  border-color:var(--black);
+}
+
+.search-box{
+  border:1px solid var(--border);
+  background:#fff;
+  padding:11px 15px;
+  min-width:250px;
+  outline:none;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.product-card{
+  background:#fff;
+  border:1px solid var(--border);
+  overflow:hidden;
+  transition:.25s;
+  cursor:pointer;
+}
+
+.product-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.product-image-wrap{
+  position:relative;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:#eee;
+}
+
+.product-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.product-card:hover .product-image{
+  transform:scale(1.035);
+}
+
+.product-badge{
+  position:absolute;
+  left:10px;
+  top:10px;
+  background:#fff;
+  padding:6px 10px;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.product-info{
+  padding:17px;
+}
+
+.product-name{
+  font-family:Georgia,serif;
+  font-size:18px;
+  margin-bottom:5px;
+}
+
+.product-code{
+  color:#888;
+  font-size:11px;
+  margin-bottom:10px;
+}
+
+.product-price{
+  font-weight:bold;
+  font-size:17px;
+}
+
+.view-gallery{
+  color:var(--gold);
+  font-size:12px;
+  margin-top:10px;
+}
+
+/* =========================
+   WHY
+========================= */
+
+.why{
+  background:var(--cream);
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
+}
+
+.why-card{
+  text-align:center;
+  padding:20px;
+}
+
+.why-icon{
+  width:55px;
+  height:55px;
+  margin:0 auto 15px;
+  border-radius:50%;
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:23px;
+}
+
+.why-card h3{
+  margin-bottom:7px;
+}
+
+.why-card p{
+  font-size:13px;
+  color:#777;
+}
+
+/* =========================
+   INSTAGRAM / CTA
+========================= */
+
+.cta{
+  background:var(--black);
+  color:#fff;
+  text-align:center;
+}
+
+.cta h2{
+  font-family:Georgia,serif;
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.cta p{
+  color:#ccc;
+  margin-bottom:25px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+.contact-info{
+  padding:35px;
+  background:#fff;
+  border:1px solid var(--border);
+}
+
+.contact-info h3{
+  font-family:Georgia,serif;
+  font-size:28px;
+  margin-bottom:20px;
+}
+
+.contact-item{
+  margin:15px 0;
+}
+
+.contact-item strong{
+  display:block;
+  font-size:12px;
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.contact-item a{
+  color:#333;
+  text-decoration:none;
+}
+
+.contact-form{
+  padding:35px;
+  background:#fff;
+  border:1px solid var(--border);
+}
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:6px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.form-group input,
+.form-group textarea{
+  width:100%;
+  border:1px solid var(--border);
+  padding:12px;
+  outline:none;
+}
+
+.form-group textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.submit-btn{
+  background:var(--black);
+  color:#fff;
+  border:0;
+  padding:13px 24px;
+  width:100%;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#111;
+  color:#fff;
+  padding:45px 20px 25px;
+}
+
+.footer-inner{
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:35px;
+}
+
+.footer-brand h3{
+  font-family:Georgia,serif;
+  font-size:25px;
+  margin-bottom:10px;
+}
+
+.footer-brand p{
+  color:#aaa;
+  max-width:400px;
+}
+
+.footer-col h4{
+  margin-bottom:12px;
+}
+
+.footer-col a{
+  display:block;
+  color:#aaa;
+  text-decoration:none;
+  margin:7px 0;
+  font-size:14px;
+}
+
+.footer-bottom{
+  max-width:1250px;
+  margin:35px auto 0;
+  padding-top:20px;
+  border-top:1px solid #333;
+  color:#777;
+  text-align:center;
+  font-size:12px;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:27px;
+  z-index:1500;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+/* =========================
+   MODALS
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.72);
+  z-index:3000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(1050px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:#fff;
+  position:relative;
+  border-radius:6px;
+}
+
+.modal-close{
+  position:absolute;
+  top:12px;
+  right:15px;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:0;
+  background:#111;
+  color:#fff;
+  z-index:5;
+  font-size:20px;
+}
+
+/* =========================
+   PRODUCT DETAIL
+========================= */
+
+.detail-layout{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+}
+
+.gallery-main{
+  background:#f1f1f1;
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.gallery-main img{
+  width:100%;
+  height:650px;
+  object-fit:contain;
+}
+
+.gallery-side{
+  padding:35px;
+}
+
+.gallery-side h2{
+  font-family:Georgia,serif;
+  font-size:35px;
+  margin-bottom:7px;
+}
+
+.detail-price{
+  font-size:23px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+.detail-description{
+  color:#666;
+  margin-bottom:25px;
+}
+
+.thumb-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+  margin-top:25px;
+}
+
+.thumb-grid img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+.thumb-grid img.active{
+  border-color:var(--gold);
+}
+
+.add-cart{
+  width:100%;
+  border:0;
+  background:#111;
+  color:#fff;
+  padding:15px;
+  margin-top:25px;
+  font-weight:bold;
+}
+
+.buy-whatsapp{
+  width:100%;
+  border:1px solid #25D366;
+  color:#168c43;
+  background:#fff;
+  padding:14px;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+/* =========================
+   CART
+========================= */
+
+.cart-box{
+  width:min(600px,100%);
+}
+
+.cart-header{
+  padding:22px;
+  border-bottom:1px solid var(--border);
+}
+
+.cart-items{
+  padding:20px;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:75px 1fr auto;
+  gap:12px;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+  padding:12px 0;
+}
+
+.cart-item img{
+  width:75px;
+  height:90px;
+  object-fit:cover;
+}
+
+.cart-item-name{
+  font-weight:bold;
+}
+
+.cart-item-price{
+  font-size:13px;
+  color:#777;
+}
+
+.remove-item{
+  border:0;
+  background:none;
+  color:#c33;
+}
+
+.cart-total{
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+  font-size:19px;
+  font-weight:bold;
+}
+
+.checkout-btn{
+  margin:0 20px 20px;
+  width:calc(100% - 40px);
+  border:0;
+  background:#111;
+  color:#fff;
+  padding:15px;
+}
+
+/* =========================
+   CHECKOUT
+========================= */
+
+.checkout-box{
+  width:min(600px,100%);
+  padding:30px;
+}
+
+.checkout-box h2{
+  font-family:Georgia,serif;
+  margin-bottom:20px;
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+  grid-column:1/-1;
+  text-align:center;
+  padding:60px;
+  color:#777;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1000px){
+  .product-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .why-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:760px){
+
+  .nav-inner{
+    min-height:68px;
+  }
+
+  .brand-name{
+    font-size:18px;
+  }
+
+  .brand-tag{
+    display:none;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+    min-height:570px;
+  }
+
+  .section{
+    padding:60px 16px;
+  }
+
+  .about-grid,
+  .contact-grid,
+  .detail-layout{
+    grid-template-columns:1fr;
+  }
+
+  .about-image{
+    min-height:350px;
+  }
+
+  .collection-grid{
+    grid-template-columns:1fr;
+  }
+
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .product-info{
+    padding:12px;
+  }
+
+  .product-name{
+    font-size:15px;
+  }
+
+  .product-price{
+    font-size:15px;
+  }
+
+  .gallery-main,
+  .gallery-main img{
+    min-height:420px;
+    height:420px;
+  }
+
+  .gallery-side{
+    padding:25px 20px;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+
+  .shop-toolbar{
+    align-items:stretch;
+  }
+
+  .search-box{
+    width:100%;
+    min-width:0;
+  }
+}
+
+@media(max-width:450px){
+  .product-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero h1{
+    font-size:44px;
+  }
+
+  .section-head h2{
+    font-size:30px;
+  }
+
+  .thumb-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- =========================
-       TOP BAR
-  ========================== -->
+<!-- TOP BAR -->
+<div class="topbar">
+  Free consultation • Surat, Gujarat • Order directly on WhatsApp
+</div>
 
-  <div class="top-bar">
-    ✨ Discover elegant ethnic wear with Vetrox Apparel | Easy WhatsApp Ordering
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+
+    <a href="#home" class="logo-wrap" style="text-decoration:none;color:#171717;">
+      <img
+        class="logo"
+        src="https://i.ibb.co/wrwjjXNH/llogo.jpg"
+        alt="Vetrox Apparel Logo"
+      >
+
+      <div>
+        <div class="brand-name">Vetrox Apparel</div>
+        <div class="brand-tag">Elegant • Everyday • You</div>
+      </div>
+    </a>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+      <a
+        href="https://www.instagram.com/vetrox_apparel/"
+        target="_blank"
+      >Instagram</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="openCart()" aria-label="Shopping cart">
+        🛍
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="hero-small">
+      Vetrox Apparel • Surat
+    </div>
+
+    <h1>Elegant.<br>Everyday.<br>You.</h1>
+
+    <p>
+      Discover thoughtfully selected ethnic wear designed
+      for effortless everyday elegance.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#shop" class="btn btn-dark">
+        Shop Collection
+      </a>
+
+      <a
+        href="https://wa.me/919484696506?text=Hello%20Vetrox%20Apparel,%20I%20want%20to%20know%20more%20about%20your%20collection."
+        target="_blank"
+        class="btn btn-outline"
+      >
+        WhatsApp Us
+      </a>
+    </div>
+
   </div>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+</section>
 
-  <header>
-    <nav class="navbar">
 
-      <a href="#home" class="logo">
-        <div class="logo-mark">V</div>
+<!-- ABOUT -->
+<section class="section" id="about">
 
-        <div class="logo-text">
-          <h1>Vetrox Apparel</h1>
-          <span>Elegant • Everyday • You</span>
-        </div>
-      </a>
+  <div class="about-grid">
 
-      <div class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#collections">Collections</a>
-        <a href="#shop">Shop</a>
-        <a href="#contact">Contact</a>
-      </div>
+    <div class="about-image"></div>
 
-      <div class="header-actions">
+    <div class="about-text">
 
-        <button class="cart-button" onclick="openCart()" aria-label="Shopping cart">
-          🛍
-          <span class="cart-count" id="cartCount">0</span>
-        </button>
+      <div class="eyebrow">About Vetrox</div>
 
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
-          ☰
-        </button>
-
-      </div>
-
-    </nav>
-  </header>
-
-
-  <!-- =========================
-       HERO
-  ========================== -->
-
-  <main>
-
-    <section class="hero" id="home">
-
-      <div class="hero-content">
-
-        <div class="hero-small">
-          Vetrox Apparel
-        </div>
-
-        <h2>
-          Style That Feels
-          <br>
-          Beautifully You.
-        </h2>
-
-        <p>
-          Discover elegant kurtis, sophisticated kurta sets and
-          beautiful three-piece outfits designed to make every
-          everyday moment feel special.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#shop" class="btn btn-primary">
-            Shop Collection
-          </a>
-
-          <a href="#about" class="btn btn-light">
-            Discover Our Story
-          </a>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT
-    ========================== -->
-
-    <section class="about" id="about">
-
-      <div class="about-grid">
-
-        <div class="about-image">
-
-          <img
-            src="https://i.ibb.co/TqvhSwyd/0-1.jpg"
-            alt="Vetrox Apparel Collection"
-            loading="lazy"
-          >
-
-          <div class="about-badge">
-            <strong>V</strong>
-            Crafted for<br>
-            Everyday Elegance
-          </div>
-
-        </div>
-
-        <div class="about-content">
-
-          <span>About Vetrox Apparel</span>
-
-          <h2>
-            Fashion that celebrates
-            your individuality.
-          </h2>
-
-          <p>
-            Welcome to Vetrox Apparel, a contemporary clothing brand
-            based in Surat, Gujarat. We believe fashion should be
-            comfortable, elegant and accessible.
-          </p>
-
-          <p>
-            Our collection brings together timeless ethnic silhouettes,
-            modern styling and carefully selected designs that fit
-            effortlessly into your everyday wardrobe.
-          </p>
-
-          <ul class="about-list">
-            <li>Elegant and contemporary designs</li>
-            <li>Comfortable everyday fashion</li>
-            <li>Quality-focused product selection</li>
-            <li>Affordable prices</li>
-            <li>Easy online ordering</li>
-          </ul>
-
-          <a href="#shop" class="btn btn-primary">
-            Explore Collection
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         COLLECTIONS
-    ========================== -->
-
-    <section class="section" id="collections">
-
-      <div class="section-heading">
-
-        <span>Our Collections</span>
-
-        <h2>Find Your Signature Style</h2>
-
-        <p>
-          Explore our carefully selected ethnic wear collections
-          designed for everyday elegance and special occasions.
-        </p>
-
-      </div>
-
-      <div class="categories">
-
-        <div
-          class="category-card"
-          onclick="filterProducts('Kurtis'); document.getElementById('shop').scrollIntoView();"
-        >
-
-          <img
-            src="https://i.ibb.co/Q7TMNKGG/2.jpg"
-            alt="Kurtis"
-            loading="lazy"
-          >
-
-          <div class="category-overlay">
-            <div>
-              <h3>Kurtis</h3>
-              <p>Elegant everyday styles</p>
-            </div>
-          </div>
-
-        </div>
-
-
-        <div
-          class="category-card"
-          onclick="filterProducts('Kurta Sets'); document.getElementById('shop').scrollIntoView();"
-        >
-
-          <img
-            src="https://i.ibb.co/dwjKGcDv/1-1.png"
-            alt="Kurta Sets"
-            loading="lazy"
-          >
-
-          <div class="category-overlay">
-            <div>
-              <h3>Kurta Sets</h3>
-              <p>Effortless coordinated looks</p>
-            </div>
-          </div>
-
-        </div>
-
-
-        <div
-          class="category-card"
-          onclick="filterProducts('3 Piece'); document.getElementById('shop').scrollIntoView();"
-        >
-
-          <img
-            src="https://i.ibb.co/JMC9V6S/Copy-of-13.jpg"
-            alt="Three Piece Collection"
-            loading="lazy"
-          >
-
-          <div class="category-overlay">
-            <div>
-              <h3>3-Piece Sets</h3>
-              <p>Complete your ethnic look</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         SHOP
-    ========================== -->
-
-    <section class="shop-section" id="shop">
-
-      <div class="section">
-
-        <div class="section-heading">
-
-          <span>Shop Vetrox</span>
-
-          <h2>Our Latest Collection</h2>
-
-          <p>
-            Choose your favourite styles and add them to your cart.
-            Place your order easily through our online checkout.
-          </p>
-
-        </div>
-
-
-        <div class="filters">
-
-          <button
-            class="filter-btn active"
-            onclick="filterProducts('All')"
-          >
-            All
-          </button>
-
-          <button
-            class="filter-btn"
-            onclick="filterProducts('Kurtis')"
-          >
-            Kurtis
-          </button>
-
-          <button
-            class="filter-btn"
-            onclick="filterProducts('Kurta Sets')"
-          >
-            Kurta Sets
-          </button>
-
-          <button
-            class="filter-btn"
-            onclick="filterProducts('3 Piece')"
-          >
-            3-Piece
-          </button>
-
-        </div>
-
-
-        <div class="products" id="productsGrid"></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         WHY VETROX
-    ========================== -->
-
-    <section class="section">
-
-      <div class="section-heading">
-
-        <span>Why Choose Us</span>
-
-        <h2>The Vetrox Difference</h2>
-
-        <p>
-          We keep fashion simple, beautiful and accessible.
-        </p>
-
-      </div>
-
-
-      <div class="features">
-
-        <div class="feature">
-
-          <div class="feature-icon">✦</div>
-
-          <h3>Elegant Designs</h3>
-
-          <p>
-            Thoughtfully selected styles that bring a modern touch
-            to timeless ethnic fashion.
-          </p>
-
-        </div>
-
-
-        <div class="feature">
-
-          <div class="feature-icon">♡</div>
-
-          <h3>Comfort First</h3>
-
-          <p>
-            Styles selected with everyday comfort and easy wear
-            in mind.
-          </p>
-
-        </div>
-
-
-        <div class="feature">
-
-          <div class="feature-icon">₹</div>
-
-          <h3>Affordable Fashion</h3>
-
-          <p>
-            Beautiful clothing at prices designed to fit your
-            everyday wardrobe.
-          </p>
-
-        </div>
-
-
-        <div class="feature">
-
-          <div class="feature-icon">✓</div>
-
-          <h3>Easy Ordering</h3>
-
-          <p>
-            Add your favourite products to cart and place your
-            order online with ease.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CTA
-    ========================== -->
-
-    <section class="cta">
-
-      <h2>Ready to Refresh Your Wardrobe?</h2>
+      <h2>Style that feels like you.</h2>
 
       <p>
-        Explore the Vetrox Apparel collection and discover
-        styles made for your everyday elegance.
+        Vetrox Apparel is a Surat-based clothing brand focused
+        on elegant, comfortable and wearable ethnic fashion.
       </p>
 
-      <a href="#shop" class="btn btn-light">
-        Shop Now
-      </a>
-
-    </section>
-
-
-    <!-- =========================
-         CONTACT
-    ========================== -->
-
-    <section class="contact-section" id="contact">
-
-      <div class="section">
-
-        <div class="section-heading">
-
-          <span>Get In Touch</span>
-
-          <h2>We'd Love to Hear From You</h2>
-
-          <p>
-            Have a question about a product or your order?
-            Contact the Vetrox Apparel team.
-          </p>
-
-        </div>
-
-
-        <div class="contact-grid">
-
-          <div class="contact-info">
-
-            <h3>Contact Vetrox</h3>
-
-            <div class="contact-item">
-
-              <div class="contact-icon">📍</div>
-
-              <div>
-                <strong>Location</strong>
-                <span>Surat, Gujarat, India</span>
-              </div>
-
-            </div>
-
-
-            <div class="contact-item">
-
-              <div class="contact-icon">📞</div>
-
-              <div>
-                <strong>Phone</strong>
-
-                <a href="tel:+919484696506">
-                  +91 94846 96506
-                </a>
-
-              </div>
-
-            </div>
-
-
-            <div class="contact-item">
-
-              <div class="contact-icon">✉</div>
-
-              <div>
-                <strong>Email</strong>
-
-                <a href="mailto:vetroxapperel@gmail.com">
-                  vetroxapperel@gmail.com
-                </a>
-
-              </div>
-
-            </div>
-
-
-            <div class="contact-item">
-
-              <div class="contact-icon">💬</div>
-
-              <div>
-                <strong>WhatsApp</strong>
-
-                <a
-                  href="https://wa.me/919484696506"
-                  target="_blank"
-                >
-                  Chat with us on WhatsApp
-                </a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <form
-            class="contact-form"
-            action="https://formspree.io/f/xnpnbyky"
-            method="POST"
-          >
-
-            <input
-              type="hidden"
-              name="_subject"
-              value="New Vetrox Apparel Website Enquiry"
-            >
-
-            <div class="form-row">
-
-              <div class="form-group">
-
-                <label>Name</label>
-
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  required
-                >
-
-              </div>
-
-
-              <div class="form-group">
-
-                <label>Phone</label>
-
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Your phone number"
-                  required
-                >
-
-              </div>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label>Email</label>
-
-              <input
-                type="email"
-                name="email"
-                placeholder="Your email"
-              >
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label>Message</label>
-
-              <textarea
-                name="message"
-                placeholder="How can we help you?"
-                required
-              ></textarea>
-
-            </div>
-
-
-            <button class="btn btn-primary" type="submit">
-              Send Enquiry
-            </button>
-
-          </form>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer>
-
-    <div class="footer-main">
-
-      <div class="footer-brand">
-
-        <h2>Vetrox Apparel</h2>
-
-        <p>
-          Elegant ethnic wear designed for modern everyday living.
-          Discover your style with Vetrox Apparel.
-        </p>
-
-      </div>
-
-
-      <div>
-
-        <h3>Quick Links</h3>
-
-        <ul>
-
-          <li><a href="#home">Home</a></li>
-
-          <li><a href="#about">About Us</a></li>
-
-          <li><a href="#collections">Collections</a></li>
-
-          <li><a href="#shop">Shop</a></li>
-
-          <li><a href="#contact">Contact</a></li>
-
-        </ul>
-
-      </div>
-
-
-      <div>
-
-        <h3>Collections</h3>
-
-        <ul>
-
-          <li>
-            <a href="#shop" onclick="filterProducts('Kurtis')">
-              Kurtis
-            </a>
-          </li>
-
-          <li>
-            <a href="#shop" onclick="filterProducts('Kurta Sets')">
-              Kurta Sets
-            </a>
-          </li>
-
-          <li>
-            <a href="#shop" onclick="filterProducts('3 Piece')">
-              3-Piece Sets
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-
-      <div>
-
-        <h3>Contact</h3>
-
-        <ul>
-
-          <li>
-            <a href="tel:+919484696506">
-              +91 94846 96506
-            </a>
-          </li>
-
-          <li>
-            <a href="mailto:vetroxapperel@gmail.com">
-              vetroxapperel@gmail.com
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://wa.me/919484696506"
-              target="_blank"
-            >
-              WhatsApp Us
-            </a>
-          </li>
-
-          <li>
-            <a href="#contact">
-              Surat, Gujarat
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
+      <p>
+        From everyday kurtis to beautiful kurta sets, our
+        collection is selected to make dressing simple,
+        stylish and confident.
+      </p>
+
+      <ul class="about-list">
+        <li>✓ Carefully selected designs</li>
+        <li>✓ Comfortable everyday styles</li>
+        <li>✓ Direct WhatsApp ordering</li>
+        <li>✓ Surat, Gujarat based brand</li>
+      </ul>
 
     </div>
 
+  </div>
 
-    <div class="footer-bottom">
+</section>
 
-      © <span id="year"></span> Vetrox Apparel.
-      All Rights Reserved.
 
+<!-- COLLECTION -->
+<section class="section" style="background:#fff;max-width:none;">
+
+  <div style="max-width:1250px;margin:auto;">
+
+    <div class="section-head">
+      <div class="eyebrow">Explore</div>
+      <h2>Our Collections</h2>
+      <p>Find your everyday style.</p>
     </div>
 
-  </footer>
+    <div class="collection-grid">
 
-
-  <!-- =========================
-       WHATSAPP FLOATING BUTTON
-  ========================== -->
-
-  <a
-    class="whatsapp"
-    href="https://wa.me/919484696506?text=Hello%20Vetrox%20Apparel%2C%20I%20would%20like%20to%20know%20more%20about%20your%20products."
-    target="_blank"
-    aria-label="Chat on WhatsApp"
-  >
-    ☎
-  </a>
-
-
-  <!-- =========================
-       CART MODAL
-  ========================== -->
-
-  <div class="modal" id="cartModal">
-
-    <div class="modal-box">
-
-      <div class="modal-header">
-
-        <h2>Your Cart</h2>
-
-        <button
-          class="close-btn"
-          onclick="closeCart()"
+      <div class="collection-card">
+        <img
+          src="https://i.ibb.co/JMC9V6S/Copy-of-13.jpg"
+          alt="Kurtis"
         >
-          ×
-        </button>
-
+        <div class="collection-overlay">
+          <h3>Elegant Kurtis</h3>
+        </div>
       </div>
 
-
-      <div id="cartItems"></div>
-
-
-      <div class="cart-total">
-
-        <span>Total</span>
-
-        <span id="cartTotal">
-          ₹0
-        </span>
-
+      <div class="collection-card">
+        <img
+          src="https://i.ibb.co/Xx5CnF9G/1.png"
+          alt="Kurta Sets"
+        >
+        <div class="collection-overlay">
+          <h3>Kurta Sets</h3>
+        </div>
       </div>
 
+      <div class="collection-card">
+        <img
+          src="https://i.ibb.co/dwjKGcDv/1-1.png"
+          alt="New Collection"
+        >
+        <div class="collection-overlay">
+          <h3>New Arrivals</h3>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SHOP -->
+<section class="section" id="shop">
+
+  <div class="section-head">
+    <div class="eyebrow">Vetrox Collection</div>
+    <h2>Shop Our Products</h2>
+    <p>
+      Click any product to view all available photos.
+    </p>
+  </div>
+
+
+  <div class="shop-toolbar">
+
+    <div class="filters">
 
       <button
-        class="btn btn-primary"
-        style="width:100%;"
-        onclick="openCheckout()"
-        id="checkoutButton"
+        class="filter-btn active"
+        onclick="filterProducts('all',this)"
       >
-        Proceed to Checkout
+        All
+      </button>
+
+      <button
+        class="filter-btn"
+        onclick="filterProducts('Kurtis',this)"
+      >
+        Kurtis
+      </button>
+
+      <button
+        class="filter-btn"
+        onclick="filterProducts('Kurta Sets',this)"
+      >
+        Kurta Sets
       </button>
 
     </div>
 
+    <input
+      class="search-box"
+      id="searchInput"
+      type="search"
+      placeholder="Search products..."
+      oninput="renderProducts()"
+    >
+
   </div>
 
 
-  <!-- =========================
-       CHECKOUT MODAL
-  ========================== -->
+  <div class="product-grid" id="productGrid"></div>
 
-  <div class="modal" id="checkoutModal">
+</section>
 
-    <div class="modal-box">
 
-      <div class="modal-header">
+<!-- WHY VETROX -->
+<section class="why">
 
-        <h2>Place Your Order</h2>
+  <div class="section">
 
-        <button
-          class="close-btn"
-          onclick="closeCheckout()"
-        >
-          ×
-        </button>
+    <div class="section-head">
+      <div class="eyebrow">Why Vetrox</div>
+      <h2>Made for your everyday.</h2>
+    </div>
 
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div class="why-icon">✦</div>
+        <h3>Elegant Designs</h3>
+        <p>
+          Styles selected for a refined everyday look.
+        </p>
       </div>
 
+      <div class="why-card">
+        <div class="why-icon">♡</div>
+        <h3>Comfort First</h3>
+        <p>
+          Easy-to-wear styles for your daily wardrobe.
+        </p>
+      </div>
 
-      <form
-        id="checkoutForm"
-        class="checkout-form"
-        action="https://formspree.io/f/xnpnbyky"
-        method="POST"
-      >
+      <div class="why-card">
+        <div class="why-icon">✓</div>
+        <h3>Curated Collection</h3>
+        <p>
+          Each product is carefully presented as one complete collection.
+        </p>
+      </div>
 
-        <div class="form-group">
-
-          <label>Full Name *</label>
-
-          <input
-            type="text"
-            name="customer_name"
-            id="customerName"
-            required
-            placeholder="Enter your full name"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>Phone / WhatsApp Number *</label>
-
-          <input
-            type="tel"
-            name="customer_phone"
-            id="customerPhone"
-            required
-            placeholder="Enter your phone number"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>Email</label>
-
-          <input
-            type="email"
-            name="customer_email"
-            id="customerEmail"
-            placeholder="Enter your email"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>Delivery Address *</label>
-
-          <textarea
-            name="delivery_address"
-            id="customerAddress"
-            required
-            placeholder="Enter complete delivery address"
-          ></textarea>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>City *</label>
-
-          <input
-            type="text"
-            name="city"
-            id="customerCity"
-            required
-            placeholder="City"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>Additional Note</label>
-
-          <textarea
-            name="customer_note"
-            id="customerNote"
-            placeholder="Size preference, delivery note, etc."
-          ></textarea>
-
-        </div>
-
-
-        <input
-          type="hidden"
-          name="order_summary"
-          id="orderSummary"
-        >
-
-        <input
-          type="hidden"
-          name="grand_total"
-          id="grandTotal"
-        >
-
-        <input
-          type="hidden"
-          name="shop_name"
-          value="Vetrox Apparel"
-        >
-
-        <input
-          type="hidden"
-          name="_subject"
-          value="New Order - Vetrox Apparel"
-        >
-
-        <input
-          type="hidden"
-          name="_format"
-          value="plain"
-        >
-
-
-        <button
-          type="submit"
-          class="btn btn-primary"
-          id="placeOrderBtn"
-        >
-          Place Order
-        </button>
-
-      </form>
+      <div class="why-card">
+        <div class="why-icon">⌁</div>
+        <h3>Easy Ordering</h3>
+        <p>
+          Order directly through WhatsApp without complicated checkout.
+        </p>
+      </div>
 
     </div>
 
   </div>
 
+</section>
 
-  <!-- =========================
-       SUCCESS MODAL
-  ========================== -->
 
-  <div class="modal" id="successModal">
+<!-- CTA -->
+<section class="section cta">
 
-    <div class="modal-box">
+  <div class="eyebrow" style="color:#d4af70;">
+    Vetrox Apparel
+  </div>
 
-      <div class="success-box">
+  <h2>Find something made for you.</h2>
 
-        <div class="success-icon">
-          ✓
-        </div>
+  <p>
+    Explore our collection and order your favourite style directly.
+  </p>
 
-        <h2>Order Received!</h2>
+  <a
+    href="#shop"
+    class="btn btn-dark"
+  >
+    Explore Collection
+  </a>
 
-        <p style="margin:15px 0;color:#666;">
-          Thank you for shopping with Vetrox Apparel.
-          We have received your order details.
-        </p>
+</section>
 
-        <p style="margin-bottom:25px;color:#666;">
-          Our team will contact you on WhatsApp or phone
-          to confirm your order.
-        </p>
 
+<!-- CONTACT -->
+<section class="section" id="contact">
+
+  <div class="section-head">
+    <div class="eyebrow">Get In Touch</div>
+    <h2>Contact Vetrox Apparel</h2>
+    <p>We'd love to hear from you.</p>
+  </div>
+
+
+  <div class="contact-grid">
+
+    <div class="contact-info">
+
+      <h3>Let's talk.</h3>
+
+      <div class="contact-item">
+        <strong>Location</strong>
+        Surat, Gujarat, India
+      </div>
+
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <a href="tel:+919484696506">
+          +91 94846 96506
+        </a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Email</strong>
+        <a href="mailto:vetroxapperel@gmail.com">
+          vetroxapperel@gmail.com
+        </a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Instagram</strong>
         <a
-          class="btn btn-primary"
-          href="https://wa.me/919484696506"
+          href="https://www.instagram.com/vetrox_apparel/"
           target="_blank"
         >
-          Chat on WhatsApp
+          @vetrox_apparel
         </a>
+      </div>
+
+      <a
+        href="https://wa.me/919484696506"
+        target="_blank"
+        class="btn"
+        style="background:#25D366;color:white;margin-top:15px;"
+      >
+        WhatsApp Vetrox
+      </a>
+
+    </div>
+
+
+    <form
+      class="contact-form"
+      action="https://formspree.io/f/xnpnbyky"
+      method="POST"
+    >
+
+      <div class="form-group">
+        <label>Your Name</label>
+        <input
+          type="text"
+          name="name"
+          required
+          placeholder="Enter your name"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Enter your email"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Phone</label>
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Enter your phone number"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Message</label>
+        <textarea
+          name="message"
+          required
+          placeholder="How can we help?"
+        ></textarea>
+      </div>
+
+      <button class="submit-btn" type="submit">
+        Send Message
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+
+      <h3>Vetrox Apparel</h3>
+
+      <p>
+        Elegant ethnic wear for everyday you.
+        Based in Surat, Gujarat.
+      </p>
+
+    </div>
+
+
+    <div class="footer-col">
+
+      <h4>Quick Links</h4>
+
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+
+    </div>
+
+
+    <div class="footer-col">
+
+      <h4>Connect</h4>
+
+      <a
+        href="https://www.instagram.com/vetrox_apparel/"
+        target="_blank"
+      >
+        Instagram
+      </a>
+
+      <a
+        href="https://wa.me/919484696506"
+        target="_blank"
+      >
+        WhatsApp
+      </a>
+
+      <a href="mailto:vetroxapperel@gmail.com">
+        Email
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+    © 2026 Vetrox Apparel. All Rights Reserved.
+  </div>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+<a
+  class="whatsapp"
+  href="https://wa.me/919484696506"
+  target="_blank"
+  aria-label="WhatsApp Vetrox Apparel"
+>
+  ☎
+</a>
+
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="modal" id="productModal">
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
+      onclick="closeModal('productModal')"
+    >
+      ×
+    </button>
+
+    <div class="detail-layout">
+
+      <div class="gallery-main">
+        <img
+          id="mainProductImage"
+          src=""
+          alt="Product"
+        >
+      </div>
+
+      <div class="gallery-side">
+
+        <div class="eyebrow" id="detailCategory">
+          Vetrox Collection
+        </div>
+
+        <h2 id="detailName"></h2>
+
+        <div class="product-code" id="detailCode"></div>
+
+        <div class="detail-price" id="detailPrice"></div>
+
+        <p class="detail-description">
+          Carefully selected Vetrox Apparel design.
+          View the complete product gallery and order directly
+          through WhatsApp.
+        </p>
+
+        <div class="thumb-grid" id="thumbGrid"></div>
 
         <button
-          class="btn btn-outline"
-          style="margin-top:10px;width:100%;"
-          onclick="closeSuccess()"
+          class="add-cart"
+          onclick="addCurrentToCart()"
         >
-          Continue Shopping
+          Add to Cart
+        </button>
+
+        <button
+          class="buy-whatsapp"
+          onclick="buyCurrentOnWhatsApp()"
+        >
+          Order on WhatsApp
         </button>
 
       </div>
@@ -2050,770 +1572,952 @@
 
   </div>
 
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
-
-  <script>
-
-    /* =========================
-       PRODUCTS
-    ========================== */
-
-    const PRODUCTS = [
-
-      {
-        id: 101,
-        name: "Elegant Premium Kurti",
-        price: 1199,
-        category: "Kurtis",
-        tag: "Premium",
-        image: "https://i.ibb.co/TqvhSwyd/0-1.jpg"
-      },
-
-      {
-        id: 102,
-        name: "Everyday Comfort Kurti",
-        price: 999,
-        category: "Kurtis",
-        tag: "Daily Wear",
-        image: "https://i.ibb.co/Q7TMNKGG/2.jpg"
-      },
-
-      {
-        id: 103,
-        name: "Classic Daily Kurti",
-        price: 999,
-        category: "Kurtis",
-        tag: "Bestseller",
-        image: "https://i.ibb.co/JMC9V6S/Copy-of-13.jpg"
-      },
-
-      {
-        id: 104,
-        name: "Modern Daily Kurti",
-        price: 999,
-        category: "Kurtis",
-        tag: "New",
-        image: "https://i.ibb.co/s9403QwP/4.jpg"
-      },
-
-      {
-        id: 105,
-        name: "Printed Style Kurta",
-        price: 999,
-        category: "Kurta Sets",
-        tag: "Popular",
-        image: "https://i.ibb.co/dwjKGcDv/1-1.png"
-      },
-
-      {
-        id: 106,
-        name: "Chic Kurta Set",
-        price: 999,
-        category: "Kurta Sets",
-        tag: "Trending",
-        image: "https://i.ibb.co/Xx5CnF9G/1.png"
-      },
-
-      {
-        id: 107,
-        name: "Vetrox Festive Set",
-        price: 1299,
-        category: "3 Piece",
-        tag: "Festive",
-        image: "https://i.ibb.co/TqvhSwyd/0-1.jpg"
-      },
-
-      {
-        id: 108,
-        name: "Grace Three-Piece Set",
-        price: 1499,
-        category: "3 Piece",
-        tag: "Premium",
-        image: "https://i.ibb.co/Q7TMNKGG/2.jpg"
-      },
-
-      {
-        id: 109,
-        name: "Everyday Three-Piece",
-        price: 1399,
-        category: "3 Piece",
-        tag: "New",
-        image: "https://i.ibb.co/JMC9V6S/Copy-of-13.jpg"
-      },
-
-      {
-        id: 110,
-        name: "Signature Three-Piece",
-        price: 1599,
-        category: "3 Piece",
-        tag: "Signature",
-        image: "https://i.ibb.co/s9403QwP/4.jpg"
-      }
-
-    ];
+</div>
 
 
-    /* =========================
-       CART
-    ========================== */
+<!-- CART MODAL -->
+<div class="modal" id="cartModal">
 
-    let cart = JSON.parse(
-      localStorage.getItem("vetrox_cart") || "[]"
+  <div class="modal-box cart-box">
+
+    <button
+      class="modal-close"
+      onclick="closeModal('cartModal')"
+    >
+      ×
+    </button>
+
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cartTotal">₹0</span>
+    </div>
+
+    <button
+      class="checkout-btn"
+      onclick="openCheckout()"
+    >
+      Continue to Checkout
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- CHECKOUT MODAL -->
+<div class="modal" id="checkoutModal">
+
+  <div class="modal-box checkout-box">
+
+    <button
+      class="modal-close"
+      onclick="closeModal('checkoutModal')"
+    >
+      ×
+    </button>
+
+    <h2>Order Details</h2>
+
+    <form id="checkoutForm">
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input
+          id="customerName"
+          required
+          placeholder="Your name"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input
+          id="customerPhone"
+          type="tel"
+          required
+          placeholder="Your phone number"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Delivery Address</label>
+        <textarea
+          id="customerAddress"
+          required
+          placeholder="Full delivery address"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Order Notes</label>
+        <textarea
+          id="customerNotes"
+          placeholder="Size, colour or other requirements"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="submit-btn"
+      >
+        Send Order on WhatsApp
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   PRODUCT DATABASE
+========================================================= */
+
+const products = [
+
+  {
+    id:"970",
+    name:"970 Premium Kurti",
+    code:"Product 970",
+    category:"Kurtis",
+    price:1299,
+    images:[
+      "https://i.ibb.co/ymCmnhGt/Copy-of-13-1-1.jpg",
+      "https://i.ibb.co/JMC9V6S/Copy-of-13.jpg",
+      "https://i.ibb.co/XkMD44TV/Copy-of-13-4.jpg",
+      "https://i.ibb.co/fWPFgfW/Copy-of-13-6.jpg",
+      "https://i.ibb.co/Z1LNS3Yt/Copy-of-13-7.jpg",
+      "https://i.ibb.co/Df0ykh0c/Copy-of-13-10.jpg"
+    ]
+  },
+
+  {
+    id:"1008",
+    name:"1008 Everyday Comfort Kurti",
+    code:"Product 1008",
+    category:"Kurtis",
+    price:899,
+    images:[
+      "https://i.ibb.co/Q7TMNKGG/2.jpg",
+      "https://i.ibb.co/PGLwwjPd/3-2.jpg",
+      "https://i.ibb.co/5hgXHxv3/4-3.jpg",
+      "https://i.ibb.co/0T0dJH0/5-2.jpg",
+      "https://i.ibb.co/xK7jFRn8/6-2.jpg"
+    ]
+  },
+
+  {
+    id:"1026",
+    name:"1026 Classic Kurti",
+    code:"Product 1026",
+    category:"Kurtis",
+    price:999,
+    images:[
+      "https://i.ibb.co/qLCrjKnn/1-2.jpg",
+      "https://i.ibb.co/N6LWm5Bb/2-4.jpg",
+      "https://i.ibb.co/3m7vBrTY/3-3.jpg",
+      "https://i.ibb.co/JRwrKTrC/4-4.jpg",
+      "https://i.ibb.co/7N6gh9j8/7.jpg"
+    ]
+  },
+
+  {
+    id:"chetna-pink",
+    name:"Chetna Pink",
+    code:"Chetna Collection",
+    category:"Kurtis",
+    price:699,
+    images:[
+      "https://i.ibb.co/k2NgP5p7/1-3.png",
+      "https://i.ibb.co/5gjkHD4v/2.png",
+      "https://i.ibb.co/DP9jBj4X/3-1.png",
+      "https://i.ibb.co/1f2wRkB9/4-1.png",
+      "https://i.ibb.co/cKNmPMfx/6-2.png"
+    ]
+  },
+
+  {
+    id:"falak",
+    name:"Falak",
+    code:"Falak Collection",
+    category:"Kurtis",
+    price:849,
+    images:[
+      "https://i.ibb.co/TBDk8673/1-5.png",
+      "https://i.ibb.co/GvkNKDr7/2-2.png",
+      "https://i.ibb.co/gFmTgsdv/3-3.png",
+      "https://i.ibb.co/pvV0ckTd/4-2.png",
+      "https://i.ibb.co/x8C8ygk8/5-1.png",
+      "https://i.ibb.co/FbZGtt4w/6-2.png",
+      "https://i.ibb.co/6L392VN/7-1.png",
+      "https://i.ibb.co/3yBksJ2c/8.png"
+    ]
+  },
+
+  {
+    id:"jiyana-cream",
+    name:"Jiyana Cream",
+    code:"Jiyana Collection",
+    category:"Kurtis",
+    price:699,
+    images:[
+      "https://i.ibb.co/wZqFrJb9/01.jpg",
+      "https://i.ibb.co/Kp115JNB/02.jpg",
+      "https://i.ibb.co/s7tjChV/03.jpg",
+      "https://i.ibb.co/Nwc949Q/05.jpg",
+      "https://i.ibb.co/RGXVZbf2/06.jpg",
+      "https://i.ibb.co/7Jr4CjVj/07.jpg"
+    ]
+  },
+
+  {
+    id:"jyoti",
+    name:"Jyoti",
+    code:"Jyoti Collection",
+    category:"Kurtis",
+    price:899,
+    images:[
+      "https://i.ibb.co/zTt0RtdZ/1.jpg",
+      "https://i.ibb.co/8gdRxfgD/2-1.jpg",
+      "https://i.ibb.co/SX5jF5GZ/3.jpg",
+      "https://i.ibb.co/p6gCxvqz/4-1.jpg",
+      "https://i.ibb.co/CpstLt1z/5.jpg",
+      "https://i.ibb.co/h1wXQryj/6.jpg"
+    ]
+  },
+
+  {
+    id:"jyoti-dark",
+    name:"Jyoti Dark",
+    code:"Jyoti Dark Collection",
+    category:"Kurtis",
+    price:899,
+    images:[
+      "https://i.ibb.co/dwjKGcDv/1-1.png",
+      "https://i.ibb.co/xtJyn0RC/2-4.png",
+      "https://i.ibb.co/hRjNFhX3/3-5.png",
+      "https://i.ibb.co/3yL6n8s0/4-4.png",
+      "https://i.ibb.co/ZRgBbnyC/5-3.png",
+      "https://i.ibb.co/ZpKtBbvq/6-4.png",
+      "https://i.ibb.co/jkM7dRvQ/7-2.png"
+    ]
+  },
+
+  {
+    id:"lavya",
+    name:"Lavya",
+    code:"Lavya Collection",
+    category:"Kurtis",
+    price:949,
+    images:[
+      "https://i.ibb.co/prsXW86Q/1-2.png",
+      "https://i.ibb.co/RTmgWprR/2.png",
+      "https://i.ibb.co/C39WpnTL/4.png",
+      "https://i.ibb.co/wZ7BFdX5/5.png",
+      "https://i.ibb.co/XrKF4X9c/12.jpg"
+    ]
+  },
+
+  {
+    id:"jiyaa-maroon",
+    name:"M Jiyaa Maroon",
+    code:"M Jiyaa Collection",
+    category:"Kurtis",
+    price:899,
+    images:[
+      "https://i.ibb.co/zhKFsytM/1.jpg",
+      "https://i.ibb.co/S4nZXq14/2-1.jpg",
+      "https://i.ibb.co/qLh7T1ZW/4-1.jpg",
+      "https://i.ibb.co/36BmB83/7.png"
+    ]
+  },
+
+  {
+    id:"jugni",
+    name:"M Jugni",
+    code:"M Jugni Collection",
+    category:"Kurtis",
+    price:949,
+    images:[
+      "https://i.ibb.co/Wv7PSNrj/1.jpg",
+      "https://i.ibb.co/4BbdYGZ/2.jpg",
+      "https://i.ibb.co/zWsQMYtp/3.jpg",
+      "https://i.ibb.co/nNF3xBLP/4.jpg",
+      "https://i.ibb.co/RptBgpx6/5.png",
+      "https://i.ibb.co/BMKj8xC/6.jpg"
+    ]
+  },
+
+  {
+    id:"neha",
+    name:"Neha Kurta Set",
+    code:"Neha Collection",
+    category:"Kurta Sets",
+    price:699,
+    images:[
+      "https://i.ibb.co/Xx5CnF9G/1.png",
+      "https://i.ibb.co/M5gX2Dt5/2.png",
+      "https://i.ibb.co/nsJjh534/3-1.png"
+    ]
+  },
+
+  {
+    id:"parii",
+    name:"Parii",
+    code:"Parii Collection",
+    category:"Kurta Sets",
+    price:799,
+    images:[
+      "https://i.ibb.co/G3BPLFs3/file-00000000d0f471faa71dd6d36c6771d6.png",
+      "https://i.ibb.co/fzW9VJNV/Untitled-5-1.jpg",
+      "https://i.ibb.co/tpfD1GCp/Untitled-7.jpg",
+      "https://i.ibb.co/rKgQnpyC/Untitled-8.jpg",
+      "https://i.ibb.co/m5X1b2SV/Untitled-10.jpg",
+      "https://i.ibb.co/CK3NQrHt/Untitled-12.jpg"
+    ]
+  },
+
+  {
+    id:"priti",
+    name:"Priti",
+    code:"Priti Collection",
+    category:"Kurtis",
+    price:610,
+    images:[
+      "https://i.ibb.co/KjkfCC6T/1-3.png",
+      "https://i.ibb.co/Xkt4fRzs/2.png",
+      "https://i.ibb.co/JjJK9K9W/3-1.png",
+      "https://i.ibb.co/QvdKkRhW/4-1.png",
+      "https://i.ibb.co/DD1JKvJ0/5.png",
+      "https://i.ibb.co/Y4tGB01B/6-2.png"
+    ]
+  },
+
+  {
+    id:"radha",
+    name:"Radha",
+    code:"Radha Collection",
+    category:"Kurtis",
+    price:999,
+    images:[
+      "https://i.ibb.co/V0CPVWL2/1-1.jpg",
+      "https://i.ibb.co/HD6myTm7/2-2.jpg",
+      "https://i.ibb.co/7J3w3Q0c/3-1.jpg",
+      "https://i.ibb.co/s9403QwP/4.jpg",
+      "https://i.ibb.co/yms7qG71/5-1.jpg",
+      "https://i.ibb.co/xtrF2jsw/6-1.jpg"
+    ]
+  },
+
+  {
+    id:"rohini",
+    name:"Rohini",
+    code:"Rohini Collection",
+    category:"Kurtis",
+    price:799,
+    images:[
+      "https://i.ibb.co/vxYQFqvZ/1-6.png",
+      "https://i.ibb.co/7tGSsJLS/2-3.png",
+      "https://i.ibb.co/kVdcZQhP/3-4.png",
+      "https://i.ibb.co/Lh26y8Hg/4-3.png",
+      "https://i.ibb.co/Rp04tZTJ/5-2.png",
+      "https://i.ibb.co/6c1jddZy/6-3.png"
+    ]
+  },
+
+  {
+    id:"roopa",
+    name:"Roopa",
+    code:"Roopa Collection",
+    category:"Kurtis",
+    price:949,
+    images:[
+      "https://i.ibb.co/tM9H0CkH/1.jpg",
+      "https://i.ibb.co/pBvWmg6c/2.jpg",
+      "https://i.ibb.co/gMs3gY8C/3.jpg",
+      "https://i.ibb.co/6cXBSXc2/4.jpg",
+      "https://i.ibb.co/1jP9YFy/5.png"
+    ]
+  },
+
+  {
+    id:"uma",
+    name:"Uma",
+    code:"Uma Collection",
+    category:"Kurtis",
+    price:799,
+    images:[
+      "https://i.ibb.co/DDQGK9MF/1-4.png",
+      "https://i.ibb.co/23MMZpf6/2-1.png",
+      "https://i.ibb.co/m5WVFtkD/3-2.png",
+      "https://i.ibb.co/HLCwkc7S/4-1.png",
+      "https://i.ibb.co/Q7h1HvwW/5.png",
+      "https://i.ibb.co/m5tzrrt3/6-1.png",
+      "https://i.ibb.co/4QNXz7w/7.png"
+    ]
+  }
+
+];
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let currentFilter = "all";
+let currentProduct = null;
+
+let cart = JSON.parse(
+  localStorage.getItem("vetrox_cart") || "[]"
+);
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function money(value){
+  return "₹" + Number(value).toLocaleString("en-IN");
+}
+
+function saveCart(){
+  localStorage.setItem(
+    "vetrox_cart",
+    JSON.stringify(cart)
+  );
+}
+
+function escapeHTML(str){
+  return String(str)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+
+/* =========================================================
+   RENDER PRODUCTS
+========================================================= */
+
+function renderProducts(){
+
+  const grid =
+    document.getElementById("productGrid");
+
+  const search =
+    document.getElementById("searchInput")
+      .value
+      .trim()
+      .toLowerCase();
+
+  let filtered = products.filter(product => {
+
+    const categoryMatch =
+      currentFilter === "all" ||
+      product.category === currentFilter;
+
+    const searchMatch =
+      !search ||
+      product.name.toLowerCase().includes(search) ||
+      product.code.toLowerCase().includes(search);
+
+    return categoryMatch && searchMatch;
+
+  });
+
+
+  if(!filtered.length){
+
+    grid.innerHTML = `
+      <div class="empty">
+        <h3>No products found.</h3>
+        <p>Try another search.</p>
+      </div>
+    `;
+
+    return;
+  }
+
+
+  grid.innerHTML = filtered.map(product => `
+
+    <article
+      class="product-card"
+      onclick="openProduct('${product.id}')"
+    >
+
+      <div class="product-image-wrap">
+
+        <img
+          class="product-image"
+          src="${product.images[0]}"
+          alt="${escapeHTML(product.name)}"
+          loading="lazy"
+        >
+
+        <div class="product-badge">
+          ${escapeHTML(product.category)}
+        </div>
+
+      </div>
+
+      <div class="product-info">
+
+        <div class="product-name">
+          ${escapeHTML(product.name)}
+        </div>
+
+        <div class="product-code">
+          ${escapeHTML(product.code)}
+        </div>
+
+        <div class="product-price">
+          ${money(product.price)}
+        </div>
+
+        <div class="view-gallery">
+          View ${product.images.length} photos →
+        </div>
+
+      </div>
+
+    </article>
+
+  `).join("");
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+function filterProducts(category,button){
+
+  currentFilter = category;
+
+  document
+    .querySelectorAll(".filter-btn")
+    .forEach(btn => btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+  renderProducts();
+}
+
+
+/* =========================================================
+   PRODUCT DETAIL
+========================================================= */
+
+function openProduct(id){
+
+  const product =
+    products.find(p => p.id === id);
+
+  if(!product) return;
+
+  currentProduct = product;
+
+  document.getElementById("detailName")
+    .textContent = product.name;
+
+  document.getElementById("detailCode")
+    .textContent = product.code;
+
+  document.getElementById("detailPrice")
+    .textContent = money(product.price);
+
+  document.getElementById("detailCategory")
+    .textContent = product.category;
+
+  document.getElementById("mainProductImage")
+    .src = product.images[0];
+
+  document.getElementById("mainProductImage")
+    .alt = product.name;
+
+
+  const thumbs =
+    document.getElementById("thumbGrid");
+
+  thumbs.innerHTML =
+    product.images.map((image,index) => `
+
+      <img
+        src="${image}"
+        alt="${escapeHTML(product.name)} photo ${index+1}"
+        class="${index === 0 ? "active" : ""}"
+        onclick="changeMainImage('${image}',this)"
+        loading="lazy"
+      >
+
+    `).join("");
+
+
+  document
+    .getElementById("productModal")
+    .classList.add("show");
+
+  document.body.style.overflow = "hidden";
+}
+
+
+function changeMainImage(src,element){
+
+  document.getElementById("mainProductImage")
+    .src = src;
+
+  document
+    .querySelectorAll("#thumbGrid img")
+    .forEach(img => img.classList.remove("active"));
+
+  element.classList.add("active");
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+function addCurrentToCart(){
+
+  if(!currentProduct) return;
+
+  const existing =
+    cart.find(item => item.id === currentProduct.id);
+
+  if(existing){
+    existing.qty++;
+  }else{
+    cart.push({
+      id:currentProduct.id,
+      qty:1
+    });
+  }
+
+  saveCart();
+  updateCartCount();
+
+  closeModal("productModal");
+
+  alert(
+    currentProduct.name +
+    " added to your cart."
+  );
+}
+
+
+function removeFromCart(id){
+
+  cart =
+    cart.filter(item => item.id !== id);
+
+  saveCart();
+
+  renderCart();
+  updateCartCount();
+}
+
+
+function updateCartCount(){
+
+  const count =
+    cart.reduce(
+      (sum,item) => sum + item.qty,
+      0
     );
 
-
-    function saveCart() {
-
-      localStorage.setItem(
-        "vetrox_cart",
-        JSON.stringify(cart)
-      );
-
-    }
+  document.getElementById("cartCount")
+    .textContent = count;
+}
 
 
-    function getProduct(id) {
+function getCartProduct(item){
 
-      return PRODUCTS.find(
-        product => product.id === id
-      );
-
-    }
-
-
-    function addToCart(id) {
-
-      const existing = cart.find(
-        item => item.id === id
-      );
-
-      if (existing) {
-
-        existing.quantity++;
-
-      } else {
-
-        cart.push({
-          id: id,
-          quantity: 1
-        });
-
-      }
-
-      saveCart();
-      updateCartCount();
-
-      alert("Product added to your cart.");
-
-    }
+  return products.find(
+    product => product.id === item.id
+  );
+}
 
 
-    function removeFromCart(id) {
+function renderCart(){
 
-      cart = cart.filter(
-        item => item.id !== id
-      );
+  const container =
+    document.getElementById("cartItems");
 
-      saveCart();
-      renderCart();
+  if(!cart.length){
 
-    }
+    container.innerHTML = `
+      <div class="empty">
+        <h3>Your cart is empty.</h3>
+        <p>Add something beautiful from our collection.</p>
+      </div>
+    `;
 
+    document.getElementById("cartTotal")
+      .textContent = "₹0";
 
-    function changeQuantity(id, amount) {
-
-      const item = cart.find(
-        item => item.id === id
-      );
-
-      if (!item) return;
-
-      item.quantity += amount;
-
-      if (item.quantity <= 0) {
-
-        removeFromCart(id);
-        return;
-
-      }
-
-      saveCart();
-      renderCart();
-
-    }
+    return;
+  }
 
 
-    function cartTotalValue() {
+  let total = 0;
 
-      return cart.reduce(
-        (total, item) => {
+  container.innerHTML =
+    cart.map(item => {
 
-          const product = getProduct(item.id);
+      const product =
+        getCartProduct(item);
 
-          return total +
-            (product.price * item.quantity);
+      if(!product) return "";
 
-        },
-        0
-      );
+      const itemTotal =
+        product.price * item.qty;
 
-    }
+      total += itemTotal;
 
+      return `
 
-    function updateCartCount() {
+        <div class="cart-item">
 
-      const count = cart.reduce(
-        (total, item) =>
-          total + item.quantity,
-        0
-      );
+          <img
+            src="${product.images[0]}"
+            alt="${escapeHTML(product.name)}"
+          >
 
-      document.getElementById(
-        "cartCount"
-      ).textContent = count;
+          <div>
 
-    }
-
-
-    /* =========================
-       PRODUCT RENDER
-    ========================== */
-
-    function renderProducts(
-      category = "All"
-    ) {
-
-      const grid =
-        document.getElementById(
-          "productsGrid"
-        );
-
-      const products =
-        category === "All"
-          ? PRODUCTS
-          : PRODUCTS.filter(
-              product =>
-                product.category === category
-            );
-
-
-      grid.innerHTML = products.map(
-        product => `
-
-          <article class="product-card">
-
-            <div class="product-image">
-
-              <img
-                src="${product.image}"
-                alt="${product.name}"
-                loading="lazy"
-              >
-
-              <span class="product-tag">
-                ${product.tag}
-              </span>
-
+            <div class="cart-item-name">
+              ${escapeHTML(product.name)}
             </div>
 
-
-            <div class="product-info">
-
-              <div class="product-category">
-                ${product.category}
-              </div>
-
-              <h3>
-                ${product.name}
-              </h3>
-
-              <div class="product-price">
-                ₹${product.price.toLocaleString("en-IN")}
-              </div>
-
-              <button
-                class="add-btn"
-                onclick="addToCart(${product.id})"
-              >
-                Add to Cart
-              </button>
-
+            <div class="cart-item-price">
+              ${money(product.price)} × ${item.qty}
             </div>
-
-          </article>
-
-        `
-      ).join("");
-
-    }
-
-
-    function filterProducts(category) {
-
-      renderProducts(category);
-
-      document.querySelectorAll(
-        ".filter-btn"
-      ).forEach(button => {
-
-        button.classList.remove(
-          "active"
-        );
-
-      });
-
-      document.querySelectorAll(
-        ".filter-btn"
-      ).forEach(button => {
-
-        if (
-          button.textContent
-            .trim()
-            .toLowerCase()
-            === category
-              .replace("3 Piece", "3-Piece")
-              .toLowerCase()
-        ) {
-
-          button.classList.add("active");
-
-        }
-
-      });
-
-    }
-
-
-    /* =========================
-       CART MODAL
-    ========================== */
-
-    function openCart() {
-
-      renderCart();
-
-      document
-        .getElementById("cartModal")
-        .classList.add("show");
-
-    }
-
-
-    function closeCart() {
-
-      document
-        .getElementById("cartModal")
-        .classList.remove("show");
-
-    }
-
-
-    function renderCart() {
-
-      const container =
-        document.getElementById(
-          "cartItems"
-        );
-
-      const total =
-        cartTotalValue();
-
-
-      if (cart.length === 0) {
-
-        container.innerHTML = `
-
-          <div class="empty-cart">
-
-            <div style="font-size:40px;">
-              🛍
-            </div>
-
-            <p>
-              Your cart is empty.
-            </p>
-
-            <p style="font-size:13px;margin-top:5px;">
-              Add some beautiful Vetrox styles!
-            </p>
 
           </div>
 
-        `;
+          <button
+            class="remove-item"
+            onclick="removeFromCart('${product.id}')"
+          >
+            Remove
+          </button>
 
-        document.getElementById(
-          "cartTotal"
-        ).textContent = "₹0";
+        </div>
 
-        document.getElementById(
-          "checkoutButton"
-        ).disabled = true;
+      `;
 
-        return;
-
-      }
-
-
-      document.getElementById(
-        "checkoutButton"
-      ).disabled = false;
+    }).join("");
 
 
-      container.innerHTML = cart.map(
-        item => {
-
-          const product =
-            getProduct(item.id);
-
-          const subtotal =
-            product.price *
-            item.quantity;
+  document.getElementById("cartTotal")
+    .textContent = money(total);
+}
 
 
-          return `
+function openCart(){
 
-            <div class="cart-item">
+  renderCart();
 
-              <img
-                src="${product.image}"
-                alt="${product.name}"
-              >
+  document
+    .getElementById("cartModal")
+    .classList.add("show");
 
-              <div>
-
-                <h4>
-                  ${product.name}
-                </h4>
-
-                <small>
-                  ₹${product.price.toLocaleString("en-IN")}
-                </small>
-
-                <div class="quantity">
-
-                  <button
-                    onclick="changeQuantity(${product.id}, -1)"
-                  >
-                    −
-                  </button>
-
-                  <span>
-                    ${item.quantity}
-                  </span>
-
-                  <button
-                    onclick="changeQuantity(${product.id}, 1)"
-                  >
-                    +
-                  </button>
-
-                  <button
-                    class="remove-btn"
-                    onclick="removeFromCart(${product.id})"
-                  >
-                    Remove
-                  </button>
-
-                </div>
-
-              </div>
-
-              <strong>
-                ₹${subtotal.toLocaleString("en-IN")}
-              </strong>
-
-            </div>
-
-          `;
-
-        }
-      ).join("");
+  document.body.style.overflow = "hidden";
+}
 
 
-      document.getElementById(
-        "cartTotal"
-      ).textContent =
-        "₹" +
-        total.toLocaleString("en-IN");
+/* =========================================================
+   CHECKOUT
+========================================================= */
 
-    }
+function openCheckout(){
 
+  if(!cart.length){
 
-    /* =========================
-       CHECKOUT
-    ========================== */
+    alert("Your cart is empty.");
+    return;
+  }
 
-    function openCheckout() {
+  closeModal("cartModal");
 
-      if (cart.length === 0) {
-
-        alert(
-          "Your cart is empty."
-        );
-
-        return;
-
-      }
-
-      closeCart();
-
-      document
-        .getElementById("checkoutModal")
-        .classList.add("show");
-
-    }
-
-
-    function closeCheckout() {
-
-      document
-        .getElementById("checkoutModal")
-        .classList.remove("show");
-
-    }
-
-
-    function buildOrderSummary() {
-
-      return cart.map(
-        item => {
-
-          const product =
-            getProduct(item.id);
-
-          const subtotal =
-            product.price *
-            item.quantity;
-
-          return (
-            `${product.name} | ` +
-            `Qty: ${item.quantity} | ` +
-            `₹${subtotal.toLocaleString("en-IN")}`
-          );
-
-        }
-      ).join("\n");
-
-    }
-
-
-    /* =========================
-       CHECKOUT SUBMISSION
-    ========================== */
+  setTimeout(() => {
 
     document
-      .getElementById("checkoutForm")
-      .addEventListener(
-        "submit",
-        async function(event) {
+      .getElementById("checkoutModal")
+      .classList.add("show");
 
-          event.preventDefault();
+  },100);
 
-
-          if (cart.length === 0) {
-
-            alert(
-              "Your cart is empty."
-            );
-
-            return;
-
-          }
+}
 
 
-          const button =
-            document.getElementById(
-              "placeOrderBtn"
-            );
+document
+  .getElementById("checkoutForm")
+  .addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+    const name =
+      document.getElementById("customerName")
+        .value.trim();
+
+    const phone =
+      document.getElementById("customerPhone")
+        .value.trim();
+
+    const address =
+      document.getElementById("customerAddress")
+        .value.trim();
+
+    const notes =
+      document.getElementById("customerNotes")
+        .value.trim();
 
 
-          const summary =
-            buildOrderSummary();
+    let message =
+      `Hello Vetrox Apparel,%0A%0A` +
+      `I would like to place an order.%0A%0A`;
 
-          const total =
-            cartTotalValue();
+    message +=
+      `Customer Name: ${encodeURIComponent(name)}%0A`;
 
+    message +=
+      `Phone: ${encodeURIComponent(phone)}%0A`;
 
-          document.getElementById(
-            "orderSummary"
-          ).value = summary;
+    message +=
+      `Address: ${encodeURIComponent(address)}%0A`;
 
-
-          document.getElementById(
-            "grandTotal"
-          ).value =
-            "₹" +
-            total.toLocaleString("en-IN");
-
-
-          button.disabled = true;
-
-          button.textContent =
-            "Submitting Order...";
-
-
-          const form =
-            event.target;
-
-
-          try {
-
-            const response =
-              await fetch(
-                form.action,
-                {
-                  method: "POST",
-                  body: new FormData(form),
-                  headers: {
-                    "Accept":
-                      "application/json"
-                  }
-                }
-              );
-
-
-            if (response.ok) {
-
-              cart = [];
-
-              saveCart();
-              updateCartCount();
-
-              form.reset();
-
-              closeCheckout();
-
-              document
-                .getElementById(
-                  "successModal"
-                )
-                .classList.add("show");
-
-            } else {
-
-              alert(
-                "There was a problem submitting your order. Please try again."
-              );
-
-            }
-
-          } catch (error) {
-
-            alert(
-              "Please check your internet connection and try again."
-            );
-
-          } finally {
-
-            button.disabled = false;
-
-            button.textContent =
-              "Place Order";
-
-          }
-
-        }
-      );
-
-
-    /* =========================
-       SUCCESS
-    ========================== */
-
-    function closeSuccess() {
-
-      document
-        .getElementById("successModal")
-        .classList.remove("show");
-
+    if(notes){
+      message +=
+        `Notes: ${encodeURIComponent(notes)}%0A`;
     }
 
-
-    /* =========================
-       MOBILE MENU
-    ========================== */
-
-    function toggleMenu() {
-
-      document
-        .getElementById("navLinks")
-        .classList.toggle("show");
-
-    }
+    message += `%0AProducts:%0A`;
 
 
-    document
-      .querySelectorAll(
-        ".nav-links a"
-      )
-      .forEach(link => {
+    let total = 0;
 
-        link.addEventListener(
-          "click",
-          () => {
+    cart.forEach(item => {
 
-            document
-              .getElementById(
-                "navLinks"
-              )
-              .classList.remove("show");
+      const product =
+        getCartProduct(item);
 
-          }
-        );
+      if(!product) return;
 
-      });
+      const itemTotal =
+        product.price * item.qty;
+
+      total += itemTotal;
+
+      message +=
+        `• ${encodeURIComponent(product.name)} × ${item.qty} = ${encodeURIComponent(money(itemTotal))}%0A`;
+
+    });
 
 
-    /* =========================
-       MODAL OUTSIDE CLICK
-    ========================== */
+    message +=
+      `%0ATotal: ${encodeURIComponent(money(total))}%0A%0A`;
 
-    document
-      .querySelectorAll(".modal")
-      .forEach(modal => {
-
-        modal.addEventListener(
-          "click",
-          event => {
-
-            if (
-              event.target === modal
-            ) {
-
-              modal.classList.remove(
-                "show"
-              );
-
-            }
-
-          }
-        );
-
-      });
+    message +=
+      `Thank you!`;
 
 
-    /* =========================
-       YEAR
-    ========================== */
-
-    document.getElementById(
-      "year"
-    ).textContent =
-      new Date().getFullYear();
+    window.open(
+      "https://wa.me/919484696506?text=" + message,
+      "_blank"
+    );
 
 
-    /* =========================
-       INITIAL LOAD
-    ========================== */
+    cart = [];
 
-    renderProducts("All");
+    saveCart();
 
     updateCartCount();
 
-  </script>
+    closeModal("checkoutModal");
+
+    this.reset();
+
+    alert(
+      "Order details prepared. WhatsApp will open now."
+    );
+
+  });
+
+
+/* =========================================================
+   DIRECT WHATSAPP PRODUCT ORDER
+========================================================= */
+
+function buyCurrentOnWhatsApp(){
+
+  if(!currentProduct) return;
+
+  const message =
+    `Hello Vetrox Apparel,%0A%0A` +
+    `I am interested in:%0A` +
+    `${encodeURIComponent(currentProduct.name)}%0A` +
+    `Product Code: ${encodeURIComponent(currentProduct.code)}%0A` +
+    `Price: ${encodeURIComponent(money(currentProduct.price))}%0A%0A` +
+    `Please share more details.`;
+
+  window.open(
+    "https://wa.me/919484696506?text=" + message,
+    "_blank"
+  );
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+function closeModal(id){
+
+  document
+    .getElementById(id)
+    .classList.remove("show");
+
+  document.body.style.overflow = "";
+}
+
+
+document.querySelectorAll(".modal")
+  .forEach(modal => {
+
+    modal.addEventListener("click",function(event){
+
+      if(event.target === modal){
+        modal.classList.remove("show");
+        document.body.style.overflow = "";
+      }
+
+    });
+
+  });
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderProducts();
+updateCartCount();
+
+</script>
 
 </body>
 </html>
